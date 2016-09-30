@@ -1,0 +1,106 @@
+//按钮大小和按钮默认大小
+$switchsize:('xs':16px,'sm':20px,'lg':28px);  
+$switchdefaultsize:24px;
+
+// 参数1:整个按钮width($owidth)
+// 参数2:整个按钮height($oheight)
+// 参数3:小圆的宽度width($iwidth)
+// 参数4:小圆的高度height($iheight)
+// 参数5:小圆的背景颜色background   before之前($ib1back)
+// 参数6:小圆的背景颜色background   after之前($ia1back)
+// 参数7:整个按钮background         before之后($ib2back)
+// 参数8:整个按钮background         after之后($ia2back)
+
+//对应按钮效果
+@mixin switchbtn($owidth:56px,$oheight:28px,$iwidth:26px,$iheight:26px,$ib1back:#fff,$ia1back:nth($grays,1),$ib2back:#fff,$ia2back:nth($successes,1)){
+ .switchbtnchoose{
+	display:none;
+	& + label{
+		position:relative;
+		width:$owidth;
+		height:$oheight;
+		border-radius:15px;
+		// box-shadow:0px 0px 2px #eee;
+		transition:all .5 ease-in;
+		cursor:point;
+		display: block;
+		&:before{
+			position:absolute;
+			top:1px;
+			left:1px;
+			width:$iwidth;
+			height:$iheight;
+			background:$ib1back;
+			z-index:2;
+			transition:all .5 ease-in;
+			border-radius:50%;
+			content:"";	
+			// box-shadow:0 0 2px rgba(0,0,0,0.5), inset 0 -18px 15px -10px rgba(0,0,0,0.05)
+		};
+		& span.end{
+			opacity:0;
+			z-index:1;
+			color:#fff;
+		};
+		& span.begin{
+			opacity:1;
+			position:absolute;
+			top:0px;
+			left:$iwidth + 3;
+			z-index:1;
+			color:$ia2back;
+		};
+		& span.hlh{height: $oheight;line-height: $oheight};
+		&:after{
+			position:absolute;
+			top:0;
+			left:0;
+			width:100%;
+			height:100%;
+			background:$ia1back;
+			transition:all .5 ease-in;
+			// box-shadow:inset 0 0 20px rgba(0,0,0,0.2);
+			content:"";
+			border-radius:15px;
+		}
+	};
+	&:checked{
+		&+label{
+			&:before{position:absolute;top:1px;left:$owidth - $oheight;z-index:2;content:"";background:$ib2back;}
+			& span.end{opacity:1;position:absolute;top:0px;left:5px;};
+			& span.begin{opacity:0;position:absolute;top:0px;left:$iwidth + 3};
+			& span.hlh{height: $oheight;line-height: $oheight}
+			&:after{position:absolute;top:0px;background:$ia2back}
+			
+		}
+	};
+	}
+}
+
+// 初始化按钮样式
+.switchbtn{
+	@include switchbtn($owidth:$switchdefaultsize*2,$oheight:$switchdefaultsize,$iwidth:$switchdefaultsize - 2,$iheight:$switchdefaultsize - 2);
+}
+
+// 循环获取大小的按钮样式
+@each $type,$size in $switchsize{
+	.switchbtn-#{$type}{
+		@include switchbtn($owidth:$size*2,$oheight:$size,$iwidth:$size - 2,$iheight:$size - 2);
+	}
+}
+// 按钮有文字样式
+.switchbtn-words{
+	@include switchbtn($owidth:$switchdefaultsize*3,$oheight:$switchdefaultsize,$iwidth:$switchdefaultsize - 2,$iheight:$switchdefaultsize - 2);
+}
+
+
+.switchbtn.dib{display: inline-block;}
+.switchbtn-vam{vertical-align:middle}
+
+
+
+
+
+
+
+

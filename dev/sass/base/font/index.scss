@@ -1,0 +1,17 @@
+@import "./font-icon/iconfont";
+body {
+	// PingFangSC-Regular   平方
+	// PingFangSC-Ultralight	
+	// microsoft yahei 		微软雅黑
+	font:#{$base-font-size}/#{$base-line-height} #{$base-font-family};
+	color:$base-color;
+	// font-weight: 400;
+	// line-height:1.7;
+}
+.icon {
+	@extend .iconfont;
+}
+// 提示图标
+.icon-tip {
+	
+}

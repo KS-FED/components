@@ -1,0 +1,22 @@
+/* tb tb-cell table table-cell*/
+%tb {
+    display: table;
+    table-layout: fixed;
+    border-spacing: initial;
+    // border-collapse: separate;
+    // border-spacing: 15px;
+}
+%tb-cell {
+    display: table-cell;
+    vertical-align: middle;
+    word-break: break-all;
+}
+.tb {
+    @extend %tb;
+    box-sizing: border-box;
+    width: 100%;
+}
+.tb-cell {
+    @extend %tb-cell;
+    // color: #fff;
+}

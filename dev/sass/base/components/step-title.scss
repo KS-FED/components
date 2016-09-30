@@ -1,0 +1,21 @@
+.step-title{
+    @extend .row-auto;
+    background: #E6F0F4;
+    line-height: 48px;
+    border-radius: 4px;
+    padding: 0 20px;
+    strong{
+        background: #fff;
+        line-height: 28px;
+        height: 28px;
+        width: 28px;
+        display: inline-block;
+        border-radius: 50%;
+        text-align: center;
+        margin-right: 20px;
+    }
+    h2{
+        font-size: 16px;
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,39 @@
+/* 添加左右滚动条 */
+    
+%table{
+    
+    /* table基础样式 */
+    %table-layout{
+        padding: 10px 20px;
+        border: 0;
+        line-height: 1.7em;
+    }
+
+    width: 100%;
+    white-space: nowrap;
+    th{
+        @extend %table-layout;
+        border-bottom: 2px solid #999;
+        font-weight: bold;
+    }
+    td{
+        @extend %table-layout;
+        border-bottom: 1px solid #e9e9e9;
+        a{
+            color: #2196F3;
+            cursor: pointer;
+        }
+        i{
+            padding-right: 10px;
+        }
+    }
+}
+.table-striped {
+    overflow-y: hidden;
+    table {
+        @extend %table;
+    }
+    & tbody tr:nth-of-type(odd) {
+        background-color: #fcfcfc;
+    }
+}
