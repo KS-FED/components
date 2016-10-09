@@ -1,0 +1,9 @@
+{
+    "no-mock":true,
+    "message": "请求成功",
+    "result": {
+        "name": "朱店",
+        "logo": "http://zd.kashuo.com/upload/zdcrm/merchant/5f408e59-8884-479a-9aa9-64b2bd3e2dbd.jpg"
+    },
+    "code": 10000
+}
