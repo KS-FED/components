@@ -154,15 +154,15 @@ export default function (Vue,router){
             },
 
             // 步骤
-            // '/step':{
-            //     name:'step',
-            //     title:'步骤',
-            //     component: function(resolve){
-            //         require(['./views/step/step.vue'], (res)=> {
-            //             resolve(res)
-            //         })
-            //     }
-            // },
+            '/step':{
+                name:'step',
+                title:'步骤',
+                component: function(resolve){
+                    require(['./views/step/step.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
 
         }
     }
