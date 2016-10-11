@@ -1,47 +1,69 @@
 <template>
+
 	<div>
+
+		<!-- 步骤 -->
 		<div class="step">
-		<div class="row-auto">
-			<div class="col-auto">
-				<div class="step-finish"></div>
-				<p class="step-finish-txt">基本信息基本信息</p>
+			<div class="step-finish">
+				<span></span>
+				<p>基本信息基本信息</p>
 			</div>
-			<div class="col hr-finish"><hr></div>
-			<div class="col-auto">
-				<div class="step-ing"></div>
-				<p class="step-ing-txt">基本信息</p>
-			</div>
-			<div class="col"><hr></div>
-			<div class="col-auto">
-				<div class="step-ui">3</div>
+			<div class="hr-finish"><hr></div>
+			<div class="step-ing">
+				<span></span>
 				<p>基本信息</p>
 			</div>
-			<div class="col"><hr></div>
-			<div class="col-auto">
-				<div class="step-ui">4</div>
+			<div class="step-hr"><hr></div>
+			<div class="step-ui">
+				<span>3</span>
+				<p>基本信息</p>
+			</div>
+			<div class="step-hr"><hr></div>
+			<div class="step-ui">
+				<span>4</span>
 				<p>基本信息基本信息基本信息基本信息基本</p>
 			</div>
 		</div>
-	</div>
-	<!-- <pre>
+
+		<pre>
         <code class="html">
-    	<ul class="tab-bor">
-    	    <li><a>会员规则</a></li>
-    	    <li class="active"><a>功能主页</a></li>
-    	    <li><a>会员管理</a></li>
-    	</ul>
+		<div class="step">
+			<div class="step-finish">
+				<span></span>
+				<p>基本信息基本信息</p>
+			</div>
+			<div class="hr-finish"><hr></div>
+			<div class="step-ing">
+				<span></span>
+				<p>基本信息</p>
+			</div>
+			<div class="step-hr"><hr></div>
+			<div class="step-ui">
+				<span>3</span>
+				<p>基本信息</p>
+			</div>
+			<div class="step-hr"><hr></div>
+			<div class="step-ui">
+				<span>4</span>
+				<p>基本信息基本信息基本信息基本信息基本</p>
+			</div>
+		</div>
         </code>
         </pre>
 
         <pre>
         <code class="scss">
-            // tab-bor导航组件
-            .tab-bor {
-                // .....
-                .active {...} // 选中样式
-            }
-    	
+		// 步骤组件
+		.step{
+		    // ......
+		    .step-ui{...}  // 步骤图形默认样式
+		    .step-ing{...}  // 步骤图形正在进行样式
+		    .step-finish{...}  // 步骤图形完成样式
+		    .step-hr{...}  // 线默认样式
+		    .hr-finish{...}  // 线完成样式
+		}
         </code>
-        </pre> -->
+        </pre>
+
 	</div>
 </template>

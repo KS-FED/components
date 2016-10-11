@@ -1,4 +1,5 @@
 .step{
+    @extend .row-auto;
     %step-default{
         width: 44px;
         height: 44px;
@@ -6,64 +7,63 @@
         border: 3px solid #eee;
         border-radius: 50%;
         text-align: center;
+        display: block;
     }
     padding: 20px 70px 70px 70px;
     font-size: 20px;
     color: #cdcdcd;
-    .row-auto{
-        .col-auto{
-            position: relative;
-            .step-ui{
-                @extend %step-default;
-            }
-            p{
-                white-space: pre-wrap;
-                width: 150px;
-                text-align: center;
-                position: absolute;
-                font-size: 16px;
-                left: 50%;
-                -webkit-transform: translate(-50%,0);
-                transform: translate(-50%,0);
-            }
-        }
-        .col{
-            hr{
-                height: 3px;
-                background: #eee;
-                border-top: none;
-                border-left: none;
-            }
-        }
-        .step-finish,.step-ing{
+    .step-ui,.step-finish,.step-ing{
+        @extend .col-auto;
+        position: relative;
+        span{
             @extend %step-default;
+        }
+        p{
+            white-space: pre-wrap;
+            width: 150px;
+            text-align: center;
+            position: absolute;
+            font-size: 16px;
+            left: 50%;
+            -webkit-transform: translate(-50%,0);
+            transform: translate(-50%,0);
+        }
+    }
+    .step-finish,.step-ing{
+        span{
             border-color: #00bdd7;
             &:before{
                 @extend .iconfont;
                 font-size: 25px;
             }
         }
-        .step-finish{
-            background: #00bdd7;            
-            &:before{
-                content: "\e614";
-                color: #fff;
-            }
-        }
-        .hr-finish{
-            hr{
-                background: #00bdd7;
-            }
-        }
-        .step-ing{
-            &:before{
-                content: "\e665";
-                color: #00bdd7;
-            }
-        }
-        .step-finish-txt,.step-ing-txt{
+        p{
             color: #00bdd7;
         }
-        
+    }
+    .step-finish{
+        border-radius: 50%;
+        span:before{
+            content: "\e614";
+            color: #fff;
+        }
+    }
+    .step-ing{
+        span:before{
+            content: "\e665";
+            color: #00bdd7;
+        }
+    }
+    .step-hr,.hr-finish{
+        @extend .col;
+        hr{
+            height: 3px;
+            background: #eee;
+            border-top: none;
+            border-left: none;
+        }
+    }  
+    .hr-finish hr,.step-finish{
+        background: #00bdd7;
     }
 }
