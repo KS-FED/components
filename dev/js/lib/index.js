@@ -17,3 +17,5 @@ require('style!css!./highlight/styles/vs.css')
 require('style!css!./highlight/styles/atom-one-dark.css')
 require('style!css!./highlight/styles/atom-one-light.css')
 // console.log(hljs)
+
+hljs.initHighlightingOnLoad()

@@ -1,11 +1,27 @@
 //复选框
-.checkboxinput{display:none}
-.checkboxinput:checked{}
-.nocheck{color:#e8e8e8}
-.check{color:nth($primarys,2)}
-.disabledcheck{color:#e9e9e9}
-.disabledcheck+span{color:nth($darks,2)}
-// .iconfont{margin-right:8px}
+.checkbox{
+	input[type=checkbox] {
+		@extend %clip-hidden;
+	}
 
+	.ui-checkbox {
+		@extend %ui-radio-un;
+		border-radius: 4px;
+		&::before {
+			@extend %ui-radio-before;
+			border-radius: 2px;
+		}
+	}
 
+	:not(:disabled) + .ui-checkbox:hover {
+		border-color: #ababaf;
+	}
 
+	:checked + .ui-checkbox::before {
+		@extend %ui-checked;
+	}
+
+	:disabled + .ui-checkbox,.ui-checkbox.disabled {
+		@extend %ui-disabled;
+	}
+}

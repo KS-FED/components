@@ -6,7 +6,10 @@ import VueRouter from 'vue-router'
 import { proxy_mock } from './config/index'
 import components from './components/index'
 import routers from './routers'
-Object.keys(components).forEach(k => Vue.component(k, components[k]))
+Object.keys(components).forEach(k => {
+    var a = Vue.component(k, components[k])
+    console.log(a)
+})
 
 Vue.use(VueResource)
 Vue.use(VueRouter)
@@ -25,6 +28,9 @@ let app = Vue.extend({})
 router.start(app,'#app')
 
 
+
+
+var mount = Vue.prototype.$mount
 
 
 

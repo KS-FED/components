@@ -1257,6 +1257,8 @@ hljs.registerLanguage("sql", function(e) {
     }
 });
 hljs.registerLanguage("xml", function(s) {
+    
+
     var e = "[A-Za-z0-9\\._:-]+",
         t = {
             eW: !0,

@@ -1,14 +1,9 @@
 %user-select-none {
-    // user-select: none;
     @include vendor(user-select,none)
 }
 %touch-action-manipulation {
-    
-    // touch-action: manipulation;
     @include vendor(touch-action,manipulation)
-}
-
-        
+}       
 .btn {
     @extend %user-select-none;
     @extend %touch-action-manipulation;
@@ -16,7 +11,6 @@
     zoom: 1;
     line-height: normal;
     white-space: nowrap;
-    // vertical-align: middle;
     text-align: center;
     cursor: pointer;
     -webkit-user-drag: none;
@@ -34,7 +28,6 @@
 
 %btn-group{
     @extend .btn;
-    border:1px solid transparent;
     &.disabled {
         @extend %btn-disabled;
     }
@@ -51,9 +44,7 @@
     display: inline-block;
     text-align: center;
     border-left-color:transparent;
-}
-
-  
+} 
 %btn-role{
     @extend %btn-group;
     min-width: 52px;
@@ -61,10 +52,6 @@
     margin-bottom: 0;
     border-radius: 3px;
    
-}
-
-%btn-border {
-    border: 1px solid transparent;
 }
 %base {
     @extend %btn-role;
@@ -82,19 +69,13 @@
 }
 %btn-base {
     @extend %base;
-    @extend %btn-border;
 }
 %btn-base-xl {
-    @extend %base-xl;
-    @extend %btn-border;
-    
+    @extend %base-xl;    
 }
 %btn-base-xxl {
-    @extend %base-xxl;
-    @extend %btn-border;
-    
+    @extend %base-xxl;    
 }
-
 
 %btn-plain-role{
     background: transparent;
@@ -128,9 +109,7 @@
             @extend %btn-plain-base;
             @extend .#{$key}-deep;
         }
-        
 
-        
         @each $size in "","-xl","-xxl"{
             .#{$role}-plain-#{$key}#{$size}{
                 @extend %btn-plain-base#{$size};
@@ -159,8 +138,6 @@
             @extend .bg-#{$key}-deep;
         }
         
-
-        
         @each $size in "","-xl","-xxl"{
             .#{$role}-#{$key}#{$size}{
                 @extend %btn-base#{$size};
@@ -170,13 +147,10 @@
                 }
                 &:active {
                     @extend .bg-#{$key}-deep;   
-                }
-                
+                }   
             }
         }
     }
-    
-
 }
 
 // 批量生成button
@@ -187,14 +161,3 @@
     }
 }
 @include create_btns();
-
-
-
-// border: 1px solid #ddd;
-//     *border: 0 none;
-//     border-radius: 2px;
-//     *margin-right: .3em;
-//     margin-bottom: 0;
-//     padding: 0 10px;
-//     *padding: 1px 10px;
-

@@ -10,9 +10,6 @@
             return {}
         },
         ready (){
-            this.$nextTick(()=>{
-                hljs.initHighlightingOnLoad()
-            })
         }
     }
 </script>
