@@ -1,5 +1,5 @@
-import page from './page.vue'
-console.log(page)
+import { IosSwitch } from './KSSwitch'
+
 export default {
-    page
+  IosSwitch
 }
