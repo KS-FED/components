@@ -163,7 +163,7 @@
           <tbody>
           <tr style="text-align: left">
             <td>onChange</td>
-            <td>在状态切换时会触发的事件</td>
+            <td>在状态切换时会触发的事件, 该事件会携带当前的 Switch 状态传递给处理函数</td>
             <td>event</td>
             <td>---</td>
             <td>---</td>
