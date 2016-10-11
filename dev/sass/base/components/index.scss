@@ -1,8 +1,8 @@
 // @import "./describe";
-@import "./button";
+@import "./scrollbar"; //滚动条样式
+@import "./button"; //按钮
 @import "./input";
 
-// @import "./checkbox";
 @import "./radio";  //单选
 @import "./checkbox";  //多选
 @import "./switch";  //开关
@@ -11,11 +11,11 @@
 // @import "./form";
 // @import "./errorinfo";
 
-@import "./step";  //步骤
+
 // @import "./no-data-desc";
 // @import "./line-dotted";
 
-
+@import "./step";  //步骤
 @import "./paging"; //分页
 @import "./toast"; //提示框
 @import "./date"; //日期
@@ -25,3 +25,6 @@
 @import "./dialog-content"; // 内容弹框
 @import "./dialog-icon"; // 内容弹框
 @import "./table-striped";  //table（隔行添加背景色）
+@import "./select";  // 下拉列表
+
+

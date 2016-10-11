@@ -164,6 +164,17 @@ export default function (Vue,router){
                 }
             },
 
+            // 下拉
+            '/select':{
+                name:'select',
+                title:'下拉',
+                component: function(resolve){
+                    require(['./views/select/select.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
         }
     }
 
