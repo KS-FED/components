@@ -7,6 +7,7 @@
       }
     </style>
     <input class="KSIosSwitch__entity" type="checkbox"
+           v-model="checked" @change.stop
            :checked="defChecked && 'checked'"
            :disabled="disable && 'disabled'"/>
     <div class="KSIosSwitch__slide">
@@ -20,16 +21,10 @@
 <script>
   export default{
     name: 'ks-iosSwitch',
-    data () {
-      return {
-        msg: 'hello vue'
-      }
-    },
     props: {
       color: { type: String, default: '#04BE02' },
       size: { type: String, default: 'normal' },
       checked: { type: Boolean, twoWay: true },
-      defChecked: { type: Boolean, default: false },
       disable: { type: Boolean, default: false }
     },
     computed: {
@@ -49,8 +44,15 @@
         background: ${this.color}!important;border: 1px solid ${this.color}!important;`
       }
     },
-    created () {
-      console.info(this)
+    watch: {
+      /**
+       * @description 监测 checked 属性
+       * @summary 用于监测改变并发送 OnChange 事件
+       */
+      checked () {
+        // 如果是默认值则不会触发 onChange 事件
+        this.$emit('change', this.checked)
+      }
     }
   }
 </script>

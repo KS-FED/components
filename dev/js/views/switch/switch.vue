@@ -3,7 +3,7 @@
     <!-- IosSwitch -->
      <div style="margin-top: 15px">
       <h4>IosSwitch:</h4>
-      <ios-switch :disable="false">
+      <ios-switch :disable="false" @change="changeHandle">
         <div slot="checkedChildren">O</div>
         <div slot="unCheckedChildren">F</div>
       </ios-switch>
@@ -75,19 +75,6 @@
             <td>---</td>
           </tr>
           <tr style="text-align: left">
-            <td>defChecked</td>
-            <td>属性, 表示在默认状态下组件是否是打开状态</td>
-            <td>Boolean</td>
-            <td>
-              <label>false:</label>
-              <ios-switch :def-checked="false"></ios-switch><br>
-              <label>true:</label>
-              <ios-switch :def-checked="true"></ios-switch><br>
-            </td>
-            <td>true, false</td>
-            <td>false</td>
-          </tr>
-          <tr style="text-align: left">
             <td>disable</td>
             <td>属性, 表示组件是否禁用</td>
             <td>Boolean</td>
@@ -157,6 +144,35 @@
         </table>
       </div>
 
+      <div style="margin-top: 10px;"></div>
+      <!-- Event 部分 -->
+      <h4 style="text-align: left">Event:</h4>
+      <hr>
+      <div class="table-striped">
+        <table>
+          <thead>
+          <tr>
+            <th>名称</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>效果</th>
+            <th>可选值</th>
+            <th>默认值</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr style="text-align: left">
+            <td>onChange</td>
+            <td>在状态切换时会触发的事件</td>
+            <td>event</td>
+            <td>---</td>
+            <td>---</td>
+            <td>---</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
       <!-- 代码示例 -->
       <div style="margin-top: 10px;"></div>
       <h4 style="text-align: left">代码示例:</h4>
@@ -179,7 +195,12 @@
   export default{
     data () {
       return {
-        checked: false
+        checked: true
+      }
+    },
+    methods: {
+      changeHandle (data) {
+        console.info(data)
       }
     }
   }
