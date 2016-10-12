@@ -50,7 +50,7 @@
         <a class="h3" v-link="{name:'date'}">date(日期)</a><br>
         <a class="h3" v-link="{name:'radio'}">radio(单选)</a><br>
         <a class="h3" v-link="{name:'checkbox'}">checkbox(多选)</a><br>
-        <!-- <a class="h3" v-link="{name:'switch'}">switch(开关)</a><br> -->
+        <a class="h3" v-link="{name:'switch'}">switch(开关)</a><br>
         <a class="h3" v-link="{name:'step'}">step(步骤)</a><br>
         <a class="h3" v-link="{name:'select'}">select(下拉)</a><br>
     </div>
