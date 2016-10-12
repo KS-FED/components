@@ -1,5 +1,7 @@
 import { IosSwitch } from './KSSwitch'
+import { NrCheckbox } from './KSCheckbox'
 
 export default {
-  IosSwitch
+  IosSwitch,
+  NrCheckbox
 }

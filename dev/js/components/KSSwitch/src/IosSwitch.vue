@@ -20,7 +20,7 @@
 
 <script>
   export default{
-    name: 'ks-iosSwitch',
+    name: 'ks-IosSwitch',
     props: {
       color: { type: String, default: '#04BE02' },
       size: { type: String, default: 'normal' },
@@ -29,8 +29,8 @@
     },
     computed: {
       /**
-       * @description 开关根组件的 class
-       * @summary 用于控制组件的大小
+       * @description 开关根 div 的 class
+       * @summary 用于控制组件大小, 标识组件
        * @return {string}
        */
       classesSize () { return `KSIosSwitch KSIosSwitch--${this.size} KSIosSwitch__UID--${this._uid}` },

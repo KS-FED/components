@@ -8,5 +8,6 @@
 
 const IosSwitch = require('./src/IosSwitch.vue')
 
-export default IosSwitch
-module.exports.IosSwitch = IosSwitch
+export default {
+  IosSwitch
+}
