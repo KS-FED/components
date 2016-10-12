@@ -175,6 +175,19 @@ export default function (Vue,router){
                 }
             },
 
+            // 搜索框
+            '/search':{
+                name:'search',
+                title:'搜索框',
+                component: function(resolve){
+                    require(['./views/search/search.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
+
+
         }
     }
 

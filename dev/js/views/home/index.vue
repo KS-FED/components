@@ -53,6 +53,7 @@
         <a class="h3" v-link="{name:'switch'}">switch(开关)</a><br>
         <a class="h3" v-link="{name:'step'}">step(步骤)</a><br>
         <a class="h3" v-link="{name:'select'}">select(下拉)</a><br>
+        <a class="h3" v-link="{name:'search'}">search(搜索框)</a><br>
     </div>
 </template>
 <script >

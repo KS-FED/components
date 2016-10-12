@@ -48,27 +48,3 @@
     :checked + .ui-switch span.begin { display: none; }
     :checked + .ui-switch span.end { opacity: 1; }
 }
-
-
-
-
-
-.switch{
-    .ui-switch {
-        // ......
-        .begin,.end{ line-height: 24px; }
-        .begin{
-            padding-left: 30px;
-        }
-        .end{
-            padding-left: 10px;
-            color: #fff;
-            opacity: 0;
-        }
-    }
-    :checked + .ui-switch{ background: #4caf50; }
-    :checked + .ui-switch::before { visibility: hidden; }
-    :checked + .ui-switch::after { visibility: visible; }
-    :checked + .ui-switch span.begin { display: none; }
-    :checked + .ui-switch span.end { opacity: 1; }
-}
