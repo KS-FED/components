@@ -20,13 +20,15 @@
 
 <script>
   export default{
-    name: 'ks-IosSwitch',
+    name: 'KsIosSwitch',
+
     props: {
       color: { type: String, default: '#04BE02' },
       size: { type: String, default: 'normal' },
       checked: { type: Boolean, twoWay: true },
       disable: { type: Boolean, default: false }
     },
+
     computed: {
       /**
        * @description 开关根 div 的 class
@@ -44,14 +46,15 @@
         background: ${this.color}!important;border: 1px solid ${this.color}!important;`
       }
     },
+
     watch: {
       /**
        * @description 监测 checked 属性
+       * @param checked {Boolean} checked 值
        * @summary 用于监测改变并发送 OnChange 事件
        */
-      checked () {
-        // 如果是默认值则不会触发 onChange 事件
-        this.$emit('change', this.checked)
+      checked (checked) {
+        this.$emit('change', checked)
       }
     }
   }

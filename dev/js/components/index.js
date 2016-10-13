@@ -1,7 +1,8 @@
 import KsSwitch from './KSSwitch'
-import KsCheckbox from './KSCheckbox'
+import { KsCheckbox, KsCheckboxGroup } from './KSCheckbox'
 
 export default {
   KsSwitch,
-  KsCheckbox
+  KsCheckbox,
+  KsCheckboxGroup
 }

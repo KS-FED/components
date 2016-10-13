@@ -4,6 +4,7 @@
       <ks-checkbox></ks-checkbox>
     </div>
 
+    <h4>KsCheckbox</h4>
     <div style="margin-top: 15px;">
       <!-- 属性部分 -->
       <h4 style="text-align: left">属性:</h4>
@@ -63,9 +64,9 @@
         </table>
       </div>
 
+      <!-- Event 部分 -->
       <div style="margin-top: 10px;"></div>
-      <!-- Slot 部分 -->
-      <h4 style="text-align: left">Slot:</h4>
+      <h4 style="text-align: left">Event:</h4>
       <hr>
       <div class="table-striped">
         <table>
@@ -81,20 +82,12 @@
           </thead>
           <tbody>
           <tr style="text-align: left">
-            <td>label</td>
-            <td>checkbox 标签</td>
-            <td>String</td>
-            <td>
-              <ks-checkbox>
-                <span slot="label">我是开关标签</span>
-              </ks-checkbox>
-              <br>
-              <ks-checkbox>
-                <span slot="label"> <i class="icon">&#xe611;</i>我是开关标签</span>
-              </ks-checkbox>
-            </td>
+            <td>Change</td>
+            <td>checkbox 发生改变</td>
+            <td>event</td>
             <td>---</td>
-            <td>LABEL</td>
+            <td>---</td>
+            <td>---</td>
           </tr>
           </tbody>
         </table>
@@ -108,9 +101,95 @@
       <hr>
       <pre class="html" style="text-align: left">
         <code class="html">
-              &lt;ks-checkbox&gt;
-                &lt;span slot=&quot;label&quot;&gt;我是开关标签&lt;/span&gt;
+              &lt;ks-checkbox @change=&quot;changeHandle&quot;&gt
+                &lt;span &gt;我是开关标签&lt;/span&gt;
               &lt;/ks-checkbox&gt;
+        </code>
+      </pre>
+    </div>
+
+    <h4>KsCheckboxGroup</h4>
+    <ks-checkbox-group :v-model.sync="checkboxList" @change="changeHandle">
+      <ks-checkbox name="TEST1">TEST1</ks-checkbox>
+      <ks-checkbox name="TEST2">TEST2</ks-checkbox>
+      <ks-checkbox name="TEST3">TEST3</ks-checkbox>
+    </ks-checkbox-group>
+    <div style="margin-top: 15px;">
+
+      <!-- 属性部分 -->
+      <h4 style="text-align: left">属性:</h4>
+      <hr>
+      <div class="table-striped">
+        <table>
+          <thead>
+          <tr>
+            <th>参数</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>效果</th>
+            <th>可选值</th>
+            <th>默认值</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr style="text-align: left">
+            <td>v-model</td>
+            <td>组内所选中的项, 是用该特性必须给予 ksCheckbox name</td>
+            <td>Array</td>
+            <td>
+              <ks-checkbox-group :v-model.sync="checkboxList" @change="changeHandle">
+                <ks-checkbox name="TEST1">TEST1</ks-checkbox>
+                <ks-checkbox name="TEST2">TEST2</ks-checkbox>
+                <ks-checkbox name="TEST3">TEST3</ks-checkbox>
+              </ks-checkbox-group>
+            </td>
+            <td>---</td>
+            <td>---</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Event 部分 -->
+      <div style="margin-top: 10px;"></div>
+      <h4 style="text-align: left">Event:</h4>
+      <hr>
+      <div class="table-striped">
+        <table>
+          <thead>
+          <tr>
+            <th>名称</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>效果</th>
+            <th>可选值</th>
+            <th>默认值</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr style="text-align: left">
+            <td>Change</td>
+            <td>在组内 checkbox 发生变化是触发</td>
+            <td>event</td>
+            <td>---</td>
+            <td>---</td>
+            <td>---</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 代码示例 -->
+      <div style="margin-top: 10px;"></div>
+      <h4 style="text-align: left">代码示例:</h4>
+      <hr>
+      <pre class="html" style="text-align: left">
+        <code class="html">
+             &lt;ks-checkbox-group :v-model.sync=&quot;checkboxList&quot; @change=&quot;changeHandle&quot;&gt;
+                &lt;ks-checkbox name=&quot;TEST1&quot;&gt;TEST1&lt;/ks-checkbox&gt;
+                &lt;ks-checkbox name=&quot;TEST2&quot;&gt;TEST2&lt;/ks-checkbox&gt;
+                &lt;ks-checkbox name=&quot;TEST3&quot;&gt;TEST3&lt;/ks-checkbox&gt;
+              &lt;/ks-checkbox-group&gt;
         </code>
       </pre>
     </div>
@@ -156,13 +235,19 @@
   export default{
     data () {
       return {
-        checked: true
+        checked: true,
+        checkboxList: ['TEST1', 'TEST2', 'TEST3']
       }
     },
     methods: {
       changeHandle (data) {
         console.info(data)
       }
+    },
+    created () {
+      setTimeout(() => {
+        this.checkboxList = ['TEST1', 'TEST3']
+      }, 3000)
     }
   }
 </script>
