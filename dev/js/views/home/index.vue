@@ -54,6 +54,10 @@
         <a class="h3" v-link="{name:'step'}">step(步骤)</a><br>
         <a class="h3" v-link="{name:'select'}">select(下拉)</a><br>
         <a class="h3" v-link="{name:'search'}">search(搜索框)</a><br>
+        <a class="h3" v-link="{name:'time'}">time(时间)</a><br>
+
+        <a class="h3" v-link="{name:'tooltip'}">tooltip(文字提示)</a><br>
+        <a class="h3" v-link="{name:'popover'}">popover(弹出框)</a><br>
     </div>
 </template>
 <script >

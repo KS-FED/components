@@ -186,6 +186,39 @@ export default function (Vue,router){
                 }
             },
 
+            // 时间
+            '/time':{
+                name:'time',
+                title:'时间',
+                component: function(resolve){
+                    require(['./views/time/time.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
+            // 文字提示
+            '/tooltip':{
+                name:'tooltip',
+                title:'文字提示',
+                component: function(resolve){
+                    require(['./views/tooltip/tooltip.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
+            // 弹出框
+            '/popover':{
+                name:'popover',
+                title:'弹出框',
+                component: function(resolve){
+                    require(['./views/popover/popover.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
 
 
         }

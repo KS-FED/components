@@ -1,8 +1,10 @@
 <template>
 	<div>
-		<div class="date" style="margin-bottom: 350px;">
-			<i class="icon col-auto">&#xe615;</i>
-			<input type="text">
+		<div class="date" style="margin-bottom: 400px;">
+			<div class="date-input">
+				<div class="col-auto"><i class="icon">&#xe615;</i></div>
+				<input type="text" class="col">
+			</div>
 			<div class="picker-wrap">
 				<div class="date-head">
 					<div class="retreat">&lt;</div>
@@ -74,16 +76,18 @@
 
 		<pre>
         <code class="html">
-    	<div class="date">
-			<i class="icon col-auto">&#xe615;</i>
-			<input type="text">
+		<div class="date">
+			<div class="date-input">
+				<div class="col-auto"><i class="icon">&#xe615;</i></div>
+				<input type="text" class="col">
+			</div>
 			<div class="picker-wrap">
 				<div class="date-head">
 					<div class="retreat">&lt;</div>
 					<div class="year">2016年</div>
 					<div class="interstice"></div>
 					<div class="month">4月</div>
-					<div class="next">&lt;</div>
+					<div class="next">&gt;</div>
 				</div>
 				<div class="date-week">
 					<span>一</span>

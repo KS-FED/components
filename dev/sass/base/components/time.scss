@@ -1,0 +1,30 @@
+.time{
+	.time-input{
+		@extend %icon-input;
+		i{
+			border-right: transparent;
+		}
+		.select{
+			display: block;
+			.select-hd,.select-bd{
+				width: 84px;
+			}
+			.select-hd{
+				border-radius: 0;
+			    border-top: 0;
+			    border-bottom: 0;
+			}
+			.select-bd{
+				margin-top: 0;
+			}
+		}
+	}
+	.time-list{
+		@extend .select;
+		display: block;
+		.select-bd{
+			@extend %position-icon-bd;
+			margin-left: 124px;
+		}
+	}
+}

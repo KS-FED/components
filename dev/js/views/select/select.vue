@@ -2,13 +2,13 @@
 	<div>
 
 		<!-- 下拉列表 -->
-		<div class="select">
+		<div class="select" style="margin-bottom: 265px;">
 			<div class="select-hd">
 				<div class="col">选择内容</div>
 				<i class="icon col-auto">&#xe619;</i>
 			</div>
 			<div class="select-bd">
-				<div class="search">
+				<div class="select-search">
 					<div class="row-auto">
 						<i class="icon col-auto">&#xe617;</i>
 						<input type="text">
@@ -38,7 +38,7 @@
 				<i class="icon col-auto">&#xe619;</i>
 			</div>
 			<div class="select-bd">
-				<div class="search">
+				<div class="select-search">
 					<div class="row-auto">
 						<i class="icon col-auto">&#xe617;</i>
 						<input type="text">
@@ -47,7 +47,6 @@
 				<ul class="select-list">
 					<li>选择内容</li>
 					<li class="active">选择内容选择内容</li>
-					<li>选择内容</li>
 				</ul>
 			</div>
 		</div>
