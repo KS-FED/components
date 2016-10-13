@@ -10,7 +10,8 @@
     "pro-windows": "set NODE_ENV=pro&&webpack -p",
     "build-windows": "set NODE_ENV=dev&&webpack --watch",
     "dev-windows": "npm run build-windows & npm run proxy_mock --p 8083",
-    "proxy_mock": "proxy-mock -p"
+    "proxy_mock": "proxy-mock -p",
+    "http-server": "http-server -p 8043"
   },
   "repository": {
     "type": "git",
