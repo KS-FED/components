@@ -219,6 +219,17 @@ export default function (Vue,router){
                 }
             },
 
+            // 弹出框-输入
+            '/popover-enter':{
+                name:'popover-enter',
+                title:'弹出框-输入',
+                component: function(resolve){
+                    require(['./views/popover/popover-enter.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
 
 
         }

@@ -45,8 +45,7 @@
         <!-- <a class="h3" v-link="{name:'upload-input'}">upload-input</a><br> -->
         <a class="h3" v-link="{name:'paging'}">paging(分页)</a><br>
         <a class="h3" v-link="{name:'toast'}">toast(提示框)</a><br>
-        <a class="h3" v-link="{name:'dialog-content'}">dialog-content(内容弹出框)</a><br>
-        <a class="h3" v-link="{name:'dialog-icon'}">dialog-icon(图标弹出框)</a><br>
+        
         <a class="h3" v-link="{name:'date'}">date(日期)</a><br>
         <a class="h3" v-link="{name:'radio'}">radio(单选)</a><br>
         <a class="h3" v-link="{name:'checkbox'}">checkbox(多选)</a><br>
@@ -56,8 +55,11 @@
         <a class="h3" v-link="{name:'search'}">search(搜索框)</a><br>
         <a class="h3" v-link="{name:'time'}">time(时间)</a><br>
 
+        <a class="h3" v-link="{name:'dialog-content'}">dialog-content(内容弹出框)</a><br>
+        <a class="h3" v-link="{name:'dialog-icon'}">dialog-icon(图标弹出框)</a><br>
         <a class="h3" v-link="{name:'tooltip'}">tooltip(文字提示)</a><br>
         <a class="h3" v-link="{name:'popover'}">popover(弹出框)</a><br>
+        <a class="h3" v-link="{name:'popover-enter'}">popover-enter(弹出框-输入)</a><br>
     </div>
 </template>
 <script >
