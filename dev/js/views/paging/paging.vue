@@ -1,5 +1,13 @@
 <template>
 	<div>
+		<h3>组件 部分</h3>
+		<br>
+		<page :page_current="page_current" :pages="pages"></page>
+		<br>
+		<hr>
+		<br>
+		<h3>css 部分</h3>
+		<br>
 		<!-- 分页 -->
 		<div class="paging-box">
 			<div class="statistical">共<span>123456</span>条</div>
@@ -67,3 +75,19 @@
 
 	</div>
 </template>
+
+<script type="text/javascript">
+	export default {
+		data (){
+			return {
+				page_current:2 ,
+				pages:5
+			}
+		},
+		ready (){
+			setTimeout(()=>{
+				this.pages = 7
+			},3000)
+		}
+	}
+</script>

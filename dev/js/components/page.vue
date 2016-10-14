@@ -1,135 +1,184 @@
 <template>
-    <div class="page-bar" v-show="all>0">
-        <ul class="pagination">
-            <li class="dataTables-length" v-show="islength">
-                每页展示 
-                <div class="example1-length">
-                    <a v-for="n in pageSizeList" v-text="n" :class="{'active':pageSize == n}" @click="pageSize=n"></a>
-                </div>
+    <div class="paging-box">
+            <div class="statistical">共<span>123456</span>条</div>
+            <div class="col">
+                每页
+                <select class="input">
+                    <option>10</option>
+                    <option>20</option>
+                    <option>100</option>
+                </select>
                 条
-            </li>
-            <li v-show="page_total>1"><span class="homepage" v-on:click="jump('first')">首页</span></li>
-            <li v-if="page_total>1 && showFirst"><span class="btn-prev" v-on:click="cur--">上一页</span></li>
-            <li v-for="index in indexs"  v-bind:class="{ 'active': cur == index}">
-                <a v-on:click="btn_click(index)">{{ index }}</a>
-            </li>
-            <li v-if="page_total>1 && show_last"><span class="btn-next" v-on:click="cur++">下一页</span></li>
-            <li v-show="page_total>1"><span class="lastpage" v-on:click="jump('last')">尾页</span></li>
-            <li><span>共<i v-text="page_total"></i>页</span></li>
-            <!-- <li v-show="page_total>pageSize">&nbsp;&nbsp;&nbsp;&nbsp;第<input type="text" class="jump-input form-control" v-model="jump_val" v-limit-number="jump_val">页 <input type="button" value="确定" class="jump-button" @click="jump()" vaule="确定"></li> -->
-
-        </ul>
-    </div>
+            </div>
+            <ul class="col-auto" @click="page_mian($event)">
+                <li class="frist">&lt;</li>
+                <li v-for="i in pages_array"
+                    track-by="$index"
+                    :class="{'active':page_current==i}" v-text="i"></li>
+                <!-- <li class="active">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>···</li>
+                <li>99</li> -->
+                <li>&gt;</li>
+            </ul>
+        </div>
 </template>
-
-
-
-
-<script>
+<script type="text/javascript">
     /**
-     * 依赖的 filter_number 过滤器
+     * <li class="frist">&lt;</li>
+     * 不合理 ，目的表达不可点击状态 ，'default' 相关比较合理
      */
     export default {
         props: {
-            all: { type: Number, default: 0 },
-            cur: { type: Number, default: 0 },
-            pageSizeList: { type: Array, required:false},
-            pageSize: { type: Number, default: '' }
-        },
-        data(){
-            return {
-                islength:false,
-                jump_val:''
+            // 总条数
+            total: {
+                type:Number,
+                default:110
+            },
+            // 展示分页个数
+            pages: {
+                type:Number,
+                default:9
+            },
+            // 当前选中的页数
+            page_current: {
+                type:Number,
+                default:1
+            },
+            // 每页展示条数
+            page_size :{
+                type:Number,
+                default:10
             }
         },
-        computed: {
-            page_total() {
-                return (this.all-(this.all%this.pageSize))/this.pageSize + ((this.all%this.pageSize) ? 1:0)
-            },
-            indexs() {
+        data (){
+            
+            var mod = total % page_size
+            this.total_count = (total-mod)/page_size + (mod && 1)
+            return {
+                pages_array : [],
+                // pages_total_count : pages_total_count ,
+                pages_count : this.pages
+            }
+        },
+        
+        methods: {
 
-                var left = 1
-                var right = this.page_total
-                var ar = []
-                if(this.page_total>= 11){
-                    if(this.cur > 5 && this.cur < this.page_total-4){
-                        left = this.cur - 5
-                        right = this.cur + 4
-                    }else{
-                        if(this.cur<=5){
-                            left = 1
-                            right = 10
-                        }else{
-                            right = this.page_total
-                            left = this.page_total -9
+            page_mian (event){
+                // console.log(event.cancelable)
+                var value = event.target.innerHTML.trim()
+
+                switch(true){
+                    case '&lt;' === value :
+                        
+                        this.page_current = this.page_current-1 > 0
+                                                ? this.page_current -1
+                                                : 1
+                    break;
+                    case '&gt;' === value :
+                        
+                        this.page_current = this.page_current + 1 > this.pages_total_count 
+                                                ? this.pages_total_count 
+                                                : this.page_current + 1
+                        
+                    break;
+                    case '···' === value :break;
+                    case !isNaN(value):
+                        this.page_current = +value
+                    break;
+                }
+
+
+            },
+            fun (total,page_size){
+                var mod = total % page_size
+                var total_count = (total-mod)/page_size + (mod && 1)
+                
+                
+                return (pages)=>{
+                    pages > total_count && (pages = total_count)
+
+                    return (page_current)=>{
+                        var max = page_current + (pages - 1)/2
+                        max < pages  && (max = pages)
+                        max > total_count && (max = total_count)
+                            
+                        var arr = [],len = pages - 1
+                        for (var i = len ; i>=0; i--){
+                            arr.push(max - i)
                         }
+
+                        if(arr[0]>1){
+                            arr[0] = 1
+                            arr[1] = '···'
+                        }
+                        
+                        if(arr[len] < total_count){
+                            arr[len] = total_count
+                            arr[len-1] = '···'
+                        }
+                        return arr
+                        
                     }
                 }
-                while (left <= right){
-                    ar.push(left)
-                    left ++
-                }
-                return ar
             },
-            show_last() {
-                if(this.cur == this.page_total){
-                    return false
-                }
-                return true
-            },
-            showFirst() {
-                if(this.cur == 1){
-                    return false
-                }
-                return true
-            }
-        },
-        methods: {
-            btn_click(data) {
-                if(data != this.cur){
-                    this.cur = data
-                }
-            },
-            jump(type) {
-                switch(type){
-                    case 'first':
-                        this.cur = 1
-                    break
-                    case 'last':
-                        this.cur = this.page_total
-                    break
-                    default :
-                        if(+this.jump_val===0) this.jump_val = 1
-                        if(!+this.jump_val) return
 
-                        if(+this.jump_val>this.page_total){
-                             this.cur = this.page_total   
-                             this.jump_val = this.page_total
-                        }else{
-                            this.cur = +this.jump_val
-                        }
-                    break    
+            // page_current 更改
+            page_current_change (){
+                // this.page_current    当前选中分页
+                // this.pages_count     分页展示总数
+                // this.pages_total_count   分页总数
+                
+                var max = this.page_current + (this.pages_count - 1)/2
+                    max < this.pages_count  && (max = this.pages_count)
+                    max > this.pages_total_count && (max = this.pages_total_count)
+                            
+                var arr = [],len = this.pages_count - 1
+                for (var i = len ; i>=0; i--){
+                    arr.push(max - i)
+                }
+
+                if(arr[0]>1){
+                    arr[0] = 1
+                    arr[1] = '···'
                 }
                 
+                if(arr[len]<this.pages_total_count){
+                    arr[len] = this.pages_total_count
+                    arr[len-1] = '···'
+                }
+                
+                this.pages_array = arr 
+
             }
         },
         watch: {
-            pageSize() {
-                this.cur = 1
-            },
-            all(){
-                this.islength = this.all > this.pageSize
+            // pages (val){
+            //     this.pages_count = val
+            // },
+            // pages_count (){
+            //     this.page_current_change()
+            // },
+            page_current (val){
+                this.pages_array = this.get_page_array(val)
             }
         },
-        ready() {
-            console.log(this.all)
+        created (){
 
-            !this.pageSizeList && (this.pageSizeList = [10,50,100])
-            this.pageSize || (this.pageSize = this.pageSizeList[0])
+            // this.page_current_change()
+
 
 
             
-            console.log(this.islength)
+
+            this.get_page_array = this.fun(this.total,this.page_size)(this.pages)
+            this.pages_array = this.get_page_array(1)
+
+
+
         }
     }
 </script>
