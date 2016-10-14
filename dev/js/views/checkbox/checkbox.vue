@@ -24,7 +24,7 @@
           <tbody>
           <tr style="text-align: left">
             <td>color</td>
-            <td>颜色, Switch 的颜色是一个十六进制的数值</td>
+            <td>颜色, 颜色是一个十六进制的数值</td>
             <td>String</td>
             <td>
               <label>#00BCD4:</label>
@@ -39,7 +39,7 @@
           </tr>
           <tr style="text-align: left">
             <td>checked</td>
-            <td>属性, 用于判断当前开关是否是打开状态</td>
+            <td>属性, 用于判断当前 checkbox 是否被选中</td>
             <td>Boolean</td>
             <td>
               ---

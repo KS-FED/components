@@ -61,5 +61,5 @@
 </script>
 
 <style lang="scss">
-  @import "../styles/IosSwitch.scss";
+  @import "../styles/IosSwitch";
 </style>

@@ -23,9 +23,9 @@
         let vModel = this.vModel
         let pos = vModel.indexOf(name)
 
-        if (pos >= 0 && !value) {
+        if (pos > -1 && !value) {
           vModel.splice(pos, 1)
-        } else if (pos < 0 && value) {
+        } else if (pos === -1 && value) {
           vModel.push(name)
         }
       }
@@ -42,9 +42,9 @@
       }
     },
 
-    created () {
+    ready () {
       // 通知子组件初始化状态
-      setTimeout(() => { this.$broadcast('VMChange', this.vModel) }, 0)
+      this.$broadcast('VMChange', this.vModel)
     }
   };
 </script>

@@ -9,10 +9,9 @@
         {{ styleCubeColor }}
       }
     </style>
-    <input type="checkbox" class="KSNRCheckbox__entity"
+    <input type="checkbox" class="KSNRCheckbox__entity" :name="name"
            v-model="checked" @change.stop
            :disabled="disable && 'disabled'"
-           :checked="defChecked && 'checked'"
            :id="`KSNRCheckbox__entity--${_uid}`" />
     <label class="KSNRCheckbox__skin" :for="`KSNRCheckbox__entity--${_uid}`"></label>
     <label class="KSNRCheckbox__text" :for="`KSNRCheckbox__entity--${_uid}`">
@@ -55,11 +54,7 @@
        * @summary 负责接受 Group 组件的 change 事件, 改变选中状态
        */
       VMChange (vModel) {
-        if (vModel.indexOf(this.name) >= 0) {
-          this.checked = true
-        } else {
-          this.checked = false
-        }
+        this.checked = vModel.indexOf(this.name) > -1;
       }
     },
 
@@ -78,5 +73,5 @@
 </script>
 
 <style lang="scss">
-  @import "../styles/NrCheckbox.scss";
+  @import "../styles/NrCheckbox";
 </style>

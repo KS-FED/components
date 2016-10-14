@@ -8,8 +8,8 @@
     "pro": "NODE_ENV=pro webpack -p",
     "build": "NODE_ENV=dev webpack --watch",
     "pro-windows": "set NODE_ENV=pro&&webpack -p",
-    "build-windows": "set NODE_ENV=dev&&webpack --watch",
-    "dev-windows": "npm run build-windows & npm run proxy_mock --p 8083",
+    "build-windows": "set NODE_ENV=dev&&webpack --watch --progress --color",
+    "dev-windows": "npm run build-windows",
     "proxy_mock": "proxy-mock -p",
     "http-server": "http-server -p 8043"
   },
