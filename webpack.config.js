@@ -30,7 +30,7 @@ module.exports = {
         loaders: [
 
             {   test: /\.scss$/,
-                loader: ExtractTextPlugin.extract('css!sass-loader-once')},
+                loader: ExtractTextPlugin.extract('css!sass-loader-once') },
             {   test: /\.(tpl|html)$/,
                 loader: 'html'},
             {   test: /\.vue$/,

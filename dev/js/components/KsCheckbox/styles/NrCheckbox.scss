@@ -19,13 +19,12 @@ $skin-size: 18px;                                               // 选择框大�
 
 .KSNRCheckbox {
   position: relative;
-  display: inline-block;
-  vertical-align: middle;
-  padding: 2px 3px;
+  display: inline-block; padding: 2px 3px;
+  vertical-align: middle; font-size: 14px;
 }
 
 .KSNRCheckbox__entity {
-  width: 0; height: 0; opacity: 0;
+  display: none;
 }
 .KSNRCheckbox__text { user-select: none }
 .KSNRCheckbox__skin {

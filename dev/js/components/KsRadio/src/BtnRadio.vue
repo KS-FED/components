@@ -1,24 +1,23 @@
 <template>
   <div :class="classes">
-    <!-- NrRadio 选择色块自定义 -->
+    <!-- BtnRadio 选择色块自定义 -->
     <style type="text/css">
-      {{ '.KSNRRadio__UID--' + _uid }} .KSNRRadio__skin:before {
+      {{ '.KSBtnRadio__UID--' + _uid }} .KSBtnRadio__skin:before {
         {{ styleCubeColor }}
       }
-      {{ '.KSNRRadio__UID--' + _uid }} .KSNRRadio__entity:checked + .KSNRRadio__skin:before {
+      {{ '.KSBtnRadio__UID--' + _uid }} .KSBtnRadio__entity:checked + .KSBtnRadio__skin:before {
         {{ styleCubeColor }}
       }
     </style>
-    <input type="radio" class="KSNRRadio__entity" :name="!!name && name"
+    <input type="radio" class="KSBtnRadio__entity" :name="!!name && name"
            v-model="checked" :value="value" @change.stop
            :disabled="disable && 'disabled'"
            :checked="defChecked && 'checked'"
-           :id="`KSNRRadio__entity--${_uid}`" />
-    <label class="KSNRRadio__skin" :for="`KSNRRadio__entity--${_uid}`"></label>
-    <label class="KSNRRadio__text" :for="`KSNRRadio__entity--${_uid}`">
+           :id="`KSBtnRadio__entity--${_uid}`" />
+    <label class="KSBtnRadio__text" :for="`KSBtnRadio__entity--${_uid}`">
       <slot>LABEL</slot>
     </label>
-  </div>
+  </div><!-- -->
 </template>
 
 <script>
@@ -35,11 +34,11 @@
        * @summary 用于标识复选框
        * @return {string}
        */
-      classes () { return `KSNRRadio KSNRRadio__UID--${this._uid}` }
-    },
+      classes () { return `KSBtnRadio KSBtnRadio__UID--${this._uid}` },
+    }
   }
 </script>
 
 <style lang="scss">
-  @import "../styles/NrRadio";
+  @import "../styles/BtnRadio";
 </style>

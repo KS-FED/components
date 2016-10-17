@@ -4,7 +4,7 @@
       <ks-radio></ks-radio>
     </div>
 
-    <h4>KsCheckbox</h4>
+    <h4>KsRadio</h4>
     <div style="margin-top: 15px;">
       <!-- 属性部分 -->
       <h4 style="text-align: left">属性:</h4>
@@ -101,7 +101,34 @@
       </pre>
     </div>
 
-    <h4>KsCheckboxGroup</h4>
+    <h4>KsBtnRadio</h4>
+    <div style="margin-top: 15px;">
+
+      <!-- btn样式的Radio -->
+      <ks-radio-group :v-model.sync="checkboxList" @change="changeHandle">
+        <ks-btn-radio name="TEST1" value="132">TEST1</ks-btn-radio>
+        <ks-btn-radio name="TEST2" value="456">TEST2</ks-btn-radio>
+        <ks-btn-radio name="TEST3" value="789">TEST3</ks-btn-radio>
+      </ks-radio-group>
+
+      <!-- 代码示例 -->
+      <div style="margin-top: 10px;"></div>
+      <h4 style="text-align: left">代码示例:</h4>
+      <hr>
+      <pre class="html" style="text-align: left">
+        <code class="html">
+              &lt;!--
+                以下 name 都为 TEST 同时设置了 checked defChecked checked 值为 1, 选中为 3 也就是最后一个,
+                defChecked 权重是大于 checked 的, 在设置 defChecked checked 的值也会变成设置 defChecked 组件的 value
+              --&gt;
+              &lt;ks-radio color=&quot;#00BCD4&quot;:checked.sync=&quot;checked1&quot; :value=&quot;1&quot; name=&quot;TEST&quot;&gt;TEST&lt;/ks-radio&gt;&lt;br&gt;
+              &lt;ks-radio color=&quot;#2196F3&quot;:checked.sync=&quot;checked1&quot; :value=&quot;2&quot; name=&quot;TEST&quot;&gt;TEST, TEST&lt;/ks-radio&gt;&lt;br&gt;
+              &lt;ks-radio color=&quot;#F44336&quot;:checked.sync=&quot;checked1&quot; :value=&quot;3&quot; :def-checked=&quot;true&quot; name=&quot;TEST&quot;&gt;TEST, TEST, TEST&lt;/ks-radio&gt;&lt;br&gt;
+        </code>
+      </pre>
+    </div>
+
+    <h4>KsRadioGroup</h4>
     <ks-radio-group :v-model.sync="checkboxList" @change="changeHandle">
       <ks-radio name="TEST1">TEST1</ks-radio>
       <ks-radio name="TEST2">TEST2</ks-radio>

@@ -24,3 +24,7 @@
     }
   };
 </script>
+
+<style lang="scss">
+  @import "../styles/RadioGroup";
+</style>

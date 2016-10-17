@@ -19,15 +19,17 @@ $skin-size: 18px;                                               // 选择框大�
 
 .KSNRRadio {
   position: relative;
-  display: inline-block;
-  vertical-align: middle;
-  padding: 2px 3px;
+  display: inline-block; padding: 2px 3px;
+  vertical-align: middle; font-size: 14px;
 }
 
 .KSNRRadio__entity {
-  width: 0; height: 0; opacity: 0;
+  display: none;
 }
-.KSNRRadio__text { user-select: none }
+.KSNRRadio__text {
+  display: inline-block;
+  user-select: none;
+}
 .KSNRRadio__skin {
   display: inline-block;
   border: 1px solid #D0D0D5; border-radius: 50%;

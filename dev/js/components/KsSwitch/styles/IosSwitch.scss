@@ -55,9 +55,8 @@ $sizeMapper: (                                                  // 大小映射
 .KSIosSwitch {
   position: relative;
   display: inline-block;
-  overflow: hidden;
-  padding: 0 2px 2px 0;
-  vertical-align: middle;
+  overflow: hidden; padding: 0 2px 2px 0;
+  vertical-align: middle; font-size: 14px;
 
   // 禁用效果
   .KSIosSwitch__entity[disabled] + .KSIosSwitch__slide{

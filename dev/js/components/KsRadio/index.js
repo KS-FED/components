@@ -7,8 +7,10 @@
  */
 
 const NrRadio = require('./src/NrRadio.vue')
+const BtnRadio = require('./src/BtnRadio.vue')
 const RadioGroup = require('./src/RadioGroup.vue')
 
 export default NrRadio
 export const KsRadio = NrRadio
+export const KsBtnRadio = BtnRadio
 export const KsRadioGroup = RadioGroup
