@@ -60,6 +60,9 @@
         <a class="h3" v-link="{name:'tooltip'}">tooltip(文字提示)</a><br>
         <a class="h3" v-link="{name:'popover'}">popover(弹出框)</a><br>
         <a class="h3" v-link="{name:'popover-enter'}">popover-enter(弹出框-输入)</a><br>
+        <!-- <a class="h3" v-link="{name:'img-edit'}">img-edit(编辑图片)</a><br> -->
+
+
     </div>
 </template>
 <script >

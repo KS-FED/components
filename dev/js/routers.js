@@ -230,6 +230,17 @@ export default function (Vue,router){
                 }
             },
 
+            // 编辑图片
+            '/img-edit':{
+                name:'img-edit',
+                title:'编辑图片',
+                component: function(resolve){
+                    require(['./views/img-edit/img-edit.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
 
 
         }
