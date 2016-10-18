@@ -13,8 +13,9 @@
 //  </div>
 //</div>
 //
+@import "../../styles/variables";
 
-$primary-color: #04BE02;                                        // 主色调
+$primary-color: nth($successes, 2);                             // 主色调
 $sizeMapper: (                                                  // 大小映射
   large: (28px, 28px * 2),
   normal: (24px, 24px * 2),

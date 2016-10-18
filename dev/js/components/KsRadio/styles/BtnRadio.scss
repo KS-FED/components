@@ -13,8 +13,10 @@
 //</div>
 //
 //
+@import "../../styles/variables";
 
-$primary-color: #00A5E0;                                        // 主色调
+$primary-color: nth($primarys, 2);                              // 主色调
+$primary-border-color: nth($darks, 3);                          // 主边框色调
 $skin-size: 18px;                                               // 选择框大小
 
 .KSBtnRadio {
@@ -40,16 +42,28 @@ $skin-size: 18px;                                               // 选择框大�
 
 .KSBtnRadio__entity { display: none }
 .KSBtnRadio__text {
-  display: inline-block;
-  padding: 6px 10px; border: 1px solid $primary-color;
-  user-select: none;
+  position: relative; display: inline-block;
+  padding: 8px 12px; border: 1px solid $primary-border-color;
+  user-select: none; cursor: pointer;
 
   // hover 效果
-  &:hover { color: $primary-color }
+  &:hover {
+    color: nth($primarys, 3);
+  }
+}
+
+// checked 下的选择框样式
+.KSBtnRadio__entity:checked + .KSBtnRadio__text {
+  z-index: 1;
+  color: $primary-color; border-color: $primary-color;
 }
 
 // checked 禁用样式
 .KSBtnRadio__entity[disabled] + .KSBtnRadio__text {
+  color: nth($darks, 2);
+  background: nth($grays, 2);
   cursor: not-allowed;
-  background: rgba(77, 77, 77, .1);
+
+  // 重置 hover 字体颜色
+  &:hover { color: nth($darks, 2) }
 }

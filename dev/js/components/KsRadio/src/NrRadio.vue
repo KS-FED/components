@@ -10,12 +10,13 @@
       }
     </style>
     <input type="radio" class="KSNRRadio__entity" :name="!!name && name"
+           :id="'KSNRCheckbox__entity--' + _uid"
            v-model="checked" :value="value" @change.stop
            :disabled="disable && 'disabled'"
            :checked="defChecked && 'checked'"
            :id="`KSNRRadio__entity--${_uid}`" />
-    <label class="KSNRRadio__skin" :for="`KSNRRadio__entity--${_uid}`"></label>
-    <label class="KSNRRadio__text" :for="`KSNRRadio__entity--${_uid}`">
+    <label class="KSNRRadio__skin" :for="'KSNRCheckbox__entity--' + _uid"></label>
+    <label class="KSNRRadio__text" :for="'KSNRCheckbox__entity--' + _uid">
       <slot>LABEL</slot>
     </label>
   </div>

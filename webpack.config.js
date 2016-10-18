@@ -29,8 +29,10 @@ module.exports = {
         ],
         loaders: [
 
+            // {   test: /\.scss$/,
+            //     loader: ExtractTextPlugin.extract('css!sass-loader-once') },
             {   test: /\.scss$/,
-                loader: ExtractTextPlugin.extract('css!sass-loader-once') },
+                loader: 'css-loader!sass-loader' },
             {   test: /\.(tpl|html)$/,
                 loader: 'html'},
             {   test: /\.vue$/,

@@ -13,8 +13,9 @@
 //</div>
 //
 //
+@import "../../styles/variables";
 
-$primary-color: #00A5E0;                                        // 主色调
+$primary-color: nth($infos, 2);                                 // 主色调
 $skin-size: 18px;                                               // 选择框大小
 
 .KSNRCheckbox {
@@ -23,15 +24,16 @@ $skin-size: 18px;                                               // 选择框大�
   vertical-align: middle; font-size: 14px;
 }
 
-.KSNRCheckbox__entity {
-  display: none;
+.KSNRCheckbox__entity { display: none }
+.KSNRCheckbox__text {
+  user-select: none; cursor: pointer;
 }
-.KSNRCheckbox__text { user-select: none }
 .KSNRCheckbox__skin {
   display: inline-block;
   border: 1px solid #D0D0D5; border-radius: 3px;
   width: $skin-size; height: $skin-size;
   text-align: center; line-height: $skin-size;
+  cursor: pointer;
 
   // 选择点的样式
   &:before {

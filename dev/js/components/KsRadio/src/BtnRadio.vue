@@ -10,11 +10,12 @@
       }
     </style>
     <input type="radio" class="KSBtnRadio__entity" :name="!!name && name"
+           :id="'KSNRCheckbox__entity--' + _uid"
            v-model="checked" :value="value" @change.stop
            :disabled="disable && 'disabled'"
            :checked="defChecked && 'checked'"
            :id="`KSBtnRadio__entity--${_uid}`" />
-    <label class="KSBtnRadio__text" :for="`KSBtnRadio__entity--${_uid}`">
+    <label class="KSBtnRadio__text" :for="'KSNRCheckbox__entity--' + _uid">
       <slot>LABEL</slot>
     </label>
   </div><!-- -->

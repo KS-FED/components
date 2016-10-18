@@ -13,3 +13,7 @@
         }
     }
 </script>
+<style lang="scss">
+  @import "../../sass/base/normalize";
+  @import "../../sass/app";
+</style>

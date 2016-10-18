@@ -10,11 +10,12 @@
       }
     </style>
     <input type="checkbox" class="KSNRCheckbox__entity" :name="name"
+           :id="'KSNRCheckbox__entity--' + _uid"
            v-model="checked" @change.stop
            :disabled="disable && 'disabled'"
            :id="`KSNRCheckbox__entity--${_uid}`" />
-    <label class="KSNRCheckbox__skin" :for="`KSNRCheckbox__entity--${_uid}`"></label>
-    <label class="KSNRCheckbox__text" :for="`KSNRCheckbox__entity--${_uid}`">
+    <label class="KSNRCheckbox__skin" :for="'KSNRCheckbox__entity--' + _uid"></label>
+    <label class="KSNRCheckbox__text" :for="'KSNRCheckbox__entity--' + _uid">
       <slot>LABEL</slot>
     </label>
   </div>

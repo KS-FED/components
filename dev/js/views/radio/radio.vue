@@ -106,9 +106,10 @@
 
       <!-- btn样式的Radio -->
       <ks-radio-group :v-model.sync="checkboxList" @change="changeHandle">
-        <ks-btn-radio name="TEST1" value="132">TEST1</ks-btn-radio>
-        <ks-btn-radio name="TEST2" value="456">TEST2</ks-btn-radio>
-        <ks-btn-radio name="TEST3" value="789">TEST3</ks-btn-radio>
+        <ks-btn-radio name="TEST" value="132" :def-checked="true">测试</ks-btn-radio>
+        <ks-btn-radio name="TEST" value="456">TEST2</ks-btn-radio>
+        <ks-btn-radio name="TEST" value="XXX" :disable="true">禁用</ks-btn-radio>
+        <ks-btn-radio name="TEST" value="789">TEST3</ks-btn-radio>
       </ks-radio-group>
 
       <!-- 代码示例 -->
