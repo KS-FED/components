@@ -31,6 +31,17 @@ export default function (Vue,router){
                 }
             },
 
+            // 图标按钮
+            '/icon-button':{
+                name:'icon-button',
+                title:'图标按钮',
+                component: function(resolve){
+                    require(['./views/button/icon-button.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
             // tab导航（边框）
             '/tab-bor':{
                 name:'tab-bor',
@@ -230,16 +241,27 @@ export default function (Vue,router){
                 }
             },
 
-            // 编辑图片
-            '/img-edit':{
-                name:'img-edit',
-                title:'编辑图片',
+            // 表单排版
+            '/form-layout':{
+                name:'form-layout',
+                title:'表单排版',
                 component: function(resolve){
-                    require(['./views/img-edit/img-edit.vue'], (res)=> {
+                    require(['./views/form/form-layout.vue'], (res)=> {
                         resolve(res)
                     })
                 }
             },
+
+            // 编辑图片
+            // '/img-edit':{
+            //     name:'img-edit',
+            //     title:'编辑图片',
+            //     component: function(resolve){
+            //         require(['./views/img-edit/img-edit.vue'], (res)=> {
+            //             resolve(res)
+            //         })
+            //     }
+            // },
 
 
 

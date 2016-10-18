@@ -26,6 +26,7 @@
     <div style="padding:20px 100px;">
         <br>
         <a class="h3" v-link="{name:'button'}">button（按钮）</a><br>
+        <a class="h3" v-link="{name:'icon-button'}">icon-button（图标按钮）</a><br>
         <!-- <a class="h3" v-link="{name:'layout'}">layout</a><br> -->
         <!-- <a class="h3" v-link="{name:'form'}">form</a><br> -->
         <!-- <a class="h3" v-link="{name:'components'}">components</a><br> -->
@@ -60,6 +61,7 @@
         <a class="h3" v-link="{name:'tooltip'}">tooltip(文字提示)</a><br>
         <a class="h3" v-link="{name:'popover'}">popover(弹出框)</a><br>
         <a class="h3" v-link="{name:'popover-enter'}">popover-enter(弹出框-输入)</a><br>
+        <a class="h3" v-link="{name:'form-layout'}">form-layout(表单排版)</a><br>
         <!-- <a class="h3" v-link="{name:'img-edit'}">img-edit(编辑图片)</a><br> -->
 
 

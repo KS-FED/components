@@ -161,3 +161,16 @@
     }
 }
 @include create_btns();
+
+.btn-gray{
+    color: #444;
+    border: 1px solid #e5e5e5;
+    &:hover {
+        color: #444;
+        background-color: #fff;  
+    }
+    &:active {
+        color: #444;
+        background-color: #f5f5f5; 
+    } 
+}
