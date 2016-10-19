@@ -252,6 +252,17 @@ export default function (Vue,router){
                 }
             },
 
+            // 加载图标
+            '/icon-loading':{
+                name:'icon-loading',
+                title:'加载图标',
+                component: function(resolve){
+                    require(['./views/icon/icon-loading.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
             // 编辑图片
             // '/img-edit':{
             //     name:'img-edit',
