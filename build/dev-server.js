@@ -28,6 +28,15 @@ var mixinWebpackConfig = merge(webpackConfig, {
     new HtmlWebpackPlguin({
       inject: true
     })
+  ],
+  loaders: [
+    {
+      test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+      loader: 'url',
+      query: {
+        limit: 10000
+      }
+    },
   ]
 })
 

@@ -42,10 +42,10 @@ module.exports = {
                 loader: 'babel'},
 
             // {test: /\.(js|tag)$/, exclude: /node_modules/, loader: 'babel-loader'},
-            {   test: /\.(png|jpg)$/,
+            {   test: /\.(png|jpg|svg)$/,
                 loader: 'url-loader?limit=8192'},
-            {   test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-                loader: 'file-loader-path?limit=8192&name=[name].[ext]?[hash:8]&path=../[name].[ext]?[hash:8]'},
+            // {   test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+            //     loader: 'file-loader-path?limit=8192&name=[name].[ext]?[hash:8]&path=../[name].[ext]?[hash:8]'},
             {   test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
                 loader: 'file-loader-path?limit=8192&name=[name].[ext]?[hash:8]&path=../[name].[ext]?[hash:8]'},
             {   test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,

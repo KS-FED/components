@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/javascript">
   export default {
     name: 'KsCheckboxGroup',
 
@@ -46,7 +46,7 @@
       // 通知子组件初始化状态
       this.$broadcast('VMChange', this.vModel)
     }
-  };
+  }
 </script>
 
 <style lang="scss">

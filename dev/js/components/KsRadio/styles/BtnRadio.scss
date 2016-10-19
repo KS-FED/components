@@ -13,16 +13,47 @@
 //</div>
 //
 //
+
 @import "../../styles/variables";
+@import "../../styles/sassMagic/_sassMagic";
 
 $primary-color: nth($primarys, 2);                              // 主色调
 $primary-border-color: nth($darks, 3);                          // 主边框色调
 $skin-size: 18px;                                               // 选择框大小
 
-.KSBtnRadio {
+@include b(KSBtnRadio) {
   position: relative; display: inline-block;
-  vertical-align: middle; text-align: center;
-  font-size: 14px;
+  vertical-align: middle; font-size: 14px;
+
+  @include e(entity) {
+    display: none;
+
+    // radio 下的选择框样式
+    &:checked + .KSBtnRadio__text {
+      z-index: 1;
+      color: $primary-color; border-color: $primary-color;
+    }
+    // radio 禁用样式
+    &[disabled] + .KSBtnRadio__text {
+      color: nth($darks, 2);
+      background: nth($grays, 2);
+      cursor: not-allowed;
+
+      // 重置 hover 字体颜色
+      &:hover { color: nth($darks, 2) }
+    }
+  }
+
+  @include e(text) {
+    position: relative; display: inline-block;
+    padding: 8px 12px; border: 1px solid $primary-border-color;
+    user-select: none; cursor: pointer;
+
+    // hover 效果
+    &:hover {
+      color: nth($primarys, 3);
+    }
+  }
 
   // 第一个 radio button 样式
   &:first-child .KSBtnRadio__text {
@@ -38,32 +69,4 @@ $skin-size: 18px;                                               // 选择框大�
   &:not(:last-child) .KSBtnRadio__text {
     margin-right: -1px;
   }
-}
-
-.KSBtnRadio__entity { display: none }
-.KSBtnRadio__text {
-  position: relative; display: inline-block;
-  padding: 8px 12px; border: 1px solid $primary-border-color;
-  user-select: none; cursor: pointer;
-
-  // hover 效果
-  &:hover {
-    color: nth($primarys, 3);
-  }
-}
-
-// checked 下的选择框样式
-.KSBtnRadio__entity:checked + .KSBtnRadio__text {
-  z-index: 1;
-  color: $primary-color; border-color: $primary-color;
-}
-
-// checked 禁用样式
-.KSBtnRadio__entity[disabled] + .KSBtnRadio__text {
-  color: nth($darks, 2);
-  background: nth($grays, 2);
-  cursor: not-allowed;
-
-  // 重置 hover 字体颜色
-  &:hover { color: nth($darks, 2) }
 }

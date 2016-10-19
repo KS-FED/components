@@ -13,48 +13,54 @@
 //</div>
 //
 //
+
 @import "../../styles/variables";
+@import "../../styles/sassMagic/_sassMagic";
 
 $primary-color: nth($infos, 2);                                 // 主色调
 $skin-size: 18px;                                               // 选择框大小
 
-.KSNRCheckbox {
+@include b(KSNRCheckbox) {
   position: relative;
   display: inline-block; padding: 2px 3px;
   vertical-align: middle; font-size: 14px;
-}
 
-.KSNRCheckbox__entity { display: none }
-.KSNRCheckbox__text {
-  user-select: none; cursor: pointer;
-}
-.KSNRCheckbox__skin {
-  display: inline-block;
-  border: 1px solid #D0D0D5; border-radius: 3px;
-  width: $skin-size; height: $skin-size;
-  text-align: center; line-height: $skin-size;
-  cursor: pointer;
+  @include e(entity) {
+    display: none;
 
-  // 选择点的样式
-  &:before {
-    content: ''; display: inline-block;
-    height: $skin-size / 1.8; width: $skin-size / 1.8;
-    border-radius: 3px;
-    background-color: $primary-color;
-    opacity: 0;
-    transition: opacity .3s;
+    // checked 下的选择框样式
+    &:checked + .KSNRCheckbox__skin:before {
+      opacity: 1;
+    }
+    // checked 禁用样式
+    &[disabled] + .KSNRCheckbox__skin {
+      cursor: not-allowed;
+      background: rgba(77, 77, 77, .1)
+    }
+    &[disabled] + .KSNRCheckbox__skin:before {
+      opacity: .6;
+    }
   }
-}
 
-// checked 下的选择框样式
-.KSNRCheckbox__entity:checked + .KSNRCheckbox__skin:before {
-  opacity: 1;
-}
-// checked 禁用样式
-.KSNRCheckbox__entity[disabled] + .KSNRCheckbox__skin {
-  cursor: not-allowed;
-  background: rgba(77, 77, 77, .1)
-}
-.KSNRCheckbox__entity[disabled] + .KSNRCheckbox__skin:before {
-  opacity: .6;
+  @include e(text) {
+    user-select: none; cursor: pointer;
+  }
+
+  @include e(skin) {
+    display: inline-block;
+    border: 1px solid #D0D0D5; border-radius: 3px;
+    width: $skin-size; height: $skin-size;
+    text-align: center; line-height: $skin-size;
+    cursor: pointer;
+
+    // 选择点的样式
+    &:before {
+      content: ''; display: inline-block;
+      height: $skin-size / 1.8; width: $skin-size / 1.8;
+      border-radius: 3px;
+      background-color: $primary-color;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+  }
 }

@@ -21,7 +21,7 @@
   </div><!-- -->
 </template>
 
-<script>
+<script type="text/javascript">
   import radioLogic from '../mixins/radioLogic'
 
   export default{

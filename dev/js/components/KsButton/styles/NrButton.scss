@@ -1,0 +1,40 @@
+//
+// @description 普通按钮样式.
+// @author: pkeros.
+// @date: 2016/10/18.
+//
+
+@import "../../styles/sassMagic/_sassMagic";
+@import "./common/_btnCommon";
+
+@include b(KSNRButton) {
+  @extend %container;
+
+  // loading
+  @include e(loading) {
+
+    // 旋转动画
+    @include animation (
+        (
+          animationName: rotating,
+          keyframes: (
+            0: ( transform: rotate(0deg) ),
+            100: ( transform: rotate(360deg) )
+          ),
+          duration: 1,
+          timingFunction: linear
+        )
+    );
+  }
+
+  // text
+  @include e(text) {
+    vertical-align: middle;
+  }
+
+  @include e(entity) {
+    @extend %btnEntity;
+
+    color: #FFF;
+  }
+}

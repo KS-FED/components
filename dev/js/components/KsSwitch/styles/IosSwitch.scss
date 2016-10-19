@@ -13,7 +13,9 @@
 //  </div>
 //</div>
 //
+
 @import "../../styles/variables";
+@import "../../styles/sassMagic/_sassMagic";
 
 $primary-color: nth($successes, 2);                             // 主色调
 $sizeMapper: (                                                  // 大小映射
@@ -29,61 +31,66 @@ $sizeMapper: (                                                  // 大小映射
   $height: nth($size, 1);
   $width: nth($size, 2);
 
-  .KSIosSwitch--#{$sizeName} {
-    height: $height; width: $width;
-    line-height: $height;
+  @include b(KSIosSwitch) {
+    @include m($sizeName) {
+      height: $height; width: $width;
+      line-height: $height;
 
-    // 开关效果
-    .KSIosSwitch__entity:checked + .KSIosSwitch__slide {
+      // 开关效果
+      @include e(entity) {
+        &:checked + .KSIosSwitch__slide {
 
-      .KSIosSwitch__btn {
-        transform: translate($width - $height, 0);
+          .KSIosSwitch__btn {
+            transform: translate($width - $height, 0);
+          }
+        }
       }
-    }
 
-    // switch 滑动槽
-    .KSIosSwitch__slide {
-      border-radius: $height;
-    }
+      // switch 滑动槽
+      @include e(slide) {
+        border-radius: $height;
+      }
 
-    // switch 按钮
-    .KSIosSwitch__btn {
-      height: $height; width: $height;
+      // switch 按钮
+      @include e(btn) {
+        height: $height; width: $height;
+      }
     }
   }
 }
 
-.KSIosSwitch {
+@include b(KSIosSwitch) {
   position: relative;
   display: inline-block;
   overflow: hidden; padding: 0 2px 2px 0;
   vertical-align: middle; font-size: 14px;
 
-  // 禁用效果
-  .KSIosSwitch__entity[disabled] + .KSIosSwitch__slide{
-    opacity: .6;
-  }
-
-  // 开关效果
-  .KSIosSwitch__entity:checked + .KSIosSwitch__slide {
-    box-shadow: $primary-color 0 0 0 16.667px inset;
-    border: 1px solid $primary-color;
-    transition: border .3s, box-shadow .6s, background .9s;
-    background: $primary-color;
-
-    // 控制 slot 的显示隐藏
-    *[slot="unCheckedChildren"] { display: none }
-  }
-
   // checkbox 实体
-  .KSIosSwitch__entity {
+  @include e(entity) {
     position: absolute; z-index: 1;
     top: 0; left: 0;
     height: 100%; width: 100%;
     opacity: 0; cursor: pointer;
+
+    // 禁用效果
+    &[disabled] + .KSIosSwitch__slide {
+      opacity: .6;
+    }
+
+    // 开关效果
+    &:checked + .KSIosSwitch__slide {
+      box-shadow: $primary-color 0 0 0 16.667px inset;
+      border: 1px solid $primary-color;
+      transition: border .3s, box-shadow .6s, background .9s;
+      background: $primary-color;
+
+      // 控制 slot 的显示隐藏
+      *[slot="unCheckedChildren"] { display: none }
+    }
   }
+
   // switch 滑动槽
-  .KSIosSwitch__slide {
+  @include e(slide) {
     position: relative; z-index: 0;
     height: 100%; width: 100%;
     box-shadow: #fff 0 0 0 0 inset;
@@ -107,8 +114,9 @@ $sizeMapper: (                                                  // 大小映射
       color: #bbb;
     }
   }
+
   // switch 按钮
-  .KSIosSwitch__btn {
+  @include e(btn) {
     display: inline-block; vertical-align: middle;
     /*position: absolute; top: 0; left: 0;*/
     float: left;

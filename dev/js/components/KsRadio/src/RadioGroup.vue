@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/javascript">
   export default {
     name: 'KsRadioGroup',
 
@@ -22,7 +22,7 @@
         this.$emit('change', value)
       }
     }
-  };
+  }
 </script>
 
 <style lang="scss">
