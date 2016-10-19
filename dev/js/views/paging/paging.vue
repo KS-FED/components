@@ -73,6 +73,14 @@
         </code>
         </pre>
 
+		
+        <pre>
+        	<code class="html">
+        		&lt;page :page_current="page_current" :pages="pages"&gt;&lt;/page&gt;
+        		var a = {}
+        	</code>		
+        </pre>	
+
 	</div>
 </template>
 
@@ -81,13 +89,13 @@
 		data (){
 			return {
 				page_current:2 ,
-				pages:5
+				pages:7
 			}
 		},
 		ready (){
-			setTimeout(()=>{
-				this.pages = 7
-			},3000)
+			// setTimeout(()=>{
+			// 	this.pages = 7
+			// },3000)
 		}
 	}
 </script>
