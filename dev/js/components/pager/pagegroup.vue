@@ -1,0 +1,51 @@
+<template>
+    <div class="paging-box">
+        <div class="statistical">共<span>{{total}}</span>条</div>
+        <div class="col">
+            每页
+            <select class="input" v-model="page_size">
+                <option 
+                    v-for="i in page_sizes" :value="i">{{i}}</option>
+                
+            </select>
+            条
+        </div>
+        <page 
+            :page_current="page_current" 
+            :pages="pages"
+            :total="total"
+            :page_size="page_size"></page>
+    </div>
+</template>
+<script type="text/javascript">
+    export default {
+        props: {
+            // 总条数
+            total: {type:Number, default:0 }, 
+            // 展示分页个数
+            pages: {type:Number, default:7 }, 
+            // 当前选中的页数
+            page_current: {type:Number, default:1 }, 
+            // 每页展示条数
+            page_size :{type:Number, default:10 },
+            // 每页可能展示条数
+            page_sizes :{type:Array, default:[10,20,100] } 
+        },
+        data() {
+            return {}
+        },
+        methods: {
+            init (){
+                this.page_size = this.page_sizes[0]
+            }
+        },
+        created (){
+            this.init()
+        },
+        watch:{
+            page_size(val){
+                // console.log(val)
+            }
+        }
+    }
+</script>

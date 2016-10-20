@@ -1,5 +1,42 @@
 <template>
 	<div>
+		<h3>组件 部分</h3>
+		<br>
+		<page 
+			:page_current="page_current" 
+			:pages="pages"
+			:total="total"></page>
+		<br>
+		<pre>
+        	<code class="html">
+	        	&lt;page 
+				:page_current="page_current" 
+				:pages="pages"
+				:total="total"&gt;&lt;/page&gt;
+        		
+        	</code>		
+        </pre>	
+		<br>
+		<pagegroup 
+			:page_current="page_current" 
+			:pages="pages"
+			:total="total"
+			:page_sizes="[9,17,30]"></pagegroup>
+		<br>
+		<pre>
+        	<code class="html">
+	        	&lt;pagegroup 
+				:page_current="page_current" 
+				:pages="pages"
+				:total="total"
+				:page_sizes="[9,17,30]"&gt;&lt;/pagegroup&gt;
+        		
+        	</code>		
+        </pre>	
+		<hr>
+		<br>
+		<h3>css 部分</h3>
+		<br>
 		<!-- 分页 -->
 		<div class="paging-box">
 			<div class="statistical">共<span>123456</span>条</div>
@@ -65,5 +102,26 @@
         </code>
         </pre>
 
+		
+        
+
 	</div>
 </template>
+
+<script type="text/javascript">
+	export default {
+		data (){
+			return {
+				page_current:2 ,
+				pages:6,
+				total:0
+			}
+		},
+		ready (){
+			setTimeout(()=>{
+				// this.pages = 9
+				this.total = 100
+			},3000)
+		}
+	}
+</script>
