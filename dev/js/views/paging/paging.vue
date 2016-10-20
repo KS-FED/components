@@ -5,7 +5,8 @@
 		<page 
 			:page_current="page_current" 
 			:pages="pages"
-			:total="total"></page>
+			:total="total"
+			v-on:current_change="current_change"></page>
 		<br>
 		<pre>
         	<code class="html">
@@ -21,7 +22,9 @@
 			:page_current="page_current" 
 			:pages="pages"
 			:total="total"
-			:page_sizes="[9,17,30]"></pagegroup>
+			:page_sizes="[10,17,30]"
+			v-on:current_change="current_change"
+			v-on:size_change="size_change"></pagegroup>
 		<br>
 		<pre>
         	<code class="html">
@@ -29,7 +32,9 @@
 				:page_current="page_current" 
 				:pages="pages"
 				:total="total"
-				:page_sizes="[9,17,30]"&gt;&lt;/pagegroup&gt;
+				:page_sizes="[10,17,30]"
+				v-on:current_change="current_change"
+				v-on:size_change="size_change"&gt;&lt;/pagegroup&gt;
         		
         	</code>		
         </pre>	
@@ -113,15 +118,24 @@
 		data (){
 			return {
 				page_current:2 ,
-				pages:6,
+				pages:7,
 				total:0
 			}
 		},
+		methods:{
+			current_change(val){
+				// console.log(val)
+			},
+			size_change(val){
+				// console.log(val)
+			}
+		},
 		ready (){
-			setTimeout(()=>{
+			// this.current_change('ppp')
+			// setTimeout(()=>{	},3000)
 				// this.pages = 9
 				this.total = 100
-			},3000)
+		
 		}
 	}
 </script>
