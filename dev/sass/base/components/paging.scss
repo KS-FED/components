@@ -18,10 +18,20 @@
 			border-radius: 4px;
 			color: #000;
 			cursor: pointer;
+			// 请抽出 start
+			-webkit-user-select: none; 
+		    -moz-user-select: none;
+		    -ms-user-select: none;
+		    user-select: none;
+			// 请抽出 end
 			&:hover{
 				background: #f5f5f5;
 				color: #000;
-			}	
+			}
+			&.active:hover{
+				background: #2196f3;
+				color: #fff;
+			}
 		}
 		.active{
 			background: #2196f3;
