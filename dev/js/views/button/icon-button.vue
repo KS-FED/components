@@ -18,20 +18,19 @@
 
   <br/>
   <div>
-    <button class="btn-primary btn-loading" type="button">
-    <div class="loader">
-        <div class="loader-inner line-spin-fade-loader">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+    <button class="btn-primary" type="button">
+      <div class="icon-loading">
+          <div class="line-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
       </div>
-
       btn-primary
     </button>
   </div>

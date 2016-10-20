@@ -27,7 +27,7 @@
         <br>
         <a class="h3" v-link="{name:'button'}">button（按钮）</a><br>
         <a class="h3" v-link="{name:'icon-button'}">icon-button（图标按钮）</a><br>
-        <!-- <a class="h3" v-link="{name:'layout'}">layout</a><br> -->
+        <a class="h3" v-link="{name:'layout'}">layout（布局）</a><br>
         <!-- <a class="h3" v-link="{name:'form'}">form</a><br> -->
         <!-- <a class="h3" v-link="{name:'components'}">components</a><br> -->
         <!-- <a class="h3" v-link="{name:'icons'}">icons</a><br> -->

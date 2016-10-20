@@ -20,6 +20,17 @@ export default function (Vue,router){
                 }
             },
 
+            // 布局
+            '/layout':{
+                name:'layout',
+                title:'布局',
+                component: function(resolve){
+                    require(['./views/layout/layout.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
             // 按钮
             '/button':{
                 name:'button',
