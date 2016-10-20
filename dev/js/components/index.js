@@ -1,5 +1,6 @@
-import page from './page2.vue'
-// console.log(page)
+import { page , pagegroup } from './pager/index.js'
+
 export default {
-    page
+    page,
+    pagegroup
 }

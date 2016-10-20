@@ -2,8 +2,37 @@
 	<div>
 		<h3>组件 部分</h3>
 		<br>
-		<page :page_current="page_current" :pages="pages"></page>
+		<page 
+			:page_current="page_current" 
+			:pages="pages"
+			:total="total"></page>
 		<br>
+		<pre>
+        	<code class="html">
+	        	&lt;page 
+				:page_current="page_current" 
+				:pages="pages"
+				:total="total"&gt;&lt;/page&gt;
+        		
+        	</code>		
+        </pre>	
+		<br>
+		<pagegroup 
+			:page_current="page_current" 
+			:pages="pages"
+			:total="total"
+			:page_sizes="[9,17,30]"></pagegroup>
+		<br>
+		<pre>
+        	<code class="html">
+	        	&lt;pagegroup 
+				:page_current="page_current" 
+				:pages="pages"
+				:total="total"
+				:page_sizes="[9,17,30]"&gt;&lt;/pagegroup&gt;
+        		
+        	</code>		
+        </pre>	
 		<hr>
 		<br>
 		<h3>css 部分</h3>
@@ -74,12 +103,7 @@
         </pre>
 
 		
-        <pre>
-        	<code class="html">
-        		&lt;page :page_current="page_current" :pages="pages"&gt;&lt;/page&gt;
-        		var a = {}
-        	</code>		
-        </pre>	
+        
 
 	</div>
 </template>
@@ -89,13 +113,15 @@
 		data (){
 			return {
 				page_current:2 ,
-				pages:7
+				pages:6,
+				total:0
 			}
 		},
 		ready (){
-			// setTimeout(()=>{
-			// 	this.pages = 7
-			// },3000)
+			setTimeout(()=>{
+				// this.pages = 9
+				this.total = 100
+			},3000)
 		}
 	}
 </script>
