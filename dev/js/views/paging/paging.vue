@@ -42,6 +42,9 @@
 		<br>
 		<h3>css 部分</h3>
 		<br>
+
+
+
 		<!-- 分页 -->
 		<div class="paging-box">
 			<div class="statistical">共<span>123456</span>条</div>
@@ -54,8 +57,8 @@
 				</select>
 				条
 			</div>
-			<ul class="col-auto">
-				<li class="frist">&lt;</li>
+			<ul class="paging col-auto">
+				<li class="disabled">&lt;</li>
 				<li class="active">1</li>
 				<li>2</li>
 				<li>3</li>
@@ -81,7 +84,7 @@
 				条
 			</div>
 			<ul class="col-auto">
-				<li class="frist">&lt;</li>
+				<li class="disabled">&lt;</li>
 				<li class="active">1</li>
 				<li>2</li>
 				<li>3</li>
@@ -89,7 +92,7 @@
 				<li>5</li>
 				<li>···</li>
 				<li>99</li>
-				<li>&gt;</li>
+				<li class="disabled">&gt;</li>
 			</ul>
 		</div>
         </code>
