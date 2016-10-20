@@ -1,13 +1,11 @@
 <template>
-    <div class="paging-box">
-        <ul v-show="total" class="col-auto" @click="click_page_mian($event)">
-            <li :class="{'disabled':page_current == 1}">&lt;</li>
-            <li v-for="i in pages_array"
-                track-by="$index"
-                :class="{'active':page_current == i}" v-text="i"></li>
-            <li :class="{'disabled':page_current == total_count}">&gt;</li>
-        </ul>
-    </div>
+    <ul v-show="total" class="paging" @click="click_page_mian($event)">
+        <li :class="{'disabled':page_current == 1}">&lt;</li>
+        <li v-for="i in pages_array"
+            track-by="$index"
+            :class="{'active':page_current == i}" v-text="i"></li>
+        <li :class="{'disabled':page_current == total_count}">&gt;</li>
+    </ul>
 </template>
 <script type="text/javascript">
     /**
