@@ -6,6 +6,7 @@
 			:page_current="page_current" 
 			:pages="pages"
 			:total="total"
+			:page_size="13"
 			v-on:current_change="current_change"></page>
 		<br>
 		<pre>
@@ -13,10 +14,41 @@
 	        	&lt;page 
 				:page_current="page_current" 
 				:pages="pages"
-				:total="total"&gt;&lt;/page&gt;
+				:total="total"
+				:page_size="13"
+				v-on:current_change="current_change"&gt;&lt;/page&gt;
         		
         	</code>		
-        </pre>	
+        </pre>
+        <div class="table-striped">
+        <table class="">
+        	<thead>
+        		<tr>
+					<th></th>
+					<th></th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        		<tr>
+        			<td>page_current</td><td>当前选中的分页值</td>
+        		</tr>
+        		<tr>
+        			<td>pages</td><td>显示分页的个数，为奇数</td>
+        		</tr>
+        		<tr>
+        			<td>total</td><td>数据总条数</td>
+        		</tr>
+        		<tr>
+        			<td>page_size</td><td>每页展示多少条数</td>
+        		</tr>
+        		<tr>
+        			<td>v-on:current_change</td><td>切换分页事件</td>
+        		</tr>
+        	</tbody>
+        </table>
+        </div>	
+		<br>
+		<br>
 		<br>
 		<pagegroup 
 			:page_current="page_current" 
@@ -38,38 +70,47 @@
         		
         	</code>		
         </pre>	
+        <div class="table-striped">
+        <table class="">
+        	<thead>
+        		<tr>
+					<th></th>
+					<th></th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        		<tr>
+        			<td>page_current</td><td>当前选中的分页值</td>
+        		</tr>
+        		<tr>
+        			<td>pages</td><td>显示分页的个数，为奇数</td>
+        		</tr>
+        		<tr>
+        			<td>total</td><td>数据总条数</td>
+        		</tr>
+        		<tr>
+        			<td>page_sizes</td><td>每页展示多少条数组 [10,20,30]</td>
+        		</tr>
+        		<tr>
+        			<td>v-on:current_change</td><td>切换分页事件</td>
+        		</tr>
+        		<tr>
+        			<td>v-on:size_change</td><td>改变每页展示条数事件</td>
+        		</tr>
+        	</tbody>
+        </table>
+        </div>
+		<hr>
 		<hr>
 		<br>
+
+
 		<h3>css 部分</h3>
 		<br>
 
 
 
 		<!-- 分页 -->
-		<div class="paging-box">
-			<div class="statistical">共<span>123456</span>条</div>
-			<div class="col">
-				每页
-				<select class="input">
-					<option>10</option>
-					<option>20</option>
-					<option>100</option>
-				</select>
-				条
-			</div>
-			<ul class="paging col-auto">
-				<li class="disabled">&lt;</li>
-				<li class="active">1</li>
-				<li>2</li>
-				<li>3</li>
-				<li>4</li>
-				<li>5</li>
-				<li>···</li>
-				<li>99</li>
-				<li>&gt;</li>
-			</ul>
-		</div>
-
 		<pre>
         <code class="html">
 		<div class="paging-box">
@@ -105,7 +146,7 @@
 			//......
 			.statistical{...}  
 			.active{...}       //  选中样式
-			.frist,.last{...}  //  首页/尾页样式
+			.disabled{...}  //  首页/尾页样式
 		}
         </code>
         </pre>
