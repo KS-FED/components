@@ -125,15 +125,18 @@
             }
         },
         watch: {
+            'page_size'(){
+                this.page_current = 1
+            },
             'total+page_size+pages'(){
                 this.init()
             },
             'page_current' (val){
+                this.$emit('current_change',val)
                 this.pages_array = this.get_page_array(val,this.pages,this.total_count)
             }
         },
         created (){
-
             this.init()
         }
     }

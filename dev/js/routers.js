@@ -294,7 +294,7 @@ export default function (Vue,router){
             
             Array.prototype.slice.call(document.querySelectorAll('pre code')).forEach(val=>{
                 if(val.className === 'html'){
-                    console.log(val.innerHTML)
+                    // console.log(val.innerHTML)
                     val.innerHTML = val.innerHTML.replace(/</g,'&lt;').replace(/>/g,'&gt;')
                 }
                 hljs.highlightBlock(val)

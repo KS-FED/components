@@ -6,7 +6,6 @@
             <select class="input" v-model="page_size">
                 <option 
                     v-for="i in page_sizes" :value="i">{{i}}</option>
-                
             </select>
             条
         </div>
@@ -14,7 +13,8 @@
             :page_current="page_current" 
             :pages="pages"
             :total="total"
-            :page_size="page_size"></page>
+            :page_size="page_size"
+            v-on:current_change="current_change"></page>
     </div>
 </template>
 <script type="text/javascript">
@@ -37,6 +37,9 @@
         methods: {
             init (){
                 this.page_size = this.page_sizes[0]
+            },
+            current_change(val){
+                this.$emit('size_change',val)
             }
         },
         created (){
@@ -44,7 +47,7 @@
         },
         watch:{
             page_size(val){
-                // console.log(val)
+                this.$emit('size_change',val)
             }
         }
     }
