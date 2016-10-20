@@ -12,7 +12,7 @@
 <script type="text/javascript">
     /**
      * <li class="frist">&lt;</li>
-     * className不合理 ，目的表达不可点击状态 ，'default' 相关比较合理
+     * className不合理 ，目的表达不可点击状态 ，'disabled' 相关比较合理
      */
     
     export default {
