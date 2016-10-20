@@ -1,5 +1,42 @@
+.paging{
+	li{
+		display: inline-block;
+		width: 36px;
+		text-align: center;
+		border-radius: 4px;
+		color: #000;
+		cursor: pointer;
+		// 请抽出 start
+		-webkit-user-select: none; 
+	    -moz-user-select: none;
+	    -ms-user-select: none;
+	    user-select: none;
+		// 请抽出 end
+		&:hover{
+			background: #f5f5f5;
+			color: #000;
+		}
+		&.active:hover{
+			background: #2196f3;
+			color: #fff;
+		}
+	}
+	.active{
+		background: #2196f3;
+		color: #fff;
+	}
+	.disabled{
+		color: #999;
+		cursor: not-allowed;
+		&:hover{
+			background: transparent;
+			color: #999;
+		}
+	}
+}
 .paging-box{
 	@extend .row-auto;
+	@extend .paging;
 	color: #999;
 	line-height: 36px;
 	.statistical{
@@ -8,37 +45,6 @@
 		span{
 			color: #000;
 			padding: 0 5px;
-		}
-	}
-	ul{
-		li{
-			display: inline-block;
-			width: 36px;
-			text-align: center;
-			border-radius: 4px;
-			color: #000;
-			cursor: pointer;
-			// 请抽出 start
-			-webkit-user-select: none; 
-		    -moz-user-select: none;
-		    -ms-user-select: none;
-		    user-select: none;
-			// 请抽出 end
-			&:hover{
-				background: #f5f5f5;
-				color: #000;
-			}
-			&.active:hover{
-				background: #2196f3;
-				color: #fff;
-			}
-		}
-		.active{
-			background: #2196f3;
-			color: #fff;
-		}
-		.frist,.last{
-			color: #999;
 		}
 	}
 }

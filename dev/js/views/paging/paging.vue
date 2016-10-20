@@ -107,6 +107,9 @@
 
 		<h3>css 部分</h3>
 		<br>
+
+
+
 		<!-- 分页 -->
 		<pre>
         <code class="html">
@@ -122,7 +125,7 @@
 				条
 			</div>
 			<ul class="col-auto">
-				<li class="frist">&lt;</li>
+				<li class="disabled">&lt;</li>
 				<li class="active">1</li>
 				<li>2</li>
 				<li>3</li>
@@ -130,7 +133,7 @@
 				<li>5</li>
 				<li>···</li>
 				<li>99</li>
-				<li>&gt;</li>
+				<li class="disabled">&gt;</li>
 			</ul>
 		</div>
         </code>
@@ -143,7 +146,7 @@
 			//......
 			.statistical{...}  
 			.active{...}       //  选中样式
-			.frist,.last{...}  //  首页/尾页样式
+			.disabled{...}  //  首页/尾页样式
 		}
         </code>
         </pre>
