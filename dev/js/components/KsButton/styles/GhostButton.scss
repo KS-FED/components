@@ -10,6 +10,14 @@
 @include b(KSGhostButton) {
   @extend %container;
 
+  // loading
+  @include e(loading) {
+    @extend %rotating;
+
+    position: absolute; top: 0;
+    fill: currentColor;
+  }
+
   // text
   @include e(text) {
     vertical-align: middle;

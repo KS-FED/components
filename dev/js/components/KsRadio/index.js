@@ -6,11 +6,13 @@
  * @date: 2016/10/14.
  */
 
-const NrRadio = require('./src/NrRadio.vue')
-const BtnRadio = require('./src/BtnRadio.vue')
-const RadioGroup = require('./src/RadioGroup.vue')
+import KsRadio from './src/NrRadio.vue'
+import KsBtnRadio from './src/BtnRadio.vue'
+import KsRadioGroup from './src/RadioGroup.vue'
 
-export default NrRadio
-export const KsRadio = NrRadio
-export const KsBtnRadio = BtnRadio
-export const KsRadioGroup = RadioGroup
+export default KsRadio
+export {
+  KsRadio,
+  KsBtnRadio,
+  KsRadioGroup
+}

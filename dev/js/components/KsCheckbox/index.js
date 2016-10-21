@@ -6,9 +6,11 @@
  * @date: 2016/10/11.
  */
 
-const NrCheckbox = require('./src/NrCheckbox.vue')
-const CheckboxGroup = require('./src/CheckboxGroup.vue')
+import KsCheckbox from './src/NrCheckbox.vue'
+import KsCheckboxGroup from './src/CheckboxGroup.vue'
 
-export default NrCheckbox
-export const KsCheckbox = NrCheckbox
-export const KsCheckboxGroup = CheckboxGroup
+export default KsCheckbox
+export {
+  KsCheckbox,
+  KsCheckboxGroup
+}

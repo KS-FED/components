@@ -13,12 +13,7 @@ export default {
     btnStyle () {
       return `min-width: ${this.width}px; height: ${this.height}px; 
       font-size: ${this.fontSize}px;`
-    },
-    /**
-     * @description loading size.
-     * @summary loading 圈圈的大小
-     */
-    loadingSize () { return Math.round(this.height / 2.1) }
+    }
   },
 
   props: {

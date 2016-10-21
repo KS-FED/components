@@ -6,7 +6,9 @@
  * @date: 2016/10/11.
  */
 
-const IosSwitch = require('./src/IosSwitch.vue')
+import KsSwitch from './src/IosSwitch.vue'
 
-export default IosSwitch
-export const KsSwitch = IosSwitch
+export default KsSwitch
+export {
+  KsSwitch
+}

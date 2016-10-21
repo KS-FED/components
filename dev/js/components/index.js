@@ -1,7 +1,8 @@
 import KsSwitch from './KSSwitch'
 import { KsCheckbox, KsCheckboxGroup } from './KSCheckbox'
 import { KsRadio, KsBtnRadio, KsRadioGroup } from './KsRadio'
-import { KsButton } from './ksButton'
+import { KsButton } from './KsButton'
+import { KsModal, KsModalEntity } from './KsModal'
 
 export default {
   KsSwitch,
@@ -10,5 +11,7 @@ export default {
   KsRadio,
   KsBtnRadio,
   KsRadioGroup,
-  KsButton
+  KsButton,
+  KsModal,
+  KsModalEntity
 }

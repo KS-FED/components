@@ -14,6 +14,7 @@
     </nr-button>
     <!-- 幽灵按钮 -->
     <ghost-button v-if="ghost" :native-type="nativeType" :disable="disable"
+                  :loading.sync="loading"
                   :height="sizeMapper[size] && sizeMapper[size].height"
                   :width="sizeMapper[size] && sizeMapper[size].width"
                   :font-size="sizeMapper[size] && sizeMapper[size].fSize"
