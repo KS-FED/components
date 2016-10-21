@@ -111,6 +111,12 @@
 
 
 		<!-- 分页 -->
+	    <ul class="paging">
+	        <li>&lt;</li>
+	        <li>1</li><li class="active">2</li><li>3</li><li>4</li><li>5</li><li>···</li><li>8</li>
+	        <li>&gt;</li>
+	    </ul>
+
 		<pre>
         <code class="html">
 		<div class="paging-box">
@@ -124,7 +130,7 @@
 				</select>
 				条
 			</div>
-			<ul class="col-auto">
+			<ul class="paging col-auto">
 				<li class="disabled">&lt;</li>
 				<li class="active">1</li>
 				<li>2</li>
