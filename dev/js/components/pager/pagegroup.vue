@@ -16,7 +16,6 @@
             :total="total"
             :page_size="page_size"
             v-on:current_change="current_change"></page>    
-        
     </div>
 </template>
 <script type="text/javascript">
