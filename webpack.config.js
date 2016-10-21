@@ -10,8 +10,6 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var _package = require('./package.json')
 
 
-console.log(require('lodash.curry'))
-
 console.log(process.env.NODE_ENV)
 
 module.exports = {

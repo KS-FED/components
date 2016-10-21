@@ -10,11 +10,13 @@
             条
         </div>
         <page 
+            class="col-auto"
             :page_current="page_current" 
             :pages="pages"
             :total="total"
             :page_size="page_size"
-            v-on:current_change="current_change"></page>
+            v-on:current_change="current_change"></page>    
+        
     </div>
 </template>
 <script type="text/javascript">
