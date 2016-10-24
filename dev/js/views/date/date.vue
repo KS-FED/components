@@ -1,5 +1,12 @@
 <template>
 	<div>
+	<h3>左右请添加 no-select 属性</h3>
+	<br><br>
+	<datepicker	></datepicker>
+	<br><br>
+	<hr>
+	<hr>
+	<h2>css 部分</h2>
 		<div class="date" style="margin-bottom: 400px;">
 			<div class="date-input">
 				<div class="col-auto"><i class="icon">&#xe615;</i></div>

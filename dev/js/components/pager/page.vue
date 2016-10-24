@@ -1,6 +1,6 @@
 <template>
     <div class="paging-box">
-        <ul v-show="total" class="col-auto" @click="click_page_mian($event)">
+        <ul v-show="total" class="col-auto" v-on:click="click_page_mian($event)">
             <li :class="{'disabled':page_current == 1}">&lt;</li>
             <li v-for="i in pages_array"
                 track-by="$index"
