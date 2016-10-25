@@ -2,7 +2,7 @@
 	<div>
 
     <div class="playground">
-
+      <ks-dialog-entity></ks-dialog-entity>
     </div>
 
 		<!-- 红色icon弹出框 -->

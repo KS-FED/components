@@ -103,5 +103,5 @@
 </script>
 
 <style lang="scss">
-  @import "../styles/modal";
+  /*@import "../../../../sass/base/components/dialog-icon";*/
 </style>
