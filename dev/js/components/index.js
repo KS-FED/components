@@ -5,8 +5,7 @@ import { KsButton } from './KsButton'
 import { KsModal, KsModalEntity } from './KsModal'
 import { page , pagegroup } from './pager/index.js'
 import { datepicker } from './dater/index.js'
-
-
+import { KsDialog, KsDialogEntity } from './KsDialog'
 
 
 export default {
@@ -21,5 +20,7 @@ export default {
   KsRadioGroup,
   KsButton,
   KsModal,
-  KsModalEntity
+  KsModalEntity,
+  KsDialog,
+  KsDialogEntity
 }

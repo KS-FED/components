@@ -37,7 +37,7 @@
     data () {
       return {
         sizeMapper: {
-          normal: { width: 90, height: 36, fSize: 14 },
+          normal: { width: 90, height: 36, fSize: 13 },
           middle: { width: 120, height: 42, fSize: 16 },
           large: { width: 160, height: 54, fSize: 18 }
         },

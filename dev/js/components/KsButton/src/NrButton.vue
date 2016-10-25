@@ -29,7 +29,7 @@
     <button class="KSNRButton__entity" :type="nativeType"
             :disabled="(disable || loading) && 'disabled'" :style="btnStyle"
     >
-      <svg class="KSNRButton__loading" v-if="loading" :width="loadingSize" :height="height" viewBox="0 0 16 16"
+      <svg class="KSNRButton__loading" v-if="loading" :width="loadingSize" :height="loadingSize" viewBox="0 0 16 16"
            preserveAspectRatio="xMidYMid meet"
            version="1.1" xmlns="http://www.w3.org/2000/svg">
         <g transform="scale(0.015625, 0.015625)">
@@ -38,9 +38,7 @@
           ></path>
         </g>
       </svg>
-      <span class="KSNRButton__text">
-        <slot></slot>
-      </span>
+      <slot></slot>
     </button>
   </div>
 </template>

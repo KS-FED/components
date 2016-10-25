@@ -46,7 +46,9 @@ $skin-size: 18px;                                               // 选择框大�
 
   @include e(text) {
     position: relative; display: inline-block;
-    padding: 8px 12px; border: 1px solid $primary-border-color;
+    min-width: 42px;
+    padding: 6px 10px; border: 1px solid $primary-border-color;
+    text-align: center;
     user-select: none; cursor: pointer;
 
     // hover 效果

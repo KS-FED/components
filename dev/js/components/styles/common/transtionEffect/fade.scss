@@ -19,7 +19,7 @@
         animationName: zoomIn,
         keyframes: (
           0: ( opacity: 0 ),
-          100: ( opacity: .5 )
+          100: ( opacity: .3 )
         ),
         duration: .3,
         timingFunction: ease,
@@ -34,7 +34,7 @@
       (
         animationName: zoomOut,
         keyframes: (
-          0: ( opacify: .5 ),
+          0: ( opacify: .3 ),
           100: ( opacity: 0 )
         ),
         duration: .3,

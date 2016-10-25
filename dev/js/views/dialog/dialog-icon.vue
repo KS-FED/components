@@ -1,5 +1,17 @@
 <template>
 	<div>
+
+    <div class="playground">
+      <ks-dialog-entity :mask="false">
+        <span slot="title">测试1 --- mask false</span>
+        <p slot="text" style="margin: 0">
+          测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容,
+          测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容
+          测试内容测试内容测试内容测试内容测试内
+        </p>
+      </ks-dialog-entity>
+    </div>
+
 		<!-- 红色icon弹出框 -->
 		<div class="dialog-icon-danger">
 			<div class="icon-bor"><i class="icon">&#xe60d;</i></div>
@@ -42,7 +54,7 @@
 				<button class="btn-warning">确定</button>
 			</div>
 		</div>
-		
+
 		<!-- 绿色icon弹出框 -->
 		<div class="dialog-icon-success">
 			<div class="icon-bor"><i class="icon">&#xe60b;</i></div>
