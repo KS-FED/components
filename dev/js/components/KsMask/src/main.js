@@ -59,7 +59,6 @@ let showNextMask = function () {
   }
 
   // 检测是否阻塞
-  console.trace()
   if (instance.show || currentMask || !maskQueue.length) {
     return
   }

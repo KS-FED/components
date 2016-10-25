@@ -32,7 +32,7 @@
         <article class="KSModal__content">
           {{ content }} <slot name="content"></slot>
         </article>
-        <footer class="KSModal__footer" :style="type !== 'normal' && 'padding-top: 0'">
+        <footer class="KSModal__footer">
           <aside class="KSModal__btnWarp">
             <ks-button :ghost="true" type="other" @click.stop="$emit('cancel')"
                        v-if="showCancelBtn" style="margin-right: 10px"

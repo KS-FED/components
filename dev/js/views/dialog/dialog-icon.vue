@@ -1,5 +1,10 @@
 <template>
 	<div>
+
+    <div class="playground">
+
+    </div>
+
 		<!-- 红色icon弹出框 -->
 		<div class="dialog-icon-danger">
 			<div class="icon-bor"><i class="icon">&#xe60d;</i></div>
@@ -42,7 +47,7 @@
 				<button class="btn-warning">确定</button>
 			</div>
 		</div>
-		
+
 		<!-- 绿色icon弹出框 -->
 		<div class="dialog-icon-success">
 			<div class="icon-bor"><i class="icon">&#xe60b;</i></div>

@@ -10,7 +10,7 @@
 
 .Zoom-transition {
   backface-visibility: hidden;
-  will-change: opacity, transform;
+  will-change: opacity;
 }
 
 .Zoom-enter {
