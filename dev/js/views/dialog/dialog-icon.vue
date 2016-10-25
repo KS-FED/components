@@ -2,7 +2,14 @@
 	<div>
 
     <div class="playground">
-
+      <ks-dialog-entity :mask="false">
+        <span slot="title">测试1 --- mask false</span>
+        <p slot="text" style="margin: 0">
+          测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容,
+          测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容
+          测试内容测试内容测试内容测试内容测试内
+        </p>
+      </ks-dialog-entity>
     </div>
 
 		<!-- 红色icon弹出框 -->

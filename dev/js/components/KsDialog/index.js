@@ -1,16 +1,16 @@
 /**
- * @description modal 组件
+ * @description dialog 组件
  * @summary
- *  我是一个单纯可爱的模态组件.
+ *  我是一个单纯可爱的弹窗组件.
  * @author: pkeros.
- * @date: 2016/10/19.
+ * @date: 2016/10/25.
  */
 
-import KsModal from './src/main'
-import KsModalEntity from './src/main.vue'
+import KsDialog from './src/main'
+import KsDialogEntity from './src/main.vue'
 
-export default KsModal
+export default KsDialog
 export {
-  KsModal,
-  KsModalEntity
+  KsDialog,
+  KsDialogEntity
 }
