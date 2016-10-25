@@ -26,7 +26,8 @@
     <div style="padding:20px 100px;">
         <br>
         <a class="h3" v-link="{name:'button'}">button（按钮）</a><br>
-        <!-- <a class="h3" v-link="{name:'layout'}">layout</a><br> -->
+        <a class="h3" v-link="{name:'icon-button'}">icon-button（图标按钮）</a><br>
+        <a class="h3" v-link="{name:'layout'}">layout（布局）</a><br>
         <!-- <a class="h3" v-link="{name:'form'}">form</a><br> -->
         <!-- <a class="h3" v-link="{name:'components'}">components</a><br> -->
         <!-- <a class="h3" v-link="{name:'icons'}">icons</a><br> -->
@@ -45,13 +46,26 @@
         <!-- <a class="h3" v-link="{name:'upload-input'}">upload-input</a><br> -->
         <a class="h3" v-link="{name:'paging'}">paging(分页)</a><br>
         <a class="h3" v-link="{name:'toast'}">toast(提示框)</a><br>
-        <a class="h3" v-link="{name:'dialog-content'}">dialog-content(内容弹出框)</a><br>
-        <a class="h3" v-link="{name:'dialog-icon'}">dialog-icon(图标弹出框)</a><br>
+        
         <a class="h3" v-link="{name:'date'}">date(日期)</a><br>
         <a class="h3" v-link="{name:'radio'}">radio(单选)</a><br>
         <a class="h3" v-link="{name:'checkbox'}">checkbox(多选)</a><br>
         <a class="h3" v-link="{name:'switch'}">switch(开关)</a><br>
-        <!-- <a class="h3" v-link="{name:'step'}">step(步骤)</a><br> -->
+        <a class="h3" v-link="{name:'step'}">step(步骤)</a><br>
+        <a class="h3" v-link="{name:'select'}">select(下拉)</a><br>
+        <a class="h3" v-link="{name:'search'}">search(搜索框)</a><br>
+        <a class="h3" v-link="{name:'time'}">time(时间)</a><br>
+
+        <a class="h3" v-link="{name:'dialog-content'}">dialog-content(内容弹出框)</a><br>
+        <a class="h3" v-link="{name:'dialog-icon'}">dialog-icon(图标弹出框)</a><br>
+        <a class="h3" v-link="{name:'tooltip'}">tooltip(文字提示)</a><br>
+        <a class="h3" v-link="{name:'popover'}">popover(弹出框)</a><br>
+        <a class="h3" v-link="{name:'popover-enter'}">popover-enter(弹出框-输入)</a><br>
+        <a class="h3" v-link="{name:'form-layout'}">form-layout(表单排版)</a><br>
+        <a class="h3" v-link="{name:'icon-loading'}">icon-loading(加载图标)</a><br>
+        <!-- <a class="h3" v-link="{name:'img-edit'}">img-edit(编辑图片)</a><br> -->
+
+
     </div>
 </template>
 <script >

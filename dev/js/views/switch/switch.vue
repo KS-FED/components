@@ -1,4 +1,5 @@
 <template>
+
 	<div style="text-align: center">
     <!-- IosSwitch -->
      <div style="margin-top: 15px">
@@ -205,3 +206,4 @@
     }
   }
 </script>
+

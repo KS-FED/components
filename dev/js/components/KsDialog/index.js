@@ -1,7 +1,7 @@
 /**
  * @description dialog 组件
  * @summary
- *  我是一个单纯可爱的弹窗组件.
+ *  我是一个单纯可爱的对话框组件.
  * @author: pkeros.
  * @date: 2016/10/25.
  */

@@ -9,6 +9,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 var _package = require('./package.json')
 
+
 console.log(process.env.NODE_ENV)
 
 module.exports = {
@@ -32,7 +33,7 @@ module.exports = {
             // {   test: /\.scss$/,
             //     loader: ExtractTextPlugin.extract('css!sass-loader-once') },
             {   test: /\.scss$/,
-                loader: 'css-loader!sass-loader' },
+                loader: ExtractTextPlugin.extract('css-loader!sass-loader') },
             {   test: /\.(tpl|html)$/,
                 loader: 'html'},
             {   test: /\.vue$/,
@@ -87,9 +88,9 @@ module.exports = {
 
     ],
   vue: {
-          loaders: {
-            scss: 'vue-style-loader!css-loader!sass-loader'
-          }
+    loaders: {
+      scss: 'vue-style-loader!css-loader!sass-loader'
+    }
   },
   resolve: {
       // extensions: ['', '.js', '.vue'],

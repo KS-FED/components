@@ -14,6 +14,5 @@
     }
 </script>
 <style lang="scss">
-  @import "../../sass/base/normalize";
-  @import "../../sass/app";
+  /*@import "../../sass/app";*/
 </style>

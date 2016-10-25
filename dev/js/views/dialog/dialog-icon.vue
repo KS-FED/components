@@ -2,7 +2,7 @@
 	<div>
 
     <div class="playground">
-      <ks-dialog-entity :mask="false">
+      <ks-dialog-entity @cancel="cancel" @confirm="ok">
         <span slot="title">测试1 --- mask false</span>
         <p slot="text" style="margin: 0">
           测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容,
@@ -10,6 +10,16 @@
           测试内容测试内容测试内容测试内容测试内
         </p>
       </ks-dialog-entity>
+
+
+      <ks-dialog-entity type="info" @cancel="cancel" @confirm="ok">
+        <span slot="title">测试1 --- info info</span>
+        <p slot="text" style="margin: 0">
+          infoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfo
+        </p>
+      </ks-dialog-entity>
+
+      <ks-button @click="callDialog">呼叫对话框</ks-button>
     </div>
 
 		<!-- 红色icon弹出框 -->
@@ -71,3 +81,30 @@
 		</div>
 	</div>
 </template>
+
+<script type="text/javascript">
+  import KsDialog from '../../components/KsDialog'
+
+  export default {
+    data () {
+      return { }
+    },
+
+    methods: {
+      cancel () { console.log('cancel') },
+      ok () { console.log('ok') },
+      callDialog () {
+        let m1 = KsDialog.info('alert1', 'alert', false, {
+          mask: false
+        })()
+        let m2 = KsDialog.success('alert2', 'alert')()
+        let m3 = KsDialog.warn('alert3', 'alert', {
+          mask: true
+        })()
+
+
+        console.log(m1, m2, m3)
+      }
+    }
+  }
+</script>
