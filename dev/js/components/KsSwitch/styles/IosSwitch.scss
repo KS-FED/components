@@ -34,7 +34,7 @@ $sizeMapper: (                                                  // 大小映射
   @include b(KSIosSwitch) {
     @include m($sizeName) {
       height: $height; width: $width;
-      line-height: $height;
+      line-height: $height; font-size: 12px;
 
       // 开关效果
       @include e(entity) {
@@ -63,18 +63,18 @@ $sizeMapper: (                                                  // 大小映射
   position: relative;
   display: inline-block;
   overflow: hidden; padding: 0 2px 2px 0;
-  vertical-align: middle; font-size: 14px;
+  vertical-align: middle; font-size: 12px;
 
   // checkbox 实体
   @include e(entity) {
     position: absolute; z-index: 1;
     top: 0; left: 0;
     height: 100%; width: 100%;
-    opacity: 0; cursor: pointer;
+    opacity: 0!important; cursor: pointer;
 
     // 禁用效果
-    &[disabled] + .KSIosSwitch__slide {
-      opacity: .6;
+    &[disabled] {
+      opacity: .6; cursor: not-allowed;
     }
 
     // 开关效果

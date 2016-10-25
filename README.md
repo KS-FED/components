@@ -13,3 +13,4 @@ https://ks-fed.github.io/components
 +[X] radioGroup 单选组
 +[X] mask 遮罩
 +[X] modal 模态框
++[X] dialog 弹窗

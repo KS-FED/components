@@ -39,12 +39,12 @@
 
 <style lang="scss">
   @import "../../styles/sassMagic/_sassMagic";
-  @import "../../styles/common/transtionEffect/fade";
+  /*@import "../../styles/common/transtionEffect/fade";*/
 
   @include b(KSMask) {
     @include e(container) {
       top: 0; right: 0; bottom: 0; left: 0;
-      opacity: .5;
+      opacity: .3;
     }
   }
 </style>

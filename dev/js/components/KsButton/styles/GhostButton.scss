@@ -14,7 +14,8 @@
   @include e(loading) {
     @extend %rotating;
 
-    position: absolute; top: 0;
+    display: inline-block;
+    vertical-align: -3px;
     fill: currentColor;
   }
 
