@@ -1,1 +1,8 @@
 /* base基础样式的覆盖 */
+
+/* button.scss */
+    // %btn-group{ border: 1px solid transparent; } 删除
+    // %btn-border{ border: 1px solid transparent; } 删除
+    // %btn-base{ @extend %btn-border; } 删除
+    // %btn-base-xl{ @extend %btn-border; } 删除
+    // %btn-base-xxl{ @extend %btn-border; } 删除

@@ -1,11 +1,18 @@
 
 /* eslint-disable no-unused-vars */
-// import scss from 'scss'
+import scss from 'scss'
 /* eslint-enable no-unused-vars */
 import VueRouter from 'vue-router'
 import { proxy_mock } from './config/index'
 import components from './components/index'
 import routers from './routers'
+
+// window._ = {
+//     curry : require('lodash.curry'),
+//     flowright : require('lodash.flowright')
+// }
+// console.log(_)
+
 Object.keys(components).forEach(k => {
     var a = Vue.component(k, components[k])
     console.log(a)

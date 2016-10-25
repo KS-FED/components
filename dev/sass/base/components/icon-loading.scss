@@ -1,0 +1,67 @@
+.icon-loading {
+    display: inline-block;
+    padding-left: 7px;
+    .line-fade {
+        position: relative;
+        width: 13px;
+        height: 11px;
+        div{
+            background-color: #fff;
+            border-radius: 2px;
+            margin: 2px;
+            position: absolute;
+            width: 2px;
+            height: 6px; 
+            &:nth-child(1) {
+                top: 7px;
+                left: 0;
+                animation: line-spin-fade-loader 1.2s 0.12s infinite ease-in-out; 
+            }
+            &:nth-child(2) {
+                top: 4.63636px;
+                left: 4.63636px;
+                transform: rotate(-45deg);
+                animation: line-spin-fade-loader 1.2s 0.24s infinite ease-in-out; 
+            }
+            &:nth-child(3) {
+                top: 0;
+                left: 7px;
+                transform: rotate(90deg);
+                animation: line-spin-fade-loader 1.2s 0.36s infinite ease-in-out; 
+            }
+            &:nth-child(4) {
+                top: -4.63636px;
+                left: 4.63636px;
+                transform: rotate(45deg);
+                animation: line-spin-fade-loader 1.2s 0.48s infinite ease-in-out; 
+            }
+            &:nth-child(5) {
+                top: -7px;
+                left: 0;
+                animation: line-spin-fade-loader 1.2s 0.6s infinite ease-in-out; 
+            }
+            &:nth-child(6) {
+                top: -4.63636px;
+                left: -4.63636px;
+                transform: rotate(-45deg);
+                animation: line-spin-fade-loader 1.2s 0.72s infinite ease-in-out; 
+            }
+            &:nth-child(7) {
+                top: 0;
+                left: -7px;
+                transform: rotate(90deg);
+                animation: line-spin-fade-loader 1.2s 0.84s infinite ease-in-out; 
+            }
+            &:nth-child(8) {
+                top: 4.63636px;
+                left: -4.63636px;
+                transform: rotate(45deg);
+                animation: line-spin-fade-loader 1.2s 0.96s infinite ease-in-out; 
+            }
+        }
+    }
+}
+@keyframes line-spin-fade-loader {
+    50% { opacity: 0.3; }
+    100% { opacity: 1; } 
+}

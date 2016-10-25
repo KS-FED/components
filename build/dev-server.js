@@ -37,7 +37,12 @@ var mixinWebpackConfig = merge(webpackConfig, {
         limit: 10000
       }
     },
-  ]
+  ],
+  vue: {
+    loaders: {
+      scss: 'vue-style-loader!css-loader!sass-loader'
+    }
+  }
 })
 
 webpack(mixinWebpackConfig, function (err, status) {
