@@ -176,16 +176,16 @@
                 console.log(prev)
                 console.log(cur)
                 console.log(next)
-                return 
+                // return 
                 // console.log(prev)
 
                 var get_prev_month_dates = this.get_prev_month_dates(prev.day,prev.dater)
                 var get_full_month_dates = this.get_full_month_dates(cur.dater)
 
                 var arr = [].concat(get_prev_month_dates).concat(get_full_month_dates)
-                var get_next_month_dates = this.get_next_month_dates(42-arr.length,next.dater)
+                var get_next_month_dates = this.get_next_month_dates(arr.length,next.dater)
                 this.dates = arr.concat(get_next_month_dates)
-                // console.log(arr.concat(get_next_month_dates))
+
             },
             /**
              * [get_month_last_day 返回月份的最后一天]
@@ -194,10 +194,11 @@
              */
             get_month_last_day (month = this.now.getMonth()){
                 // month = 
-                var date_temp = new Date() , date , year_month_str
-                    // year = this.now.getFullYear()
+                var date_temp = new Date() , 
+                    date , year = this.now.getFullYear()
+
                 date_temp.setMonth(month+1,1)
-                // date.setFullYear(year,month+1,1)
+                date_temp.setFullYear(year)
                 date = new Date(date_temp.getTime() - (24*60*60*1000))
 
                 // year_month_str = this.stringify(date).split('-').splice(0,2).join('-')
@@ -217,15 +218,16 @@
              * @param  {[type]} status ['disable','active']
              * @return {[type]}        []
              */
-            get_month_data (counts,dater,status){
-                var arr = [],date = dater.split('-')[2]
+            get_month_data (counts,date,year_month_str,status){
 
-                console.log(counts)
-                    // text = date.getDate()
+                var arr = [] , date_text
+
                 while(counts--){
+                    date_text = date --
                     arr.push({
-                        text:date --,
+                        text:date_text,
                         status:status,
+                        date:year_month_str + date_text 
                     })
                 }
                 return arr.reverse()
@@ -237,14 +239,18 @@
              * @return {[type]}       [description]
              */
             get_prev_month_dates (day,dater){
+                var date = dater.split('-'),
+                    year_month_str = date[0]+'-'+date[1]+'-'
 
-                return this.get_month_data((day+1)%7 || 7,dater,'disabled')
+                return this.get_month_data((day+1)%7 || 7,date[2],year_month_str,'disabled')
             },
             // 获取满月数据
-            get_full_month_dates (day,dater){
-                console.log(day)
-                var arr = this.get_month_data(day,dater)
-                var temp_date = new Date(this.now)
+            get_full_month_dates (dater){
+                var date = dater.split('-'),
+                    year_month_str = date[0]+'-'+date[1]+'-',
+                    arr = this.get_month_data(date[2],date[2],year_month_str),
+                    temp_date = new Date(this.now)
+
                 return arr.map((date)=>{
 
                     temp_date.setDate(date.text)
@@ -257,8 +263,11 @@
 
             },
             // 下个月数据
-            get_next_month_dates(day,dater) {
-                return this.get_month_data(day,dater,'disabled')
+            get_next_month_dates(counts,dater) {
+                var date = dater.split('-'),
+                    year_month_str = date[0]+'-'+date[1]+'-',
+                    counts = 42 - counts
+                return this.get_month_data(counts,counts,year_month_str,'disabled')
             }
         },
 
@@ -277,5 +286,5 @@
             document.removeEventListener('click', this.close, false);
         }
 
-    };
+    }
 </script>
