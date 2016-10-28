@@ -1,0 +1,11 @@
+//
+// @description: 按钮样式.
+// @author: pkeros.
+// @date: 2016/10/18.
+//
+
+@import "../../styles/sassMagic/_sassMagic";
+
+@include b(KSButton) {
+  display: inline-block;
+}

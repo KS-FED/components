@@ -1,0 +1,32 @@
+//
+// @description 普通按钮样式.
+// @author: pkeros.
+// @date: 2016/10/18.
+//
+
+@import "../../styles/sassMagic/_sassMagic";
+@import "./common/_btnCommon";
+
+@include b(KSNRButton) {
+  @extend %container;
+
+  // loading
+  @include e(loading) {
+    @extend %rotating;
+
+    display: inline-block;
+    vertical-align: -.3em;
+    fill: currentColor;
+  }
+
+  // text
+  @include e(text) {
+    vertical-align: middle;
+  }
+
+  @include e(entity) {
+    @extend %btnEntity;
+
+    color: #FFF;
+  }
+}

@@ -45,11 +45,11 @@
 <script>
     // dependent 'date-format-lite'
     /**
-        <datepicker 
+        <DatePicker 
             :readonly="true" 
             :value.sync="" 
             limit="yesterday" 
-            format="YYYY-MM-DD"></datepicker>
+            format="YYYY-MM-DD"></DatePicker>
      */
     export default {
         props: {

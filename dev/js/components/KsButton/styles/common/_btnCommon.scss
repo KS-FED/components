@@ -1,0 +1,54 @@
+//
+// @description: 按钮实体的公用的样式
+// @author: pkeros.
+// @date: 2016/10/18.
+//
+
+@import "../../../styles/sassMagic/_sassMagic";
+
+// 旋转动画
+%rotating {
+  // 旋转动画
+  @include animation (
+      (
+        animationName: rotating,
+        keyframes: (
+          0: ( transform: rotate(0deg) ),
+          100: ( transform: rotate(360deg) )
+        ),
+        duration: 1,
+        timingFunction: linear
+      )
+  );
+}
+
+// 组件容器样式
+%container {
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+}
+
+// 按钮实体样式
+%btnEntity {
+  min-width: 90px; outline: none;
+  border: 1px solid transparent; border-radius: 3px;
+  padding: 3px 18px;
+  white-space: nowrap; text-align: center;
+  cursor: pointer; -webkit-user-drag: none;
+  touch-action: manipulation; user-select: none;
+
+  // 按钮禁用
+  &[disabled] {
+    opacity: .7;
+    cursor: not-allowed;
+  }
+  // 垂直居中辅助元素
+  &:before {
+    content: '';
+    position: absolute; top: 0;
+    display: inline-block;
+    height: 100%; width: 1px;
+    //background: red;
+  }
+}

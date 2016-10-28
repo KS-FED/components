@@ -1,5 +1,7 @@
-import datepicker from './date-picker.vue'
+import DatePicker from './date-picker.vue'
+import DatePickerMulti from './date-picker-multi.vue'
 
 export {
-    datepicker
+    DatePicker,
+    DatePickerMulti
 }

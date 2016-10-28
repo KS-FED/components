@@ -1,0 +1,33 @@
+//
+// @description 幽灵按钮样式.
+// @author: pkeros.
+// @date: 2016/10/18.
+//
+
+@import "../../styles/sassMagic/_sassMagic";
+@import "./common/_btnCommon";
+
+@include b(KSGhostButton) {
+  @extend %container;
+
+  // loading
+  @include e(loading) {
+    @extend %rotating;
+
+    display: inline-block;
+    vertical-align: -3px;
+    fill: currentColor;
+  }
+
+  // text
+  @include e(text) {
+    vertical-align: middle;
+  }
+
+  @include e(entity) {
+    @extend %btnEntity;
+
+    &:active { background: #F5F5F5 }
+    &:not(:active) { background: transparent }
+  }
+}
