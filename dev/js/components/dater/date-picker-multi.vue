@@ -12,6 +12,7 @@
             <span v-for="day in days" :class="{'week':day=='六'||day=='日'}">{{day}}</span>
         </div>
         <div v-on:click="pick_date($event)">
+        <div>
         <div class="date-days"
             v-for="week in 6">
             <span 
@@ -21,6 +22,19 @@
                     'pass':dates[week * 7 + day] && dates[week * 7 + day].status=='disabled',
                     'active':dates[week * 7 + day] && dates[week * 7 + day].status=='active'}">
                     {{dates[week * 7 + day] && dates[week * 7 + day].text}}</span>
+        </div>
+        </div>
+        <div>
+        <div class="date-days"
+            v-for="week in 6">
+            <span 
+                v-for="day in  7"
+                :id="week * 7 + day"
+                :class="{
+                    'pass':dates[week * 7 + day] && dates[week * 7 + day].status=='disabled',
+                    'active':dates[week * 7 + day] && dates[week * 7 + day].status=='active'}">
+                    {{dates[week * 7 + day] && dates[week * 7 + day].text}}</span>
+        </div>
         </div>
         </div>
         <div class="date-btn">
