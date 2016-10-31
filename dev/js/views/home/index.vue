@@ -18,8 +18,8 @@
             <div>
                  <div>
                       <span></span>
-                  </div> 
-              </div>  
+                  </div>
+              </div>
         </code>
         </pre>
     </div> -->
@@ -37,7 +37,7 @@
         <!-- <a class="h3" v-link="{name:'validatorradio'}">validatorradio</a><br> -->
         <!-- <a class="h3" v-link="{name:'validatorex1'}">validatorex1</a><br> -->
         <!-- <a class="h3" v-link="{name:'form-unit'}">form-unit</a><br> -->
-        
+
         <!-- <a class="h3" v-link="{name:'search-condition'}">search-condition</a><br> -->
         <a class="h3" v-link="{name:'tab-bor'}">tab-bor（tab导航——边框）</a><br>
         <a class="h3" v-link="{name:'tab-bg'}">tab-bg（tab导航——背景）</a><br>
@@ -46,7 +46,7 @@
         <!-- <a class="h3" v-link="{name:'upload-input'}">upload-input</a><br> -->
         <a class="h3" v-link="{name:'paging'}">paging(分页)</a><br>
         <a class="h3" v-link="{name:'toast'}">toast(提示框)</a><br>
-        
+
         <a class="h3" v-link="{name:'date'}">date(日期)</a><br>
         <a class="h3" v-link="{name:'radio'}">radio(单选)</a><br>
         <a class="h3" v-link="{name:'checkbox'}">checkbox(多选)</a><br>
@@ -65,7 +65,7 @@
         <a class="h3" v-link="{name:'icon-loading'}">icon-loading(加载图标)</a><br>
         <!-- <a class="h3" v-link="{name:'img-edit'}">img-edit(编辑图片)</a><br> -->
 
-
+        <a class="h3" v-link="{name:'validation'}">validation</a><br>
     </div>
 </template>
 <script >

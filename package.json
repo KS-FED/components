@@ -60,6 +60,7 @@
     "vue-html-loader": "1.2.3",
     "vue-loader": "8.5.4",
     "vue-style-loader": "1.0.0",
+    "vue-validator": "^2.1.7",
     "webpack": "1.13.2",
     "webpack-merge": "^0.14.1"
   },
