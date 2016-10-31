@@ -25,7 +25,10 @@
 	display: inline-block;
     .date-bd{
     	@extend %col;
-    	border: 1px solid #e5e5e5;
+		border-top: 1px solid #e5e5e5;
+		border-bottom: 1px solid #e5e5e5;
+		&:first-child {border-left: 1px solid #e5e5e5;}
+		&:last-child {border-right: 1px solid #e5e5e5;}
 		width: 314px;
 	    background: #fff;
     	.date-head{

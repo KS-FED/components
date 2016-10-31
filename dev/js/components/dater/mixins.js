@@ -7,7 +7,7 @@ export default {
             value: { 
                 type: String, 
                 coerce(val) {
-                    // //console.log(val)
+                    // ////console.log(val)
                     if(val){
                         return val.slice(0,10)    
                     }else{
@@ -24,12 +24,12 @@ export default {
 
                 if(val == 'yesterday'){
                     time = new Date()
-                    //console.log(time.getMonth(),time.getDate(),time.add(-1, "days").getTime()  )   
+                    ////console.log(time.getMonth(),time.getDate(),time.add(-1, "days").getTime()  )   
                     return [{
                         min:time.add(0, "days").getTime()-3600000*24
                     }]               
                 }else{
-                    // //console.log(val,'===')
+                    // ////console.log(val,'===')
                     val && val.forEach((t)=>{
                         t.min = (new Date(t.min)).getTime()-3600000*24
                         t.max = (new Date(t.max)).getTime()
@@ -99,7 +99,7 @@ export default {
                 this.now = new Date(this.now);
             },
             pick_date (event) {
-                console.log(this.dates[event.target.id])
+                console.log(this.dates[event.target.id].split('_'))
 
                 // if( 'date-disable' == status) return
                 // this.show = false;
@@ -129,58 +129,61 @@ export default {
                     return map[str];
                 });
             },
-            get_dates (month = this.now.getMonth()){
-                // console.log(month)
-                var prev = this.get_month_last_day(month-1)
-                var cur = this.get_month_last_day(month)
-                var next = this.get_month_last_day(month+1)
+            get_dates (year = this.now.getFullYear(),month = this.now.getMonth()){
+
+                // //console.log(month)                
+                var pre_date = this.convert_year_month( year,month,'reduce' )
+                var date = this.convert_year_month( year,month )
+                var next_date = this.convert_year_month( year,month,'add' )
+
+                var prev = this.get_month_last_day( pre_date.year , pre_date.month )
+                var cur = this.get_month_last_day( date.year,date.month )
+                var next = this.get_month_last_day( next_date.year , next_date.month )
                 
-                console.log(prev)
-                console.log(cur)
-                console.log(next)
+                // //console.log(prev)
+                // //console.log(cur)
+                // //console.log(next)
                 // return 
-                // console.log(prev)
+                // //console.log(prev)
 
-                var get_prev_month_dates = this.get_prev_month_dates(prev.day,prev.dater)
-                var get_full_month_dates = this.get_full_month_dates(cur.dater)
+                var prev_month_dates = this.get_prev_month_dates( prev.day , prev.dater )
+                var full_month_dates = this.get_full_month_dates( cur.dater )
 
-                var arr = [].concat(get_prev_month_dates).concat(get_full_month_dates)
-                var get_next_month_dates = this.get_next_month_dates(arr.length,next.dater)
-                return arr.concat(get_next_month_dates)
+                var arr = [].concat( prev_month_dates ).concat( full_month_dates )
+                var next_month_dates = this.get_next_month_dates( arr.length , next.dater )
+                return arr.concat( next_month_dates )
 
             },
             /**
              * [get_month_last_day 返回月份的最后一天]
-             * @param  {[type]} month [月份]
+             * @param  {[type]} month [月份 0~11]
+             * @param  {[type]} year  []
              * @return {[type]}       {day:1~6、0 , date:1~31}
              */
-            get_month_last_day (month = this.now.getMonth()){
+            get_month_last_day ( year = this.now.getFullYear() , month = this.now.getMonth() ){
                 // month = 
-                var date_temp = new Date() , 
-                    date , year = this.now.getFullYear()
+                var  date , year = year , month = month+1 , date_temp
 
-                date_temp.setMonth(month+1,1)
-                date_temp.setFullYear(year)
+                // //console.log(year+'-'+month+'-'+1)
+                // date_temp = new Date(year+'-'+month+'-'+1)
+                date_temp = new Date()
+                date_temp.setFullYear(year,month,1)
                 date = new Date(date_temp.getTime() - (24*60*60*1000))
-
-                // year_month_str = this.stringify(date).split('-').splice(0,2).join('-')
-
+                
                 return {
                     day : date.getDay() || 7,
-                    // date : date.getDate(),
-                    dater : this.stringify(date),
-                    // year_month : year_month_str
+                    dater : this.stringify(date)
                 }
 
             },
             /**
-             * [get_month_data 获取月份数据]
+             * [get_month_dates 获取月份数据]
              * @param  {[type]} day    [周几 ]
              * @param  {[type]} date   [日期 31号]
              * @param  {[type]} status ['disable','active']
              * @return {[type]}        []
              */
-            get_month_data (counts,date,year_month_str,status){
+            get_month_dates (counts,date,year_month_str,status){
 
                 var arr = [] , date_text
 
@@ -204,18 +207,19 @@ export default {
                 var date = dater.split('-'),
                     year_month_str = date[0]+'-'+date[1]+'-'
 
-                return this.get_month_data((day+1)%7 || 7,date[2],year_month_str,'disabled')
+                return this.get_month_dates( (day+1)%7 || 7, date[2] , year_month_str , 'disabled' )
             },
             // 获取满月数据
             get_full_month_dates (dater){
                 var date = dater.split('-'),
                     year_month_str = date[0]+'-'+date[1]+'-',
-                    arr = this.get_month_data(date[2],date[2],year_month_str),
-                    temp_date = new Date(this.now)
+                    arr = this.get_month_dates( date[2] , date[2] , year_month_str ),
+                    temp_date = new Date( dater )
 
+                    // //console.log(dater)
                 return arr.map((date)=>{
 
-                    temp_date.setDate(date.text)
+                    temp_date.setDate( date.text )
                     if(this.stringify(temp_date) === this.value){
                         date.status = 'active'
                     }
@@ -229,13 +233,42 @@ export default {
                 var date = dater.split('-'),
                     year_month_str = date[0]+'-'+date[1]+'-',
                     counts = 42 - counts
-                return this.get_month_data(counts,counts,year_month_str,'disabled')
+                return this.get_month_dates(counts,counts,year_month_str,'disabled')
+            },
+            // 转换月份
+            convert_month(month){
+                month = month > 11 ? 0 
+                              : month < 0 
+                                      ? 11 : month
+                return month
+            },
+            /**
+             * [convert_year_month 转换年月]
+             * @param  {[type]} year  [any]
+             * @param  {[type]} month [0~11]
+             * @param  {[type]} type  [+,-]
+             * @return {[type]}       []
+             */
+            convert_year_month(year,month,type){
+                //console.log(year,month,type)
+                if('add' == type ){
+                    month+1 > 11 && (++ year)
+                    month = this.convert_month(month+1)
+                }else if('reduce' == type ){
+                    month-1 < 0 && (-- year)
+                    month = this.convert_month(month-1)
+                }else {
+                    month = this.convert_month(month)
+                }
+
+                return { year:year, month:month }
             }
         },
 
         created () {
-            // this.update()
+            console.log(this)
             this.value = this.value || this.stringify(this.now)
+            // //console.log(this.value)
             this.dates = this.get_dates()
             // this.now = this.parse(this.value) || this.parse(this.valueDefault) || new Date();
             // document.addEventListener('click', (e) => {

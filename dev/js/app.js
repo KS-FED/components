@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import scss from 'scss'
 /* eslint-enable no-unused-vars */
-import VueRouter from 'vue-router'
+import VueRouter from 'vue-router' 
 import { proxy_mock } from './config/index'
 import components from './components/index'
 import routers from './routers'
@@ -15,7 +15,7 @@ import routers from './routers'
 
 Object.keys(components).forEach(k => {
     var a = Vue.component(k, components[k])
-    console.log(a)
+    // console.log(a)
 })
 
 Vue.use(VueResource)
