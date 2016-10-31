@@ -99,7 +99,7 @@ export default {
                 this.now = new Date(this.now);
             },
             pick_date (event) {
-                console.log(this.dates[event.target.id].split('_'))
+                console.log(this.dates[event.target.id],(''+this.dates[event.target.id]).split('_')[1])
 
                 // if( 'date-disable' == status) return
                 // this.show = false;
