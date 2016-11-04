@@ -7,9 +7,11 @@
 	@extend .row-auto;
 	border: 1px solid #e5e5e5;
     border-radius: 4px;
-    i{
-    	padding: 11px;
-		border-right: 1px solid #e5e5e5;
+    .date-icon{
+    	border-right: 1px solid #e5e5e5;
+    	i{
+	    	padding: 11px;
+	    }
     }
     input{
     	height: 36px;
@@ -23,12 +25,18 @@
 %picker-wrap-use{
 	@extend %row;
 	display: inline-block;
+	margin-top: -1px;
     .date-bd{
     	@extend %col;
-		border-top: 1px solid #e5e5e5;
-		border-bottom: 1px solid #e5e5e5;
-		&:first-child {border-left: 1px solid #e5e5e5;}
-		&:last-child {border-right: 1px solid #e5e5e5;}
+
+		// border-top: 1px solid #e5e5e5;
+		// border-bottom: 1px solid #e5e5e5;
+		// &:first-child {border-left: 1px solid #e5e5e5;}
+		// &:last-child {border-right: 1px solid #e5e5e5;}
+
+    	border: 1px solid #e5e5e5;
+    	border-left: transparent;
+
 		width: 314px;
 	    background: #fff;
     	.date-head{
@@ -42,6 +50,7 @@
 	    	.year{ @extend .col-auto; }
 	    	.next{ text-align: right; }
 	    }
+	    
 	    .date-week,.date-days{
 	    	@extend .row;
 	    	padding: 0 32px;
@@ -60,18 +69,30 @@
 	    		border-radius: 4px;
 	    		&:hover{ background: #f5f5f5; }
 	    	}
-	    	.pass,.future{ color:#c8c8c8; }
+	    	.pass,.future,.collect{ color:#c8c8c8; }
 	    	.active{
 	    		color: #fff;
 	    		background: #2196F3;
 	    	}
+	    	.scope-bg{
+	    		background: #f5f5f5;
+	    		border-radius: 0;
+	    	}
 	    }
 	    .date-btn{
 	    	@extend .date-days;
-	    	margin-bottom: 20px;
-	    	.today{ color: #2196F3; }
+	    	.today,.reset{ color: #2196F3; }
 	    	.clear{ color: #F44336; }
+	    	.today,.clear,.reset,.collect{
+	    		&:hover{ background: transparent; }
+	    	}
+	    	.today,.clear{
+	    		padding-bottom: 20px;
+	    	}
 	    }
+    } 
+    .date-bd:first-child{
+    	border-left: 1px solid #e5e5e5;
     }
 }
 
@@ -90,7 +111,7 @@
 	.date-input{ @extend %icon-input; }
 	.picker-wrap{
 		@extend %picker-wrap-use;
-		margin: -1px 0 0 39px;
+		// margin: -1px 0 0 39px;
     	position: absolute;
 	}
 }
@@ -100,6 +121,27 @@
 	.picker-wrap{
 		@extend .picker-wrap;
 		.date-head .year{ color: #c8c8c8; }
+	}
+}
+
+// 日期默认样式——周——范围
+.date-scope{
+	@extend .date;
+	.date-input{
+		input{
+			text-align: center;
+			min-width: 100px;
+		}
+		.scope-icon{
+			color: #26c6da;
+		}
+	}
+	.date-btn{
+		margin-top: 20px;
+		border-top: 1px solid #e5e5e5;
+		.reset,.collect{
+			line-height: 44px;
+		}
 	}
 }
 

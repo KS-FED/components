@@ -160,8 +160,11 @@ export default {
 
                     dater = ym + '-' + date_text 
 
-                    if( dater === this.value || (this.range_daters && ~this.range_daters.indexOf(dater)) || status!='active'){
+                    if( dater === this.value || status!='active'){
                         status_val = status
+                    }else if(this.range_daters && ~this.range_daters.indexOf(dater)){
+                        status_val = (this.range_daters[0] == dater || this.range_daters[this.range_daters.length-1] == dater)
+                                        ? status : 'scope-bg'
                     }else{
                         status_val = ''
                     }

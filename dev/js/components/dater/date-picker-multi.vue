@@ -19,6 +19,7 @@
                     :id="_uid+'_'+(+week * 7 + day)+'_'+(dates[week * 7 + day] && dates[week * 7 + day].status)"
                     :class="{
                         'pass':dates[week * 7 + day] && dates[week * 7 + day].status=='disabled',
+                        'scope-bg':dates[week * 7 + day] && dates[week * 7 + day].status=='scope-bg',
                         'active':dates[week * 7 + day] && dates[week * 7 + day].status=='active'}">
                         {{dates[week * 7 + day] && +dates[week * 7 + day].datetext}}</span>
             </div>
@@ -47,6 +48,7 @@
                     :id="_uid+'_'+(42+week * 7 + day)+'_'+(next_dates[week * 7 + day] && next_dates[week * 7 + day].status)"
                     :class="{
                         'pass':next_dates[week * 7 + day] && next_dates[week * 7 + day].status=='disabled',
+                        'scope-bg':next_dates[week * 7 + day] && next_dates[week * 7 + day].status=='scope-bg',
                         'active':next_dates[week * 7 + day] && next_dates[week * 7 + day].status=='active'}">
                         {{next_dates[week * 7 + day] && +next_dates[week * 7 + day].datetext}}</span>
             </div>
