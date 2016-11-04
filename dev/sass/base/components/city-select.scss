@@ -1,6 +1,13 @@
-.city-select{
-	.city-input{@extend %icon-input;}
-	.city-bd{
+@include b(Ks-city-select) {
+	@include e(input) {
+		@extend %icon-input;
+		@include e(icon) {
+			@extend %col-auto;
+			border-right: 1px solid #e5e5e5;
+			i{ padding: 11px; }
+		}
+	}
+	@include e(bd) {
 		display: inline-block;
 	    border: 1px solid #e5e5e5;
 	    border-radius: 4px;
@@ -9,45 +16,44 @@
     	overflow-y: auto;
     	margin-top: -1px;
     	position: absolute;
-		.tab{
-			line-height: 40px;
-    		background: #f5f5f5;
-    		li{
-    			width: 33.1%;
-    			text-align: center;
-    			color: #2196f3;
-    			cursor: pointer;
-    		}
-    		.line{
-    			width: 1px;
-    			color:#d2d2d2;
-    		}
-    		.active{
-    			background: #fff;
-    			color: #444;
-    			font-weight: bold;
-    			& + .line{
-    				visibility: hidden;
-    			}
-    		}
+	}
+	@include e(tab) {
+		@extend %ib-w;
+		line-height: 40px;
+		background: #f5f5f5;
+		@include e(li) {
+			@extend %ib;
+			width: 33.09%;
+			text-align: center;
+			color: #2196f3;
+			cursor: pointer;
 		}
-		.list{
-			margin: 20px 20px 0;
-			td{
-				padding: 10px 20px;
-				cursor: pointer;
-				border:1px solid #fff;
-				&:hover{
-					background: #f5f5f5;
-					border:1px solid #e5e5e5;
-				}
+		@include e(line) {
+			width: 1px;
+			color:#d2d2d2;
+		}
+		@include e(active) {
+			background: #fff;
+			color: #444;
+			font-weight: bold;
+			& + .Ks-city-select__line { visibility: hidden; }
+		}
+	}
+	@include e(list) {
+		margin: 20px 20px 0;
+		td{
+			padding: 10px 20px;
+			cursor: pointer;
+			border:1px solid #fff;
+			&:hover{
+				background: #f5f5f5;
+				border:1px solid #e5e5e5;
 			}
-			.active{
-				background: #2196f3;
-			    border-radius: 4px;
-			    color: #fff;
-			}
-			
+		}
+		@include e(active) {
+			background: #2196f3;
+		    border-radius: 4px;
+		    color: #fff;
 		}
 	}
 }

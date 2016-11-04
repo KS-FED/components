@@ -35,3 +35,12 @@
 .ib {
     @extend %inline-block;
 }
+
+%ib-w {
+    @extend %inline-block-warp;
+}
+
+    /*pure-u*/
+%ib {
+    @extend %inline-block;
+}
