@@ -82,7 +82,7 @@
                 this.next_now.setMonth(this.next_now.getMonth() + flag,1)
                 this.next_now = new Date(this.next_now)
 
-                if(this.compared(this.stringify(this.next_now) , this.stringify(this.now))){
+                if(this.compared_month(this.stringify(this.next_now) , this.stringify(this.now))){
                     this.click_month(-1)
                 }
 
@@ -91,12 +91,18 @@
             click_month (flag) {
                 this.now.setMonth(this.now.getMonth() + flag,1)
                 this.now = new Date(this.now)
-                if(this.compared(this.stringify(this.next_now) , this.stringify(this.now))){
+                // console.log(this.stringify(this.next_now) , this.stringify(this.now))
+                if(this.compared_month(this.stringify(this.next_now) , this.stringify(this.now))){
                     this.click_next_month(1)
                 }
             },
             compared(val1,val2) {
                 return +val1.replace(/-/g,'') <= +val2.replace(/-/g,'')
+            },
+            compared_month(val1,val2) {
+                var val1 = this.split_ym(val1)
+                var val2 = this.split_ym(val2)
+                return +(val1.year+''+(val1.month+10)) <= +(val2.year+''+(val2.month+10))
             },
             pick_date (event) {
                 var id = event.target.id.split('_')
