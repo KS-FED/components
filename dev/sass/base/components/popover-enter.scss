@@ -1,24 +1,16 @@
-.popover-enter-top{
+@include b(Ks-popover-enter) {
 	@extend .popover-top;
 	display: inline-block;
-	.enter-input{
+	@include e(input) {
 		@extend .row-auto;
 		padding-top: 10px;
-		input{
-			width: 100%;
-		}
+		input{ width: 100%; }
 		button{
 			height: 36px;
     		box-sizing: border-box;
-    		i{
-			    font-size: 12px;
-    		}
-		}
-		.btn-primary{
-			margin: 0 10px;
+    		i{ font-size: 12px; }
 		}
 	}
-	p{
-		color: #c8c8c8;
-	}
+	@include e(btn-primary) { margin: 0 10px; }
+	p{ color: #c8c8c8; }
 }
