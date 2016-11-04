@@ -1,3 +1,128 @@
+<style>
+.datetime-picker {
+    position: relative;
+    display: inline-block;
+    font-family: "Segoe UI","Lucida Grande",Helvetica,Arial,"Microsoft YaHei";
+    -webkit-font-smoothing: antialiased;
+    color: #333;
+    width: 100%;
+}
+
+.datetime-picker * {
+    box-sizing: border-box;
+}
+
+.datetime-picker input {
+    width: 100%;
+    padding: 6px 12px;
+    height: 34px;
+    outline: 0 none;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.datetime-picker .picker-wrap {
+    position: absolute;
+    z-index: 1000;
+    width: 314px;
+    margin-top: 2px;
+    background-color: #fff;
+    box-shadow: 0 0 6px #ccc;
+    padding: 20px;
+}
+
+.datetime-picker table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: center;
+    font-size: 13px;
+}
+
+.datetime-picker tr {
+    height: 34px;
+    border: 0 none;
+}
+
+.datetime-picker th, .datetime-picker td {
+    user-select: none;
+    /*width: 34px;*/
+    height: 34px;
+    padding: 0;
+    border: 0 none;
+    line-height: 34px;
+    text-align: center;
+}
+
+.datetime-picker td {
+    cursor: pointer;
+}
+
+.datetime-picker td:hover {
+    background-color: #f0f0f0;
+    border-radius: 3px;
+}
+
+.datetime-picker td.date-pass, .datetime-picker td.date-future {
+    color: #aaa;
+}
+
+.datetime-picker td.date-active {
+    background-color: #2196F3;
+    color: #fff;
+    border-radius: 3px;
+}
+
+.datetime-picker .date-head {
+    text-align: center;
+    font-size: 14px;
+}
+
+.datetime-picker .date-days {
+    color: #c8c8c8;
+    font-size: 13px;
+}
+.week-days{
+    color: #ef5350;
+    font-weight: bold;
+}
+.datetime-picker .show-year {
+    display: inline-block;
+    min-width: 62px;
+    vertical-align: middle;
+}
+
+.datetime-picker .show-month {
+    display: inline-block;
+    min-width: 28px;
+    vertical-align: middle;
+}
+
+.datetime-picker .btn-prev,
+.datetime-picker .btn-next {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 10px;
+    vertical-align: middle;
+}
+
+.datetime-picker .btn-prev:hover,
+.datetime-picker .btn-next:hover {
+    background: rgba(16, 160, 234, 0.5);
+}
+
+.datetime-picker .close{
+    position: absolute;
+    top: 11px;
+    right:10px;
+    font-size: 12px;
+    line-height: 12px;
+    color: #C8C8C8;
+}
+.close:hover{
+    color: #777777;
+}
+</style>
 
 <template>
     <div class="datetime-picker" :style="{ width: width }">
@@ -6,7 +131,6 @@
             type="text"
             :style="styleObj"
             :readonly="readonly"
-            :disabled="disabled"
             :value="value"
             @click="show = !show">
             <a href="javacript:;" class="icon close" v-show="value" @click="clear()">&#xe611;</a>
@@ -34,7 +158,7 @@
                         <td v-for="j in 7"
                             :class="date[i * 7 + j] && date[i * 7 + j].status"
                             :date="date[i * 7 + j] && date[i * 7 + j].date"
-                            @click="pickDate(i * 7 + j , date[i * 7 + j] && date[i * 7 + j].status)">{{date[i * 7 + j] && date[i * 7 + j].text}}</td>
+                            @click="pickDate(i * 7 + j)">{{date[i * 7 + j] && date[i * 7 + j].text}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -43,58 +167,19 @@
 </template>
 
 <script>
-    // dependent 'date-format-lite'
-    /**
-        <DatePicker 
-            :readonly="true" 
-            :value.sync="" 
-            limit="yesterday" 
-            format="YYYY-MM-DD"></DatePicker>
-     */
     export default {
         props: {
+            multiple :{ type: Boolean, default: false },
             align:{type: String,default:'left'},
             width: { type: String},
             readonly: { type: Boolean, default: false },
-            disabled:{type: Boolean, default: false},
-            value: { 
-                type: String, 
-                coerce(val) {
-                    // //console.log(val)
-                    if(val){
-                        return val.slice(0,10)    
-                    }else{
-                        return val
-                    }
-                    
-                } 
-            },
+            value: { type: String, default: false },
             valueDefault: { type: String, default: '' },
-            format: { type: String, default: 'YYYY-MM-DD' },
-            limit:{coerce(val) {
-
-                var time = 0
-
-                if(val == 'yesterday'){
-                    time = new Date()
-                    //console.log(time.getMonth(),time.getDate(),time.add(-1, "days").getTime()  )   
-                    return [{
-                        min:time.add(0, "days").getTime()-3600000*24
-                    }]               
-                }else{
-                    // //console.log(val,'===')
-                    val && val.forEach((t)=>{
-                        t.min = (new Date(t.min)).getTime()-3600000*24
-                        t.max = (new Date(t.max)).getTime()
-                    })
-                }
-                return val
-                
-                
-            }}
+            format: { type: String, default: 'YYYY-MM-DD' }
         },
         data () {
-            
+            this.memory_date = []
+            this.range_date = []
             return {
                 align_style:this.align == 'left' ? '' : 'right:0',
                 show: false,
@@ -106,30 +191,13 @@
         },
         watch: {
             now () {
-                this.update()
+                this.update();
             },
             show () {
-                this.update()
+                this.update();
             }
         },
         methods: {
-            get_disable(val) {
-
-                var flag = false
-                if(!this.limit) return
-                
-                flag = this.limit.some((t)=>{
-                    if(t.min && t.max){
-                        if(val>=t.min && val<=t.max) return true
-                    }else if(t.min){
-                        if(val<=t.min) return true
-                    }else if(t.max){
-                        if(val>=t.max) return true
-                    }
-                })
-
-                return flag
-            },
             close () {
                 this.show = false;
             },
@@ -137,7 +205,7 @@
                 this.value = ''
             },
             update () {
-                // //console.log(this.now.getMonth())
+                // console.log(this.now.getMonth())
                 var arr = [];
                 var time = new Date(this.now);
                 time.setMonth(time.getMonth(), 1);           // the first day
@@ -146,12 +214,9 @@
                 time.setDate(0);                             // the last day
                 var lastDayCount = time.getDate();
                 for (let i = curFirstDay; i > 0; i--) {
-                    let tmpTime = new Date(time.getFullYear(), time.getMonth(), lastDayCount - i + 1)
-                    // //console.log(tmpTime.getTime())
-
                     arr.push({
                         text: lastDayCount - i + 1,
-                        time: tmpTime,
+                        time: new Date(time.getFullYear(), time.getMonth(), lastDayCount - i + 1),
                         status: 'date-pass'
                     });
                 }
@@ -163,14 +228,25 @@
                 for (let i = 0; i < curDayCount; i++) {
                     let tmpTime = new Date(time.getFullYear(), time.getMonth(), i + 1);
                     let status = '';
-                    this.stringify(tmpTime) === value && (status = 'date-active');
+                    let _value = this.stringify(tmpTime);
+                    let min = this.range_date[0]
+                    let max = this.range_date[1] || this.range_date[1]
+                    
+                    // 此处可优化
+                    // !~this.memory_date.indexOf(_value) && this.memory_date.push(_value)
+
+                    _value === value && (status = 'date-active')
+                    // console.log(this.range_date)
+                    if(this.multiple && min && max && this.compared(_value,min) && this.compared(max,_value)){
+                        status = 'date-active'
+                    }
                     arr.push({
                         text: i + 1,
                         time: tmpTime,
                         status: status
                     });
                 }
-
+                // console.log(this.memory_date)
                 var j = 1;
                 while (arr.length < 42) {
                     arr.push({
@@ -180,13 +256,7 @@
                     });
                     j++;
                 }
-                arr.forEach((t)=>{
-                    // //console.log(t.time.getTime())
-                    if(this.get_disable(t.time.getTime())){
-                        t.status = 'date-disable'    
-                    }
-                    
-                })
+                console.log(this.$parse(arr))
                 this.date = arr;
             },
             yearClick (flag) {
@@ -194,18 +264,35 @@
                 this.now = new Date(this.now);
             },
             monthClick (flag) {
-                // //console.log('当前月份',this.now.getMonth())
+                // console.log('当前月份',this.now.getMonth())
                 this.now.setMonth(this.now.getMonth() + flag,1);
-                // //console.log('当前月份',this.now.getMonth())
+                // console.log('当前月份',this.now.getMonth())
                 this.now = new Date(this.now);
             },
-            pickDate (index,status) {
-                // //console.log(this.date[index],status);
-                if( 'date-disable' == status) return
-                this.show = false;
-                this.now = new Date(this.date[index].time);
-                this.value = this.stringify();
+            pickDate (index) {
+                // console.log('pppp')
 
+                this.multiple || (this.show = false)
+                this.now = new Date(this.date[index].time)
+                this.value = this.stringify()
+                if(this.range_date.length >= 2){
+                     // this.memory_date = []
+                     this.range_date = []
+                 }
+                 if(this.range_date.length && this.compared(this.range_date[0],this.value)){
+                    this.range_date.unshift(this.value)
+                    console.log(this.range_date)
+                    return
+                 }
+                 this.range_date.push(this.value)    
+                
+                console.log(this.range_date)
+
+
+            },
+            compared(val1,val2) {
+                console.log(+val1.replace(/-/g,''),+val2.replace(/-/g,''))
+                return (+val1.replace(/-/g,'')) >= (+val2.replace(/-/g,''))
             },
             parse (str) {
                 var time = new Date(str);

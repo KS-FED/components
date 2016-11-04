@@ -3,9 +3,9 @@
 
 	<h3>左右请添加 no-select 属性</h3>
 	<br><br>
-	<date-picker></date-picker>
+	<date-picker value="2016-10-12" v-on:change="current_change"></date-picker>
 	<br><br>
-	<date-picker-multi></date-picker-multi>
+	<date-picker-multi v-on:change="current_change"></date-picker-multi>
 	<hr>
 	<hr>
 	<h2>css 部分</h2>
@@ -642,3 +642,15 @@
 
 	</div>
 </template>
+<script type="text/javascript">
+	export default {
+		data(){
+			return {}
+		},
+		methods:{
+			current_change(val){
+				console.log('current_change',val)
+			}
+		}
+	}
+</script>

@@ -21,7 +21,7 @@
                 :class="{
                     'pass':dates[week * 7 + day] && dates[week * 7 + day].status=='disabled',
                     'active':dates[week * 7 + day] && dates[week * 7 + day].status=='active'}">
-                    {{dates[week * 7 + day] && dates[week * 7 + day].text}}</span>
+                    {{dates[week * 7 + day] && +dates[week * 7 + day].datetext}}</span>
         </div>
         </div>
         <div class="date-btn">
@@ -35,6 +35,14 @@
 <script>
     import mixins from './mixins.js'
     export default {
-        mixins: [mixins]
+        mixins: [mixins],
+        methods:{
+            pick_date (event) {
+                var cur_date = this.dates[event.target.id.split('_')[1]]
+                this.value = cur_date.dater
+                this.now = new Date(cur_date.dater)
+                this.$emit('change',cur_date)
+            }
+        }
     }
 </script>
