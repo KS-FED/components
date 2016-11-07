@@ -12,8 +12,6 @@
 						</div>
 						<div class="KsTime__select__bd">
 							<ul class="KsSelect__list">
-								<li>下午</li>
-								<li>下午</li>
 								<li class="KsSelect__list--active">上午</li>
 								<li>下午</li>
 							</ul>
@@ -66,8 +64,6 @@
 								</div>
 								<div class="KsTime__select__bd">
 									<ul class="KsSelect__list">
-										<li>下午</li>
-										<li>下午</li>
 										<li class="KsSelect__list--active">上午</li>
 										<li>下午</li>
 									</ul>
