@@ -1,4 +1,4 @@
-@include b(Ks-city-select) {
+@include b(KsCitySelect) {
 	@include e(input) {
 		@extend %icon-input;
 		@include e(icon) {
@@ -36,7 +36,7 @@
 			background: #fff;
 			color: #444;
 			font-weight: bold;
-			& + .Ks-city-select__line { visibility: hidden; }
+			& + .KsCitySelect__line { visibility: hidden; }
 		}
 	}
 	@include e(list) {

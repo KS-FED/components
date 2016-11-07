@@ -18,7 +18,7 @@
 	left: 50%;
     transform: translate(-50%);
 }
-@include  b(Ks-tooltip-left) {
+@include  b(KsTooltipLeft) {
 	@extend %tooltip;
 	margin-right: 20px;
 	span{
@@ -27,7 +27,7 @@
     	top: 8px; 
 	}
 }
-@include b(Ks-tooltip-right) {
+@include b(KsTooltipRight) {
 	@extend %tooltip;
 	margin-left: 20px;
 	span{
@@ -36,7 +36,7 @@
     	top: 8px; 
 	}
 }
-@include b(Ks-tooltip-top) {
+@include b(KsTooltipTop) {
 	@extend %tooltip;
 	margin-bottom: 10px;
 	span{
@@ -45,7 +45,7 @@
 	    bottom: -20px;
 	}
 }
-@include b(Ks-tooltip-bottom) {
+@include b(KsTooltipBottom) {
 	@extend %tooltip;
 	margin-top: 10px; 
 	span{

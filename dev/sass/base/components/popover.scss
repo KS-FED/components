@@ -27,7 +27,7 @@
 	}
 }
 
-@include b(Ks-popover-top) {
+@include b(KsPopoverTop) {
 	@extend %tooltip;
 	@extend %popover;
     margin-bottom: 10px;
@@ -41,7 +41,7 @@
     	}
 	}
 }
-@include b(Ks-popover-bottom) {
+@include b(KsPopoverBottom) {
 	@extend %tooltip;
 	@extend %popover;
     margin-top: 10px;
@@ -55,7 +55,7 @@
     	}
 	}
 }
-@include b(Ks-popover-left) {
+@include b(KsPopoverLeft) {
 	@extend %tooltip;
 	@extend %popover;
     margin-right: 10px;
@@ -69,7 +69,7 @@
     	}
 	}
 }
-@include b(Ks-popover-right) {
+@include b(KsPopoverRight) {
 	@extend %tooltip;
 	@extend %popover;
     margin-left: 10px;
