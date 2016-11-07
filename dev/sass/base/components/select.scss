@@ -8,52 +8,56 @@
 	border: 1px solid #e5e5e5;
 	border-radius: 3px;
 }
-.select{
+%select-active{
+	background: #2196f3;
+	color: #fff;
+}
+@include b(KsSelect) {
 	display: inline-block;
 	font-size: 0;
-	.select-hd,.select-bd{
-		font-size: 13px;
-	}
-	.select-hd{
+	@include e(hd) {
 		@extend .row-auto;
 		@extend %select-lh;
 		@extend %select-bor;
     	cursor: pointer;
+    	font-size: 13px;
 	}
-	.select-bd{
+	@include e(bd) {
 		@extend %select-bor;
 		margin-top: -1px;
 		position: absolute;
 		background: #fff;
-		.select-list{
-			max-height: 204px;
-			overflow-y: auto;
-			li{
-				@extend %select-lh;
-				cursor: pointer;
-				&:hover{
-					background: #f5f5f5;
-				}
-			}
-			.active,.active:hover{
-				background: #2196f3;
-				color: #fff;
+		font-size: 13px;
+	}
+	@include e(list) {
+		max-height: 204px;
+		overflow-y: auto;
+		@include e(li) {
+			@extend %select-lh;
+			cursor: pointer;
+			&:hover{
+				background: #f5f5f5;
 			}
 		}
-		// 搜索框
-		.select-search{
-		    margin: 10px;
-		    .row-auto{
-		    	@extend %select-bor;
-		    	input{
-		    		@extend .col;
-		    		outline: 0;
-		    		border:0;
-		    	}
-		    }
-		    .row-auto,.row-auto input{
-		    	@extend %select-lh;
-		    }
+		@include e(active) {
+			@extend %select-active;
+			&:hover {
+				@extend %select-active;
+			}
 		}
+	}
+	// 搜索框
+	@include e(search) {
+	    margin: 10px;
+	    @include e(input) {
+	    	@extend %select-bor;
+	    	@extend %select-lh;
+	    	input{
+	    		@extend .col;
+	    		@extend %select-lh;
+	    		outline: 0;
+	    		border:0;
+	    	}
+	    }
 	}
 }
