@@ -1,5 +1,5 @@
 @include b(Ks-popover-enter) {
-	@extend .popover-top;
+	@extend .Ks-popover-top;
 	display: inline-block;
 	@include e(input) {
 		@extend .row-auto;

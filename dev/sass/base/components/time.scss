@@ -1,3 +1,26 @@
+%position-icon-bd{
+	border: 1px solid #e5e5e5;
+    margin: -1px 0 0 39px;
+    position: absolute;
+}
+%icon-input{
+	@extend .row-auto;
+	border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    i{
+    	padding: 11px;
+    }
+    input{
+    	height: 36px;
+	    border: 0;
+	    outline: 0;
+	    padding: 0 10px;
+	    width: 100%;
+		box-sizing: border-box;
+    }
+}
+
+
 .time{
 	.time-input{
 		@extend %icon-input;

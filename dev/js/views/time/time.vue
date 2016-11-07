@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div style="margin-left: 50px;">
 		<!-- 时间 -->
 		<div class="time" style="margin-bottom: 200px;">
 			<div class="time-input">

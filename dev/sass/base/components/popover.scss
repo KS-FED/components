@@ -4,9 +4,7 @@
     color: #444;
     padding: 10px 20px;
     max-width: 300px;
-    h2{
-    	font-size: 18px;
-    }
+    h2{ font-size: 18px; }
     span::after{
 		content: " ";
 	    position: absolute;
@@ -14,15 +12,13 @@
     }
 }
 
-%top-bottom-span{
+%popover-top-bottom-span{
 	transform: translate(-50%);
 	left: 50%;
-	&::after{
-	    left: -10px;
-	}
+	&::after{ left: -10px; }
 }
 
-%left-right-span {
+%popover-left-right-span {
 	transform: translate(0,-50%);
     top: 50%;
 	&::after{
@@ -31,16 +27,12 @@
 	}
 }
 
-.popover-top,.popover-bottom,.popover-left,.popover-right{
+@include b(Ks-popover-top) {
 	@extend %tooltip;
 	@extend %popover;
-}
-.popover-top span,.popover-bottom span{
-	@extend %top-bottom-span;
-}
-.popover-top{
     margin-bottom: 10px;
 	span{
+		@extend %popover-top-bottom-span;
 	    border-top: 10px solid #e5e5e5;
     	bottom: -20px;
     	&::after{
@@ -49,9 +41,12 @@
     	}
 	}
 }
-.popover-bottom{
+@include b(Ks-popover-bottom) {
+	@extend %tooltip;
+	@extend %popover;
     margin-top: 10px;
 	span{
+		@extend %popover-top-bottom-span;
 	    border-bottom: 10px solid #e5e5e5;
     	top: -20px;
     	&::after{
@@ -60,12 +55,12 @@
     	}
 	}
 }
-.popover-left span,.popover-right span{
-    @extend %left-right-span;
-}
-.popover-left{
+@include b(Ks-popover-left) {
+	@extend %tooltip;
+	@extend %popover;
     margin-right: 10px;
 	span{
+		@extend %popover-left-right-span;
 	    border-left: 10px solid #e5e5e5;
 	    right: -20px;
     	&::after{
@@ -74,9 +69,12 @@
     	}
 	}
 }
-.popover-right{
+@include b(Ks-popover-right) {
+	@extend %tooltip;
+	@extend %popover;
     margin-left: 10px;
 	span{
+		@extend %popover-left-right-span;
 	    border-right: 10px solid #e5e5e5;
 	    left: -20px;
     	&::after{
