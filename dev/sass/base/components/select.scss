@@ -32,17 +32,17 @@
 	@include e(list) {
 		max-height: 204px;
 		overflow-y: auto;
-		@include e(li) {
+		@include m(active) {
+			@extend %select-active;
+		}
+		.KsSelect__list--active:hover{
+			@extend %select-active;
+		}
+		li {
 			@extend %select-lh;
 			cursor: pointer;
 			&:hover{
 				background: #f5f5f5;
-			}
-		}
-		@include e(active) {
-			@extend %select-active;
-			&:hover {
-				@extend %select-active;
 			}
 		}
 	}

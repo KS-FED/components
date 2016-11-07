@@ -15,17 +15,19 @@
 					</div>
 				</div>
 				<ul class="KsSelect__list">
-					<li class="KsSelect__list__li">选择内容</li>
-					<li class="KsSelect__list__li KsSelect__list__active">选择内容选择内容</li>
-					<li class="KsSelect__list__li">选择内容</li>
-					<li class="KsSelect__list__li">选择内容</li>
-					<li class="KsSelect__list__li">选择内容</li>
-					<li class="KsSelect__list__li">选择内容</li>
-					<li class="KsSelect__list__li">选择内容</li>
-					<li class="KsSelect__list__li">选择内容</li>
-					<li class="KsSelect__list__li">选择内容</li>
-					<li class="KsSelect__list__li">选择内容</li>
-					<li class="KsSelect__list__li">选择内容</li>
+					<li>选择内容</li>
+					<li class="KsSelect__list--active">选择内容选择内容</li>
+					<li>选择内容</li>
+					<li>选择内容</li>
+					<li>选择内容</li>
+					<li>选择内容</li>
+					<li>选择内容</li>
+					<li>选择内容</li>
+					<li>选择内容</li>
+					<li>选择内容</li>
+					<li>选择内容</li>
+					<li>选择内容</li>
+					
 				</ul>
 			</div>
 		</div>

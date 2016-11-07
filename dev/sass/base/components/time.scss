@@ -1,53 +1,27 @@
-%position-icon-bd{
-	border: 1px solid #e5e5e5;
-    margin: -1px 0 0 39px;
-    position: absolute;
-}
-%icon-input{
-	@extend .row-auto;
-	border: 1px solid #e5e5e5;
-    border-radius: 4px;
-    i{
-    	padding: 11px;
-    }
-    input{
-    	height: 36px;
-	    border: 0;
-	    outline: 0;
-	    padding: 0 10px;
-	    width: 100%;
-		box-sizing: border-box;
-    }
-}
-
-
-.time{
-	.time-input{
+@include b(KsTime) {
+	@include e(input) {
 		@extend %icon-input;
-		i{
-			border-right: transparent;
+		.date-icon{ border-right: transparent; }
+	}
+	@include e(select) {
+		width: 86px;
+		@include e(hd) {
+			@extend .KsSelect__hd;
+			border-radius: 0;
+		    border-top: 0;
+		    border-bottom: 0;
+		    height: 36px;
+		    line-height: 36px;
 		}
-		.select{
-			display: block;
-			.select-hd,.select-bd{
-				width: 84px;
-			}
-			.select-hd{
-				border-radius: 0;
-			    border-top: 0;
-			    border-bottom: 0;
-			}
-			.select-bd{
-				margin-top: 0;
-			}
+		@include e(bd) {
+			@extend .KsSelect__bd;
+			width: 84px;
+			margin-top: 0;
 		}
 	}
-	.time-list{
-		@extend .select;
+	@include e(bd) {
+		@extend .KsSelect__bd;
 		display: block;
-		.select-bd{
-			@extend %position-icon-bd;
-			margin-left: 124px;
-		}
+		margin-left: 124px;
 	}
 }
