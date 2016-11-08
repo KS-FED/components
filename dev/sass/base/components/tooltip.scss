@@ -14,10 +14,12 @@
 	    position: absolute;
 	}
 }
-.tooltip-top,.tooltip-bottom,.tooltip-left,.tooltip-right{
-	@extend %tooltip;
+%tooltip-top-bottom{
+	left: 50%;
+    transform: translate(-50%);
 }
-.tooltip-left{
+@include  b(KsTooltipLeft) {
+	@extend %tooltip;
 	margin-right: 20px;
 	span{
 	    border-left: 10px solid #444;
@@ -25,7 +27,8 @@
     	top: 8px; 
 	}
 }
-.tooltip-right{
+@include b(KsTooltipRight) {
+	@extend %tooltip;
 	margin-left: 20px;
 	span{
 	    border-right: 10px solid #444;
@@ -33,20 +36,20 @@
     	top: 8px; 
 	}
 }
-.tooltip-top span,.tooltip-bottom span{
-    left: 50%;
-    transform: translate(-50%);
-}
-.tooltip-top{
+@include b(KsTooltipTop) {
+	@extend %tooltip;
 	margin-bottom: 10px;
 	span{
+		@extend %tooltip-top-bottom;
 	    border-top: 10px solid #444;
 	    bottom: -20px;
 	}
 }
-.tooltip-bottom{
+@include b(KsTooltipBottom) {
+	@extend %tooltip;
 	margin-top: 10px; 
 	span{
+		@extend %tooltip-top-bottom;
 	    border-bottom: 10px solid #444; 
 	    top: -20px;
 	}
