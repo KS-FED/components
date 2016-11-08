@@ -35,10 +35,7 @@ module.exports = {
             // {   test: /\.scss$/,
             //     loader: ExtractTextPlugin.extract('css!sass-loader-once') },
             {   test: /\.scss$/,
-                loader: ExtractTextPlugin.extract('css-loader!scss-root-loader!sass-loader') },
-                // loader: ExtractTextPlugin.extract('css-loader!sass-loader!sass-resources-loader!scss-root-loader') },
-                // loader: ExtractTextPlugin.extract('css-loader!sass-loader') },
-
+                loader: ExtractTextPlugin.extract('css-loader!ks-autobem-loader?type=css!sass-loader') },
             {   test: /\.(tpl|html)$/,
                 loader: 'html'},
             {   test: /\.vue$/,
@@ -98,8 +95,7 @@ module.exports = {
   vue: {
     loaders: {
       scss: 'vue-style-loader!css-loader!sass-loader',
-      html: 'vue-html-loader!tpl-root-loader'
-      // html: 'vue-html-loader'
+      html: 'vue-html-loader!ks-autobem-loader?type=html'
     }
   },
   resolve: {
@@ -108,5 +104,5 @@ module.exports = {
           scss: path.join(__dirname, './dev/sass/global.scss')
       }
   },
-  // devtool: process.env.NODE_ENV != 'pro' && 'source-map'
+  devtool: process.env.NODE_ENV != 'pro' && 'source-map'
 }
