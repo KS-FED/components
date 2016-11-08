@@ -6,6 +6,8 @@
 	<br><br>
 	<date-picker value="2016-10-12" v-on:change="current_change"></date-picker>
 	<br><br>
+	<date-picker value="2016-10-12" v-on:change="current_change"></date-picker>
+	<br><br>
 	<date-picker-multi v-on:change="current_change"></date-picker-multi>
 	<hr>
 	<hr>

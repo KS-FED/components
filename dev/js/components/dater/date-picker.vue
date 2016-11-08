@@ -1,3 +1,8 @@
+<style>
+    .year {
+        color:red;
+    }
+</style>
 <template>
 
     <div class="picker-wrap">
