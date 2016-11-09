@@ -59,7 +59,7 @@
 			<div class="_title">
 				<h2>标题</h2>
 			</div>
-			<div class="KsDialogIcon__content">
+			<div class="_content">
 				警告信息！警告信息！警告信息！
 			</div>
 			<div class="_operation">

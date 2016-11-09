@@ -12,30 +12,24 @@
 	background: #2196f3;
 	color: #fff;
 }
-@include b(KsSelect) {
-	display: inline-block;
-	font-size: 0;
-	@include e(hd) {
-		@extend .row-auto;
-		@extend %select-lh;
-		@extend %select-bor;
-    	cursor: pointer;
-    	font-size: 13px;
-	}
-	@include e(bd) {
-		@extend %select-bor;
-		margin-top: -1px;
-		position: absolute;
-		background: #fff;
-		font-size: 13px;
-	}
-	@include e(list) {
+%select-hd{
+	@extend .row-auto;
+	@extend %select-lh;
+	@extend %select-bor;
+	cursor: pointer;
+	font-size: 13px;
+}
+%select-bd{
+	@extend %select-bor;
+	margin-top: -1px;
+	position: absolute;
+	background: #fff;
+	font-size: 13px;
+
+	_list {
 		max-height: 204px;
 		overflow-y: auto;
-		@include m(active) {
-			@extend %select-active;
-		}
-		.KsSelect__list--active:hover{
+		.active,.active:hover {
 			@extend %select-active;
 		}
 		li {
@@ -46,18 +40,53 @@
 			}
 		}
 	}
-	// 搜索框
-	@include e(search) {
-	    margin: 10px;
-	    @include e(input) {
-	    	@extend %select-bor;
-	    	@extend %select-lh;
-	    	input{
-	    		@extend .col;
-	    		@extend %select-lh;
-	    		outline: 0;
-	    		border:0;
-	    	}
-	    }
+}
+.KsSelect {
+	display: inline-block;
+	font-size: 0;
+	_hd {
+		// @extend .row-auto;
+		// @extend %select-lh;
+		@extend %select-hd;
+    	// cursor: pointer;
+    	// font-size: 13px;
 	}
+	_bd {
+		@extend %select-bd;
+		// @extend %select-bor;
+		// margin-top: -1px;
+		// position: absolute;
+		// background: #fff;
+		// font-size: 13px;
+
+		// _list {
+		// 	max-height: 204px;
+		// 	overflow-y: auto;
+		// 	.active,.active:hover {
+		// 		@extend %select-active;
+		// 	}
+		// 	li {
+		// 		@extend %select-lh;
+		// 		cursor: pointer;
+		// 		&:hover{
+		// 			background: #f5f5f5;
+		// 		}
+		// 	}
+		// }
+		// 搜索框
+		_search {
+		    margin: 10px;
+		    _input {
+		    	@extend %select-bor;
+		    	@extend %select-lh;
+		    	input{
+		    		@extend .col;
+		    		@extend %select-lh;
+		    		outline: 0;
+		    		border:0;
+		    	}
+		    }
+		}
+	}
+	
 }
