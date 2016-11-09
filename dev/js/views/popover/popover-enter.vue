@@ -1,14 +1,14 @@
 <template>
 	<div>
 		<!-- 弹出框-输入 -->
-		<div class="KsPopoverEnter">
+		<div class="KsPopoverEnter" cid="KsPopoverEnter">
 			<h2>标题</h2>
-			<div class="KsPopoverEnter__input">
+			<div class="_input">
 				<div class="col">
 					<input type="text" class="input">
 				</div>
 				<div class="col-auto">
-					<button class="btn-primary KsPopoverEnter__btn-primary">
+					<button class="btn-primary">
 						<i class="icon">&#xe614;</i>
 					</button>
 				</div>

@@ -1,42 +1,71 @@
 /* 图标弹框 */
-@include b(KsDialogIcon) {
-	@extend %dialog;
+
+//bem 命名
+
+// @include b(KsDialogIcon) {
+// 	// @extend %dialog;
+// 	width: 420px;
+// 	padding-top: 20px;
+// 	border: 1px solid #eee;
+// 	// icon绿色
+// 	@include m(success){
+// 		@include e(icon-bor) {
+// 			border-color: #dbefdc;
+// 			i{ color: #4caf50; }
+// 		}
+// 	}
+// 	// icon红色
+// 	@include m(danger) {
+// 		@include e(icon-bor) {
+// 			border-color: #f44336;
+// 			i{ color: #f44336; }
+// 		}
+// 	}
+// 	// icon青色
+// 	@include m(info) {
+// 		@include e(icon-bor) {
+// 			border-color: #00BCD4;
+// 			i{ color: #00BCD4; }
+// 		}
+// 	}
+// 	// icon橙色
+// 	@include m(warning) {
+// 		@include e(icon-bor) {
+// 			border-color: #ff5722;
+// 			i{ color: #ff5722; }
+// 		}
+// 	}
+// 	@include e(title) {
+// 		h2{ font-size: 18px; margin-bottom: 10px; }
+// 	}
+// 	.KsDialogIcon__title,.KsDialogIcon__content,.KsDialogIcon__operation{ text-align: center; }
+// 	@include e(operation) { padding: 20px 0; }
+// 	@include e(icon-bor) {
+// 		line-height: 105px;
+// 		padding: 20px;
+// 	    border: 5px solid;
+// 	    width: 80px;
+// 	    text-align: center;
+// 	    border-radius: 50%;
+// 	    margin: 20px auto;
+// 	    height: 80px;
+// 	    i{ font-size: 50px; }
+// 	}
+// }
+
+
+%dialog-icon {
+	// @extend %dialog;
 	width: 420px;
 	padding-top: 20px;
-	// icon绿色
-	@include m(success){
-		@include e(icon-bor) {
-			border-color: #dbefdc;
-			i{ color: #4caf50; }
-		}
+	border: 1px solid #eee;
+	
+	_title h2 {
+		font-size: 18px; margin-bottom: 10px; 
 	}
-	// icon红色
-	@include m(danger) {
-		@include e(icon-bor) {
-			border-color: #f44336;
-			i{ color: #f44336; }
-		}
-	}
-	// icon青色
-	@include m(info) {
-		@include e(icon-bor) {
-			border-color: #00BCD4;
-			i{ color: #00BCD4; }
-		}
-	}
-	// icon橙色
-	@include m(warning) {
-		@include e(icon-bor) {
-			border-color: #ff5722;
-			i{ color: #ff5722; }
-		}
-	}
-	@include e(title) {
-		h2{ font-size: 18px; margin-bottom: 10px; }
-	}
-	.KsDialogIcon__title,.KsDialogIcon__content,.KsDialogIcon__operation{ text-align: center; }
-	@include e(operation) { padding: 20px 0; }
-	@include e(icon-bor) {
+	_title,_content,_operation{ text-align: center; }
+	_operation { padding: 20px 0; }
+	_icon-bor {
 		line-height: 105px;
 		padding: 20px;
 	    border: 5px solid;
@@ -46,5 +75,37 @@
 	    margin: 20px auto;
 	    height: 80px;
 	    i{ font-size: 50px; }
+	}
+}
+// icon绿色
+.KsDialogIcon-success {
+	@extend %dialog-icon;
+	_icon-bor {
+		border-color: #dbefdc;
+		i{ color: #4caf50; }
+	}
+}
+// icon红色
+.KsDialogIcon-danger {
+	@extend %dialog-icon;
+	_icon-bor {
+		border-color: #f44336;
+		i{ color: #f44336; }
+	}
+}
+// icon青色
+.KsDialogIcon-info {
+	@extend %dialog-icon;
+	_icon-bor {
+		border-color: #00BCD4;
+		i{ color: #00BCD4; }
+	}
+}
+// icon橙色
+.KsDialogIcon-warning {
+	@extend %dialog-icon;
+	_icon-bor {
+		border-color: #ff5722;
+		i{ color: #ff5722; }
 	}
 }

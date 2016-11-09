@@ -27,7 +27,68 @@
 	}
 }
 
-@include b(KsPopoverTop) {
+// bem命名
+
+// @include b(KsPopoverTop) {
+// 	@extend %tooltip;
+// 	@extend %popover;
+//     margin-bottom: 10px;
+// 	span{
+// 		@extend %popover-top-bottom-span;
+// 	    border-top: 10px solid #e5e5e5;
+//     	bottom: -20px;
+//     	&::after{
+// 		    border-top: 10px solid #fff;
+// 		    top: -12px;
+//     	}
+// 	}
+// }
+// @include b(KsPopoverBottom) {
+// 	@extend %tooltip;
+// 	@extend %popover;
+//     margin-top: 10px;
+// 	span{
+// 		@extend %popover-top-bottom-span;
+// 	    border-bottom: 10px solid #e5e5e5;
+//     	top: -20px;
+//     	&::after{
+// 		    border-bottom: 10px solid #fff;
+// 		    top: -8px;
+//     	}
+// 	}
+// }
+// @include b(KsPopoverLeft) {
+// 	@extend %tooltip;
+// 	@extend %popover;
+//     margin-right: 10px;
+// 	span{
+// 		@extend %popover-left-right-span;
+// 	    border-left: 10px solid #e5e5e5;
+// 	    right: -20px;
+//     	&::after{
+// 		    border-left: 10px solid #fff;
+// 		    right: -8px;
+//     	}
+// 	}
+// }
+// @include b(KsPopoverRight) {
+// 	@extend %tooltip;
+// 	@extend %popover;
+//     margin-left: 10px;
+// 	span{
+// 		@extend %popover-left-right-span;
+// 	    border-right: 10px solid #e5e5e5;
+// 	    left: -20px;
+//     	&::after{
+// 		    border-right: 10px solid #fff;
+// 		    left: -8px;
+//     	}
+// 	}
+// }
+
+
+
+.KsPopoverTop {
 	@extend %tooltip;
 	@extend %popover;
     margin-bottom: 10px;
@@ -41,7 +102,7 @@
     	}
 	}
 }
-@include b(KsPopoverBottom) {
+.KsPopoverBottom {
 	@extend %tooltip;
 	@extend %popover;
     margin-top: 10px;
@@ -55,7 +116,7 @@
     	}
 	}
 }
-@include b(KsPopoverLeft) {
+.KsPopoverLeft {
 	@extend %tooltip;
 	@extend %popover;
     margin-right: 10px;
@@ -69,7 +130,7 @@
     	}
 	}
 }
-@include b(KsPopoverRight) {
+.KsPopoverRight {
 	@extend %tooltip;
 	@extend %popover;
     margin-left: 10px;
@@ -83,7 +144,6 @@
     	}
 	}
 }
-
 
 
 

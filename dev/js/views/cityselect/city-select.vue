@@ -55,7 +55,7 @@
 </template> -->
 
 <template>
-	<div class="city-select" cid="city-select">
+	<div class="KsCitySelect" cid="KsCitySelect">
 		<div class="_input">
 			<div class="_icon"><i class="icon">&#xe668;</i></div>
 			<input type="text" class="col">

@@ -1,25 +1,25 @@
 <template>
 	<div style="margin: 100px;">
 		<!-- 弹出框 -->
-		<div class="KsPopoverTop">
+		<div class="KsPopoverTop" cid="KsPopoverTop">
 			<h2>标题</h2>
 			<p>Top Center 提示信息</p>
 			<span></span>
 		</div>
 
-		<div class="KsPopoverBottom">
+		<div class="KsPopoverBottom" cid="KsPopoverBottom">
 			<h2>标题</h2>
 			<p>Bottom Center 提示信息</p>
 			<span></span>
 		</div>
 
-		<div class="KsPopoverLeft">
+		<div class="KsPopoverLeft" cid="KsPopoverLeft">
 			<h2>标题</h2>
 			<p>Left Center 提示信息</p>
 			<span></span>
 		</div>
 
-		<div class="KsPopoverRight">
+		<div class="KsPopoverRight" cid="KsPopoverRight">
 			<h2>标题</h2>
 			<p>Right Center 提示信息</p>
 			<span></span>
@@ -27,25 +27,25 @@
 
 		<pre>
 			<code class="html">
-				<div class="KsPopoverTop">
+				<div class="KsPopoverTop" cid="KsPopoverTop">
 					<h2>标题</h2>
 					<p>Top Center 提示信息</p>
 					<span></span>
 				</div>
 
-				<div class="KsPopoverBottom">
+				<div class="KsPopoverBottom" cid="KsPopoverBottom">
 					<h2>标题</h2>
 					<p>Bottom Center 提示信息</p>
 					<span></span>
 				</div>
 
-				<div class="KsPopoverLeft">
+				<div class="KsPopoverLeft" cid="KsPopoverLeft">
 					<h2>标题</h2>
 					<p>Left Center 提示信息</p>
 					<span></span>
 				</div>
 
-				<div class="KsPopoverRight">
+				<div class="KsPopoverRight" cid="KsPopoverRight">
 					<h2>标题</h2>
 					<p>Right Center 提示信息</p>
 					<span></span>
