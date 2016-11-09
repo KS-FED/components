@@ -1,26 +1,60 @@
-@include b(KsTime) {
-	@include e(input) {
+// @include b(KsTime) {
+// 	@include e(input) {
+// 		@extend %icon-input;
+// 		.date-icon{ border-right: transparent; }
+// 	}
+// 	@include e(select) {
+// 		width: 86px;
+// 		@include e(hd) {
+// 			@extend .KsSelect__hd;
+// 			border-radius: 0;
+// 		    border-top: 0;
+// 		    border-bottom: 0;
+// 		    height: 36px;
+// 		    line-height: 36px;
+// 		}
+// 		@include e(bd) {
+// 			@extend .KsSelect__bd;
+// 			width: 84px;
+// 			margin-top: 0;
+// 		}
+// 	}
+// 	@include e(bd) {
+// 		@extend .KsSelect__bd;
+// 		display: block;
+// 		margin-left: 124px;
+// 	}
+// }
+
+
+
+.KsTime {
+	// background: red;
+	_input {
 		@extend %icon-input;
 		.date-icon{ border-right: transparent; }
-	}
-	@include e(select) {
-		width: 86px;
-		@include e(hd) {
-			@extend .KsSelect__hd;
-			border-radius: 0;
-		    border-top: 0;
-		    border-bottom: 0;
-		    height: 36px;
-		    line-height: 36px;
+
+		_select {
+			width: 86px;
+			position: relative;
+			_hd {
+				@extend %select-hd;
+				border-radius: 0;
+			    border-top: 0;
+			    border-bottom: 0;
+			    height: 36px;
+			    line-height: 36px;
+			}
+			_bd {
+				@extend %select-bd;
+				width: 84px;
+				margin-top: 0;
+			}
 		}
-		@include e(bd) {
-			@extend .KsSelect__bd;
-			width: 84px;
-			margin-top: 0;
-		}
 	}
-	@include e(bd) {
-		@extend .KsSelect__bd;
+	
+	_bd {
+		@extend %select-bd;
 		display: block;
 		margin-left: 124px;
 	}

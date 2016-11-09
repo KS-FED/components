@@ -86,14 +86,13 @@
 // 	}
 // }
 
-
+.KsPopoverTop,.KsPopoverBottom,.KsPopoverLeft,.KsPopoverRight{ @extend %tooltip; @extend %popover; }
+.KsPopoverTop span,.KsPopoverBottom span{ @extend %popover-top-bottom-span; }
+.KsPopoverLeft span,.KsPopoverRight span{ @extend %popover-left-right-span; }
 
 .KsPopoverTop {
-	@extend %tooltip;
-	@extend %popover;
     margin-bottom: 10px;
 	span{
-		@extend %popover-top-bottom-span;
 	    border-top: 10px solid #e5e5e5;
     	bottom: -20px;
     	&::after{
@@ -103,11 +102,8 @@
 	}
 }
 .KsPopoverBottom {
-	@extend %tooltip;
-	@extend %popover;
     margin-top: 10px;
 	span{
-		@extend %popover-top-bottom-span;
 	    border-bottom: 10px solid #e5e5e5;
     	top: -20px;
     	&::after{
@@ -117,11 +113,8 @@
 	}
 }
 .KsPopoverLeft {
-	@extend %tooltip;
-	@extend %popover;
     margin-right: 10px;
 	span{
-		@extend %popover-left-right-span;
 	    border-left: 10px solid #e5e5e5;
 	    right: -20px;
     	&::after{
@@ -131,11 +124,8 @@
 	}
 }
 .KsPopoverRight {
-	@extend %tooltip;
-	@extend %popover;
     margin-left: 10px;
 	span{
-		@extend %popover-left-right-span;
 	    border-right: 10px solid #e5e5e5;
 	    left: -20px;
     	&::after{

@@ -62,49 +62,50 @@
 		</div>
 		<div class="_bd">
 			<ul class="_tab">
-			    <li>省</li>
+			    <li class="_li">省</li>
 			    <li class="line"><a>|</a></li>
-			    <li>市</li>
+			    <li class="_li">市</li>
 			    <li class="line"><a>|</a></li>
-			    <li class="active">区/县</li>
+			    <li class="_li active">区/县</li>
 			</ul>
 			<table class="_list">
 				<tr>
-					<td>北京</td>
-					<td>天津</td>
-					<td class="active">河北</td>
-					<td>安徽</td>
+					<td class="_td">山西</td>
+					<td class="_td active">辽宁</td>
+					<td class="_td">新疆</td>
+					<td class="_td">山东</td>
 				</tr>
 				<tr>
-					<td>山西</td>
-					<td>辽宁</td>
-					<td>新疆</td>
-					<td>山东</td>
+					<td class="_td">山西</td>
+					<td class="_td">辽宁</td>
+					<td class="_td">新疆</td>
+					<td class="_td">山东</td>
 				</tr>
 				<tr>
-					<td>北京</td>
-					<td>天津</td>
-					<td>河北</td>
-					<td>安徽</td>
+					<td class="_td">山西</td>
+					<td class="_td">辽宁</td>
+					<td class="_td">新疆</td>
+					<td class="_td">山东</td>
 				</tr>
 				<tr>
-					<td>山西</td>
-					<td>辽宁</td>
-					<td>吉林</td>
-					<td>山东</td>
+					<td class="_td">山西</td>
+					<td class="_td">辽宁</td>
+					<td class="_td">新疆</td>
+					<td class="_td">山东</td>
 				</tr>
 				<tr>
-					<td>北京</td>
-					<td>天津</td>
-					<td>河北</td>
-					<td>安徽</td>
+					<td class="_td">山西</td>
+					<td class="_td">辽宁</td>
+					<td class="_td">新疆</td>
+					<td class="_td">山东</td>
 				</tr>
 				<tr>
-					<td>山西</td>
-					<td>辽宁</td>
-					<td>吉林</td>
-					<td>山东</td>
+					<td class="_td">山西</td>
+					<td class="_td">辽宁</td>
+					<td class="_td">新疆</td>
+					<td class="_td">山东</td>
 				</tr>
+				
 			</table>
 		</div>
 	</div>
