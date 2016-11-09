@@ -19,6 +19,7 @@
 
 /* 可操作提示框 */
 %toast-close{
+	@extend %row-auto;
 	border-radius: 4px;
 	line-height: 50px;
 	box-sizing: border-box;

@@ -11,13 +11,11 @@
 	    border: 10px solid transparent;
     }
 }
-
 %popover-top-bottom-span{
 	transform: translate(-50%);
 	left: 50%;
 	&::after{ left: -10px; }
 }
-
 %popover-left-right-span {
 	transform: translate(0,-50%);
     top: 50%;
@@ -26,66 +24,7 @@
 	    top: 50%;
 	}
 }
-
-// bem命名
-
-// @include b(KsPopoverTop) {
-// 	@extend %tooltip;
-// 	@extend %popover;
-//     margin-bottom: 10px;
-// 	span{
-// 		@extend %popover-top-bottom-span;
-// 	    border-top: 10px solid #e5e5e5;
-//     	bottom: -20px;
-//     	&::after{
-// 		    border-top: 10px solid #fff;
-// 		    top: -12px;
-//     	}
-// 	}
-// }
-// @include b(KsPopoverBottom) {
-// 	@extend %tooltip;
-// 	@extend %popover;
-//     margin-top: 10px;
-// 	span{
-// 		@extend %popover-top-bottom-span;
-// 	    border-bottom: 10px solid #e5e5e5;
-//     	top: -20px;
-//     	&::after{
-// 		    border-bottom: 10px solid #fff;
-// 		    top: -8px;
-//     	}
-// 	}
-// }
-// @include b(KsPopoverLeft) {
-// 	@extend %tooltip;
-// 	@extend %popover;
-//     margin-right: 10px;
-// 	span{
-// 		@extend %popover-left-right-span;
-// 	    border-left: 10px solid #e5e5e5;
-// 	    right: -20px;
-//     	&::after{
-// 		    border-left: 10px solid #fff;
-// 		    right: -8px;
-//     	}
-// 	}
-// }
-// @include b(KsPopoverRight) {
-// 	@extend %tooltip;
-// 	@extend %popover;
-//     margin-left: 10px;
-// 	span{
-// 		@extend %popover-left-right-span;
-// 	    border-right: 10px solid #e5e5e5;
-// 	    left: -20px;
-//     	&::after{
-// 		    border-right: 10px solid #fff;
-// 		    left: -8px;
-//     	}
-// 	}
-// }
-
+%KsPopoverTop{@extend .KsPopoverTop};
 .KsPopoverTop,.KsPopoverBottom,.KsPopoverLeft,.KsPopoverRight{ @extend %tooltip; @extend %popover; }
 .KsPopoverTop span,.KsPopoverBottom span{ @extend %popover-top-bottom-span; }
 .KsPopoverLeft span,.KsPopoverRight span{ @extend %popover-left-right-span; }
@@ -134,97 +73,3 @@
     	}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// .popover-top,.popover-bottom,.popover-left,.popover-right{
-// 	@extend %tooltip;
-// 	@extend %popover;
-// }
-// .popover-top span,.popover-bottom span{
-// 	transform: translate(-50%);
-// 	left: 50%;
-// 	&::after{
-// 	    left: -10px;
-// 	}
-// }
-// .popover-top{
-//     margin-bottom: 10px;
-// 	span{
-// 	    border-top: 10px solid #e5e5e5;
-//     	bottom: -20px;
-//     	&::after{
-// 		    border-top: 10px solid #fff;
-// 		    top: -12px;
-//     	}
-// 	}
-// }
-// .popover-bottom{
-//     margin-top: 10px;
-// 	span{
-// 	    border-bottom: 10px solid #e5e5e5;
-//     	top: -20px;
-//     	&::after{
-// 		    border-bottom: 10px solid #fff;
-// 		    top: -8px;
-//     	}
-// 	}
-// }
-// .popover-left span,.popover-right span{
-//     transform: translate(0,-50%);
-//     top: 50%;
-// 	&::after{
-// 	    transform: translate(0,-50%);
-// 	    top: 50%;
-// 	}
-// }
-// .popover-left{
-//     margin-right: 10px;
-// 	span{
-// 	    border-left: 10px solid #e5e5e5;
-// 	    right: -20px;
-//     	&::after{
-// 		    border-left: 10px solid #fff;
-// 		    right: -8px;
-//     	}
-// 	}
-// }
-// .popover-right{
-//     margin-left: 10px;
-// 	span{
-// 	    border-right: 10px solid #e5e5e5;
-// 	    left: -20px;
-//     	&::after{
-// 		    border-right: 10px solid #fff;
-// 		    left: -8px;
-//     	}
-// 	}
-// }

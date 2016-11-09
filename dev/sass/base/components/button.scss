@@ -5,6 +5,7 @@
     @include vendor(touch-action,manipulation)
 }       
 .btn {
+    %b{color:green;}
     @extend %user-select-none;
     @extend %touch-action-manipulation;
 	display: inline-block;

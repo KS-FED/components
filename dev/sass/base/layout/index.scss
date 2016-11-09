@@ -35,18 +35,20 @@
     vertical-align: top;
 }
 .col-auto{
-        @extend %col-auto;
-    }
-    .col-auto-top {
-        @extend %col-auto-top;
-    }
-.row-auto {
+    @extend %col-auto;
+}
+.col-auto-top {
+    @extend %col-auto-top;
+}
 
+
+.row-auto {
     @extend %row;
     table-layout: auto;
     
-    
-    
 }
-
+%row-auto {
+    @extend %row;
+    table-layout: auto;
+}
 
