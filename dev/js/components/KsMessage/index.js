@@ -1,16 +1,12 @@
 /**
- * @description dialog 组件
+ * @description message 组件
  * @summary
- *  我是一个单纯可爱的对话框组件.
+ *  一个类似 tips 的组件.
  * @author: pkeros.
- * @date: 2016/10/25.
+ * @date: 2016/11/8.
  */
 
-import KsDialog from './src/main'
-import KsDialogEntity from './src/main.vue'
+import KsMessage from './src/main'
 
-export default KsDialog
-export {
-  KsDialog,
-  KsDialogEntity
-}
+export default KsMessage
+export { KsMessage }
