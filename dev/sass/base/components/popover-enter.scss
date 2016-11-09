@@ -1,7 +1,7 @@
-@include b(KsPopoverEnter) {
+.KsPopoverEnter {
 	@extend .KsPopoverTop;
 	display: inline-block;
-	@include e(input) {
+	_input {
 		@extend .row-auto;
 		padding-top: 10px;
 		input{ width: 100%; }
@@ -11,6 +11,6 @@
     		i{ font-size: 12px; }
 		}
 	}
-	@include e(btn-primary) { margin: 0 10px; }
+	.btn-primary { margin: 0 10px; }
 	p{ color: #c8c8c8; }
 }
