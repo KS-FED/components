@@ -101,7 +101,7 @@ module.exports = {
   resolve: {
       // extensions: ['', '.js', '.vue'],
       alias: {
-          scss: path.join(__dirname, './dev/sass/global.scss')
+          scss: path.join(__dirname, './dev/sass/app.scss')
       }
   },
   devtool: process.env.NODE_ENV != 'pro' && 'source-map'
