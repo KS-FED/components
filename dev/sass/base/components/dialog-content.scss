@@ -1,13 +1,12 @@
 // 内容彈框
-.dialog-txt{
+%dialog-txt{
+	@extend %dialog;
 	width: 500px;
-	.title{
+	_title{
     	padding: 20px 20px 0;
     	position: relative;
-    	h2{
-    		padding-bottom: 20px;
-    	}
-    	.close{
+    	h2{ padding-bottom: 20px; }
+    	_close{
     		cursor: pointer;
     		position: absolute;
     		right: 20px;
@@ -16,75 +15,56 @@
 		    width: 20px;
 		    line-height: 20px;
 		    text-align: center;
-		    i{
-		    	font-size: 12px;
-		    }
+		    i{ font-size: 12px; }
     	}
     }
-	.operation{
+    _content{ padding: 20px; }
+	_operation{
     	text-align: right;
+    	padding: 20px;
     }
 }
-
-.dialog-bg-default{
-	@extend .dialog;
-	@extend .dialog-txt;
-	h2{
-		border-bottom: 1px solid #e0e0e0;
-	}
-	.close{
-	    &:hover{
-	    	background: #f44336;
-	    	border-radius: 10px;
-	    	i{
-	    		color: #fff;
-	    	}
-	    }
-	    &:active{
-	    	background: #e53935;
-	    }
+%dialog-bg{
+	@extend %dialog-txt;
+	_title{
+		background: #f44336;
+		h2,i{ color: #fff; }
 	}
 }
-.dialog-bg{
-	@extend .dialog;
-	@extend .dialog-txt;
-	.title{
-		background: #f44336;
-		h2,i{
-			color: #fff;
+
+/* 默认 */
+.KsDialogBg-default{
+	@extend %dialog-txt;
+	_title{
+		h2{ border-bottom: 1px solid #e0e0e0; }
+		_close{
+		    &:hover{
+		    	background: #f44336;
+		    	border-radius: 50%;
+		    	padding: 3px;
+		    	i{ color: #fff; }
+		    }
+		    &:active{ background: #e53935; }
 		}
 	}
 }
-
 /* 红色 */
-.dialog-bg-danger{
-	@extend .dialog-bg;
-	@extend .dialog-txt;
-	.title{
-		background: #f44336;
-	}
+.KsDialogBg-danger{
+	@extend %dialog-bg;
+	_title{ background: #f44336; }
 }
 /* 蓝色 */
-.dialog-bg-primary{
-	@extend .dialog-bg;
-	@extend .dialog-txt;
-	.title{
-		background: #2196f3;
-	}
+.KsDialogBg-primary{
+	@extend %dialog-bg;
+	_title{ background: #2196f3; }
 }
 /* 绿色 */
-.dialog-bg-success{
-	@extend .dialog-bg;
-	@extend .dialog-txt;
-	.title{
-		background: #4caf50;
-	}
+.KsDialogBg-success{
+	@extend %dialog-bg;
+	_title{ background: #4caf50; }
 }
 /* 橙色 */
-.dialog-bg-warning{
-	@extend .dialog-bg;
-	@extend .dialog-txt;
-	.title{
-		background: #ff5722;
-	}
+.KsDialogBg-warning{
+	@extend %dialog-bg;
+	_title{ background: #ff5722; }
 }
