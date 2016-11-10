@@ -54,6 +54,7 @@ let merge = function(target) {
  */
 let initInstance = function () {
   // 实例化 modal
+  debugger
   instance = new KsModalConstructor({
     el: document.createElement('div')
   })

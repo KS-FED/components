@@ -3,9 +3,9 @@ import { KsCheckbox, KsCheckboxGroup } from './KSCheckbox'
 import { KsRadio, KsBtnRadio, KsRadioGroup } from './KsRadio'
 import { KsButton } from './KsButton'
 import { KsModal, KsModalEntity } from './KsModal'
+import { KsDialog, KsDialogEntity } from './KsDialog'
 import { page , pagegroup } from './pager/index.js'
 import { DatePicker,DatePickerMulti } from './dater/index.js'
-import { KsDialog, KsDialogEntity } from './KsDialog'
 
 
 export default {
