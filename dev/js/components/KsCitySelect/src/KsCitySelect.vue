@@ -1,54 +1,24 @@
 <template>
-  <div class="KsCitySelect" cid="KsCitySelect">
+  <div class="KsCitySelect" cid="KsCitySelect" v-ks-click-outside="closeHandle">
     <div class="_input">
-      <div class="_icon"><i class="icon">&#xe668;</i></div>
-      <input type="text" class="col">
+      <div class="_icon">
+        <i class="icon">&#xe668;</i>
+      </div>
+      <input type="text" class="col" readonly v-model="selectedValue"
+             @click="show = true"
+      >
     </div>
-    <div class="_bd">
-      <ul class="_tab">
-        <li>省</li>
-        <li class="line"><a>|</a></li>
-        <li>市</li>
-        <li class="line"><a>|</a></li>
-        <li class="active">区/县</li>
+    <div class="_bd" v-if="show">
+      <ul class="_tab" @click.stop="tabSwitchHandle">
+        <li v-for="tab in tabs" :class="tabsCurrentActived === $index && 'active'"
+            :data-tabId="$index" v-text="tab"></li>
       </ul>
       <div class="_content">
-        <table class="_list">
-          <tr>
-            <td>山西</td>
-            <td class="active">辽宁</td>
-            <td>新疆</td>
-            <td>山东</td>
-          </tr>
-          <tr>
-            <td>山西</td>
-            <td>辽宁</td>
-            <td>新疆</td>
-            <td>山东</td>
-          </tr>
-          <tr>
-            <td>山西</td>
-            <td>辽宁</td>
-            <td>新疆</td>
-            <td>山东</td>
-          </tr>
-          <tr>
-            <td>山西</td>
-            <td>辽宁</td>
-            <td>新疆</td>
-            <td>山东</td>
-          </tr>
-          <tr>
-            <td>山西</td>
-            <td>辽宁</td>
-            <td>新疆</td>
-            <td>山东</td>
-          </tr>
-          <tr>
-            <td>山西</td>
-            <td>辽宁</td>
-            <td>新疆</td>
-            <td>山东</td>
+        <table class="_list" @click.stop="itemSelectedHandle">
+          <tr v-for="line in locationList">
+            <td v-for="location in line" v-text="location[itemTextKey]"
+                :data-itemId="$parent.$index*lineSize + $index"
+                :class="itemActivitedControl === $parent.$index*lineSize + $index && 'active'"></td>
           </tr>
         </table>
       </div>
@@ -57,56 +27,131 @@
 </template>
 
 <script type="text/javascript">
-  import KsButton from '../../KsButton'
-  import KsMask from '../../KsMask'
-
-  // 类型对色调映射
-  const colorMapper = {
-    primary: { hue: '#2196F3' },
-    success: { hue: '#4CAF50' },
-    info: { hue: '#00BCD4' },
-    warn: { hue: '#FF5722' },
-    danger: { hue: '#F44336' }
-  }
-
   export default {
-    name: 'KSDialog',
+    name: 'KSCitySelect',
 
     data () {
-      return { }
+      return {
+        show: false,
+        tabsCurrentActived: 0,
+        itemCurrentActived: [
+          {id: null, name: ''}
+        ]
+      }
     },
 
     props: {
-      showCancelBtn: { type: Boolean, default: true },
-      showCloseBtn: { type: Boolean, default: true },
-      cancelBtnText: { type: String, default: '取消' },
-      confirmBtnText: { type: String, default: '确定' },
-      title: { type: String, default: '' },
-      text: { type: String, default: '' },
-      type: { type: String, default: 'primary' },
-      mask: { type: Boolean, default: true },
-      show: { type: Boolean, default: true, towWay: true }
+      tabs: {type: Array, default() {return ['省', '市', '区/县']}},
+      dataSource: {type: Array, required: true, towWay: true},
+      lineSize: {type: Number, default: 4},
+      itemTextKey: {type: String, required: true}
+    },
+
+    methods: {
+      /**
+       * @description 处理选择器关闭.
+       */
+      closeHandle () {
+        if (this.show) { this.show = false }
+      },
+
+      /**
+       * @description 切换 `忒伯` 处理函数.
+       * @summary 此处绑定在 `ul` 利用事件冒泡是为了
+       *  减少事件绑定的数量.
+       * @param target {Element} Dom 对象.
+       */
+      tabSwitchHandle ({ target }) {
+        let tabId = target.getAttribute('data-tabId')
+
+        if (!tabId) { return }
+        // 切换 tab
+        this.tabsCurrentActived = Number(tabId)
+        this.$emit('switch', Number(tabId))
+      },
+
+      /**
+       * @description 地域选中处理函数.
+       * @summary 此处绑定在 `table` 利用事件冒泡是为了
+       *  减少事件绑定的数量.
+       * @param target {Element} Dom 对象.
+       */
+      itemSelectedHandle ({ target }) {
+        let itemId = target.getAttribute('data-itemId')
+        let curTab = this.tabsCurrentActived
+        let tabsSize = this.tabs.length
+
+        if (!itemId) { return }
+
+        // 选中 item 并且清除后续选中项
+        this.$set(`itemCurrentActived[${curTab}]`, {id: itemId, name: target.innerText})
+        for(let i = curTab + 1; i <= tabsSize - 1; i++) {
+          this.$set(`itemCurrentActived[${i}]`, {id: null, name: ''})
+        }
+        // 选中 tabs
+        this.tabsCurrentActived = (curTab >= tabsSize - 1) ? curTab : curTab + 1
+
+        this.$emit('switch', this.tabsCurrentActived)
+        this.$emit('selected', this.dataSource[Number(itemId)])
+      }
     },
 
     computed: {
       /**
-       * @description 当前模态的主色调
-       * @return {*} color
+       * @description 用于计算当前选中 item.
+       * @return {Boolean/Number} *
        */
-      hue () { return colorMapper[this.type] },
-    },
+      itemActivitedControl () {
+        const ica = 'itemCurrentActived'
+        const tca = 'tabsCurrentActived'
+        let hasSelect = this[ica][this[tca]] ? this[ica][this[tca]].id : false
 
-    watch: {
-      show (show) {
-        let maskConfig = this.maskConfig
+        if (!hasSelect) { return false }
+        return Number(hasSelect)
+      },
 
-        if (!show && maskConfig) {
-          KsMask.close()
+      /**
+       * @description 地域列表.
+       * @summary 就是当前需要显示的地域.
+       * @returns {Array}
+       */
+      locationList () {
+        let result = [], line = [], accumulator = -1
+
+        this.dataSource.forEach((item, i) => {
+          let hasBreakLine = ++accumulator === this.lineSize
+
+          // 检查是否需要折行
+          if (hasBreakLine) {
+            result.push(line); line = []; accumulator = 0
+          }
+          line.push(item)
+        })
+        result.push(line)
+
+        return result
+      },
+
+      /**
+       * @description 当前已经选中的值.
+       */
+      selectedValue () {
+        let result = []
+        let tabsSize = this.tabs.length
+        let ica = this.itemCurrentActived
+
+        for (let i = 0; i < tabsSize; i++) {
+          if (!ica[i]) { continue }
+          if (!ica[i].id) {
+            result.push('请选择')
+          } else {
+            result.push(ica[i].name)
+          }
         }
-      }
-    },
 
-    components: { KsButton, KsMask }
+        return result.join(' / ')
+      }
+    }
   }
 </script>
 
