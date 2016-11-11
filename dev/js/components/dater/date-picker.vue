@@ -30,8 +30,8 @@
         </div>
         </div>
         <div class="date-btn">
-            <span class="today">今天</span>
-            <span class="clear">清除</span>
+            <span class="today" v-on:click="today()">今天</span>
+            <span class="clear" v-on:click="clear()">清除</span>
         </div>
         </div>
     </div>
@@ -43,10 +43,26 @@
         mixins: [mixins],
         methods:{
             pick_date (event) {
-                var cur_date = this.dates[event.target.id.split('_')[1]]
+                var id = event.target.id.split('_')
+                var index = +id[1] 
+
+                if(isNaN(index) || id[2]=='disabled') return
+
+                var cur_date = this.dates[index]
                 this.value = cur_date.dater
                 this.now = new Date(cur_date.dater)
                 this.$emit('change',cur_date)
+            },
+            today() {
+                console.log('today')
+                this.value = this.stringify(new Date())
+                this.now = new Date()
+                console.log(this.value)
+            },
+            clear() {
+                // console.log('clear')
+                this.value = ''
+                this.now = new Date()
             }
         }
     }
