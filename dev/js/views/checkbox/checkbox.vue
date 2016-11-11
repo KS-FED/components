@@ -1,12 +1,12 @@
 <template>
-	<div style="text-align: left">
-	  <div style="margin-top: 20px">
+  <div style="text-align: left">
+    <div style="margin-top: 20px">
       <ks-checkbox></ks-checkbox>
     </div>
 
     <h4>KsCheckbox</h4>
     <div style="margin-top: 15px;">
-      <!-- 属性部分 -->
+      属性部分
       <h4 style="text-align: left">属性:</h4>
       <hr>
       <div class="table-striped">
@@ -64,7 +64,7 @@
         </table>
       </div>
 
-      <!-- Event 部分 -->
+      Event 部分
       <div style="margin-top: 10px;"></div>
       <h4 style="text-align: left">Event:</h4>
       <hr>
@@ -95,7 +95,7 @@
 
       <div style="margin-top: 10px;"></div>
 
-      <!-- 代码示例 -->
+      代码示例
       <div style="margin-top: 10px;"></div>
       <h4 style="text-align: left">代码示例:</h4>
       <hr>
@@ -116,7 +116,7 @@
     </ks-checkbox-group>
     <div style="margin-top: 15px;">
 
-      <!-- 属性部分 -->
+      属性部分
       <h4 style="text-align: left">属性:</h4>
       <hr>
       <div class="table-striped">
@@ -150,7 +150,7 @@
         </table>
       </div>
 
-      <!-- Event 部分 -->
+      Event 部分
       <div style="margin-top: 10px;"></div>
       <h4 style="text-align: left">Event:</h4>
       <hr>
@@ -179,7 +179,7 @@
         </table>
       </div>
 
-      <!-- 代码示例 -->
+      代码示例
       <div style="margin-top: 10px;"></div>
       <h4 style="text-align: left">代码示例:</h4>
       <hr>
@@ -194,18 +194,18 @@
       </pre>
     </div>
 
-		<div class="checkbox" style="margin-top: 30px">
-	        <input type="checkbox" id="checkboxMale">
-	        <label class="ui-checkbox" for="checkboxMale"></label>
-	        <label for="checkboxMale">男款</label>
+    <div class="checkbox" style="margin-top: 30px">
+          <input type="checkbox" id="checkboxMale">
+          <label class="ui-checkbox" for="checkboxMale"></label>
+          <label for="checkboxMale">男款</label>
 
-	        <input type="checkbox" id="checkboxFemale">
-	        <label class="ui-checkbox" for="checkboxFemale"></label>
-	        <label for="checkboxFemale">女款</label>
-	    </div>
+          <input type="checkbox" id="checkboxFemale">
+          <label class="ui-checkbox" for="checkboxFemale"></label>
+          <label for="checkboxFemale">女款</label>
+      </div>
 
-	    <pre>
-	    <code class="html">
+      <pre>
+      <code class="html">
         <div class="checkbox">
             <input type="checkbox" id="checkboxMale1">
             <label class="ui-checkbox" for="checkboxMale"></label>
@@ -215,21 +215,23 @@
             <label class="ui-checkbox" for="checkboxFemale"></label>
             <label for="checkboxFemale">女款</label>
         </div>
-	    </code>
-	    </pre>
+      </code>
+      </pre>
 
   <pre>
-	    <code class="scss">
+      <code class="scss">
         // 多选组件
         .checkbox {
           // .....
           .ui-checkbox {...} // 未选中样式
           .ui-checkbox::before {...} // 选中样式
         }
-	    </code>
-	    </pre>
-	</div>
+      </code>
+      </pre>
+  </div>
 </template>
+
+
 
 <script>
   export default{

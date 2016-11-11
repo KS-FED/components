@@ -6,7 +6,7 @@
 
     <h4>KsRadio</h4>
     <div style="margin-top: 15px;">
-      <!-- 属性部分 -->
+      属性部分
       <h4 style="text-align: left">属性:</h4>
       <hr>
       <div class="table-striped">
@@ -56,10 +56,8 @@
             <td>属性, 给定默认选中项</td>
             <td>Boolean</td>
             <td>
-              <!--
-                以下 name 都为 TEST 同时设置了 checked defChecked checked 值为 1, 选中为 3 也就是最后一个,
+              以下 name 都为 TEST 同时设置了 checked defChecked checked 值为 1, 选中为 3 也就是最后一个,
                 defChecked 权重是大于 checked 的, 在设置 defChecked checked 的值也会变成设置 defChecked 组件的 value
-              -->
               <ks-radio color="#00BCD4":checked.sync="checked1" :value="1" name="TEST">TEST</ks-radio><br>
               <ks-radio color="#2196F3":checked.sync="checked1" :value="2" name="TEST">TEST, TEST</ks-radio><br>
               <ks-radio color="#F44336":checked.sync="checked1" :value="3" :def-checked="true" name="TEST">TEST, TEST, TEST</ks-radio><br>
@@ -84,7 +82,7 @@
         </table>
       </div>
 
-      <!-- 代码示例 -->
+      代码示例
       <div style="margin-top: 10px;"></div>
       <h4 style="text-align: left">代码示例:</h4>
       <hr>
@@ -104,7 +102,7 @@
     <h4>KsBtnRadio</h4>
     <div style="margin-top: 15px;">
 
-      <!-- btn样式的Radio -->
+      btn样式的Radio
       <ks-radio-group :v-model.sync="checkboxList" @change="changeHandle">
         <ks-btn-radio name="TEST" value="132" :def-checked="true">测试</ks-btn-radio>
         <ks-btn-radio name="TEST" value="456">TEST2</ks-btn-radio>
@@ -112,7 +110,7 @@
         <ks-btn-radio name="TEST" value="789">TEST3</ks-btn-radio>
       </ks-radio-group>
 
-      <!-- 代码示例 -->
+      代码示例
       <div style="margin-top: 10px;"></div>
       <h4 style="text-align: left">代码示例:</h4>
       <hr>
@@ -137,7 +135,7 @@
     </ks-radio-group>
     <div style="margin-top: 15px;">
 
-      <!-- 属性部分 -->
+      属性部分
       <h4 style="text-align: left">属性:</h4>
       <hr>
       <div class="table-striped">
@@ -171,7 +169,7 @@
         </table>
       </div>
 
-      <!-- Event 部分 -->
+      Event 部分
       <div style="margin-top: 10px;"></div>
       <h4 style="text-align: left">Event:</h4>
       <hr>
@@ -200,7 +198,7 @@
         </table>
       </div>
 
-      <!-- 代码示例 -->
+      代码示例
       <div style="margin-top: 10px;"></div>
       <h4 style="text-align: left">代码示例:</h4>
       <hr>
@@ -215,7 +213,7 @@
       </pre>
     </div>
 
-    <div class="radio">
+    <div class="KsRadio">
       <input type="radio" id="radioMale1" name="type">
       <label class="ui-radio" for="radioMale1"></label>
       <label for="radioMale">男款</label>
@@ -226,28 +224,28 @@
     </div>
 
     <pre>
-	    <code class="html">
-		<div class="radio">
-		    <input type="radio" id="radioMale" name="type">
-		    <label class="ui-radio" for="radioMale"></label>
-		    <label for="radioMale">男款</label>
+      <code class="html">
+    <div class="radio">
+        <input type="radio" id="radioMale" name="type">
+        <label class="ui-radio" for="radioMale"></label>
+        <label for="radioMale">男款</label>
 
-		    <input type="radio" id="radioFemale" name="type">
-		    <label class="ui-radio" for="radioFemale"></label>
-		    <label for="radioFemale">女款</label>
-		</div>
-	    </code>
-	    </pre>
+        <input type="radio" id="radioFemale" name="type">
+        <label class="ui-radio" for="radioFemale"></label>
+        <label for="radioFemale">女款</label>
+    </div>
+      </code>
+      </pre>
 
     <pre>
-	    <code class="scss">
-	        // 单选组件
-	        .radio {
-	            // .....
-	            .ui-radio {...} // 未选中样式
-	            .ui-radio::before {...} // 选中样式
-	        }
-	    </code>
+      <code class="scss">
+          // 单选组件
+          .radio {
+              // .....
+              .ui-radio {...} // 未选中样式
+              .ui-radio::before {...} // 选中样式
+          }
+      </code>
     </pre>
   </div>
 </template>
