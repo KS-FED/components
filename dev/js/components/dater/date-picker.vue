@@ -54,15 +54,15 @@
                 this.$emit('change',cur_date)
             },
             today() {
-                console.log('today')
+                // console.log('today')
                 this.value = this.stringify(new Date())
                 this.now = new Date()
-                console.log(this.value)
             },
             clear() {
                 // console.log('clear')
+                var value_temp = this.value
                 this.value = ''
-                this.now = new Date()
+                this.now = new Date(value_temp)
             }
         }
     }

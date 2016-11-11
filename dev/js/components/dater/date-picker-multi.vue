@@ -80,7 +80,10 @@
             }
         },
         methods:{
-            
+            reset() {
+                console.log('reset')
+                
+            },
             // 切换月(右侧)
             click_next_month (flag) {
                 this.next_now.setMonth(this.next_now.getMonth() + flag,1)
