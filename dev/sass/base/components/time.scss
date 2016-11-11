@@ -1,33 +1,6 @@
-// @include b(KsTime) {
-// 	@include e(input) {
-// 		@extend %icon-input;
-// 		.date-icon{ border-right: transparent; }
-// 	}
-// 	@include e(select) {
-// 		width: 86px;
-// 		@include e(hd) {
-// 			@extend .KsSelect__hd;
-// 			border-radius: 0;
-// 		    border-top: 0;
-// 		    border-bottom: 0;
-// 		    height: 36px;
-// 		    line-height: 36px;
-// 		}
-// 		@include e(bd) {
-// 			@extend .KsSelect__bd;
-// 			width: 84px;
-// 			margin-top: 0;
-// 		}
-// 	}
-// 	@include e(bd) {
-// 		@extend .KsSelect__bd;
-// 		display: block;
-// 		margin-left: 124px;
-// 	}
-// }
-
-
-
+//%icon-input：带图标的输入框 在date.scss中
+//%select-hd：带图标的输入框
+//%select-bd：下拉列表样式
 .KsTime {
 	// background: red;
 	_input {
@@ -36,7 +9,6 @@
 
 		_select {
 			width: 86px;
-			position: relative;
 			_hd {
 				@extend %select-hd;
 				border-radius: 0;
@@ -49,11 +21,12 @@
 				@extend %select-bd;
 				width: 84px;
 				margin-top: 0;
+				@extend %select-bor;
+
 			}
 		}
 	}
-	
-	_bd {
+	_content {
 		@extend %select-bd;
 		display: block;
 		margin-left: 124px;

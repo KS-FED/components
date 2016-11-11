@@ -29,71 +29,71 @@
     </div>
 
 		<!-- 内容弹出框 -->
-		<div class="dialog-bg-default">
-			<div class="title">
+		<div class="KsDialogBg-default" cid="KsDialogBg-default">
+			<div class="_title">
 				<h2>标题</h2>
-				<div class="close"><i class="icon">&#xe611;</i></div>
+				<div class="_close"><i class="icon">&#xe611;</i></div>
 			</div>
-			<div class="content">
+			<div class="_content">
 				内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框
 			</div>
-			<div class="operation">
+			<div class="_operation">
 				<button class="btn-plain-dark">取消</button>
 				<button class="btn-primary">确定</button>
 			</div>
 		</div>
 		<!-- 红色弹出框 -->
-		<div class="dialog-bg-danger">
-			<div class="title">
+		<div class="KsDialogBg-danger" cid="KsDialogBg-danger">
+			<div class="_title">
 				<h2>标题</h2>
-				<div class="close"><i class="icon">&#xe611;</i></div>
+				<div class="_close"><i class="icon">&#xe611;</i></div>
 			</div>
-			<div class="content">
+			<div class="_content">
 				内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框
 			</div>
-			<div class="operation">
+			<div class="_operation">
 				<button class="btn-plain-dark">取消</button>
 				<button class="btn-danger">确定</button>
 			</div>
 		</div>
 		<!-- 蓝色弹出框 -->
-		<div class="dialog-bg-primary">
-			<div class="title">
+		<div class="KsDialogBg-primary" cid="KsDialogBg-primary">
+			<div class="_title">
 				<h2>标题</h2>
-				<div class="close"><i class="icon">&#xe611;</i></div>
+				<div class="_close"><i class="icon">&#xe611;</i></div>
 			</div>
-			<div class="content">
+			<div class="_content">
 				内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框
 			</div>
-			<div class="operation">
+			<div class="_operation">
 				<button class="btn-plain-dark">取消</button>
 				<button class="btn-primary">确定</button>
 			</div>
 		</div>
 		<!-- 绿色弹出框 -->
-		<div class="dialog-bg-success">
-			<div class="title">
+		<div class="KsDialogBg-success" cid="KsDialogBg-success">
+			<div class="_title">
 				<h2>标题</h2>
-				<div class="close"><i class="icon">&#xe611;</i></div>
+				<div class="_close"><i class="icon">&#xe611;</i></div>
 			</div>
-			<div class="content">
+			<div class="_content">
 				内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框
 			</div>
-			<div class="operation">
+			<div class="_operation">
 				<button class="btn-plain-dark">取消</button>
 				<button class="btn-success">确定</button>
 			</div>
 		</div>
 		<!-- 橙色弹出框 -->
-		<div class="dialog-bg-warning">
-			<div class="title">
+		<div class="KsDialogBg-warning" cid="KsDialogBg-warning">
+			<div class="_title">
 				<h2>标题</h2>
-				<div class="close"><i class="icon">&#xe611;</i></div>
+				<div class="_close"><i class="icon">&#xe611;</i></div>
 			</div>
-			<div class="content">
+			<div class="_content">
 				内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框内容弹出框
 			</div>
-			<div class="operation">
+			<div class="_operation">
 				<button class="btn-plain-dark">取消</button>
 				<button class="btn-warning">确定</button>
 			</div>

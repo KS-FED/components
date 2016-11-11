@@ -1,6 +1,6 @@
 <template>
 
-    <ul v-show="total" class="paging" @click="click_page_mian($event)">
+    <ul v-show="total" class="KsPage" cid="KsPage" @click="click_page_mian($event)">
         <li :class="{'disabled':page_current == 1}">&lt;</li>
         <li v-for="i in pages_array"
             track-by="$index"

@@ -1,8 +1,8 @@
 .KsPopoverEnter {
-	@extend .KsPopoverTop;
+	@extend %KsPopoverTop;
 	display: inline-block;
 	_input {
-		@extend .row-auto;
+		@extend %row-auto;
 		padding-top: 10px;
 		input{ width: 100%; }
 		button{

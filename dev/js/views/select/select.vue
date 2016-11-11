@@ -27,12 +27,9 @@
 					<li>选择内容</li>
 					<li>选择内容</li>
 					<li>选择内容</li>
-					
 				</ul>
 			</div>
 		</div>
-
-		
 
 	</div>
 </template>

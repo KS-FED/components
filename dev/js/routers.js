@@ -9,6 +9,17 @@ export default function (Vue,router){
         },
         subRoutes:{
 
+            // validation
+            '/validation':{
+                name:'validation',
+                title:'validation',
+                component: function(resolve){
+                    require(['./views/validation/validation.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
             // 会员主页
             '/home':{
                 name:'home',
@@ -309,10 +320,10 @@ export default function (Vue,router){
         }
         transition.next()
     })
-    
+
     router.afterEach(transition =>{
         setTimeout(()=>{
-            
+
             Array.prototype.slice.call(document.querySelectorAll('pre code')).forEach(val=>{
                 if(val.className === 'html'){
                     // console.log(val.innerHTML)
@@ -321,6 +332,6 @@ export default function (Vue,router){
                 hljs.highlightBlock(val)
             })
         })
-        
+
     })
 }

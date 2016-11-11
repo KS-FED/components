@@ -111,8 +111,8 @@
 
 
 		<!-- 分页 -->
-	    <div class="paging-box">
-		    <div class="statistical">共<span>100</span>条</div>
+	    <div class="KsPageGroup" cid="KsPageGroup">
+		    <div class="_statistical">共<span>100</span>条</div>
 		    <div class="col">
 		        每页
 		        <select class="input">
@@ -120,7 +120,7 @@
 		        </select>
 		        条
 		    </div>
-		    <ul class="paging col-auto">
+		    <ul class="KsPage col-auto" cid="KsPage">
 			    <li>&lt;</li>
 			    <li>1</li><li class="active">2</li><li>3</li><li>4</li><li>5</li><li>···</li><li>10</li>
 			    <li>&gt;</li>
@@ -129,8 +129,8 @@
 
 		<pre>
         <code class="html">
-		<div class="paging-box">
-			<div class="statistical">共<span>123456</span>条</div>
+		<div class="KsPageGroup" cid="KsPageGroup">
+			<div class="_statistical">共<span>123456</span>条</div>
 			<div class="col">
 				每页
 				<select class="input">
@@ -140,7 +140,7 @@
 				</select>
 				条
 			</div>
-			<ul class="paging col-auto">
+			<ul class="KsPage col-auto" cid="KsPage">
 				<li class="disabled">&lt;</li>
 				<li class="active">1</li>
 				<li>2</li>
@@ -155,7 +155,7 @@
         </code>
         </pre>
 
-        <pre>
+        <!-- <pre>
         <code class="scss">
 		// 分页组件
 		.paging-box{
@@ -165,7 +165,7 @@
 			.disabled{...}  //  首页/尾页样式
 		}
         </code>
-        </pre>
+        </pre> -->
 
 		
         

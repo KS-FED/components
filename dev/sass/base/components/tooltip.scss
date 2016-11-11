@@ -1,3 +1,4 @@
+// 箭头提示框公共样式
 %tooltip{
 	display: inline-block;
 	position: relative;
@@ -14,11 +15,12 @@
 	    position: absolute;
 	}
 }
+// 上下提示框定位
 %tooltip-top-bottom{
 	left: 50%;
     transform: translate(-50%);
 }
-@include  b(KsTooltipLeft) {
+.KsTooltipLeft {
 	@extend %tooltip;
 	margin-right: 20px;
 	span{
@@ -27,7 +29,7 @@
     	top: 8px; 
 	}
 }
-@include b(KsTooltipRight) {
+.KsTooltipRight {
 	@extend %tooltip;
 	margin-left: 20px;
 	span{
@@ -36,7 +38,7 @@
     	top: 8px; 
 	}
 }
-@include b(KsTooltipTop) {
+.KsTooltipTop {
 	@extend %tooltip;
 	margin-bottom: 10px;
 	span{
@@ -45,7 +47,7 @@
 	    bottom: -20px;
 	}
 }
-@include b(KsTooltipBottom) {
+.KsTooltipBottom {
 	@extend %tooltip;
 	margin-top: 10px; 
 	span{

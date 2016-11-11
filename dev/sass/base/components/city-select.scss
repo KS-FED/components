@@ -14,8 +14,6 @@
 	    border: 1px solid #e5e5e5;
 	    border-radius: 4px;
 	    background: #fff;
-	    // height: 290px;
-    	// overflow-y: auto;
     	margin-top: -1px;
     	position: absolute;
     	_tab {
@@ -46,23 +44,25 @@
     		overflow-y: auto;
     		_list {
 				margin: 20px 20px 0;
+			    border-collapse: initial;
 				td{
 					padding: 10px 20px;
 					cursor: pointer;
 					border:1px solid #fff;
+					// border:1px solid #000;
 					&:hover{
 						background: #f5f5f5;
 						border:1px solid #e5e5e5;
+						border-radius: 4px;
 					}
 				}
 				.active,.active:hover {
 					background: #2196f3;
 				    border-radius: 4px;
 				    color: #fff;
+			        border: 1px solid #2196f3;
 				}
 			}
 		}
-
-		
 	}
 }

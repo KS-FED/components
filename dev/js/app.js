@@ -6,6 +6,7 @@ import VueRouter from 'vue-router'
 import { proxy_mock } from './config/index'
 import components from './components/index'
 import routers from './routers'
+import Validator from 'vue-validator'
 
 // window._ = {
 //     curry : require('lodash.curry'),
@@ -20,6 +21,7 @@ Object.keys(components).forEach(k => {
 
 Vue.use(VueResource)
 Vue.use(VueRouter)
+Vue.use(Validator)
 proxy_mock(Vue)
 
 // *** 实例化VueRouter
