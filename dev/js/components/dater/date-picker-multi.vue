@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="date-btn">
-            <span class="reset">重置{{range_dater}}</span>
+            <span class="reset" v-on:click="reset()">重置</span>
         </div>
         </div>
         <div class="date-bd">
