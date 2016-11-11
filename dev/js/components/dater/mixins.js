@@ -58,7 +58,7 @@ export default {
         },
         watch: {
             now () {
-                this.dates = this.get_dates()
+                this.dates = this.get_page_dates()
             }
         },
         methods: {
@@ -98,12 +98,12 @@ export default {
                 })
             },
             // 获取某页日期数据 上个月(部分) + 当前月(满月) + 下个月(部分)
-            get_dates (year = this.now.getFullYear(),month = this.now.getMonth()){
+            get_page_dates (year = this.now.getFullYear(),month = this.now.getMonth()){
                 // console.log(year,month)
                 // 生成年月
-                var pre_date = this.convert_year_month( year,month,'reduce' )
+                var pre_date = this.convert_year_month( year,month,-1 )
                 var date = this.convert_year_month( year,month )
-                var next_date = this.convert_year_month( year,month,'add' )
+                var next_date = this.convert_year_month( year,month, +1 )
                 // 年月最后一天
                 var prev = this.get_month_last_day( pre_date.year , pre_date.month )
                 var cur = this.get_month_last_day( date.year,date.month )
@@ -119,21 +119,21 @@ export default {
 
             },
             /**
-             * [get_month_last_day 返回“当前”月份的最后一天]
+             * [get_month_last_day 返回“某”月份的最后一天]
+             * @param  {[type]} year  [2016]
              * @param  {[type]} month [月份 0~11]
-             * @param  {[type]} year  []
-             * @return {[type]}       {day:1~6、0 , date:1~31}
+             * @return {[type]}       {day:1~6、0 , dater:2016-09-30}
              */
             get_month_last_day ( year = this.now.getFullYear() , month = this.now.getMonth() ){
                
                 var  date , year = year , month = month+1 , date_temp
 
-                // //console.log(year+'-'+month+'-'+1)
+                // console.log(year+'-'+month+'-'+1)
                 // date_temp = new Date(year+'-'+month+'-'+1)
                 date_temp = new Date()
                 date_temp.setFullYear(year,month,1)
                 date = new Date(date_temp.getTime() - (24*60*60*1000))
-                
+
                 return {
                     day : date.getDay() || 7,
                     dater : this.stringify(date)
@@ -141,37 +141,39 @@ export default {
 
             },
             /**
-             * [get_month_dates 获取某月或部分数据]
-             * @param  {[type]} day    [周几 ]
-             * @param  {[type]} datetext   [日期 31号]
-             * @param  {[type]} status ['disable','active']
-             * @return {[type]}        []
+             * [get_month_dates 获取整月或部分的数据]
+             * @param  {[type]} counts    [天数 -> length]
+             * @param  {[type]} datetext   [日期号 -> 31]
+             * @param  {[type]} status [ym -> 2016-10]
+             * @param  {[type]} status ['disable|active']
+             * @return {[type]}        [{datetext:26,status:'active',dater:'2016-10-03'},{}[,...]]
              */
             get_month_dates (counts,datetext,ym,status){
 
-                var arr = [] , dater, status_val = '' , date_text 
-
+                var arr = [] , dater, status_temp = '' , datetext_temp 
 
 
                 while(counts--){
-                    date_text = ''+datetext --
 
-                    date_text.length == 1 && (date_text = '0' + date_text)
-
-                    dater = ym + '-' + date_text 
-
-                    if( dater === this.value || status!='active'){
-                        status_val = status
+                    datetext_temp = ''+datetext --
+                    // 3 -> 03
+                    datetext_temp.length == 1 && (datetext_temp = '0' + datetext_temp)
+                    // 2016-10,03 -> 2016-10-03
+                    dater = ym + '-' + datetext_temp 
+                    // 'disabled' 或 选中的值
+                    if( status!='active' || dater === this.value ){
+                        status_temp = status
+                    // 范围值 头尾 + 中间
                     }else if(this.range_daters && ~this.range_daters.indexOf(dater)){
-                        status_val = (this.range_daters[0] == dater || this.range_daters[this.range_daters.length-1] == dater)
+                        status_temp = (this.range_daters[0] == dater || this.range_daters[this.range_daters.length-1] == dater)
                                         ? status : 'scope-bg'
                     }else{
-                        status_val = ''
+                        status_temp = ''
                     }
 
                     arr.push({
-                        datetext:date_text,
-                        status:status_val,
+                        datetext:datetext_temp,
+                        status:status_temp,
                         dater:dater
                     })
                 }
@@ -181,30 +183,19 @@ export default {
              * [get_prev_month_dates 上个月(部分)]
              * @param  {[type]} day   [周几]
              * @param  {[type]} dater [YY-MM-DD]
-             * @return {[type]}       [description]
              */
             get_prev_month_dates (day,dater){
-                var ym_d = this.split_dater(dater)
+                var ym_d = this.split_dater(dater),
+                    counts = (day+1)%7 || 7
 
-                return this.get_month_dates( (day+1)%7 || 7, ym_d.d , ym_d.ym , 'disabled' )
+                return this.get_month_dates( counts , ym_d.d , ym_d.ym , 'disabled' )
             },
             // 当前月(满月) YY-MM-DD
             get_full_month_dates (dater){
-                var ym_d = this.split_dater(dater)
+                var ym_d = this.split_dater(dater),
+                    counts = ym_d.d                    
 
-                return  this.get_month_dates( ym_d.d , ym_d.d , ym_d.ym , 'active')
-                    
-
-                // return arr.map((_date)=>{
-
-                //     temp_date.setDate( _date.datetext )
-                //     if(this.stringify(temp_date) === this.value){
-                //         // console.log(this.value)
-                //         _date.status = 'active'
-                //     }
-                    
-                //     return _date
-                // })
+                return  this.get_month_dates( counts , ym_d.d , ym_d.ym , 'active')
 
             },
             // 下个月(部分)
@@ -213,7 +204,7 @@ export default {
                 var ym_d = this.split_dater(dater)
                     counts = 42 - counts
 
-                return this.get_month_dates( counts,counts,ym_d.ym,'disabled' )
+                return this.get_month_dates( counts , counts , ym_d.ym , 'disabled' )
             },
             // YY-MM-DD -> {ym:YY-MM,d:DD}
             split_dater(dater){
@@ -225,7 +216,7 @@ export default {
                     d:dater[2]
                 }
             },
-            // 转换月份
+            // number -> [0~11]
             convert_month(month){
                 month = month > 11 ? 0 
                               : month < 0 
@@ -234,30 +225,31 @@ export default {
             },
             /**
              * [convert_year_month 转换年月]
-             * @param  {[type]} year  [any]
+             * @param  {[type]} year  [2014]
              * @param  {[type]} month [0~11]
-             * @param  {[type]} type  [+,-]
-             * @return {[type]}       []
+             * @param  {[type]} type  [-1|+1]
+             * (2014,11,+1) -> {year:2015,month:0}
              */
-            convert_year_month(year,month,type){
-                // console.log(year,month,type)
-                if('add' == type ){
-                    month+1 > 11 && (++ year)
-                    month = this.convert_month(month+1)
-                }else if('reduce' == type ){
-                    month-1 < 0 && (-- year)
-                    month = this.convert_month(month-1)
+            convert_year_month(year,month,sgn){
+                
+                if(sgn){
+                    month = month + sgn
+                    month > 11 && (++ year)
+                    month < 0 && (-- year)
+                    month = this.convert_month(month)
                 }else {
                     month = this.convert_month(month)
                 }
+                
 
                 return { year:year, month:month }
             }
+
         },
 
         created () {
             this.value = this.value || this.stringify(this.now)
-            this.dates = this.get_dates()
+            this.dates = this.get_page_dates()
             this.now = this.parse(this.value) || this.parse(this.valueDefault) || new Date()
 
             console.log(this.value)

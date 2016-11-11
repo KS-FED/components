@@ -25,8 +25,7 @@
             </div>
         </div>
         <div class="date-btn">
-            <span class="today">今天</span>
-            <span class="clear">清除</span>
+            <span class="reset">重置{{range_dater}}</span>
         </div>
         </div>
         <div class="date-bd">
@@ -54,8 +53,7 @@
             </div>
         </div>
         <div class="date-btn">
-            <span class="today">今天</span>
-            <span class="clear">清除</span>
+            <span class="selects">已选择{{range_daters_length}}天</span>
         </div>
         </div>
     </div>
@@ -64,9 +62,15 @@
     import mixins from './mixins.js'
     export default {
         mixins: [mixins],
+        props:{
+            range_dater:{
+                type:Array
+            }
+        },
         data(){
             this.range_daters = []
             return {
+                range_daters_length:0,
                 next_dates : [],
                 next_now  : new Date(),
                 next_data  : {
@@ -77,7 +81,7 @@
         },
         methods:{
             
-            // 切换月
+            // 切换月(右侧)
             click_next_month (flag) {
                 this.next_now.setMonth(this.next_now.getMonth() + flag,1)
                 this.next_now = new Date(this.next_now)
@@ -87,7 +91,7 @@
                 }
 
             },
-            // 切换月
+            // 切换月(左侧)
             click_month (flag) {
                 this.now.setMonth(this.now.getMonth() + flag,1)
                 this.now = new Date(this.now)
@@ -121,14 +125,16 @@
                 }
 
                 this.range_daters = this.get_range(this.range_daters , this.value)
-
+                
                 if(this.range_daters.length>=2) {
                     this.range_daters = this.get_range_dates(this.range_daters)    
-                    console.log(this.range_daters)
+                    // console.log(this.range_daters)
                 }
+                this.range_daters_length = this.range_daters.length
 
                 this.now = new Date(this.stringify(this.now))
                 this.next_now = new Date(this.stringify(this.next_now))
+                
                 this.$emit('change',_date)
             },
             // 选择范围取值
@@ -189,7 +195,7 @@
 
                 arr = arr || []
 
-                prev_ym = this.convert_year_month(prev.year , prev.month , 'add')
+                prev_ym = this.convert_year_month(prev.year , prev.month , +1)
 
                 if(prev_ym.year+''+(+prev_ym.month+10) >= next.year+''+(+next.month+10)) return arr
                  
@@ -240,7 +246,7 @@
                  }else{
                     range_daters.push(select_value)    
                  }
-                 console.log(range_daters)
+                 // console.log(range_daters)
                  return range_daters
 
             },
@@ -248,7 +254,7 @@
             next_month_dates(year = this.next_now.getFullYear(),month = this.next_now.getMonth()) {
 
                 this.next_data = this.convert_year_month( year , month )
-                this.next_dates = this.get_dates( this.next_data.year , this.next_data.month )
+                this.next_dates = this.get_page_dates( this.next_data.year , this.next_data.month )
             }
             
         },
@@ -259,7 +265,17 @@
         },
         created(){
             // this.next_month_dates()
-            this.click_next_month (1) 
+            // this.click_next_month (1) 
+            
+            this.range_dater = ['2016-06-06','2016-08-08']
+            this.value = ''
+            this.range_daters = this.get_range_dates(this.range_dater)
+
+            this.range_daters_length = this.range_daters.length
+
+            this.now = new Date(this.range_dater[0])
+            this.next_now = new Date(this.range_dater[1])
+
         }
     }
 </script>
