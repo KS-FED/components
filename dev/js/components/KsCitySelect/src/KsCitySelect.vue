@@ -42,10 +42,10 @@
     },
 
     props: {
-      tabs: {type: Array, default() {return ['省', '市', '区/县']}},
-      dataSource: {type: Array, required: true, towWay: true},
-      lineSize: {type: Number, default: 4},
-      itemTextKey: {type: String, required: true}
+      tabs: { type: Array, default() {return ['省', '市', '区/县']} },
+      dataSource: { type: Array, required: true, towWay: true },
+      lineSize: { type: Number, default: 4 },
+      itemTextKey: { type: String, required: true }
     },
 
     methods: {
