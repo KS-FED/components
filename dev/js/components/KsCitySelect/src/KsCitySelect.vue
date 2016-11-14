@@ -14,7 +14,8 @@
             :data-tabId="$index" v-text="tab"></li>
       </ul>
       <div class="_content">
-        <table class="_list" @click.stop="itemSelectedHandle">
+        <p v-if="!dataSource.length">Sorry, 暂无相关数据!</p>
+        <table class="_list" @click.stop="itemSelectedHandle" v-if="dataSource.length">
           <tr v-for="line in locationList">
             <td v-for="location in line" v-text="location[itemTextKey]"
                 :data-itemId="$parent.$index*lineSize + $index"
@@ -49,13 +50,6 @@
 
     methods: {
       /**
-       * @description 处理选择器关闭.
-       */
-      closeHandle () {
-        if (this.show) { this.show = false }
-      },
-
-      /**
        * @description 切换 `忒伯` 处理函数.
        * @summary 此处绑定在 `ul` 利用事件冒泡是为了
        *  减少事件绑定的数量.
@@ -66,8 +60,16 @@
 
         if (!tabId) { return }
         // 切换 tab
+        this.dataSource = []
         this.tabsCurrentActived = Number(tabId)
-        this.$emit('switch', Number(tabId))
+        this.$emit('switch', Number(tabId), null)
+      },
+
+      /**
+       * @description 处理选择器关闭.
+       */
+      closeHandle () {
+        if (this.show) { this.show = false }
       },
 
       /**
@@ -91,8 +93,7 @@
         // 选中 tabs
         this.tabsCurrentActived = (curTab >= tabsSize - 1) ? curTab : curTab + 1
 
-        this.$emit('switch', this.tabsCurrentActived)
-        this.$emit('selected', this.dataSource[Number(itemId)])
+        this.$emit('switch', this.tabsCurrentActived, this.dataSource[Number(itemId)])
       }
     },
 
@@ -150,6 +151,15 @@
         }
 
         return result.join(' / ')
+      }
+    },
+
+    created () {
+      // 初始化组件数据
+      let initData = {id: null, name: '请选择'}
+      let tabsSize = this.tabs.length
+      for(let i = 0; i < tabsSize; i++) {
+        this.$set(`itemCurrentActived[${i}]`, initData)
       }
     }
   }
