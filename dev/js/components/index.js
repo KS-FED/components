@@ -14,6 +14,7 @@ import { KsModal, KsModalEntity } from './KsModal'
 import { KsDialog, KsDialogEntity } from './KsDialog'
 import { DatePicker,DatePickerMulti } from './dater/'
 import { KsCitySelect } from './KsCitySelect'
+import { KsToolTip } from './KsToolTip'
 import { page , pagegroup } from './pager/'
 
 import KsDirective from './KsDirective'
@@ -36,7 +37,8 @@ const KsComponents = {
   KsModalEntity,
   KsDialog,
   KsDialogEntity,
-  KsCitySelect
+  KsCitySelect,
+  KsToolTip
 }
 const install = function(Vue) {
   if (install.installed) { return }
