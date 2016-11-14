@@ -1,6 +1,6 @@
 <template>
-    <div class="paging-box">
-        <div class="statistical">共<span>{{total}}</span>条</div>
+    <div class="KsPageGroup" cid="KsPageGroup">
+        <div class="_statistical">共<span>{{total}}</span>条</div>
         <div class="col">
             每页
             <select class="input" v-model="page_size">

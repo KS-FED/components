@@ -1,5 +1,8 @@
 /* 自动隐现提示框 */
 %toast{
+	position: fixed;
+    right: 20px;
+    top: 50px;
     padding: 20px;
     border-radius: 4px;
     width: 300px;
@@ -10,16 +13,19 @@
 		font-weight: bold;
 	}
 }
-.KsToast-primary,.KsToast-success,.KsToast-info,.KsToast-danger,.KsToast-warning{ @extend %toast; }
-.KsToast-primary{ background: #2196F3; }
-.KsToast-success{ background: #4CAF50; }
-.KsToast-info{ background: #00BCD4; }
-.KsToast-danger{ background: #F44336; }
-.KsToast-warning{ background: #FF5722; }
+.KsToast-primary{ @extend %toast; background: #2196F3; }
+.KsToast-success{ @extend %toast; background: #4CAF50; }
+.KsToast-info{ @extend %toast; background: #00BCD4; }
+.KsToast-danger{ @extend %toast; background: #F44336; }
+.KsToast-warning{ @extend %toast; background: #FF5722; }
 
 /* 可操作提示框 */
 %toast-close{
 	@extend %row-auto;
+	position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%);
 	border-radius: 4px;
 	line-height: 50px;
 	box-sizing: border-box;
@@ -30,38 +36,43 @@
 		font-size: 12px;
 	}
 }
-.KsToastClose-primary,.KsToastClose-warning,.KsToastClose-danger,.KsToastClose-info,.KsToastClose-success,.KsToastClose-Violet{ @extend %toast-close; }
 .KsToastClose-primary{
+	@extend %toast-close;
 	background: #e2f2fe;
 	border:1px solid #b0daf9;
 	p{ color: #094b94; }
 	i{ color: #638ebf; }
 }
 .KsToastClose-warning{
+	@extend %toast-close;
 	background: #fff6b1;
 	border:1px solid #ffe378;
 	p{ color: #444444; }
 	i{ color: #ce8161; }
 }
 .KsToastClose-danger{
+	@extend %toast-close;
 	background: #fbe9e7;
 	border:1px solid #ffc9c3;
 	p{ color: #9c3431; }
 	i{ color: #c4706d; }
 }
 .KsToastClose-info{
+	@extend %toast-close;
 	background: #dff7fa;
 	border:1px solid #abe6ee;
 	p{ color: #045962; }
 	i{ color: #58959c; }
 }
 .KsToastClose-success{
+	@extend %toast-close;
 	background: #e8f5e9;
 	border:1px solid #aeeab3;
 	p{ color: #538356; }
 	i{ color: #6eab73; }
 }
 .KsToastClose-Violet{
+	@extend %toast-close;
 	background: #f3e5f5;
 	border:1px solid #e7afef;
 	p{ color: #6b0f9c; }

@@ -11,11 +11,7 @@
 	border: 1px solid #e5e5e5;
 	border-radius: 3px;
 }
-// 选中样式
-%select-active{
-	background: #2196f3;
-	color: #fff;
-}
+
 // 带图标的输入框
 %select-hd{
 	@extend .row-auto;
@@ -42,11 +38,17 @@
 			&:hover{
 				background: #f5f5f5;
 			}
+			&.active,&.active:hover {
+				@extend %select-active;
+			}
 		}
-		.active,li.active:hover {
-			@extend %select-active;
-		}
+		
 	}
+}
+// 选中样式
+%select-active{
+	background: #2196f3;
+	color: #fff;
 }
 .KsSelect {
 	display: inline-block;
