@@ -5,7 +5,11 @@
  */
 
 import clickOutside from './clickOutside'
+import scrollInside from './scrollInside'
+import scrollBoundValue from './scrollBoundValue'
 
 export default {
+  scrollBoundValue,
+  scrollInside,
   clickOutside
 }

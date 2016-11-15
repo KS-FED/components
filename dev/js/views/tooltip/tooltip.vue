@@ -44,7 +44,7 @@
 
     <br>
 
-    <ks-tool-tip placement="top" content="I'am is tips text.">
+    <ks-tool-tip placement="top-start" content="I'am is tips text.">
       <button>click me</button>
     </ks-tool-tip>
 
