@@ -42,5 +42,29 @@
 			</code>
 		</pre>
 
+    <br>
+
+    <ks-tool-tip placement="top" content="I'am is tips text.">
+      <button>click me</button>
+    </ks-tool-tip>
+
+    <br>
+
+    <ks-tool-tip placement="right" content="I'am is tips text.">
+      <button>click me</button>
+    </ks-tool-tip>
+
+    <br>
+
+    <ks-tool-tip placement="bottom" content="I'am is tips text.">
+      <button>click me</button>
+    </ks-tool-tip>
+
+    <br>
+
+    <ks-tool-tip placement="left" content="I'am is tips text.">
+      <div style="height: 2800px;width: 100px;background: red;margin:300px auto 0">click me</div>
+    </ks-tool-tip>
+
 	</div>
 </template>
