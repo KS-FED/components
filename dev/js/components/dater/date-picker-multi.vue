@@ -80,9 +80,40 @@
             }
         },
         methods:{
+            redraw(range_dater) {
+                this.value = ''
+                this.range_daters = range_dater
+                range_dater.length >=2 && (this.range_daters = this.get_range_dates(range_dater))
+                this.range_daters_length = this.range_daters.length
+                
+                this.now = new Date(range_dater[0])
+                this.next_now = new Date(range_dater[1])
+            },
             reset() {
                 console.log('reset')
                 
+            },
+            // 点击日期
+            pick_date (event) {
+                var id = event.target.id.split('_')
+                var index = +id[1] ,_date,range_dater
+
+                if(isNaN(index) || id[2]=='disabled') return
+
+                if(index > 42){
+                    _date = this.next_dates[index-42]
+
+                }else{
+                    _date = this.dates[index] 
+                }
+
+
+                range_dater = this.get_range(this.range_daters , _date.dater)
+
+                // console.log(range_dater)
+                this.redraw(range_dater)
+                
+                this.$emit('change',_date)
             },
             // 切换月(右侧)
             click_next_month (flag) {
@@ -111,42 +142,15 @@
                 var val2 = this.split_ym(val2)
                 return +(val1.year+''+(val1.month+10)) <= +(val2.year+''+(val2.month+10))
             },
-            pick_date (event) {
-                var id = event.target.id.split('_')
-                var index = +id[1] ,_date
 
-                if(isNaN(index) || id[2]=='disabled') return
-
-                if(index > 42){
-                    _date = this.next_dates[index-42]
-                    this.next_now = new Date(_date.dater)
-                    this.value = this.stringify(this.next_now)
-                }else{
-                    _date = this.dates[index] 
-                    this.now = new Date(_date.dater)
-                    this.value = this.stringify(this.now)
-                }
-
-                this.range_daters = this.get_range(this.range_daters , this.value)
-                
-                if(this.range_daters.length>=2) {
-                    this.range_daters = this.get_range_dates(this.range_daters)    
-                    // console.log(this.range_daters)
-                }
-                this.range_daters_length = this.range_daters.length
-
-                this.now = new Date(this.stringify(this.now))
-                this.next_now = new Date(this.stringify(this.next_now))
-                
-                this.$emit('change',_date)
-            },
+            
             // 选择范围取值
-            get_range_dates(range_daters){
+            get_range_dates(range_dater){
+               
+                var prev_date = range_dater[0]
+                var next_date = range_dater[1]
 
-                var prev_date = range_daters[0]
-                var next_date = range_daters[1]
-
-                if(prev_date === next_date) return range_daters
+                if(prev_date === next_date) return range_dater
 
                 var prev = this.split_ym(prev_date)
                 var next = this.split_ym(next_date)
@@ -239,18 +243,25 @@
             },
             // [a,b] , e => [c,d]
             get_range(range_daters,select_value){
-                
+                var range_dater
+
+                // console.log(range_daters)
+
                 if(range_daters.length >= 2){
-                     // this.memory_date = []
-                     range_daters = []
-                 }
-                 if(range_daters.length && this.compared(select_value , range_daters[0])){
-                    range_daters.unshift(select_value)
-                 }else{
-                    range_daters.push(select_value)    
-                 }
-                 // console.log(range_daters)
-                 return range_daters
+                    range_dater = []
+                }else{
+                    range_dater = [range_daters[0]]
+                }
+                
+                console.log('range_dater',range_dater)
+
+                if(range_dater.length && this.compared(select_value , range_dater[0])){
+                    range_dater.unshift(select_value)
+                }else{
+                    range_dater.push(select_value)    
+                }
+                 
+                return range_dater
 
             },
 
@@ -269,15 +280,9 @@
         created(){
             // this.next_month_dates()
             // this.click_next_month (1) 
-            
             this.range_dater = ['2016-06-06','2016-08-08']
-            this.value = ''
-            this.range_daters = this.get_range_dates(this.range_dater)
-
-            this.range_daters_length = this.range_daters.length
-
-            this.now = new Date(this.range_dater[0])
-            this.next_now = new Date(this.range_dater[1])
+            this.redraw(this.range_dater)
+            
 
         }
     }
