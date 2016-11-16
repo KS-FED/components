@@ -1,59 +1,72 @@
 // 下拉的列表
+
+// 行高边距
 %select-lh{
 	height: 34px;
 	line-height: 34px;
 	padding: 0 10px;
 }
+// 边框样式
 %select-bor{
 	border: 1px solid #e5e5e5;
 	border-radius: 3px;
 }
-.select{
-	display: inline-block;
-	font-size: 0;
-	.select-hd,.select-bd{
-		font-size: 13px;
-	}
-	.select-hd{
-		@extend .row-auto;
-		@extend %select-lh;
-		@extend %select-bor;
-    	cursor: pointer;
-	}
-	.select-bd{
-		@extend %select-bor;
-		margin-top: -1px;
-		position: absolute;
-		background: #fff;
-		.select-list{
-			max-height: 204px;
-			overflow-y: auto;
-			li{
-				@extend %select-lh;
-				cursor: pointer;
-				&:hover{
-					background: #f5f5f5;
-				}
-			}
-			.active,.active:hover{
-				background: #2196f3;
-				color: #fff;
+// 选中样式
+%select-active{
+	background: #2196f3;
+	color: #fff;
+}
+// 带图标的输入框
+%select-hd{
+	@extend .row-auto;
+	@extend %select-lh;
+	@extend %select-bor;
+	cursor: pointer;
+	font-size: 13px;
+}
+// 下拉列表样式
+%select-bd{
+	@extend %select-bor;
+	margin-top: -1px;
+	position: absolute;
+	background: #fff;
+	font-size: 13px;
+
+	_list {
+		max-height: 204px;
+		overflow-y: auto;
+		
+		li {
+			@extend %select-lh;
+			cursor: pointer;
+			&:hover{
+				background: #f5f5f5;
 			}
 		}
+		.active,li.active:hover {
+			@extend %select-active;
+		}
+	}
+}
+.KsSelect {
+	display: inline-block;
+	font-size: 0;
+	_hd { @extend %select-hd; }
+	_bd {
+		@extend %select-bd;
 		// 搜索框
-		.select-search{
+		_search {
 		    margin: 10px;
-		    .row-auto{
+		    _input {
 		    	@extend %select-bor;
+		    	@extend %select-lh;
 		    	input{
 		    		@extend .col;
+		    		@extend %select-lh;
 		    		outline: 0;
 		    		border:0;
 		    	}
 		    }
-		    .row-auto,.row-auto input{
-		    	@extend %select-lh;
-		    }
 		}
-	}
+	}	
 }

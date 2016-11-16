@@ -10,7 +10,9 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var _package = require('./package.json')
 
 
-console.log(process.env.NODE_ENV)
+
+
+// console.log(process.env.NODE_ENV)
 
 module.exports = {
     entry: {
@@ -33,11 +35,11 @@ module.exports = {
             // {   test: /\.scss$/,
             //     loader: ExtractTextPlugin.extract('css!sass-loader-once') },
             {   test: /\.scss$/,
-                loader: ExtractTextPlugin.extract('css-loader!sass-loader') },
+                loader: ExtractTextPlugin.extract('css-loader!ks-autobem-loader?type=css!sass-loader') },
             {   test: /\.(tpl|html)$/,
                 loader: 'html'},
             {   test: /\.vue$/,
-                loader: 'vue',},
+                loader: 'vue'},
             {   test: /\.js$/,
                 exclude: /(.\.min\.js)|node_modules|vue\/dist|vue-router\/|vue-loader\/|vue-hot-reload-api\//,
                 loader: 'babel'},
@@ -58,6 +60,9 @@ module.exports = {
                 loader: 'file-loader-path?limit=8192&name=[name].[ext]?[hash:8]&path=../[name].[ext]?[hash:8]'}
         ]
     },
+    
+    // scssRoot: './dev/sass/*.scss',
+    // sassResources: './dev/sass/base/*.scss',
     babel: {
         presets: ['es2015'],
         plugins: ['transform-runtime']
@@ -89,7 +94,8 @@ module.exports = {
     ],
   vue: {
     loaders: {
-      scss: 'vue-style-loader!css-loader!sass-loader'
+      scss: 'vue-style-loader!css-loader!sass-loader',
+      html: 'vue-html-loader!ks-autobem-loader?type=html'
     }
   },
   resolve: {

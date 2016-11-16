@@ -5,7 +5,8 @@
             每页
             <select class="input" v-model="page_size">
                 <option 
-                    v-for="i in page_sizes" :value="i">{{i}}</option>
+                    v-for="i in page_sizes" 
+                    :value="i">{{i}}</option>
             </select>
             条
         </div>

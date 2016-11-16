@@ -1,17 +1,18 @@
 /* 图标弹框 */
-.dialog-icon{
-	@extend .dialog;
+// %dialog ：弹框公共样式
+// %dialog-icon：图标弹框公共样式
+%dialog-icon {
+	@extend %dialog;
 	width: 420px;
 	padding-top: 20px;
-	.title{
-		h2{
-			font-size: 18px;
-		}
+	
+	_title h2 {
+		font-size: 18px; 
+		margin-bottom: 10px; 
 	}
-	.title,.content,.operation{
-		text-align: center;
-	}
-	.icon-bor{
+	_title,_content,_operation{ text-align: center; }
+	_operation { padding: 20px 0; }
+	_icon-bor {
 		line-height: 105px;
 		padding: 20px;
 	    border: 5px solid;
@@ -20,50 +21,38 @@
 	    border-radius: 50%;
 	    margin: 20px auto;
 	    height: 80px;
-	    i{
-	    	font-size: 50px;
-	    }
+	    i{ font-size: 50px; }
 	}
 }
-
-
-/* icon红色 */
-.dialog-icon-danger{
-	@extend .dialog-icon;
-	.icon-bor{
-		border-color: #f44336;
-		i{
-			color: #f44336;
-		}
-	}
-}
-/* icon青色 */
-.dialog-icon-info{
-	@extend .dialog-icon;
-	.icon-bor{
-		border-color: #00BCD4;
-		i{
-			color: #00BCD4;
-		}
-	}
-}
-/* icon绿色 */
-.dialog-icon-success{
-	@extend .dialog-icon;
-	.icon-bor{
+// icon绿色
+.KsDialogIcon-success {
+	@extend %dialog-icon;
+	_icon-bor {
 		border-color: #dbefdc;
-		i{
-			color: #4caf50;
-		}
+		i{ color: #4caf50; }
 	}
 }
-/* icon橙色 */
-.dialog-icon-warning{
-	@extend .dialog-icon;
-	.icon-bor{
+// icon红色
+.KsDialogIcon-danger {
+	@extend %dialog-icon;
+	_icon-bor {
+		border-color: #f44336;
+		i{ color: #f44336; }
+	}
+}
+// icon青色
+.KsDialogIcon-info {
+	@extend %dialog-icon;
+	_icon-bor {
+		border-color: #00BCD4;
+		i{ color: #00BCD4; }
+	}
+}
+// icon橙色
+.KsDialogIcon-warning {
+	@extend %dialog-icon;
+	_icon-bor {
 		border-color: #ff5722;
-		i{
-			color: #ff5722;
-		}
+		i{ color: #ff5722; }
 	}
 }

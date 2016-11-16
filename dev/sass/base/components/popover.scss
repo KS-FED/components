@@ -1,32 +1,41 @@
+// %tooltip : 箭头提示框的公共样式  在tooltip.scss 中
+
+// %popover ：边框箭头提示框的公共样式
 %popover{
+	@extend %tooltip;
 	background: #fff;
     border: 1px solid #e5e5e5;
     color: #444;
     padding: 10px 20px;
     max-width: 300px;
-    h2{
-    	font-size: 18px;
-    }
+    h2{ font-size: 18px; }
     span::after{
 		content: " ";
 	    position: absolute;
 	    border: 10px solid transparent;
     }
 }
-.popover-top,.popover-bottom,.popover-left,.popover-right{
-	@extend %tooltip;
-	@extend %popover;
-}
-.popover-top span,.popover-bottom span{
+// 上下方向箭头定位
+%popover-top-bottom-span{
 	transform: translate(-50%);
 	left: 50%;
+	&::after{ left: -10px; }
+}
+// 左右方向箭头定位
+%popover-left-right-span {
+	transform: translate(0,-50%);
+    top: 50%;
 	&::after{
-	    left: -10px;
+	    transform: translate(0,-50%);
+	    top: 50%;
 	}
 }
-.popover-top{
+// top箭头提示框
+%KsPopoverTop {
+	@extend %popover; 
     margin-bottom: 10px;
 	span{
+		@extend %popover-top-bottom-span;
 	    border-top: 10px solid #e5e5e5;
     	bottom: -20px;
     	&::after{
@@ -35,9 +44,12 @@
     	}
 	}
 }
-.popover-bottom{
+// bottom箭头提示框
+%KsPopoverBottom {
+	@extend %popover; 
     margin-top: 10px;
 	span{
+		@extend %popover-top-bottom-span;
 	    border-bottom: 10px solid #e5e5e5;
     	top: -20px;
     	&::after{
@@ -46,17 +58,12 @@
     	}
 	}
 }
-.popover-left span,.popover-right span{
-    transform: translate(0,-50%);
-    top: 50%;
-	&::after{
-	    transform: translate(0,-50%);
-	    top: 50%;
-	}
-}
-.popover-left{
+// left箭头提示框
+%KsPopoverLeft {
+	@extend %popover; 
     margin-right: 10px;
 	span{
+		@extend %popover-left-right-span; 
 	    border-left: 10px solid #e5e5e5;
 	    right: -20px;
     	&::after{
@@ -65,9 +72,12 @@
     	}
 	}
 }
-.popover-right{
+// right箭头提示框
+%KsPopoverRight {
+	@extend %popover; 
     margin-left: 10px;
 	span{
+		@extend %popover-left-right-span; 
 	    border-right: 10px solid #e5e5e5;
 	    left: -20px;
     	&::after{
@@ -76,3 +86,8 @@
     	}
 	}
 }
+
+.KsPopoverTop { @extend %KsPopoverTop; }
+.KsPopoverBottom { @extend %KsPopoverBottom; }
+.KsPopoverLeft { @extend %KsPopoverLeft; }
+.KsPopoverRight { @extend %KsPopoverRight; }

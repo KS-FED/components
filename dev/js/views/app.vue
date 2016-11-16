@@ -1,5 +1,8 @@
 <template>
-    <div>
+    <div class="a" cid='app'>
+        <div class="_aa">
+            
+        </div>
         主路由
         <router-view ></router-view>
     </div>

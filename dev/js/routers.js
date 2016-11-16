@@ -296,6 +296,16 @@ export default function (Vue,router){
             //     }
             // },
 
+            // 省市区三级联动
+            '/city-select':{
+                name:'city-select',
+                title:'省市区三级联动',
+                component: function(resolve){
+                    require(['./views/cityselect/city-select.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
 
 
         }

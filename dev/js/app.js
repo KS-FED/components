@@ -4,7 +4,8 @@ import scss from 'scss'
 /* eslint-enable no-unused-vars */
 import VueRouter from 'vue-router'
 import { proxy_mock } from './config/index'
-import components from './components/index'
+import components from './components/'
+import { KsComponents } from './components'
 import routers from './routers'
 import Validator from 'vue-validator'
 
@@ -14,10 +15,13 @@ import Validator from 'vue-validator'
 // }
 // console.log(_)
 
-Object.keys(components).forEach(k => {
-    var a = Vue.component(k, components[k])
-    console.log(a)
-})
+// Object.keys(components).forEach(k => {
+//     var a = Vue.component(k, components[k])
+//     // console.log(a)
+// })
+// regeister cmoponents.
+Vue.use(components)
+console.log(KsComponents)
 
 Vue.use(VueResource)
 Vue.use(VueRouter)

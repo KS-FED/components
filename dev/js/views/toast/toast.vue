@@ -1,48 +1,48 @@
 <template>
 	<!-- 自动隐现提示框 -->
-	<div class="toast-primary">
+	<div class="KsToast-primary" cid="KsToast-primary">
 		<h2>提示标题</h2>
 		<p>提示内容提示内容提示内容提示内容提示内容</p>
 	</div>
-	<div class="toast-success">
+	<div class="KsToast-success" cid="KsToast-success">
 		<h2>提示标题</h2>
 		<p>提示内容提示内容提示内容提示内容提示内容</p>
 	</div>
-	<div class="toast-info">
+	<div class="KsToast-info" cid="KsToast-info">
 		<h2>提示标题</h2>
 		<p>提示内容提示内容提示内容提示内容提示内容</p>
 	</div>
-	<div class="toast-danger">
+	<div class="KsToast-danger" cid="KsToast-danger">
 		<h2>提示标题</h2>
 		<p>提示内容提示内容提示内容提示内容提示内容</p>
 	</div>
-	<div class="toast-warning">
+	<div class="KsToast-warning" cid="KsToast-warning">
 		<h2>提示标题</h2>
 		<p>提示内容提示内容提示内容提示内容提示内容</p>
 	</div>
 
 	<!-- 可操作提示框 -->
-	<div class="toast-close-primary row-auto">
+	<div class="KsToastClose-primary" cid="KsToastClose-primary">
 		<p class="col">提示内容提示内容提示内容提示内容提示内容</p>
 		<i class="icon col-auto">&#xe611;</i>
 	</div>
-	<div class="toast-close-warning row-auto">
+	<div class="KsToastClose-warning" cid="KsToastClose-warning">
 		<p class="col">提示内容提示内容提示内容提示内容提示内容</p>
 		<i class="icon col-auto">&#xe611;</i>
 	</div>
-	<div class="toast-close-danger row-auto">
+	<div class="KsToastClose-danger" cid="KsToastClose-danger">
 		<p class="col">提示内容提示内容提示内容提示内容提示内容</p>
 		<i class="icon col-auto">&#xe611;</i>
 	</div>
-	<div class="toast-close-info row-auto">
+	<div class="KsToastClose-info" cid="KsToastClose-info">
 		<p class="col">提示内容提示内容提示内容提示内容提示内容</p>
 		<i class="icon col-auto">&#xe611;</i>
 	</div>
-	<div class="toast-close-success row-auto">
+	<div class="KsToastClose-success" cid="KsToastClose-success">
 		<p class="col">提示内容提示内容提示内容提示内容提示内容</p>
 		<i class="icon col-auto">&#xe611;</i>
 	</div>
-	<div class="toast-close-Violet row-auto">
+	<div class="KsToastClose-Violet" cid="KsToastClose-Violet">
 		<p class="col">提示内容提示内容提示内容提示内容提示内容</p>
 		<i class="icon col-auto">&#xe611;</i>
 	</div>
