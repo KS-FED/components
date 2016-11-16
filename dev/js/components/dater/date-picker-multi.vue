@@ -80,17 +80,20 @@
             }
         },
         methods:{
-            redraw(range_dater) {
+            redraw(show_range,range_daters) {
                 this.value = ''
-                this.range_daters = range_dater
-                range_dater.length >=2 && (this.range_daters = this.get_range_dates(range_dater))
+                
+                this.range_daters = range_daters
+                range_daters.length == 2 && (this.range_daters = this.get_range_dates(range_daters))
+                // range_dater.length == 3 && (this.range_daters = [range_dater[2]])
                 this.range_daters_length = this.range_daters.length
                 
-                this.now = new Date(range_dater[0])
-                this.next_now = new Date(range_dater[1])
+                this.now = new Date(show_range[0])
+                this.next_now = new Date(show_range[1])
             },
             reset() {
                 console.log('reset')
+                this.redraw([this.stringify(this.now),this.stringify(this.next_now)],[])
                 
             },
             // 点击日期
@@ -110,10 +113,25 @@
 
                 range_dater = this.get_range(this.range_daters , _date.dater)
 
-                // console.log(range_dater)
-                this.redraw(range_dater)
+                this.redraw([this.stringify(this.now),this.stringify(this.next_now)],range_dater)
                 
                 this.$emit('change',_date)
+            },
+            // [a,b] , e => [c,d]
+            get_range(range_daters,select_value){
+
+                if(range_daters.length >= 2){
+                    range_daters = []
+                }
+
+                if(range_daters.length && this.compared(select_value , range_daters[0])){
+                    range_daters.unshift(select_value)
+                }else{
+                    range_daters.push(select_value)    
+                }
+                 
+                return range_daters
+
             },
             // 切换月(右侧)
             click_next_month (flag) {
@@ -155,8 +173,6 @@
                 var prev = this.split_ym(prev_date)
                 var next = this.split_ym(next_date)
 
-                // console.log(prev,next)
-
                 if(prev.year == next.year && prev.month == next.month){
                     return this.only_one_month(prev , next)
                 }else{
@@ -166,7 +182,7 @@
             },
             // 选择同一个月
             only_one_month(prev , next){
-                console.log(prev , next)
+                
                 var month = prev.month+1,
                     counts = next.datetext - prev.datetext + 1,
                     arr = [] , val ,ym
@@ -174,35 +190,34 @@
                 ;(''+month).length == 1 && (month = '0'+month) 
                 ym = prev.year+'-'+(month)
                     
-
                 while(counts--){
                     val = +prev.datetext+counts;
                     (''+val).length == 1 && (val = '0'+val) 
                     arr.push(ym+'-'+val)
                 }
-                // console.log(arr)
+                
                 return arr
             },
             // 选择两个月以上
             span_two_month(prev , next , next_date){
+
                 var prev_dates = this.prev_month_part(prev.year , prev.month , prev.datetext)
                 var dates = this.get_all_month_dates(this.loop_full_month(prev,next)).reduce((pre,cur,i,arr)=>{
                     return pre.concat(cur)
                 },[])
                 var next_dates = this.next_month_part(next_date)
-                // console.log('prev_dates: ',prev_dates)
-                // console.log('next_dates: ',next_dates)
-                // console.log(dates)
                 return prev_dates.concat([].concat(dates)).concat(next_dates).map((_date)=>{
                     return _date.dater
                 })
+
             },
+            // 尾调用
             loop_full_month(prev,next,arr){
                 var last_day , prev_ym
 
                 arr = arr || []
 
-                prev_ym = this.convert_year_month(prev.year , prev.month , +1)
+                prev_ym = this.next_month(prev.year , prev.month)
 
                 if(prev_ym.year+''+(+prev_ym.month+10) >= next.year+''+(+next.month+10)) return arr
                  
@@ -241,29 +256,7 @@
                     return this.get_full_month_dates(dater)
                 })
             },
-            // [a,b] , e => [c,d]
-            get_range(range_daters,select_value){
-                var range_dater
 
-                // console.log(range_daters)
-
-                if(range_daters.length >= 2){
-                    range_dater = []
-                }else{
-                    range_dater = [range_daters[0]]
-                }
-                
-                console.log('range_dater',range_dater)
-
-                if(range_dater.length && this.compared(select_value , range_dater[0])){
-                    range_dater.unshift(select_value)
-                }else{
-                    range_dater.push(select_value)    
-                }
-                 
-                return range_dater
-
-            },
 
             next_month_dates(year = this.next_now.getFullYear(),month = this.next_now.getMonth()) {
 
@@ -278,10 +271,10 @@
             }
         },
         created(){
-            // this.next_month_dates()
-            // this.click_next_month (1) 
-            this.range_dater = ['2016-06-06','2016-08-08']
-            this.redraw(this.range_dater)
+            this.next_month_dates()
+            this.click_next_month (1) 
+            // this.range_dater = ['2016-06-06','2016-08-08']
+            // this.redraw(this.range_dater,this.range_dater)
             
 
         }

@@ -101,9 +101,9 @@ export default {
             get_page_dates (year = this.now.getFullYear(),month = this.now.getMonth()){
                 // console.log(year,month)
                 // 生成年月
-                var pre_date = this.convert_year_month( year,month,-1 )
+                var pre_date = this.prev_month( year,month,-1 )
                 var date = this.convert_year_month( year,month )
-                var next_date = this.convert_year_month( year,month, +1 )
+                var next_date = this.next_month( year,month, +1 )
                 // 年月最后一天
                 var prev = this.get_month_last_day( pre_date.year , pre_date.month )
                 var cur = this.get_month_last_day( date.year,date.month )
@@ -223,6 +223,14 @@ export default {
                                       ? 11 : month
                 return month
             },
+            // 下一个月
+            next_month(year,month){
+                return this.convert_year_month(year,month,+1)
+            },
+            // 上一个月
+            prev_month(year,month){
+                return this.convert_year_month(year,month,-1)
+            },
             /**
              * [convert_year_month 转换年月]
              * @param  {[type]} year  [2014]
@@ -231,7 +239,6 @@ export default {
              * (2014,11,+1) -> {year:2015,month:0}
              */
             convert_year_month(year,month,sgn){
-                
                 if(sgn){
                     month = month + sgn
                     month > 11 && (++ year)
@@ -240,8 +247,6 @@ export default {
                 }else {
                     month = this.convert_month(month)
                 }
-                
-
                 return { year:year, month:month }
             }
 
