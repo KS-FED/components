@@ -1,5 +1,6 @@
 <template>
-  <div class="KsCitySelect" cid="KsCitySelect" v-ks-click-outside="closeHandle" v-ks-scroll-inside="scrollHandle">
+  <div class="KsCitySelect" cid="KsCitySelect"
+       v-ks-scroll-bound-value:150:200:100:10="scrollHandle">
     <div class="_input">
       <div class="_icon">
         <i class="icon">&#xe668;</i>
@@ -70,13 +71,6 @@
        */
       closeHandle () {
         if (this.show) { this.show = false }
-      },
-
-      /**
-       * @description 处理选择器关闭.
-       */
-      scrollHandle () {
-        console.count()
       },
 
       /**

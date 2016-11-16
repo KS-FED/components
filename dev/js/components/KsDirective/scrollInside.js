@@ -18,7 +18,7 @@ export default {
   bind () {
     let me = this
 
-    const documentHandler = function(e) {
+    const handler = function(e) {
       let handler = me.vm[me[scrollInsideContext].methodName]
       let type = e.type
 
@@ -29,11 +29,11 @@ export default {
     }
 
     me[scrollInsideContext] = {
-      documentHandler,
+      handler,
       methodName: me.expression,
       eventType: document.mozHidden !== undefined ? 'DOMMouseScroll' : 'mousewheel'
     }
-    DomUtil.on(this.el, me[scrollInsideContext].eventType, documentHandler)
+    DomUtil.on(this.el, me[scrollInsideContext].eventType, handler)
   },
 
   update () {
@@ -41,7 +41,7 @@ export default {
   },
 
   unbind () {
-    DomUtil.off(this.el, this[scrollInsideContext].eventType, this[scrollInsideContext].documentHandler)
+    DomUtil.off(this.el, this[scrollInsideContext].eventType, this[scrollInsideContext].handler)
   },
 
   install (Vue) {
