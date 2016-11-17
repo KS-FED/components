@@ -3,8 +3,7 @@
 // @author pkeros
 // @date 2016/10/11
 
-@import "../../styles/variables";
-@import "../../styles/sassMagic/_sassMagic";
+@import "../variables";
 
 $primary-color: nth($infos, 2);                                 // 主色调
 $skin-size: 18px;                                               // 选择框大小

@@ -8,10 +8,10 @@
       <br>
       <!--v-ks-scroll-bound-value:0:86400000:0:30000="scrollHandleHMS"-->
       <div class="HMS-container" style="position: relative">
-        <input type="text" class="HSM-entity" v-model="inputValueHMS"/>
-        <div class="HMS-H" v-ks-scroll-bound-value:0:86400000:0:3600000="scrollHandleH"></div>
-        <div class="HMS-M" v-ks-scroll-bound-value:0:86400000:0:60000="scrollHandleM"></div>
-        <div class="HMS-S" v-ks-scroll-bound-value:0:86400000:0:1000="scrollHandleS"></div>
+        <input type="text" v-el:hsmEntity class="HSM-entity" v-model="inputValueHMS"/>
+        <div class="HMS-H" @mouseenter="hover(0,2)" v-ks-scroll-bound-value:0:86400000:0:3600000="scrollHandleH"></div>
+        <div class="HMS-M" @mouseenter="hover(3,5)" v-ks-scroll-bound-value:0:86400000:0:60000="scrollHandleM"></div>
+        <div class="HMS-S" @mouseenter="hover(6,8)" v-ks-scroll-bound-value:0:86400000:0:1000="scrollHandleS"></div>
       </div>
     </div>
 
@@ -96,8 +96,9 @@ export default {
   },
 
   watch: {
-    HMSValue (value) {
-      let date = new Date(value)
+    HMSValue () {
+      let date = new Date(this.HMSValue)
+
       date.setMinutes( date.getMinutes() + date.getTimezoneOffset() )
 
       this.setHSM('H', date.getHours())
@@ -107,6 +108,12 @@ export default {
   },
 
   methods: {
+    hover (start, end) {
+      let HSMEntity = this.$els.hsmentity
+
+      HSMEntity.focus()
+      HSMEntity.setSelectionRange(start, end)
+    },
     setHSM (type, value) {
       let HMSValue = this.inputValueHMS
       let times = HMSValue.split(':')
@@ -137,7 +144,7 @@ export default {
       this.inputValueH = value
 
       if (delta > 0) {
-        if (value > options.min) {
+        if (value >= options.min) {
           this.HMSValue -= options.step
         }
       } else {
@@ -152,7 +159,7 @@ export default {
       this.inputValueM = value
 
       if (delta > 0) {
-        if (value > options.min) {
+        if (value >= options.min) {
           this.HMSValue -= options.step
         }
       } else {
@@ -167,7 +174,7 @@ export default {
       this.inputValueS = value
 
       if (delta > 0) {
-        if (value > options.min) {
+        if (value >= options.min) {
           this.HMSValue -= options.step
         }
       } else {
@@ -201,7 +208,7 @@ export default {
     display: inline-block;
     height: 100%;
     width: 15px;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
   }
   .HMS-H {left: 0;}
   .HMS-M {left: 20px;}

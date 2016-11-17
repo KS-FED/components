@@ -1,21 +1,11 @@
 <template>
-  <div :class="classes">
-    <!-- NRCheckbox 选择色块自定义 -->
-    <style type="text/css">
-      {{ '.KSNRCheckbox__UID--' + _uid }} .KSNRCheckbox__skin:before {
-        {{ styleCubeColor }}
-      }
-      {{ '.KSNRCheckbox__UID--' + _uid }} .KSNRCheckbox__entity:checked + .KSNRCheckbox__skin:before {
-        {{ styleCubeColor }}
-      }
-    </style>
-    <input type="checkbox" class="KSNRCheckbox__entity" :name="name"
-           :id="'KSNRCheckbox__entity--' + _uid"
-           v-model="checked" @change.stop
-           :disabled="disable && 'disabled'"
-           :id="`KSNRCheckbox__entity--${_uid}`" />
-    <label class="KSNRCheckbox__skin" :for="'KSNRCheckbox__entity--' + _uid"></label>
-    <label class="KSNRCheckbox__text" :for="'KSNRCheckbox__entity--' + _uid">
+  <div class="KSNRCheckbox" cid="KSNRCheckbox">
+    <input type="checkbox" class="_entity" v-model="checked" @change.stop
+           :disabled="disable && 'disabled'" :id="`KSNRCheckbox--${_uid}`" />
+    <label class="_skin" :for="`KSNRCheckbox--${_uid}`">
+      <em class="_cube" :style="{background: color}"></em>
+    </label>
+    <label class="_text" :for="`KSNRCheckbox--${_uid}`">
       <slot>LABEL</slot>
     </label>
   </div>
@@ -26,19 +16,12 @@
     name: 'KsNormalCheckbox',
 
     props: {
-      name: { type: String, default: 'ZJCheckbox' },
       color: { type: String, default: '#00A5E0' },
       checked: { type: Boolean, twoWay: true },
       disable: { type: Boolean, default: false }
     },
 
     computed: {
-      /**
-       * @description 复选框根 div 的 class
-       * @summary 用于标识复选框
-       * @return {string}
-       */
-      classes () { return `KSNRCheckbox KSNRCheckbox__UID--${this._uid}` },
       /**
        * @description 选择框中方块 style
        * @summary 用于控制选择框中方块的颜色
@@ -74,5 +57,5 @@
 </script>
 
 <style lang="scss">
-  @import "../styles/NrCheckbox";
+  @import "~styleComponents/NrCheckbox";
 </style>
