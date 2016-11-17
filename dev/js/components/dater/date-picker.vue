@@ -64,6 +64,11 @@
                 this.value = ''
                 this.now = new Date(value_temp)
             }
+        },
+        created () {
+            console.log('created')
+            this.point_daters = ['2016-10-01','2016-10-02','2016-10-03','2016-10-04']
+         
         }
     }
 </script>

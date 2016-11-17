@@ -60,6 +60,7 @@
 </template>
 <script type="text/javascript">
     import mixins from './mixins.js'
+    import {parse , stringify} from './util/lang'
     export default {
         mixins: [mixins],
         props:{
@@ -94,7 +95,7 @@
             },
             reset() {
                 console.log('reset')
-                this.redraw([this.stringify(this.now),this.stringify(this.next_now)],[])
+                this.redraw([stringify(this.now,this.months),stringify(this.next_now,this.months)],[])
                 
             },
             // 点击日期
@@ -114,7 +115,7 @@
 
                 range_dater = this.get_range(this.range_daters , _date.dater)
 
-                this.redraw([this.stringify(this.now),this.stringify(this.next_now)],range_dater)
+                this.redraw([stringify(this.now,this.months),stringify(this.next_now,this.months)],range_dater)
                 
                 this.$emit('change',_date)
             },
@@ -139,7 +140,7 @@
                 this.next_now.setMonth(this.next_now.getMonth() + flag,1)
                 this.next_now = new Date(this.next_now)
 
-                if(this.compared_month(this.stringify(this.next_now) , this.stringify(this.now))){
+                if(this.compared_month(stringify(this.next_now,this.months) , stringify(this.now,this.months))){
                     this.click_month(-1)
                 }
 
@@ -149,7 +150,7 @@
                 this.now.setMonth(this.now.getMonth() + flag,1)
                 this.now = new Date(this.now)
                 // console.log(this.stringify(this.next_now) , this.stringify(this.now))
-                if(this.compared_month(this.stringify(this.next_now) , this.stringify(this.now))){
+                if(this.compared_month(stringify(this.next_now,this.months) , stringify(this.now,this.months))){
                     this.click_next_month(1)
                 }
             },
