@@ -3,50 +3,39 @@
 // @author pkeros
 // @date 2016/10/11
 
-//
-// 需要的 DOM 结构
-//
-//<div class="KSNRCheckbox KSNRCheckbox__entity--ZERO">
-//  <input type="checkbox" class="KSNRCheckbox__entity" id="KSNRCheckbox__entity--3">
-//  <label class="KSNRCheckbox__skin" for="KSNRCheckbox__entity--ZERO"></label>
-//  <label class="KSNRCheckbox__text" for="KSNRCheckbox__entity--ZERO"></label>
-//</div>
-//
-//
-
 @import "../../styles/variables";
 @import "../../styles/sassMagic/_sassMagic";
 
 $primary-color: nth($infos, 2);                                 // 主色调
 $skin-size: 18px;                                               // 选择框大小
 
-@include b(KSNRCheckbox) {
+.KSNRCheckbox {
   position: relative;
   display: inline-block; padding: 2px 3px;
   vertical-align: middle; font-size: 14px;
 
-  @include e(entity) {
+  _entity {
     display: none;
 
     // checked 下的选择框样式
-    &:checked + .KSNRCheckbox__skin:before {
+    &:checked + .KSNRCheckbox-skin .KSNRCheckbox-cube {
       opacity: 1;
     }
     // checked 禁用样式
-    &[disabled] + .KSNRCheckbox__skin {
+    &[disabled] + .KSNRCheckbox-skin {
       cursor: not-allowed;
       background: rgba(77, 77, 77, .1)
     }
-    &[disabled] + .KSNRCheckbox__skin:before {
+    &[disabled] + .KSNRCheckbox-skin .KSNRCheckbox-cube {
       opacity: .6;
     }
   }
 
-  @include e(text) {
+  _text {
     user-select: none; cursor: pointer;
   }
 
-  @include e(skin) {
+  _skin {
     display: inline-block;
     border: 1px solid #D0D0D5; border-radius: 3px;
     width: $skin-size; height: $skin-size;
@@ -54,8 +43,8 @@ $skin-size: 18px;                                               // 选择框大�
     cursor: pointer;
 
     // 选择点的样式
-    &:before {
-      content: ''; display: inline-block;
+    _cube {
+      display: inline-block;
       height: $skin-size / 1.8; width: $skin-size / 1.8;
       border-radius: 3px;
       background-color: $primary-color;

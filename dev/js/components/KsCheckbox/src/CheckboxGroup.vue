@@ -50,5 +50,5 @@
 </script>
 
 <style lang="scss">
-  @import "../styles/CheckboxGroup";
+  @import "~styleComponents/CheckboxGroup";
 </style>
