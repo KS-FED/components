@@ -7,8 +7,13 @@
 	<date-picker value="2016-10-12" v-on:change="current_change"></date-picker>
 	<br><br>
 	<date-picker value="2016-10-12" v-on:change="current_change"></date-picker>
+	<date-picker value="" v-on:change="current_change"></date-picker>
 	<br><br>
 	<date-picker-multi v-on:change="current_change"></date-picker-multi>
+	<hr>
+	<br><br>
+	<date-picker-multi v-on:change="current_change"></date-picker-multi>
+	<hr>
 	<hr>
 	<hr>
 	<h2>css 部分</h2>

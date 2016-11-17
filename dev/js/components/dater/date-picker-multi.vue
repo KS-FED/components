@@ -68,7 +68,7 @@
             }
         },
         data(){
-            this.range_daters = []
+            // this.range_daters = []
             return {
                 range_daters_length:0,
                 next_dates : [],
@@ -84,6 +84,7 @@
                 this.value = ''
                 
                 this.range_daters = range_daters
+                // this.point_daters = range_daters
                 range_daters.length == 2 && (this.range_daters = this.get_range_dates(range_daters))
                 // range_dater.length == 3 && (this.range_daters = [range_dater[2]])
                 this.range_daters_length = this.range_daters.length
