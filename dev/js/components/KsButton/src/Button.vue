@@ -35,12 +35,12 @@
     },
 
     props: {
-      loading: { type: Boolean, twoWay: true },
-      disable: { type: Boolean, default: false },
-      size: { type: String, default: 'normal' },
-      type: { type: String, default: 'primary' },
-      ghost: { type: Boolean, default: false },
-      nativeType: { type: String, default: 'button' }
+      loading: {type: Boolean, twoWay: true},
+      disable: {type: Boolean, default: false},
+      size: {type: String, default: 'normal'},
+      type: {type: String, default: 'primary'},
+      ghost: {type: Boolean, default: false},
+      nativeType: {type: String, default: 'button'}
     },
 
     computed: {
