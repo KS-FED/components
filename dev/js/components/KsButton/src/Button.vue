@@ -9,7 +9,7 @@
     </nr-button>
     <!-- 幽灵按钮 -->
     <ghost-button v-if="ghost" :native-type="nativeType"
-                  :disable="disable" :loading.sync="loading"
+                  :disable="disable"
                   :btn-class-name="btnClassName"
     >
       <slot></slot>
