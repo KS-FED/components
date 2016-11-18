@@ -15,8 +15,7 @@
 
 		
 		<!-- 日期默认样式——周——范围 -->
-		<div class="date-scope" style="margin-bottom: 400px;">
-
+		<div class="date-scope readonly" style="margin-bottom: 400px;">
 			<div class="date-input">
 				<div class="col-auto date-icon"><i class="icon">&#xe615;</i></div>
 				<div class="col">
@@ -66,8 +65,8 @@
 					<div class="date-days">
 						<span>15</span>
 						<span>16</span>
-						<span class="active">17</span>
-						<span>18</span>
+						<span class="begin-active">17</span>
+						<span class="scope-bg">18</span>
 						<span class="scope-bg">19</span>
 						<span class="scope-bg">20</span>
 						<span class="scope-bg">21</span>
@@ -91,7 +90,7 @@
 						<span class="future">5</span>
 					</div>
 					<div class="date-btn">
-						<span class="reset">重置</span>
+						<span class="reset">已选择30天</span>
 					</div>
 				</div>
 				<div class="date-bd">
@@ -132,7 +131,7 @@
 					<div class="date-days">
 						<span>15</span>
 						<span>16</span>
-						<span class="active">17</span>
+						<span class="end-active">17</span>
 						<span>18</span>
 						<span>19</span>
 						<span>20</span>
@@ -157,7 +156,7 @@
 						<span class="future">5</span>
 					</div>
 					<div class="date-btn">
-						<span class="collect">已选择30天</span>
+						<span class="collect"></span>
 					</div>
 				</div>
 			</div>
