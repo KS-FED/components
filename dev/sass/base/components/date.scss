@@ -1,10 +1,10 @@
 %icon-input{
-	@extend .row-auto;
+	@extend %ks-row-auto;
 	background: #fff;
-	border: 1px solid #e5e5e5;
+	border: 1px solid $bor-color;
     border-radius: 4px;
     .date-icon{
-    	border-right: 1px solid #e5e5e5;
+    	border-right: 1px solid $bor-color;
     	i{
 	    	padding: 11px;
 	    }
@@ -20,34 +20,34 @@
     }
 }
 %picker-wrap-use{
-	@extend %row;
+	@extend %ks-row;
 	display: inline-block;
 	margin-top: -1px;
     .date-bd{
-    	@extend %col;
-    	border: 1px solid #e5e5e5;
+    	@extend %ks-col;
+    	border: 1px solid $bor-color;
     	border-left: transparent;
 
 		width: 314px;
 	    background: #fff;
     	.date-head{
-	    	@extend .row-auto;
+	    	@extend %ks-row-auto;
 	    	padding: 30px 18px 15px;
 	    	font-size: 14px;
 	    	.retreat,.next{
-	    		@extend .col;
+	    		@extend %ks-col;
 	    		cursor: pointer;
 	    	}
-	    	.year{ @extend .col-auto; }
+	    	.year{ @extend %ks-col-auto; }
 	    	.next{ text-align: right; }
 	    }
 	    
 	    .date-week,.date-days{
-	    	@extend .row;
+	    	@extend %ks-row;
 	    	padding: 0 32px;
 			text-align: center;
 			line-height: 36px;
-			span{ @extend .col; }
+			span{ @extend %ks-col; }
 	    }
 	    .date-week{
 	    	font-weight: bold;
@@ -85,7 +85,7 @@
 	    }
     } 
     .date-bd:first-child{
-    	border-left: 1px solid #e5e5e5;
+    	border-left: 1px solid $bor-color;
     }
 }
 
@@ -93,8 +93,8 @@
 	@extend %picker-wrap-use;
 	width: auto;
     .date-head{
-    	.interstice{ @extend .col; }
-    	.month{ @extend .col-auto; }
+    	.interstice{ @extend %ks-col; }
+    	.month{ @extend %ks-col-auto; }
     	.month{ font-weight: bold; }
     	.interstice{ width: 16px; }
     }
@@ -132,7 +132,7 @@
 	}
 	.date-btn{
 		margin-top: 20px;
-		border-top: 1px solid #e5e5e5;
+		border-top: 1px solid $bor-color;
 		.reset,.collect{
 			line-height: 44px;
 			height: 44px;

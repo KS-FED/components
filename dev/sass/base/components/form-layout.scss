@@ -13,9 +13,9 @@
     margin: auto;
 	.form-ver,.form-group{ @extend %form-layout; }
 	.form-group{
-		@extend .row;
+		@extend %ks-row;
 		.label{
-			@extend .col;
+			@extend %ks-col;
 			width: 100px;
 		    text-align: right;
 		    vertical-align: top;

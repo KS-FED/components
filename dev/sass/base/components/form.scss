@@ -1,7 +1,7 @@
 
 .form-ver{
 	.col.label{
-		@extend .row;
+		@extend %ks-row;
 		text-align: left;
 	}
 	.deposit-right-auto{
@@ -15,28 +15,28 @@
 	}
 }
 .control-group{
-    @extend .row;
+    @extend %ks-row;
     @extend %control-group;
 }
 .control-group-auto{
-    @extend .row-auto;
+    @extend %ks-row-auto;
     @extend %control-group;
 }
     
 %control-group{
     
     .col-percent7{
-        @extend .col;
+        @extend %ks-col;
         width:70%;
         position:relative;
     }
     .col-wauto{
-        @extend .col;
+        @extend %ks-col;
         width:auto;
         position:relative;
     }
     .col-percent3{
-        @extend .col;
+        @extend %ks-col;
         width:30%;
         
     }

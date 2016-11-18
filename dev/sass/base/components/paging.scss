@@ -36,12 +36,12 @@
 }
 .KsPage{ @extend %paging; }
 .KsPageGroup{
-	@extend %row-auto;
+	@extend %ks-row-auto;
 	@extend %paging;
 	color: #999;
 	line-height: 36px;
 	_statistical{
-		@extend %col-auto;
+		@extend %ks-col-auto;
 		padding-right: 20px;
 		span{
 			color: #000;

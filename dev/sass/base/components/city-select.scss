@@ -4,14 +4,14 @@
 	_input {
 		@extend %icon-input; 
 		_icon {
-			@extend %col-auto;
-			border-right: 1px solid #e5e5e5;
+			@extend %ks-col-auto;
+			border-right: 1px solid $bor-color;
 			i{ padding: 11px; }
 		}
 	}
 	_bd {
 		display: inline-block;
-	    border: 1px solid #e5e5e5;
+	    border: 1px solid $bor-color;
 	    border-radius: 4px;
 	    background: #fff;
     	margin-top: -1px;
@@ -52,7 +52,7 @@
 					// border:1px solid #000;
 					&:hover{
 						background: #f5f5f5;
-						border:1px solid #e5e5e5;
+						border:1px solid $bor-color;
 						border-radius: 4px;
 					}
 				}

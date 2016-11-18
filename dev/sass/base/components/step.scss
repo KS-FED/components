@@ -1,5 +1,5 @@
 %step-default{
-    @extend %col-auto;
+    @extend %ks-col-auto;
     position: relative;
     span{
         width: 44px;
@@ -34,7 +34,7 @@
     }
 }
 %step-finish-hr{
-    @extend %col;
+    @extend %ks-col;
     hr{
         height: 3px;
         background: #eee;
@@ -43,7 +43,7 @@
     }
 }
 .KsStep{
-    @extend %row-auto;
+    @extend %ks-row-auto;
     padding: 20px 70px 70px 70px;
     font-size: 20px;
     color: #cdcdcd;
