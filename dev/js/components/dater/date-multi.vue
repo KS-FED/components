@@ -59,7 +59,7 @@
     </div>
 </template>
 <script type="text/javascript">
-    import mixins from './mixins'
+    import mixins from './mixins/index'
     import {cur_month, next_month , parse , stringify} from './util/lang'
     import { get_full_month_dates , get_month_last_day , one_page_date} from './util/apage'
 

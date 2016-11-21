@@ -33,7 +33,7 @@
 
 </template>
 <script>
-    import mixins from './mixins'
+    import mixins from './mixins/index'
     import { stringify } from './util/lang'
     import { one_page_date } from './util/apage'
     export default {
