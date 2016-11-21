@@ -1,79 +1,39 @@
 @import "./tb";
 @import "./ib";
 
-%col {
-    @extend %tb-cell;
-}
-%col-top {
+
+%ks-col-top {
     @extend %tb-cell;
     vertical-align: top;
 }
- .col {
-        @extend %col;
-    }
-     .col-top {
-        @extend %col-top;
-    }
-%row {
-
-    @extend .tb;
-   
-
-   
-    
+%ks-col-auto-top {
+    @extend %ks-col-auto;
+    vertical-align: top;
 }
-
-.row {@extend %row;}
-
-%col-auto{
+%ks-row-auto{
+    @extend %ks-row;
+    table-layout: auto;
+}
+%ks-col-auto{
     @extend %tb-cell;
     width: 1px;
     white-space: nowrap;
 }
- %col-auto-top {
-    @extend %col-auto;
-    vertical-align: top;
-}
-.col-auto{
-    @extend %col-auto;
-}
-.col-auto-top {
-    @extend %col-auto-top;
-}
-
-
-.row-auto {
-    @extend %row;
-    table-layout: auto;
-    
-}
-%row-auto {
-    @extend %row;
-    table-layout: auto;
-}
-
-%ks-row-auto{
-    @extend %row-auto;
-}
-%ks-col-auto{
-    @extend %col-auto;
-}
 %ks-row{
-    @extend %row;
+    @extend .tb;
 }
 %ks-col{
-    @extend %col;
+    @extend %tb-cell;
 }
-
 .ks-row-auto{
-    @extend %row-auto;
+    @extend %ks-row-auto;
 }
 .ks-col-auto{
-    @extend %col-auto;
+    @extend %ks-col-auto;
 }
 .ks-row{
-    @extend %row;
+    @extend %ks-row;
 }
 .ks-col{
-    @extend %col;
+    @extend %ks-col;
 }
