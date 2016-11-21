@@ -266,7 +266,6 @@ export default {
             this.now = this.parse(this.value) || this.parse(this.valueDefault) || new Date()
 
             console.log(this.value)
-            console.log('============== this.value')
 
 
          

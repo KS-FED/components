@@ -7,12 +7,12 @@
 	<ks-pure-dater value="2016-10-12" v-on:change="current_change"></ks-pure-dater>
 	<ks-dater value="2016-10-12" v-on:change="current_change"></ks-dater>
 	<br><br>
-	<!-- <ks-date-picker :value="date_val" placeholder="写点啥" :exclude="true" v-on:change="current_change"></ks-date-picker>
+	 <ks-date-picker :value="date_val" placeholder="写点啥" :exclude="true" v-on:change="current_change"></ks-date-picker>
 	<br><br>
-	<ks-date-picker value="2016-10-12" v-on:change="current_change"></ks-date-picker>
+	<!-- <ks-date-picker value="2016-10-12" v-on:change="current_change"></ks-date-picker> -->
 	
 	<br><br>
-	<ks-date-picker-multi v-on:change="current_change"></ks-date-picker-multi>-->
+	<ks-date-picker-multi v-on:change="current_change"></ks-date-picker-multi>
 	<hr>
 	<br><br>
 	<ks-date-picker-multi v-on:change="current_change"></ks-date-picker-multi> 

@@ -81,8 +81,9 @@
                 var dater = cur_date.dater
 
                 this.cur_value = dater
-                this.now = new Date(dater)
+                console.log(this.exclude)
                 this.exclude ? this.is_exclude(dater) : this.no_exclude(dater)
+                this.now = new Date(dater)
                 
                 
             },
@@ -103,6 +104,7 @@
                 }else{
                     point_daters.push(dater)
                 }
+                console.log(point_daters)
                 return point_daters
             },
             
@@ -120,6 +122,9 @@
                 this.dates = one_page_date(this.now.getFullYear(),this.now.getMonth(),this.selectd)
             }
         },
-        created () {}
+        created () {
+            // alert('ppp')
+            console.log('this.exclude',this.exclude)
+        }
     }
 </script>
