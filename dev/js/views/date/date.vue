@@ -6,7 +6,7 @@
 	<br><br>
 	<ks-dater value="2016-10-12" v-on:change="current_change"></ks-dater>
 	<br><br>
-	 <ks-date-picker :value="date_val" placeholder="写点啥" :exclude="true" v-on:change="current_change"></ks-date-picker>
+	 <ks-date-picker :value="date_val" placeholder="写点啥" :exclude="true" :readonly="true" v-on:change="current_change"></ks-date-picker>
 	<br><br>
 	<ks-date-picker value="2016-10-12" v-on:change="current_change"></ks-date-picker>
 	<pre>
@@ -24,16 +24,19 @@
         	</thead>
         	<tbody>
         		<tr>
-        			<td>value</td><td>展示的日期</td>
+        			<td>value (type:String)</td><td>展示的日期 </td>
         		</tr>
         		<tr>
-        			<td>change</td><td>改变后的回调，属性值写入methods</td>
+        			<td>v-on:change (type:Function)</td><td>改变后的回调，属性值写入methods </td>
         		</tr>
         		<tr>
-        			<td>placeholder</td><td>占位符</td>
+        			<td>placeholder (type:String)</td><td>占位符 </td>
         		</tr>
         		<tr>
-        			<td>exclude</td><td>排除</td>
+        			<td>exclude (type:Boolean)</td><td>是否有排除操作 </td>
+        		</tr>
+        		<tr>
+        			<td>readonly (type:Boolean)</td><td>是否只读 </td>
         		</tr>
         	</tbody>
         </table>

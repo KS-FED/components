@@ -75,7 +75,7 @@
                 var id = event.target.id.split('_')
                 var index = +id[1] 
 
-                if(isNaN(index) || id[2]=='disabled') return
+                if(isNaN(index) || id[2]=='disabled' || this.readonly) return
 
                 var cur_date = this.dates[index]
                 var dater = cur_date.dater
