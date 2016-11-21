@@ -17,7 +17,7 @@
             v-for="week in 6">
             <span 
                 v-for="day in  7"
-                :id="_uid+'_'+(+week * 7 + day)"
+                :id="'dater'+_uid+'_'+(+week * 7 + day)"
                 :class="{
                     'pass':dates[week * 7 + day] && dates[week * 7 + day].status=='disabled',
                     'active':dates[week * 7 + day] && dates[week * 7 + day].status=='active'}">

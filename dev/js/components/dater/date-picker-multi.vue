@@ -16,7 +16,7 @@
                 v-for="week in 6">
                 <span 
                     v-for="day in  7"
-                    :id="_uid+'_'+(+week * 7 + day)+'_'+(dates[week * 7 + day] && dates[week * 7 + day].status)"
+                    :id="'dater'+_uid+'_'+(+week * 7 + day)+'_'+(dates[week * 7 + day] && dates[week * 7 + day].status)"
                     :class="{
                         'pass':dates[week * 7 + day] && dates[week * 7 + day].status=='disabled',
                         'scope-bg':dates[week * 7 + day] && dates[week * 7 + day].status=='scope-bg',
@@ -44,7 +44,7 @@
                 v-for="week in 6">
                 <span 
                     v-for="day in  7"
-                    :id="_uid+'_'+(42+week * 7 + day)+'_'+(next_dates[week * 7 + day] && next_dates[week * 7 + day].status)"
+                    :id="'dater'+_uid+'_'+(42+week * 7 + day)+'_'+(next_dates[week * 7 + day] && next_dates[week * 7 + day].status)"
                     :class="{
                         'pass':next_dates[week * 7 + day] && next_dates[week * 7 + day].status=='disabled',
                         'scope-bg':next_dates[week * 7 + day] && next_dates[week * 7 + day].status=='scope-bg',
