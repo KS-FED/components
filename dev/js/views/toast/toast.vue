@@ -23,28 +23,28 @@
 
 	<!-- 可操作提示框 -->
 	<div class="KsToastClose-primary" cid="KsToastClose-primary">
-		<p class="col">提示内容提示内容提示内容提示内容提示内容</p>
-		<i class="icon col-auto">&#xe611;</i>
+		<p class="ks-col">提示内容提示内容提示内容提示内容提示内容</p>
+		<i class="icon ks-col-auto">&#xe611;</i>
 	</div>
 	<div class="KsToastClose-warning" cid="KsToastClose-warning">
-		<p class="col">提示内容提示内容提示内容提示内容提示内容</p>
-		<i class="icon col-auto">&#xe611;</i>
+		<p class="ks-col">提示内容提示内容提示内容提示内容提示内容</p>
+		<i class="icon ks-col-auto">&#xe611;</i>
 	</div>
 	<div class="KsToastClose-danger" cid="KsToastClose-danger">
-		<p class="col">提示内容提示内容提示内容提示内容提示内容</p>
-		<i class="icon col-auto">&#xe611;</i>
+		<p class="ks-col">提示内容提示内容提示内容提示内容提示内容</p>
+		<i class="icon ks-col-auto">&#xe611;</i>
 	</div>
 	<div class="KsToastClose-info" cid="KsToastClose-info">
-		<p class="col">提示内容提示内容提示内容提示内容提示内容</p>
-		<i class="icon col-auto">&#xe611;</i>
+		<p class="ks-col">提示内容提示内容提示内容提示内容提示内容</p>
+		<i class="icon ks-col-auto">&#xe611;</i>
 	</div>
 	<div class="KsToastClose-success" cid="KsToastClose-success">
-		<p class="col">提示内容提示内容提示内容提示内容提示内容</p>
-		<i class="icon col-auto">&#xe611;</i>
+		<p class="ks-col">提示内容提示内容提示内容提示内容提示内容</p>
+		<i class="icon ks-col-auto">&#xe611;</i>
 	</div>
 	<div class="KsToastClose-Violet" cid="KsToastClose-Violet">
-		<p class="col">提示内容提示内容提示内容提示内容提示内容</p>
-		<i class="icon col-auto">&#xe611;</i>
+		<p class="ks-col">提示内容提示内容提示内容提示内容提示内容</p>
+		<i class="icon ks-col-auto">&#xe611;</i>
 	</div>
 
 

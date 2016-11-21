@@ -21,63 +21,63 @@
 <template>
 	<div style="padding-left:30px;">
 		<h2>layout</h2>
-		<div class="row">
-			<span class="col h4 desc">说明 :</span>
+		<div class="ks-row">
+			<span class="ks-col h4 desc">说明 :</span>
 			<div>
 				<p>推荐使用 table、table-cell （*此布局不支持marge）+ inline-block 布局</p>
-				<p>table、table-cell 转换为 （row、col）</p>
+				<p>table、table-cell 转换为 （ks-row、ks-col）</p>
 				<p>inline-block 转换为 （ib-w、ib）</p>
 				<br>
 			</div>
 		</div>
-		<div class="row">
-			<span class="col h4 desc">实例 :</span>
+		<div class="ks-row">
+			<span class="ks-col h4 desc">实例 :</span>
 			<div>
-				<h4>row、col</h4>
-				<div class="row">
-					<div class="col bor">
-						col
+				<h4>ks-row、ks-col</h4>
+				<div class="ks-row">
+					<div class="ks-col bor">
+						ks-col
 					</div>
-					<div class="col bor">
-						col
+					<div class="ks-col bor">
+						ks-col
 					</div>
 				</div>	
 
 				<br>
 
-				<h4>row-auto、col-auto</h4>
-				<div class="row-auto">
-					<div class="col bor">
-						col
+				<h4>ks-row-auto、ks-col-auto</h4>
+				<div class="ks-row-auto">
+					<div class="ks-col bor">
+						ks-col
 					</div>
-					<div class="col-auto bor">
-						col-auto
+					<div class="ks-col-auto bor">
+						ks-col-auto
 					</div>
 				</div>
 
 				<br>
 
 				<h5>border-spacing 特性</h5>
-				<div class="row spacing-20 bor">
-					<div class="col bor">
+				<div class="ks-row spacing-20 bor">
+					<div class="ks-col bor">
 						<div>
 							
 						</div>
 						左
 					</div>
-					<div class="col bor">
+					<div class="ks-col bor">
 						右边
 					</div>
 				</div>	
 				<br>
 				<h5>不用border-spacing</h5>
-				<div class="row bor">
-					<div class="col">
+				<div class="ks-row bor">
+					<div class="ks-col">
 						<div class="bor m-20">
 							左
 						</div>
 					</div>
-					<div class="col">
+					<div class="ks-col">
 						<div class="bor m-20">
 							右边
 						</div>
@@ -99,11 +99,11 @@
 				<br>
 				<h4>组合</h4>
 				<div>
-					<div class="row bor" style="padding:0 10px;">
-						<div class="col" style="text-align: left;">
+					<div class="ks-row bor" style="padding:0 10px;">
+						<div class="ks-col" style="text-align: left;">
 							<h1>知店</h1>
 						</div>
-						<div class="col" style="text-align: right;vertical-align: middle;">
+						<div class="ks-col" style="text-align: right;vertical-align: middle;">
 							<span>图片</span> <div class="ib">账户名称</div>
 						</div>
 					</div>
@@ -111,8 +111,8 @@
 						<p>首页 / 储值卡</p>
 					</div>
 				</div>
-				<div class="row col-space bor">
-					<div class="col" style="width:300px;">
+				<div class="ks-row ks-col-space bor">
+					<div class="ks-col" style="width:300px;">
 						<div class="bor">
 							左-上
 						</div>
@@ -127,17 +127,17 @@
 							</ul>
 						</div>
 					</div>
-					<div class="col">
-						<div class="row clear-col-space">
-							<div class="col bor">
+					<div class="ks-col">
+						<div class="ks-row clear-ks-col-space">
+							<div class="ks-col bor">
 								右-上-左
 							</div>
-							<div class="col" style="width:15px;"></div>
-							<div class="col bor">
+							<div class="ks-col" style="width:15px;"></div>
+							<div class="ks-col bor">
 								右-上-中
 							</div>
-							<div class="col" style="width:15px;"></div>
-							<div class="col bor">
+							<div class="ks-col" style="width:15px;"></div>
+							<div class="ks-col bor">
 								右-上-右
 							</div>
 						</div>
@@ -169,21 +169,21 @@
 				<br>
 				<h5>嵌套</h5>
 				<div>
-					<div class="row col-space bor">
-						<div class="col" style="width:300px;">
-							<div class="row clear-col-space bor">
-								<div class="col bor">
-								<div class="row col-space bor">
+					<div class="ks-row ks-col-space bor">
+						<div class="ks-col" style="width:300px;">
+							<div class="ks-row clear-ks-col-space bor">
+								<div class="ks-col bor">
+								<div class="ks-row ks-col-space bor">
 								
-									<div class="col bor">
+									<div class="ks-col bor">
 										左-上-左	
 									</div>
-									<div class="col bor">
+									<div class="ks-col bor">
 										左-上-左	
 									</div>
 								</div>
 								</div>
-								<div class="col bor">
+								<div class="ks-col bor">
 									左-上-右
 								</div>
 							</div>
@@ -191,7 +191,7 @@
 								左-下
 							</div>
 						</div>
-						<div class="col bor">
+						<div class="ks-col bor">
 							右边
 						</div>
 					</div>	

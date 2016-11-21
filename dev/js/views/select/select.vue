@@ -4,13 +4,13 @@
 		<!-- 下拉列表 -->
 		<div class="KsSelect" cid="KsSelect" style="margin-bottom: 265px; margin-left: 100px;">
 			<div class="_hd">
-				<div class="col">选择内容</div>
-				<i class="icon col-auto">&#xe619;</i>
+				<div class="ks-col">选择内容</div>
+				<i class="icon ks-col-auto">&#xe619;</i>
 			</div>
 			<div class="_bd">
 				<div class="_search">
-					<div class="_input row-auto">
-						<i class="icon col-auto">&#xe617;</i>
+					<div class="_input ks-row-auto">
+						<i class="icon ks-col-auto">&#xe617;</i>
 						<input type="text">
 					</div>
 				</div>

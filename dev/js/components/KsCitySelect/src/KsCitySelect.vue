@@ -4,7 +4,7 @@
       <div class="_icon">
         <i class="icon">&#xe668;</i>
       </div>
-      <input type="text" class="col" readonly v-model="selectedValue"
+      <input type="text" class="ks-col" readonly v-model="selectedValue"
              @click="show = true"
       >
     </div>

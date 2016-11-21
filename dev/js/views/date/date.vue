@@ -17,12 +17,12 @@
 		<!-- 日期默认样式——周——范围 -->
 		<div class="date-scope readonly" style="margin-bottom: 400px;">
 			<div class="date-input">
-				<div class="col-auto date-icon"><i class="icon">&#xe615;</i></div>
-				<div class="col">
-					<div class="row-auto">
-						<div class="col"><input type="text"></div>
-						<i class="icon col-auto scope-icon">&#xe677;</i>
-						<div class="col"><input type="text"></div>
+				<div class="ks-col-auto date-icon"><i class="icon">&#xe615;</i></div>
+				<div class="ks-col">
+					<div class="ks-row-auto">
+						<div class="ks-col"><input type="text"></div>
+						<i class="icon ks-col-auto scope-icon">&#xe677;</i>
+						<div class="ks-col"><input type="text"></div>
 					</div>
 				</div>
 			</div>
@@ -165,12 +165,12 @@
 		<code class="html">
 		<div class="date-scope" style="margin-bottom: 400px;">
 			<div class="date-input">
-				<div class="col-auto date-icon"><i class="icon">&#xe615;</i></div>
-				<div class="col">
-					<div class="row-auto">
-						<div class="col"><input type="text"></div>
-						<i class="icon col-auto scope-icon">&#xe677;</i>
-						<div class="col"><input type="text"></div>
+				<div class="ks-col-auto date-icon"><i class="icon">&#xe615;</i></div>
+				<div class="ks-col">
+					<div class="ks-row-auto">
+						<div class="ks-col"><input type="text"></div>
+						<i class="icon ks-col-auto scope-icon">&#xe677;</i>
+						<div class="ks-col"><input type="text"></div>
 					</div>
 				</div>
 			</div>
@@ -350,8 +350,8 @@
 		<!-- 日期默认样式——周 -->
 		<div class="date" style="margin-bottom: 400px;">
 			<div class="date-input">
-				<div class="col-auto date-icon"><i class="icon">&#xe615;</i></div>
-				<input type="text" class="col">
+				<div class="ks-col-auto date-icon"><i class="icon">&#xe615;</i></div>
+				<input type="text" class="ks-col">
 			</div>
 			<div class="picker-wrap">
 				<div class="date-bd">
@@ -428,8 +428,8 @@
         <code class="html">
 		<div class="date">
 			<div class="date-input">
-				<div class="col-auto"><i class="icon">&#xe615;</i></div>
-				<input type="text" class="col">
+				<div class="ks-col-auto"><i class="icon">&#xe615;</i></div>
+				<input type="text" class="ks-col">
 			</div>
 			<div class="picker-wrap">
 				<div class="date-bd">
@@ -611,8 +611,8 @@
 		<!-- 日期默认样式——月 -->
 		<div class="date-month" style="margin-bottom: 400px;">
 			<div class="date-input">
-				<div class="col-auto date-icon"><i class="icon">&#xe615;</i></div>
-				<input type="text" class="col">
+				<div class="ks-col-auto date-icon"><i class="icon">&#xe615;</i></div>
+				<input type="text" class="ks-col">
 			</div>
 			<div class="picker-wrap">
 				<div class="date-bd">
@@ -652,8 +652,8 @@
         <code class="html">
 		<div class="date-month" style="margin-bottom: 400px;">
 			<div class="date-input">
-				<div class="col-auto date-icon"><i class="icon">&#xe615;</i></div>
-				<input type="text" class="col">
+				<div class="ks-col-auto date-icon"><i class="icon">&#xe615;</i></div>
+				<input type="text" class="ks-col">
 			</div>
 			<div class="picker-wrap">
 				<div class="date-bd">
@@ -729,8 +729,8 @@
 		<!-- 日期默认样式——年 -->
 		<div class="date-year" style="margin-bottom: 400px;">
 			<div class="date-input">
-				<div class="col-auto"><i class="icon">&#xe615;</i></div>
-				<input type="text" class="col">
+				<div class="ks-col-auto"><i class="icon">&#xe615;</i></div>
+				<input type="text" class="ks-col">
 			</div>
 			<div class="picker-wrap">
 				<div class="date-bd">
@@ -770,8 +770,8 @@
         <code class="html">
 		<div class="date-year" style="margin-bottom: 400px;">
 			<div class="date-input">
-				<div class="col-auto"><i class="icon">&#xe615;</i></div>
-				<input type="text" class="col">
+				<div class="ks-col-auto"><i class="icon">&#xe615;</i></div>
+				<input type="text" class="ks-col">
 			</div>
 			<div class="picker-wrap">
 				<div class="date-bd">

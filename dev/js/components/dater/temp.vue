@@ -1,8 +1,8 @@
 <template>
     <div class="date" style="margin-bottom: 400px;">
         <div class="date-input">
-            <div class="col-auto"><i class="icon">&#xe615;</i></div>
-            <input type="text" class="col">
+            <div class="ks-col-auto"><i class="icon">&#xe615;</i></div>
+            <input type="text" class="ks-col">
         </div>
         <div class="picker-wrap">
             <div class="date-head">

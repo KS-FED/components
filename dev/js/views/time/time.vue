@@ -3,12 +3,12 @@
 		<!-- 时间 -->
 		<div class="KsTime" cid="KsTime" style="margin-bottom: 200px;">
 			<div class="_input">
-				<div class="col-auto date-icon"><i class="icon">&#xe616;</i></div>
-				<div class="col-auto">
+				<div class="ks-col-auto date-icon"><i class="icon">&#xe616;</i></div>
+				<div class="ks-col-auto">
 					<div class="_select">
 						<div class="_hd">
-							<div class="col">上午</div>
-							<i class="icon col-auto">&#xe619;</i>
+							<div class="ks-col">上午</div>
+							<i class="icon ks-col-auto">&#xe619;</i>
 						</div>
 						<div class="_bd">
 							<ul class="_list">
@@ -18,7 +18,7 @@
 						</div>
 					</div>
 				</div>
-				<input type="text" class="col">
+				<input type="text" class="ks-col">
 			</div>
 			<div class="_content">
 				<ul class="_list">
