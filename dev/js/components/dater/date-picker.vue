@@ -36,6 +36,7 @@
             // 排除具体时间
             is_exclude(cur_date){
                 this.input_value = cur_date
+                this.$emit('change',cur_date)
             },
             // 不排除时间
             no_exclude(cur_date){
