@@ -185,7 +185,7 @@
 		methods:{
 			current_change(val){
 				// console.log(val)
-       this.$http.post('xxx')         // 
+                 // this.$http.post('xxx')
 			},
 			size_change(val){
 				// console.log(val)
