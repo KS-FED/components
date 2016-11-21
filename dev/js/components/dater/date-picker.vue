@@ -2,8 +2,8 @@
     <div class="date"
         :class="{'readonly':readonly}">
     <div class="date-input" v-on:click="show=!show">
-        <div class="col-auto date-icon"><i class="icon"></i></div>
-        <input type="text" class="col" placeholder="{{placeholder}}" :value="input_value" readonly>
+        <div class="ks-col-auto date-icon"><i class="icon"></i></div>
+        <input type="text" class="ks-col" placeholder="{{placeholder}}" :value="input_value" readonly>
     </div>
     <ks-dater v-show="show" :value="value" :exclude="exclude" :readonly="readonly" v-on:change="current_change"></ks-dater>
     </div>
