@@ -60,7 +60,7 @@ module.exports = {
                 loader: 'file-loader-path?limit=8192&name=[name].[ext]?[hash:8]&path=../[name].[ext]?[hash:8]'}
         ]
     },
-    
+
     // scssRoot: './dev/sass/*.scss',
     // sassResources: './dev/sass/base/*.scss',
     babel: {
@@ -99,10 +99,11 @@ module.exports = {
     }
   },
   resolve: {
-      // extensions: ['', '.js', '.vue'],
-      alias: {
-          scss: path.join(__dirname, './dev/sass/app.scss')
-      }
+    // extensions: ['', '.js', '.vue'],
+    alias: {
+      scss: path.join(__dirname, './dev/sass/app.scss'),
+      styleComponents: path.join(__dirname, './dev/sass/base/components')
+    }
   },
   devtool: process.env.NODE_ENV != 'pro' && 'source-map'
 }

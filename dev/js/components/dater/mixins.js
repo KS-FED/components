@@ -167,7 +167,9 @@ export default {
                     if( status!='active' || dater === this.value ){
                         status_temp = status
                     // 范围值 头尾 + 中间
-                    }else if(~this.range_daters.indexOf(dater)){
+
+                    }else if(this.range_daters && ~this.range_daters.indexOf(dater)){
+
                         status_temp = (this.range_daters[0] == dater || this.range_daters[this.range_daters.length-1] == dater)
                                         ? status : 'scope-bg'
                     

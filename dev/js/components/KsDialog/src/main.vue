@@ -56,10 +56,10 @@
 
   // 类型对色调映射
   const colorMapper = {
-    success: { hue: '#4CAF50', icon: 'icon-chenggongtubiao' },
-    info: { hue: '#00BCD4', icon: 'icon-xinxitubiao' },
-    warn: { hue: '#FF5722', icon: 'icon-cuowutubiao' },
-    danger: { hue: '#F44336', icon: 'icon-cuowutubiao' }
+    success: {hue: '#4CAF50', icon: 'icon-chenggongtubiao'},
+    info: {hue: '#00BCD4', icon: 'icon-xinxitubiao'},
+    warn: {hue: '#FF5722', icon: 'icon-cuowutubiao'},
+    danger: {hue: '#F44336', icon: 'icon-cuowutubiao'}
   }
   // z-index
   let zIndex = 19941026
@@ -72,14 +72,14 @@
     },
 
     props: {
-      showCancelBtn: { type: Boolean, default: true },
-      cancelBtnText: { type: String, default: '取消' },
-      confirmBtnText: { type: String, default: '确定' },
-      title: { type: String, default: '' },
-      text: { type: String, default: '' },
-      type: { type: String, default: 'success' },
-      mask: { type: Boolean, default: true },
-      show: { type: Boolean, default: true, towWay: true }
+      showCancelBtn: {type: Boolean, default: true},
+      cancelBtnText: {type: String, default: '取消'},
+      confirmBtnText: {type: String, default: '确定'},
+      title: {type: String, default: ''},
+      text: {type: String, default: ''},
+      type: {type: String, default: 'success'},
+      mask: {type: Boolean, default: true},
+      show: {type: Boolean, default: true, towWay: true}
     },
 
     computed: {

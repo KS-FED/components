@@ -28,19 +28,19 @@
     },
 
     props: {
-      arrowClassName: {type: String, default: 'KsToolTip-arrow'},
-      openDelay: {type: Number, default: 0},
+      arrowClassName: { type: String, default: 'KsToolTip-arrow' },
+      openDelay: { type: Number, default: 0 },
       disabled: Boolean,
       content: String,
-      visibleArrow: {default: true},
-      transition: {type: String, default: 'fade-in-linear'},
+      visibleArrow: { default: true },
+      transition: { type: String, default: 'fade-in-linear' },
       options: {
         default() {
           return {
-              boundariesPadding: 10,
-              gpuAcceleration: false
-            }
+            boundariesPadding: 10,
+            gpuAcceleration: false
           }
+        }
       }
     },
 

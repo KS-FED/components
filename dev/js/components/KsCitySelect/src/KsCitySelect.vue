@@ -1,5 +1,6 @@
 <template>
-  <div class="KsCitySelect" cid="KsCitySelect" v-ks-click-outside="closeHandle">
+  <div class="KsCitySelect" cid="KsCitySelect"
+       v-ks-scroll-bound-value:150:200:100:10="scrollHandle">
     <div class="_input">
       <div class="_icon">
         <i class="icon">&#xe668;</i>
@@ -42,10 +43,10 @@
     },
 
     props: {
-      tabs: { type: Array, default() {return ['省', '市', '区/县']} },
-      dataSource: { type: Array, required: true, towWay: true },
-      lineSize: { type: Number, default: 4 },
-      itemTextKey: { type: String, required: true }
+      tabs: {type: Array, default() {return ['省', '市', '区/县']}},
+      dataSource: {type: Array, required: true, towWay: true},
+      lineSize: {type: Number, default: 4},
+      itemTextKey: {type: String, required: true}
     },
 
     methods: {

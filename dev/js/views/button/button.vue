@@ -5,8 +5,8 @@
       <ks-button type="primary" :loading.sync="loading">测试1</ks-button>
       <ks-button size="middle" type="success" :disable="true" :loading.sync="loading">测试2</ks-button>
       <ks-button :ghost="true" type="info" :loading.sync="loading">测试3</ks-button>
-      <ks-button :ghost="true" type="other" size="large">测试X</ks-button>
-      <ks-button size="large" type="warn" :loading.sync="loading">测试4</ks-button>
+      <ks-button :ghost="true" type="dark" size="large">测试X</ks-button>
+      <ks-button size="large" type="warning" :loading.sync="loading">测试4</ks-button>
     </div>
 
     <select v-model="loading">
