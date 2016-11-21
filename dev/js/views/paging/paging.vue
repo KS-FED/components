@@ -113,14 +113,14 @@
 		<!-- 分页 -->
 	    <div class="KsPageGroup" cid="KsPageGroup">
 		    <div class="_statistical">共<span>100</span>条</div>
-		    <div class="col">
+		    <div class="ks-col">
 		        每页
 		        <select class="input">
 		            <option value="10">10</option><option value="17">17</option><option value="30">30</option>
 		        </select>
 		        条
 		    </div>
-		    <ul class="KsPage col-auto" cid="KsPage">
+		    <ul class="KsPage ks-col-auto" cid="KsPage">
 			    <li>&lt;</li>
 			    <li>1</li><li class="active">2</li><li>3</li><li>4</li><li>5</li><li>···</li><li>10</li>
 			    <li>&gt;</li>
@@ -131,7 +131,7 @@
         <code class="html">
 		<div class="KsPageGroup" cid="KsPageGroup">
 			<div class="_statistical">共<span>123456</span>条</div>
-			<div class="col">
+			<div class="ks-col">
 				每页
 				<select class="input">
 					<option>10</option>
@@ -140,7 +140,7 @@
 				</select>
 				条
 			</div>
-			<ul class="KsPage col-auto" cid="KsPage">
+			<ul class="KsPage ks-col-auto" cid="KsPage">
 				<li class="disabled">&lt;</li>
 				<li class="active">1</li>
 				<li>2</li>

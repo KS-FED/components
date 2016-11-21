@@ -50,8 +50,8 @@
 		<h3 class="h3">下拉菜单按钮</h3>
 		<div class="select" style="margin-bottom: 265px; margin-right: 50px;">
 			<div class="select-hd btn-primary btn-icon-right">
-				<div class="col">选择内容</div>
-				<i class="icon col-auto">&#xe619;</i>
+				<div class="ks-col">选择内容</div>
+				<i class="icon ks-col-auto">&#xe619;</i>
 			</div>
 			<div class="select-bd">
 				<ul class="select-list">
@@ -72,8 +72,8 @@
 
 		<div class="select" style="margin-bottom: 265px; margin-right: 50px;">
 			<div class="select-hd btn-plain-primary btn-icon-right">
-				<div class="col">选择内容</div>
-				<i class="icon col-auto">&#xe619;</i>
+				<div class="ks-col">选择内容</div>
+				<i class="icon ks-col-auto">&#xe619;</i>
 			</div>
 			<div class="select-bd">
 				<ul class="select-list">
@@ -87,8 +87,8 @@
 
 		<div class="select" style="margin-bottom: 265px; margin-right: 50px;">
 			<div class="select-hd btn-gray btn-icon-right">
-				<div class="col">选择内容</div>
-				<i class="icon col-auto">&#xe619;</i>
+				<div class="ks-col">选择内容</div>
+				<i class="icon ks-col-auto">&#xe619;</i>
 			</div>
 			<div class="select-bd">
 				<ul class="select-list">

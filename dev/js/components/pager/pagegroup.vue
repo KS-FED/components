@@ -1,7 +1,7 @@
 <template>
     <div class="KsPageGroup" cid="KsPageGroup">
         <div class="_statistical">共<span>{{total}}</span>条</div>
-        <div class="col">
+        <div class="ks-col">
             每页
             <select class="input" v-model="page_size">
                 <option 
@@ -11,7 +11,7 @@
             条
         </div>
         <page 
-            class="col-auto"
+            class="ks-col-auto"
             :page_current="page_current" 
             :pages="pages"
             :total="total"
