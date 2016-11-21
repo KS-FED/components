@@ -17,7 +17,7 @@
             v-for="week in 6">
             <span 
                 v-for="day in  7"
-                :id="_uid+'_'+(+week * 7 + day)"
+                :id="'dater'+_uid+'_'+(+week * 7 + day)"
                 :class="{
                     'pass':dates[week * 7 + day] && dates[week * 7 + day].status=='disabled',
                     'active':dates[week * 7 + day] && dates[week * 7 + day].status=='active'}">
@@ -33,16 +33,17 @@
 
 </template>
 <script>
-    import mixins from './mixins'
+    import mixins from './mixins/index'
     import { stringify } from './util/lang'
     import { one_page_date } from './util/apage'
     export default {
         mixins: [mixins],
         data(){
-           
-            if(this.exclude && ~this.value.indexOf(',') ) {
-                this.point_daters = this.value.split(',')
-                console.log(this.point_daters)
+            
+            if(this.exclude) {
+                this.point_daters = []
+                ~this.value.indexOf(',') && (this.point_daters = this.value.split(','))
+                
             }
             return {}
         },
@@ -61,7 +62,6 @@
                 this.$emit('change',this.cur_value)
             },
             selectd(dater){
-
                 var status = ''
                 if(this.exclude){
                     ~this.point_daters.indexOf(dater) && (status = 'active')
@@ -81,9 +81,8 @@
                 var dater = cur_date.dater
 
                 this.cur_value = dater
-                this.now = new Date(dater)
                 this.exclude ? this.is_exclude(dater) : this.no_exclude(dater)
-                
+                this.now = new Date(dater)
                 
             },
             // 排除具体时间
@@ -103,6 +102,7 @@
                 }else{
                     point_daters.push(dater)
                 }
+                // console.log(point_daters)
                 return point_daters
             },
             

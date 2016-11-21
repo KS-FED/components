@@ -16,7 +16,7 @@
                 v-for="week in 6">
                 <span 
                     v-for="day in  7"
-                    :id="_uid+'_'+(+week * 7 + day)+'_'+(dates[week * 7 + day] && dates[week * 7 + day].status)"
+                    :id="'dater'+_uid+'_'+(+week * 7 + day)+'_'+(dates[week * 7 + day] && dates[week * 7 + day].status)"
                     :class="{
                         'pass':dates[week * 7 + day] && dates[week * 7 + day].status=='disabled',
                         'scope-bg':dates[week * 7 + day] && dates[week * 7 + day].status=='scope-bg',
@@ -44,7 +44,7 @@
                 v-for="week in 6">
                 <span 
                     v-for="day in  7"
-                    :id="_uid+'_'+(42+week * 7 + day)+'_'+(next_dates[week * 7 + day] && next_dates[week * 7 + day].status)"
+                    :id="'dater'+_uid+'_'+(42+week * 7 + day)+'_'+(next_dates[week * 7 + day] && next_dates[week * 7 + day].status)"
                     :class="{
                         'pass':next_dates[week * 7 + day] && next_dates[week * 7 + day].status=='disabled',
                         'scope-bg':next_dates[week * 7 + day] && next_dates[week * 7 + day].status=='scope-bg',
@@ -59,7 +59,7 @@
     </div>
 </template>
 <script type="text/javascript">
-    import mixins from './mixins'
+    import mixins from './mixins/index'
     import {cur_month, next_month , parse , stringify} from './util/lang'
     import { get_full_month_dates , get_month_last_day , one_page_date} from './util/apage'
     import { get_range_dates , split_ym } from './util/range'

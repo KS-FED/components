@@ -4,17 +4,42 @@
 
 	<h3>左右请添加 no-select 属性</h3>
 	<br><br>
-	<ks-pure-dater value="2016-10-12" v-on:change="current_change"></ks-pure-dater>
 	<ks-dater value="2016-10-12" v-on:change="current_change"></ks-dater>
 	<br><br>
-	<!-- <ks-date-picker :value="date_val" placeholder="写点啥" :exclude="true" v-on:change="current_change"></ks-date-picker>
+	 <ks-date-picker :value="date_val" placeholder="写点啥" :exclude="true" v-on:change="current_change"></ks-date-picker>
 	<br><br>
 	<ks-date-picker value="2016-10-12" v-on:change="current_change"></ks-date-picker>
-	
+	<pre>
+    	<code class="html">
+    		&lt;ks-date-picker value="2016-10-12" v-on:change="current_change"&gt;&lt;/ks-date-picker&gt;
+    	</code>		
+    </pre>
+    <div class="table-striped">
+        <table class="">
+        	<thead>
+        		<tr>
+					<th></th>
+					<th></th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        		<tr>
+        			<td>value</td><td>展示的日期</td>
+        		</tr>
+        		<tr>
+        			<td>change</td><td>改变后的回调，属性值写入methods</td>
+        		</tr>
+        		<tr>
+        			<td>placeholder</td><td>占位符</td>
+        		</tr>
+        		<tr>
+        			<td>exclude</td><td>排除</td>
+        		</tr>
+        	</tbody>
+        </table>
+        </div>	
 	<br><br>
-	<ks-date-picker-multi v-on:change="current_change"></ks-date-picker-multi>-->
-	<hr>
-	<br><br>
+
 	<ks-date-picker-multi v-on:change="current_change"></ks-date-picker-multi> 
 	<hr>
 	<hr>

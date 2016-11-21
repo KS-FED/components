@@ -46,11 +46,12 @@
         },
         watch:{
             value(val){
-                console.log(val)
+                // console.log(val)
                 this.input_value = val
             }
         },
         ready(){
+            // console.log('this.exclude',this.exclude)
             document.addEventListener('click', (e) => {
                 if (this.$el && !this.$el.contains(e.target)) {
                     this.close()
