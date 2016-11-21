@@ -8,13 +8,13 @@
 }
 // 边框样式
 %select-bor{
-	border: 1px solid #e5e5e5;
+	border: 1px solid $bor-color;
 	border-radius: 3px;
 }
 
 // 带图标的输入框
 %select-hd{
-	@extend .row-auto;
+	@extend %ks-row-auto;
 	@extend %select-lh;
 	@extend %select-bor;
 	cursor: pointer;
@@ -63,7 +63,7 @@
 		    	@extend %select-bor;
 		    	@extend %select-lh;
 		    	input{
-		    		@extend .col;
+		    		@extend %ks-col;
 		    		@extend %select-lh;
 		    		outline: 0;
 		    		border:0;

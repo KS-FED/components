@@ -52,3 +52,28 @@
     table-layout: auto;
 }
 
+%ks-row-auto{
+    @extend %row-auto;
+}
+%ks-col-auto{
+    @extend %col-auto;
+}
+%ks-row{
+    @extend %row;
+}
+%ks-col{
+    @extend %col;
+}
+
+.ks-row-auto{
+    @extend %row-auto;
+}
+.ks-col-auto{
+    @extend %col-auto;
+}
+.ks-row{
+    @extend %row;
+}
+.ks-col{
+    @extend %col;
+}

@@ -21,7 +21,7 @@
 
 /* 可操作提示框 */
 %toast-close{
-	@extend %row-auto;
+	@extend %ks-row-auto;
 	position: fixed;
     top: 50px;
     left: 50%;

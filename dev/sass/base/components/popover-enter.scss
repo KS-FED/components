@@ -2,7 +2,7 @@
 	@extend %KsPopoverTop;
 	display: inline-block;
 	_input {
-		@extend %row-auto;
+		@extend %ks-row-auto;
 		padding-top: 10px;
 		input{ width: 100%; }
 		button{

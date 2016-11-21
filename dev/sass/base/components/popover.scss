@@ -4,7 +4,7 @@
 %popover{
 	@extend %tooltip;
 	background: #fff;
-    border: 1px solid #e5e5e5;
+    border: 1px solid $bor-color;
     color: #444;
     padding: 10px 20px;
     max-width: 300px;
@@ -36,7 +36,7 @@
     margin-bottom: 10px;
 	span{
 		@extend %popover-top-bottom-span;
-	    border-top: 10px solid #e5e5e5;
+	    border-top: 10px solid $bor-color;
     	bottom: -20px;
     	&::after{
 		    border-top: 10px solid #fff;
@@ -50,7 +50,7 @@
     margin-top: 10px;
 	span{
 		@extend %popover-top-bottom-span;
-	    border-bottom: 10px solid #e5e5e5;
+	    border-bottom: 10px solid $bor-color;
     	top: -20px;
     	&::after{
 		    border-bottom: 10px solid #fff;
@@ -64,7 +64,7 @@
     margin-right: 10px;
 	span{
 		@extend %popover-left-right-span; 
-	    border-left: 10px solid #e5e5e5;
+	    border-left: 10px solid $bor-color;
 	    right: -20px;
     	&::after{
 		    border-left: 10px solid #fff;
@@ -78,7 +78,7 @@
     margin-left: 10px;
 	span{
 		@extend %popover-left-right-span; 
-	    border-right: 10px solid #e5e5e5;
+	    border-right: 10px solid $bor-color;
 	    left: -20px;
     	&::after{
 		    border-right: 10px solid #fff;
