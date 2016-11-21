@@ -30,13 +30,10 @@
         			<td>change</td><td>改变后的回调，属性值写入methods</td>
         		</tr>
         		<tr>
-        			<td>total</td><td>数据总条数</td>
+        			<td>placeholder</td><td>占位符</td>
         		</tr>
         		<tr>
-        			<td>page_size</td><td>每页展示多少条数</td>
-        		</tr>
-        		<tr>
-        			<td>v-on:current_change</td><td>切换分页事件</td>
+        			<td>exclude</td><td>排除</td>
         		</tr>
         	</tbody>
         </table>
