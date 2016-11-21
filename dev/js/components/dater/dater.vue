@@ -39,9 +39,11 @@
     export default {
         mixins: [mixins],
         data(){
-            this.point_daters = []
-            if(this.exclude && ~this.value.indexOf(',') ) {
-                this.point_daters = this.value.split(',')
+            
+            if(this.exclude) {
+                this.point_daters = []
+                ~this.value.indexOf(',') && (this.point_daters = this.value.split(','))
+                
             }
             return {}
         },
@@ -60,7 +62,6 @@
                 this.$emit('change',this.cur_value)
             },
             selectd(dater){
-                console.log(this.point_daters)
                 var status = ''
                 if(this.exclude){
                     ~this.point_daters.indexOf(dater) && (status = 'active')
@@ -82,7 +83,6 @@
                 this.cur_value = dater
                 this.exclude ? this.is_exclude(dater) : this.no_exclude(dater)
                 this.now = new Date(dater)
-                
                 
             },
             // 排除具体时间

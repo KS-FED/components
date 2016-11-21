@@ -4,7 +4,7 @@
         <div class="col-auto date-icon"><i class="icon"></i></div>
         <input type="text" class="col" placeholder="{{placeholder}}" :value="input_value" readonly>
     </div>
-    <ks-dater v-show="show" :value="value" :exclude="true" v-on:change="current_change"></ks-dater>
+    <ks-dater v-show="show" :value="value" :exclude="exclude" v-on:change="current_change"></ks-dater>
     </div>
     
 </template>

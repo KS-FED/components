@@ -1,8 +1,8 @@
 <template>
 <div class="picker-wrap"
     v-on:click="pick($event)">
-<div class="date-bd" v-for="(key,date) in dates">
 
+<div class="date-bd" v-for="(key,date) in dates">
 <div>
     <div class="date-days"
         v-for="week in 6">
@@ -15,8 +15,39 @@
                 {{date[week * 7 + day] && +date[week * 7 + day].datetext}}</span>
     </div>
 </div>
-
 </div>
+
+<!-- <div class="date-bd" v-for="(key,data) in dates">
+<div>
+    <div class="date-days"
+        v-for="week in 6">
+        <span 
+            v-for="day in  7"
+            :id="'dater'+_uid+'_'+key+'_'+(+week * 7 + day)"
+            :class="{
+                'pass':data.date[week * 7 + day] && data.date[week * 7 + day].status=='disabled',
+                'active':data.date[week * 7 + day] && data.date[week * 7 + day].status=='active'}">
+                {{data.date[week * 7 + day] && +data.date[week * 7 + day].datetext}}</span>
+    </div>
+</div>
+</div> -->
+
+<!-- <div class="date-bd">
+<div>
+    <div class="date-days"
+        v-for="week in 6">
+        <span 
+            v-for="day in  7"
+            :id="'dater'+_uid+'_'+(+week * 7 + day)"
+            :class="{
+                'pass':dates[week * 7 + day] && dates[week * 7 + day].status=='disabled',
+                'active':dates[week * 7 + day] && dates[week * 7 + day].status=='active'}">
+                {{dates[week * 7 + day] && +dates[week * 7 + day].datetext}}</span>
+    </div>
+</div>
+</div> -->
+
+
 </div>
 </template>
 <script>
@@ -37,15 +68,32 @@
                 var id = event.target.id.split('_')
                 var unit_index = +id[1] 
                 var index = +id[2] 
-
+                console.log(unit_index,index)
                 if(isNaN(unit_index) || isNaN(index) || id[2]=='disabled') return
 
-                console.log(unit_index,index)
                 this.value = this.dates[unit_index][index].dater
-                console.log(this.value)
-                var arr = this.dates
-                // this.dates = [].concat(arr)
+                console.log(unit_index,index,this.value)
+                
+                // this.dates[unit_index][index].status = 'active'
+                // this.dates[0] = this.pages_date(this.now,this.filter,1)[0]
+                // this.dates.splice(0,1,this.pages_date(this.now,this.filter,1)[0])
                 this.init()
+                // this.dates.splice(1,unit_index,)
+                
+            },
+             pick2 (e){
+                var id = event.target.id.split('_')
+                var index = +id[1] 
+                console.log(index)
+                if(isNaN(index) || id[2]=='disabled') return
+
+                this.value = this.dates[index].dater
+                console.log(index,this.value)
+                
+                this.dates[10].status='active'
+                
+                // this.init()
+                // this.dates.splice(1,unit_index,)
                 
             },
             filter (item){
@@ -54,17 +102,23 @@
                 
             },
             init (){
-                this.dates = this.pages_date(this.now,3)
+                this.dates = this.pages_date(this.now,this.filter,1)
+                console.log(this.dates)
             },
-            pages_date(newDate,length) {
+            pages_date(date,callback_filter,length) {
                 var arr = []
                 var ym = {
-                    year: newDate.getFullYear(),
-                    month: newDate.getMonth()
+                    year: date.getFullYear(),
+                    month: date.getMonth()
                 }
                 
-                for(var i=0,length=3 ; i<3 ; i++){
-                    arr.push(one_page_date(ym.year,ym.month,this.filter))
+                for(var i=0,len=length ; i<len ; i++){
+                    arr.push(one_page_date(ym.year,ym.month,callback_filter))
+                    // 对象
+                    // var data = {}
+                    // data.date = one_page_date(ym.year,ym.month,callback_filter)
+                    // arr.push(data)
+                    // 对象 end
                     ym = next_month(ym.year,ym.month)
                 }
                 return arr
