@@ -39,10 +39,9 @@
     export default {
         mixins: [mixins],
         data(){
-           
+            this.point_daters = []
             if(this.exclude && ~this.value.indexOf(',') ) {
                 this.point_daters = this.value.split(',')
-                console.log(this.point_daters)
             }
             return {}
         },
@@ -61,7 +60,7 @@
                 this.$emit('change',this.cur_value)
             },
             selectd(dater){
-
+                console.log(this.point_daters)
                 var status = ''
                 if(this.exclude){
                     ~this.point_daters.indexOf(dater) && (status = 'active')
@@ -81,7 +80,6 @@
                 var dater = cur_date.dater
 
                 this.cur_value = dater
-                console.log(this.exclude)
                 this.exclude ? this.is_exclude(dater) : this.no_exclude(dater)
                 this.now = new Date(dater)
                 
@@ -104,7 +102,7 @@
                 }else{
                     point_daters.push(dater)
                 }
-                console.log(point_daters)
+                // console.log(point_daters)
                 return point_daters
             },
             
@@ -122,9 +120,6 @@
                 this.dates = one_page_date(this.now.getFullYear(),this.now.getMonth(),this.selectd)
             }
         },
-        created () {
-            // alert('ppp')
-            console.log('this.exclude',this.exclude)
-        }
+        created () {}
     }
 </script>
