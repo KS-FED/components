@@ -12,7 +12,7 @@ import { KsRadio, KsBtnRadio, KsRadioGroup } from './KsRadio'
 import { KsButton } from './KsButton'
 import { KsModal, KsModalEntity } from './KsModal'
 import { KsDialog, KsDialogEntity } from './KsDialog'
-import { DatePicker,DatePickerMulti } from './dater/'
+import { KsPureDater,KsDater,KsDatePicker,KsDatePickerMulti } from './dater/'
 import { KsCitySelect } from './KsCitySelect'
 import { KsToolTip } from './KsToolTip'
 import { page , pagegroup } from './pager/'
@@ -24,8 +24,10 @@ const KsComponents = {
   VERSION,
   page,
   pagegroup,
-  DatePicker,
-  DatePickerMulti,
+  KsPureDater,
+  KsDater,
+  KsDatePicker,
+  KsDatePickerMulti,
   KsSwitch,
   KsCheckbox,
   KsCheckboxGroup,

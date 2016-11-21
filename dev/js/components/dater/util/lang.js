@@ -65,6 +65,7 @@
         return month
     }
     exports.api_month = api_month
+
     /**
      * [api_ym Date api 中的年月]
      * @param  {[type]} year  [description]
@@ -86,5 +87,5 @@
 
     exports.api_ym = api_ym
 
-    console.log(api_ym)
+
 

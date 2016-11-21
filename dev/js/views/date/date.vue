@@ -4,15 +4,18 @@
 
 	<h3>左右请添加 no-select 属性</h3>
 	<br><br>
-	<date-picker value="2016-10-12" v-on:change="current_change"></date-picker>
+	<ks-pure-dater value="2016-10-12" v-on:change="current_change"></ks-pure-dater>
+	<ks-dater value="2016-10-12" v-on:change="current_change"></ks-dater>
 	<br><br>
-	<date-picker value="2016-10-12" v-on:change="current_change"></date-picker>
-	<date-picker value="" v-on:change="current_change"></date-picker>
+	<!-- <ks-date-picker :value="date_val" placeholder="写点啥" :exclude="true" v-on:change="current_change"></ks-date-picker>
 	<br><br>
-	<date-picker-multi v-on:change="current_change"></date-picker-multi>
+	<ks-date-picker value="2016-10-12" v-on:change="current_change"></ks-date-picker>
+	
+	<br><br>
+	<ks-date-picker-multi v-on:change="current_change"></ks-date-picker-multi>-->
 	<hr>
 	<br><br>
-	<date-picker-multi v-on:change="current_change"></date-picker-multi>
+	<ks-date-picker-multi v-on:change="current_change"></ks-date-picker-multi> 
 	<hr>
 	<hr>
 	<hr>
@@ -854,12 +857,20 @@
 <script type="text/javascript">
 	export default {
 		data(){
-			return {}
+			return {
+				date_val:'2016-11-09,2016-11-10,2016-11-11,2016-11-18,2016-11-17,2016-11-16,2016-11-15,2016-11-13,2016-11-14'
+			}
 		},
 		methods:{
 			current_change(val){
 				console.log('current_change',val)
 			}
+		},
+		ready(){
+			// setTimeout(()=>{
+			// 	this.date_val = '2016-11-09,2016-11-10,2016-11-11,2016-11-18,2016-11-17,2016-11-16,2016-11-15,2016-11-13,2016-11-14'
+			// },3000)
 		}
+
 	}
 </script>
