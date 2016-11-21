@@ -9,7 +9,7 @@
     name: 'KsCheckboxGroup',
 
     props: {
-      vModel: { type: Array, towWay: true }
+      vModel: {type: Array, towWay: true}
     },
 
     events: {
@@ -50,5 +50,5 @@
 </script>
 
 <style lang="scss">
-  @import "~styleComponents/CheckboxGroup";
+  .ks-checkbox-group { font-size: 0 }
 </style>

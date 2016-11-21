@@ -16,20 +16,10 @@
     name: 'KsNormalCheckbox',
 
     props: {
-      color: { type: String, default: '#00A5E0' },
-      checked: { type: Boolean, twoWay: true },
-      disable: { type: Boolean, default: false }
-    },
-
-    computed: {
-      /**
-       * @description 选择框中方块 style
-       * @summary 用于控制选择框中方块的颜色
-       * @return {string}
-       */
-      styleCubeColor () {
-        return `background: ${this.color}!important;`
-      }
+      name: {type: String, default: 'KsNormalCheckbox'},
+      color: {type: String, default: '#00A5E0'},
+      checked: {type: Boolean, twoWay: true},
+      disable: {type: Boolean, default: false}
     },
 
     events: {
@@ -57,5 +47,4 @@
 </script>
 
 <style lang="scss">
-  @import "~styleComponents/NrCheckbox";
 </style>
