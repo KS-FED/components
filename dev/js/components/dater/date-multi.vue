@@ -62,7 +62,6 @@
     import mixins from './mixins'
     import {cur_month, next_month , parse , stringify} from './util/lang'
     import { get_full_month_dates , get_month_last_day , one_page_date} from './util/apage'
-    import { get_range_dates , split_ym } from './util/range'
 
     export default {
         mixins: [mixins],
@@ -72,7 +71,7 @@
             }
         },
         data(){
-            this.range_daters = []
+            // this.range_daters = []
             return {
                 range_daters_length:0,
                 next_dates : [],
@@ -89,7 +88,7 @@
                 
                 this.range_daters = range_daters
                 // this.point_daters = range_daters
-                range_daters.length == 2 && (this.range_daters = get_range_dates(range_daters))
+                range_daters.length == 2 && (this.range_daters = this.get_range_dates(range_daters))
                 // range_dater.length == 3 && (this.range_daters = [range_dater[2]])
                 this.range_daters_length = this.range_daters.length
                 if(this.range_daters.length == 2 
@@ -165,17 +164,116 @@
                 return +val1.replace(/-/g,'') <= +val2.replace(/-/g,'')
             },
             compared_month(val1,val2) {
-                var val1 = split_ym(val1)
-                var val2 = split_ym(val2)
+                var val1 = this.split_ym(val1)
+                var val2 = this.split_ym(val2)
                 return +(val1.year+''+(val1.month+10)) <= +(val2.year+''+(val2.month+10))
             },
+
+            
+            // 选择范围取值
+            get_range_dates(range_dater){
+               
+                var prev_date = range_dater[0]
+                var next_date = range_dater[1]
+
+                if(prev_date === next_date) return range_dater
+
+                var prev = this.split_ym(prev_date)
+                var next = this.split_ym(next_date)
+
+                if(prev.year == next.year && prev.month == next.month){
+                    return this.only_one_month(prev , next)
+                }else{
+                    return this.span_two_month(prev , next , next_date)    
+                }
+                
+            },
+            // 选择同一个月
+            only_one_month(prev , next){
+                
+                var month = prev.month+1,
+                    counts = next.datetext - prev.datetext + 1,
+                    arr = [] , val ,ym
+
+                ;(''+month).length == 1 && (month = '0'+month) 
+                ym = prev.year+'-'+(month)
+                    
+                while(counts--){
+                    val = +prev.datetext+counts;
+                    (''+val).length == 1 && (val = '0'+val) 
+                    arr.push(ym+'-'+val)
+                }
+                
+                return arr
+            },
+            // 选择两个月以上
+            span_two_month(prev , next , next_date){
+
+                var prev_dates = this.prev_month_part(prev.year , prev.month , prev.datetext)
+                var dates = this.get_all_month_dates(this.loop_full_month(prev,next)).reduce((pre,cur,i,arr)=>{
+                    return pre.concat(cur)
+                },[])
+                var next_dates = this.next_month_part(next_date)
+                return prev_dates.concat([].concat(dates)).concat(next_dates).map((_date)=>{
+                    return _date.dater
+                })
+
+            },
+            // 尾调用
+            loop_full_month(prev,next,arr){
+                var last_day , prev_ym
+
+                arr = arr || []
+
+                prev_ym = next_month(prev.year , prev.month)
+
+                if(prev_ym.year+''+(+prev_ym.month+10) >= next.year+''+(+next.month+10)) return arr
+                 
+                last_day = get_month_last_day(prev_ym.year,prev_ym.month)
+                arr.push(last_day.dater)
+                return this.loop_full_month(prev_ym,next,arr)
+
+            },
+            prev_month_part(year , month , datetext){
+                var prev = cur_month(year , month)
+                var last_day = get_month_last_day(prev.year,prev.month)
+
+                return get_full_month_dates(last_day.dater).filter((_date)=>{
+                    
+                    if( _date.datetext >= datetext ){
+                        return true
+                    }
+                    
+                })
+            },
+            next_month_part(dater){
+                return get_full_month_dates(dater)
+            },
+
+            split_ym(dater){
+                dater = dater.split('-')
+                return {
+                    year:dater[0],
+                    month:dater[1]-1,
+                    datetext:dater[2]
+                }
+            },
+            // [ '2015-10-03','2015-10-03'[,...] ]
+            get_all_month_dates(dater_arr){
+                return dater_arr.map((dater)=>{
+                    return get_full_month_dates(dater)
+                })
+            },
+
+
             next_month_dates(year = this.next_now.getFullYear(),month = this.next_now.getMonth()) {
+
                 this.next_data = cur_month( year , month )
                 
                 this.next_dates = one_page_date( this.next_data.year , this.next_data.month ,this.selectd)
             },
             selectd(dater){
-                // console.log(dater)
+                console.log(dater)
                 if(~this.range_daters.indexOf(dater)){
                     if(this.range_daters[0] == dater || this.range_daters[this.range_daters.length-1] == dater ) {
                         return 'active'
@@ -199,9 +297,9 @@
             this.range_dater = ['2016-06-06','2016-08-08']
             this.next_month_dates()
             this.click_next_month (1) 
-            // this.dates = one_page_date(this.now.getFullYear(),this.now.getMonth(),this.selectd)
-            console.log('-----',[stringify(this.now),stringify(this.next_now)])
-            this.redraw(this.range_dater,this.range_dater)
+            this.dates = one_page_date(this.now.getFullYear(),this.now.getMonth(),this.selectd)
+            // this.redraw(this.range_dater,this.range_dater)
+            
 
         }
     }

@@ -1,7 +1,11 @@
-import DatePicker from './date-picker.vue'
-import DatePickerMulti from './date-picker-multi.vue'
+import KsPureDater from './pure-dater.vue'
+import KsDater from './dater.vue'
+import KsDatePicker from './date-picker.vue'
+import KsDatePickerMulti from './date-picker-multi.vue'
 
 export {
-    DatePicker,
-    DatePickerMulti
+    KsPureDater,
+    KsDater,
+    KsDatePicker,
+    KsDatePickerMulti
 }

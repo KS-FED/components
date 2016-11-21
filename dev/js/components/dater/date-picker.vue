@@ -1,69 +1,64 @@
-<style>
-    .year {
-        color:red;
-    }
-</style>
 <template>
-
-    <div class="picker-wrap">
-        <div class="date-bd">
-        <div class="date-head">
-            <div class="retreat" v-on:click="click_month(-1)">&lt;</div>
-            <div class="year">{{now.getFullYear()}}年</div>
-            <div class="interstice"></div>
-            <div class="month">{{now.getMonth()+1}}月</div>
-            <div class="next" v-on:click="click_month(1)">&gt;</div>
-        </div>
-        <div class="date-week">
-            <span v-for="day in days" :class="{'week':day=='六'||day=='日'}">{{day}}</span>
-        </div>
-        <div v-on:click="pick_date($event)">
-        <div class="date-days"
-            v-for="week in 6">
-            <span 
-                v-for="day in  7"
-                :id="_uid+'_'+(+week * 7 + day)"
-                :class="{
-                    'pass':dates[week * 7 + day] && dates[week * 7 + day].status=='disabled',
-                    'active':dates[week * 7 + day] && dates[week * 7 + day].status=='active'}">
-                    {{dates[week * 7 + day] && +dates[week * 7 + day].datetext}}</span>
-        </div>
-        </div>
-        <div class="date-btn">
-            <span class="today" v-on:click="today()">今天</span>
-            <span class="clear" v-on:click="clear()">清除</span>
-        </div>
-        </div>
+    <div class="date">
+    <div class="date-input" v-on:click="show=!show">
+        <div class="col-auto date-icon"><i class="icon"></i></div>
+        <input type="text" class="col" placeholder="{{placeholder}}" :value="input_value" readonly>
     </div>
-
+    <ks-dater v-show="show" :value="value" :exclude="exclude" v-on:change="current_change"></ks-dater>
+    </div>
+    
 </template>
 <script>
-    import mixins from './mixins.js'
+    import props from './mixins/props.js'
+    import { stringify } from './util/lang'
+    import { one_page_date } from './util/apage'
     export default {
-        mixins: [mixins],
-        methods:{
-            pick_date (event) {
-                var id = event.target.id.split('_')
-                var index = +id[1] 
-
-                if(isNaN(index) || id[2]=='disabled') return
-
-                var cur_date = this.dates[index]
-                this.value = cur_date.dater
-                this.now = new Date(cur_date.dater)
-                this.$emit('change',cur_date)
-            },
-            today() {
-                console.log('today')
-                this.value = this.stringify(new Date())
-                this.now = new Date()
-                console.log(this.value)
-            },
-            clear() {
-                // console.log('clear')
-                this.value = ''
-                this.now = new Date()
+        mixins: [props],
+        props:{
+            placeholder: { type: String, default: '' }
+        },
+        data(){
+            return {
+                show:false,
+                input_value:this.value
             }
+        },
+        
+        methods:{
+            close(){
+                this.show = false
+            },
+            // dater callback
+            current_change(cur_date){
+                this.exclude ? this.is_exclude(cur_date) : this.no_exclude(cur_date)
+            },
+            // 排除具体时间
+            is_exclude(cur_date){
+                this.input_value = cur_date
+            },
+            // 不排除时间
+            no_exclude(cur_date){
+                this.value = cur_date
+                this.$emit('change',cur_date)
+                this.close()
+            }
+            
+        },
+        watch:{
+            value(val){
+                console.log(val)
+                this.input_value = val
+            }
+        },
+        ready(){
+            document.addEventListener('click', (e) => {
+                if (this.$el && !this.$el.contains(e.target)) {
+                    this.close()
+                }
+            }, false)
+        },
+        beforeDestroy () {
+            document.removeEventListener('click', this.close, false)
         }
     }
 </script>

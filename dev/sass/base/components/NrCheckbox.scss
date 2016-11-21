@@ -3,8 +3,7 @@
 // @author pkeros
 // @date 2016/10/11
 
-@import "../../styles/variables";
-@import "../../styles/sassMagic/_sassMagic";
+@import "../variables";
 
 $primary-color: nth($infos, 2);                                 // 主色调
 $skin-size: 18px;                                               // 选择框大小
@@ -18,7 +17,7 @@ $skin-size: 18px;                                               // 选择框大�
     display: none;
 
     // checked 下的选择框样式
-    &:checked + .KSNRCheckbox-skin .KSNRCheckbox-cube {
+    &:checked + .KSNRCheckbox-skin > .KSNRCheckbox-skin-cube {
       opacity: 1;
     }
     // checked 禁用样式
@@ -26,7 +25,7 @@ $skin-size: 18px;                                               // 选择框大�
       cursor: not-allowed;
       background: rgba(77, 77, 77, .1)
     }
-    &[disabled] + .KSNRCheckbox-skin .KSNRCheckbox-cube {
+    &[disabled] + .KSNRCheckbox-skin > .KSNRCheckbox-skin-cube {
       opacity: .6;
     }
   }
