@@ -4,7 +4,7 @@
 		<br>
 		<page 
 			:page_current="page_current" 
-			:pages="pages"
+			:pages="13"
 			:total="total"
 			:page_size="13"
 			v-on:current_change="current_change"></page>
@@ -185,6 +185,7 @@
 		methods:{
 			current_change(val){
 				// console.log(val)
+       this.$http.post('xxx')         // 
 			},
 			size_change(val){
 				// console.log(val)
@@ -194,7 +195,7 @@
 			// this.current_change('ppp')
 			// setTimeout(()=>{	},3000)
 				// this.pages = 9
-				this.total = 100
+				this.total = 1000
 		
 		}
 	}
