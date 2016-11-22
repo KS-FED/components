@@ -94,6 +94,7 @@
     }
 }
 .KsDater{ @extend %picker-wrap; }
+.KsDaterMulti{ @extend %picker-wrap; }
 
 %date-month{
 	.date-input{ @extend %icon-input; }
