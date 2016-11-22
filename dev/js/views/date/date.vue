@@ -50,7 +50,7 @@
 	<h2>css 部分</h2>
 		
 		<!-- 日期默认样式——周——范围 -->
-		<div class="KsDateScope readonly" cid="KsDateScope" style="margin-bottom: 400px;">
+		<div class="KsDateScope readonly" cid="KsDateScope">
 			<div class="_input">
 				<div class="ks-col-auto date-icon"><i class="icon">&#xe615;</i></div>
 				<div class="ks-col">
@@ -65,8 +65,8 @@
 		</div>
 
 		<!-- 日期默认样式——周 -->
-		<div class="date" style="margin-bottom: 400px;">
-			<div class="date-input">
+		<div class="KsDatePicker" cid="KsDatePicker" style="margin-bottom: 450px;">
+			<div class="_input">
 				<div class="ks-col-auto date-icon"><i class="icon">&#xe615;</i></div>
 				<input type="text" class="ks-col">
 			</div>
@@ -74,7 +74,7 @@
 		</div>
 
 		<!-- 日期默认样式——月 -->
-		<div class="KsDateMonth" cid="KsDateMonth" style="margin-bottom: 400px;">
+		<div class="KsDateMonth" cid="KsDateMonth" style="margin-bottom: 300px;">
 			<div class="_input">
 				<div class="ks-col-auto date-icon"><i class="icon">&#xe615;</i></div>
 				<input type="text" class="ks-col">
@@ -114,9 +114,9 @@
 		</div>
 
 		<!-- 日期默认样式——年 -->
-		<div class="KsDateYear" cid="KsDateYear" style="margin-bottom: 400px;">
+		<div class="KsDateYear" cid="KsDateYear" style="margin-bottom: 300px;">
 			<div class="_input">
-				<div class="ks-col-auto"><i class="icon">&#xe615;</i></div>
+				<div class="ks-col-auto date-icon"><i class="icon">&#xe615;</i></div>
 				<input type="text" class="ks-col">
 			</div>
 			<div class="KsDater" cid="KsDater">
