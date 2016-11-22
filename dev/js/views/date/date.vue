@@ -4,6 +4,8 @@
 
 	<h3>左右请添加 no-select 属性</h3>
 	<br><br>
+	<ks-dater-pure></ks-dater-pure>
+	<br><br>
 	<ks-dater value="2016-10-12" v-on:change="current_change"></ks-dater>
 	<br><br>
 	 <ks-date-picker :value="date_val" placeholder="写点啥" :exclude="true" :readonly="true" v-on:change="current_change"></ks-date-picker>
