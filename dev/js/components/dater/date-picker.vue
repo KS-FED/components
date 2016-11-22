@@ -1,5 +1,5 @@
 <template>
-    <div class="date"
+    <div class="KsDatePicker" cid="KsDatePicker"
         :class="{'readonly':readonly}">
     <div class="date-input" v-on:click="show=!show">
         <div class="ks-col-auto date-icon"><i class="icon"></i></div>
