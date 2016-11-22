@@ -10,7 +10,7 @@
     "pro-windows": "set NODE_ENV=pro&&webpack -p",
     "build-windows": "set NODE_ENV=dev&&webpack --watch",
     "dev-windows": "npm run build-windows & npm run proxy_mock --p 8083",
-    "proxy_mock": "proxy-mock -p"
+    "proxy_mock": "proxy-mock -p 8080"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
   ],
   "author": "zdzDesigner, pkeros",
   "license": "ISC",
+
   "bugs": {
     "url": "https://github.com/KS-FED/components/issues"
   },
