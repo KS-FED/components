@@ -84,25 +84,30 @@
         },
         methods:{
             redraw(show_range,range_daters) {
+                var show_start = show_range[0] , show_end = show_range[1]
                 this.value = ''
                 
                 this.range_daters = range_daters
                 // this.point_daters = range_daters
                 range_daters.length == 2 && (this.range_daters = get_range_dates(range_daters))
-                // range_dater.length == 3 && (this.range_daters = [range_dater[2]])
+                
                 this.range_daters_length = this.range_daters.length
                 if(this.range_daters.length == 2 
                     && this.range_daters[0] == this.range_daters[this.range_daters.length-1]){
                     this.range_daters_length = 1
                 }
-                
-                this.now = new Date(show_range[0])
-                this.next_now = new Date(show_range[1])
+                console.log(show_start,show_end)
+                if(this.compared_month(show_end,show_start)){
+                    var ym = split_ym(show_end)
+                    show_end = next_month(ym.year,ym.month).stringify+'-01'
+                    console.log('show_end',show_end)
+                }
+
+                this.now = new Date(show_start)
+                this.next_now = new Date(show_end)
             },
             reset() {
-                console.log('reset')
                 this.redraw([stringify(this.now),stringify(this.next_now)],[])
-                
             },
             // 点击日期
             pick_date (event) {
@@ -122,8 +127,8 @@
                 range_dater = this.get_range(this.range_daters , _date.dater)
 
                 this.redraw([stringify(this.now),stringify(this.next_now)],range_dater)
-                
-                this.$emit('change',_date)
+                // console.log('range_dater',range_dater)
+                range_dater.length == 2 && this.$emit('change',range_dater)
             },
             // [a,b] , e => [c,d]
             get_range(range_daters,select_value){
@@ -195,11 +200,12 @@
             }
         },
         created(){
-            this.range_dater = ['2016-06-06','2016-08-08']
-            this.next_month_dates()
-            this.click_next_month (1) 
+            
+            this.range_dater = this.range_dater || [stringify(this.now),stringify(this.next_now)]
+            // this.next_month_dates()
+            // this.click_next_month (1) 
             // this.dates = one_page_date(this.now.getFullYear(),this.now.getMonth(),this.selectd)
-            console.log('-----',[stringify(this.now),stringify(this.next_now)])
+            // this.range_dater
             this.redraw(this.range_dater,this.range_dater)
 
         }

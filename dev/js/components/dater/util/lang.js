@@ -68,12 +68,14 @@
 
     /**
      * [api_ym Date api 中的年月]
-     * @param  {[type]} year  [description]
-     * @param  {[type]} month [description]
-     * @param  {[type]} sgn   [+1|-1]
-     * @return {[type]}       [description]
+     * @param  {[Number]} year      [2016]
+     * @param  {[Number]} month     [8]
+     * @param  {[Number]} sgn       [+1|-1]
+     * @return {[Object]}           [{year:'2016',month:'08'}]
      */
     function api_ym(year,month,sgn){
+        year = parseInt(year)
+        month = parseInt(month)
         if(sgn){
             month = month + sgn
             month > 11 && (++ year)
@@ -82,7 +84,7 @@
         }else {
             month = api_month(month)
         }
-        return { year:year, month:month }
+        return { year:year, month:month ,stringify:year+'-'+(month+1) }
     }
 
     exports.api_ym = api_ym

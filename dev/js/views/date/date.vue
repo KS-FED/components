@@ -46,6 +46,13 @@
 	<br><br>
 
 	<ks-dater-multi v-on:change="current_change"></ks-dater-multi> 
+	<br><br>
+	<br><br>
+	<ks-date-multi-picker placeholder="开始,结束" :range="['2016-10-08','2016-12-20']"></ks-date-multi-picker>
+	<br><br>
+	<br><br>
+	<br><br>
+	<br><br>
 	<hr>
 	<hr>
 	<hr>
