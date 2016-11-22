@@ -50,7 +50,7 @@
 	<h2>css 部分</h2>
 		
 		<!-- 日期默认样式——周——范围 -->
-		<div class="KsDateScope readonly" cid="KsDateScope">
+		<div class="KsDateScope readonly" cid="KsDateScope" style="margin-bottom:450px;">
 			<div class="_input">
 				<div class="ks-col-auto date-icon"><i class="icon">&#xe615;</i></div>
 				<div class="ks-col">

@@ -108,7 +108,7 @@
 	}
 }
 .KsDater{ @extend %picker-wrap; }
-.KsDaterMulti{ @extend %picker-wrap; }
+.KsDaterMulti{ @extend %picker-wrap;}
 
 
 
@@ -124,6 +124,9 @@
 			min-width: 100px;
 		}
 		.scope-icon{ color: #26c6da; }
+	}
+	.KsDaterMulti{
+		position: absolute;
 	}
 	_btn{
 		margin-top: 20px;
