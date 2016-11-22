@@ -1,21 +1,47 @@
 <template>
-	<div>
+	<div style="margin:10px;">
 
 
-	<h3>左右请添加 no-select 属性</h3>
+	<h3>纯净版 dater</h3>
 	<br><br>
 	<ks-dater-pure></ks-dater-pure>
 	<br><br>
-	<ks-dater value="2016-10-12" v-on:change="current_change"></ks-dater>
-	<br><br>
-	 <ks-date-picker :value="date_val" placeholder="写点啥" :exclude="true" :readonly="true" v-on:change="current_change"></ks-date-picker>
-	<br><br>
-	<ks-date-picker value="2016-10-12" v-on:change="current_change"></ks-date-picker>
+	<h3>基础 dater</h3>
 	<pre>
     	<code class="html">
-    		&lt;ks-date-picker value="2016-10-12" v-on:change="current_change"&gt;&lt;/ks-date-picker&gt;
+		&lt;ks-dater value="2016-10-12" v-on:change="current_change">&lt;/ks-dater&gt;
+		</code>
+    </pre>
+	<ks-dater value="2016-10-12" v-on:change="current_change"></ks-dater>
+	
+    <br><br>
+    <h3>date-picker</h3>
+    <pre>
+    	<code class="html">
+		&lt;ks-date-picker value="2016-10-12" v-on:change="current_change">&lt;/ks-date-picker&gt;
+		</code>
+    </pre>
+	<ks-date-picker value="2016-10-12" v-on:change="current_change"></ks-date-picker>
+	
+	<br><br>
+	<h3>只读date-picker</h3>
+	<pre>
+    	<code class="html">
+		&lt;ks-date-picker value="2016-10-12" v-on:change="current_change" :readonly="true">&lt;/ks-date-picker&gt;
+		</code>
+    </pre>
+	<ks-date-picker value="2016-10-12" v-on:change="current_change" :readonly="true"></ks-date-picker>
+	
+	<br><br>
+	<h3>多选 date-picker （和范围有差异） </h3>
+	<pre>
+    	<code class="html">
+    		&lt;ks-date-picker value="2016-10-12" placeholder="日期" :exclude="true" v-on:change="current_change"&gt;&lt;/ks-date-picker&gt;
     	</code>		
     </pre>
+	 <ks-date-picker :value="date_val" placeholder="日期" :exclude="true" v-on:change="current_change"></ks-date-picker>
+	<br><br>
+	
     <div class="table-striped">
         <table class="">
         	<thead>
@@ -26,7 +52,7 @@
         	</thead>
         	<tbody>
         		<tr>
-        			<td>value (type:String)</td><td>展示的日期 </td>
+        			<td>value (type:String)</td><td>选中的日期 </td>
         		</tr>
         		<tr>
         			<td>v-on:change (type:Function)</td><td>改变后的回调，属性值写入methods </td>
@@ -42,45 +68,65 @@
         		</tr>
         	</tbody>
         </table>
-        </div>	
+    </div>	
 	<br><br>
-
+	<h3>范围 dater-multi  </h3>
+	<pre>
+    	<code class="html">
+    		&lt;ks-dater-multi v-on:change="current_change"&gt;&lt;/ks-dater-multi&gt;
+    	</code>		
+    </pre>
 	<ks-dater-multi v-on:change="current_change"></ks-dater-multi> 
 	<br><br>
+	<h3>范围 dater-multi-picker  </h3>
+	<pre>
+    	<code class="html">
+    		&lt;ks-date-multi-picker placeholder="开始,结束" 
+				:range="['2016-10-08','2016-12-20']"
+				v-on:change="date_multi_picker_change"&gt;&lt;/ks-date-multi-picker&gt;
+    	</code>		
+    </pre>
+	<ks-date-multi-picker placeholder="开始,结束" 
+		:range="['2016-10-08','2016-12-20']"
+		:readonly="true"
+		v-on:change="date_multi_picker_change"></ks-date-multi-picker>
+
 	<br><br>
-	<ks-date-multi-picker placeholder="开始,结束" :range="['2016-10-08','2016-12-20']"></ks-date-multi-picker>
+	<div class="table-striped">
+        <table class="">
+        	<thead>
+        		<tr>
+					<th></th>
+					<th></th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        		<tr>
+        			<td>range (type:Array)</td><td>选中的范围日期 </td>
+        		</tr>
+        		<tr>
+        			<td>v-on:change (type:Function)</td><td>改变后的回调，属性值写入methods </td>
+        		</tr>
+        		<tr>
+        			<td>placeholder (type:String 逗号分隔 '开始日期,结束日期')</td><td>占位符 </td>
+        		</tr>
+        		<tr>
+        			<td>readonly (type:Boolean)</td><td>是否只读 </td>
+        		</tr>
+        	</tbody>
+        </table>
+    </div>	
 	<br><br>
 	<br><br>
-	<br><br>
+	<ks-date-month></ks-date-month>
 	<br><br>
 	<hr>
 	<hr>
 	<hr>
 	<h2>css 部分</h2>
 		
-		<!-- 日期默认样式——周——范围 -->
-		<div class="KsDateScope readonly" cid="KsDateScope" style="margin-bottom:450px;">
-			<div class="_input">
-				<div class="ks-col-auto date-icon"><i class="icon">&#xe615;</i></div>
-				<div class="ks-col">
-					<div class="ks-row-auto">
-						<div class="ks-col"><input type="text"></div>
-						<i class="icon ks-col-auto scope-icon">&#xe677;</i>
-						<div class="ks-col"><input type="text"></div>
-					</div>
-				</div>
-			</div>
-			<ks-dater-multi v-on:change="current_change"></ks-dater-multi> 
-		</div>
+		
 
-		<!-- 日期默认样式——周 -->
-		<div class="KsDatePicker" cid="KsDatePicker" style="margin-bottom: 450px;">
-			<div class="_input">
-				<div class="ks-col-auto date-icon"><i class="icon">&#xe615;</i></div>
-				<input type="text" class="ks-col">
-			</div>
-			<ks-dater value="2016-10-12" v-on:change="current_change"></ks-dater>
-		</div>
 
 		<!-- 日期默认样式——月 -->
 		<div class="KsDateMonth" cid="KsDateMonth" style="margin-bottom: 300px;">
@@ -174,6 +220,9 @@
 		methods:{
 			current_change(val){
 				console.log('current_change',val)
+			},
+			date_multi_picker_change(val){
+				console.log('多选 picker',val)
 			}
 		},
 		ready(){

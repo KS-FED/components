@@ -89,18 +89,21 @@
                 
                 this.range_daters = range_daters
                 // this.point_daters = range_daters
+                // 取具体日期
                 range_daters.length == 2 && (this.range_daters = get_range_dates(range_daters))
-                
+                // 视图中选中长度
                 this.range_daters_length = this.range_daters.length
                 if(this.range_daters.length == 2 
                     && this.range_daters[0] == this.range_daters[this.range_daters.length-1]){
                     this.range_daters_length = 1
                 }
-                console.log(show_start,show_end)
+
+                // console.log(show_start,show_end)
+                // 比较展示
                 if(this.compared_month(show_end,show_start)){
                     var ym = split_ym(show_end)
                     show_end = next_month(ym.year,ym.month).stringify+'-01'
-                    console.log('show_end',show_end)
+                    // console.log('show_end',show_end)
                 }
 
                 this.now = new Date(show_start)
@@ -128,7 +131,7 @@
 
                 this.redraw([stringify(this.now),stringify(this.next_now)],range_dater)
                 // console.log('range_dater',range_dater)
-                range_dater.length == 2 && this.$emit('change',range_dater)
+                this.$emit('change',range_dater)
             },
             // [a,b] , e => [c,d]
             get_range(range_daters,select_value){

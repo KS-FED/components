@@ -47,7 +47,9 @@
                 this.show = false
             },
             change(range){
-                console.log(range)
+                // console.log(range)
+                this.range = range
+                range.length == 2 && this.$emit('change',range)
             }
         },
         ready(){
