@@ -43,7 +43,7 @@
         </div>	
 	<br><br>
 
-	<ks-date-picker-multi v-on:change="current_change"></ks-date-picker-multi> 
+	<ks-dater-multi v-on:change="current_change"></ks-dater-multi> 
 	<hr>
 	<hr>
 	<hr>
