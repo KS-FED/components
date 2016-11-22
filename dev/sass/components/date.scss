@@ -108,7 +108,7 @@
 	}
 }
 .KsDater{ @extend %picker-wrap; }
-.KsDaterMulti{ @extend %picker-wrap; }
+.KsDaterMulti{ @extend %picker-wrap;}
 
 
 
@@ -125,6 +125,9 @@
 		}
 		.scope-icon{ color: #26c6da; }
 	}
+	.KsDaterMulti{
+		position: absolute;
+	}
 	_btn{
 		margin-top: 20px;
 		border-top: 1px solid $bor-color;
@@ -138,15 +141,16 @@
 // // 日期默认样式
 // .date-month{ @extend %date-month; }
 // 日期默认样式——月
-.KsDateMonth{
+%KsDateMonth{
 	@extend %date-month; 
 	.KsDater {
 	    _date-head .year{ font-weight: bold; }
 	    _days{ margin: 28px 0; }
 	}
 }
+.KsDateMonth{@extend %KsDateMonth;}
 // 日期默认样式——年
-.date-year{ @extend %date-month; }
+.KsDateYear{ @extend %KsDateMonth; }
 // 日历组件 只读
 
 .readonly.KsDatePicker {
