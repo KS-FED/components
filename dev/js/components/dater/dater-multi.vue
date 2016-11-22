@@ -1,5 +1,5 @@
 <template>
-    <div class="picker-wrap">
+    <div class="KsDaterMulti">
         <div class="date-bd">
         <div class="date-head">
             <div class="retreat" v-on:click="click_month(-1)">&lt;</div>
