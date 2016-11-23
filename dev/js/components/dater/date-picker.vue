@@ -1,7 +1,7 @@
 <template>
-    <div class="date"
+    <div class="KsDatePicker" cid="KsDatePicker"
         :class="{'readonly':readonly}">
-    <div class="date-input" v-on:click="show=!show">
+    <div class="_input" v-on:click="show=!show">
         <div class="ks-col-auto date-icon"><i class="icon"></i></div>
         <input type="text" class="ks-col" placeholder="{{placeholder}}" :value="input_value" readonly>
     </div>
