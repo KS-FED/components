@@ -1,0 +1,128 @@
+// @description 一个模仿 Ios7 开关的样式
+// @summary 我只是一个单纯的开关
+// @author pkeros
+// @date 2016/10/11
+
+//
+// 需要的 DOM 结构
+//
+//<div class="KSIosSwitch">
+//  <input class="KSIosSwitch__entity" type="checkbox"/>
+//  <div class="KSIosSwitch__slide">
+//    <small class="KSIosSwitch__btn"></small>
+//  </div>
+//</div>
+//
+
+@import "../../styles/variables";
+@import "../../styles/sassMagic/_sassMagic";
+
+$primary-color: nth($successes, 2);                             // 主色调
+$sizeMapper: (                                                  // 大小映射
+  large: (28px, 28px * 2),
+  normal: (24px, 24px * 2),
+  small: (20px, 20px * 2),
+  mini: (16px, 16px * 2)
+);
+
+// 生成多个大小的组件
+@each $sizeName, $size in $sizeMapper {
+  // 获取高度宽度
+  $height: nth($size, 1);
+  $width: nth($size, 2);
+
+  @include b(KSIosSwitch) {
+    @include m($sizeName) {
+      height: $height; width: $width;
+      line-height: $height; font-size: 12px;
+
+      // 开关效果
+      @include e(entity) {
+        &:checked + .KSIosSwitch__slide {
+
+          .KSIosSwitch__btn {
+            transform: translate($width - $height, 0);
+          }
+        }
+      }
+
+      // switch 滑动槽
+      @include e(slide) {
+        border-radius: $height;
+      }
+
+      // switch 按钮
+      @include e(btn) {
+        height: $height; width: $height;
+      }
+    }
+  }
+}
+
+@include b(KSIosSwitch) {
+  position: relative;
+  display: inline-block;
+  overflow: hidden; padding: 0 2px 2px 0;
+  vertical-align: middle; font-size: 12px;
+
+  // checkbox 实体
+  @include e(entity) {
+    position: absolute; z-index: 1;
+    top: 0; left: 0;
+    height: 100%; width: 100%;
+    opacity: 0!important; cursor: pointer;
+
+    // 禁用效果
+    &[disabled] {
+      opacity: .6; cursor: not-allowed;
+    }
+
+    // 开关效果
+    &:checked + .KSIosSwitch__slide {
+      box-shadow: $primary-color 0 0 0 16.667px inset;
+      border: 1px solid $primary-color;
+      transition: border .3s, box-shadow .6s, background .9s;
+      background: $primary-color;
+
+      // 控制 slot 的显示隐藏
+      *[slot="unCheckedChildren"] { display: none }
+    }
+  }
+
+  // switch 滑动槽
+  @include e(slide) {
+    position: relative; z-index: 0;
+    height: 100%; width: 100%;
+    box-shadow: #fff 0 0 0 0 inset;
+    border: 1px solid #dfdfdf; box-sizing: content-box;
+    background: #fff; outline: none; user-select: none;
+    transition: border .3s, box-shadow .3s;
+    -webkit-tap-highlight-color: transparent;
+
+    // slot 样式
+    *[slot$="heckedChildren"] {
+      position: absolute; z-index: -1;
+      display: inline-block;
+      padding: 0 3px;
+    }
+    *[slot="checkedChildren"] {
+      left: 3px;
+      color: #fff;
+    }
+    *[slot="unCheckedChildren"] {
+      right: 3px;
+      color: #bbb;
+    }
+  }
+
+  // switch 按钮
+  @include e(btn) {
+    display: inline-block; vertical-align: middle;
+    /*position: absolute; top: 0; left: 0;*/
+    float: left;
+    border-radius: 100%; background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    transition: all .3s;
+    -webkit-tap-highlight-color: transparent;
+  }
+}

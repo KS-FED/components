@@ -1,0 +1,84 @@
+//
+// @description 模态框样式.
+// @author: pkeros.
+// @date: 2016/10/18.
+//
+
+@import "../../styles/sassMagic/_sassMagic";
+@import "../../styles/variables";
+@import "../../styles/common/transtionEffect/zoom";
+
+$width: 504px;                                                          // 模态宽度
+$close-size: 32px;                                                      // 关闭按钮大小
+
+%vertical-padding {
+  padding: 20px;
+}
+
+@include b(KSModal) {
+  position: fixed!important;
+  margin: 6px auto; width: $width;
+  box-shadow: 0 0 9px #B3B3B3; border-radius: 2px;
+  background: #FFF;
+
+  @include center-translate();
+  @include e(wrapper) {
+    position: relative; z-index: 19941026;
+  }
+
+  // header
+  @include e(header) {
+    padding: 0 20px;
+
+    .innerWrap { position: relative }
+  }
+
+  // 标题部分
+  @include e(title) {
+    margin: 0; padding: 20px 40px 20px 0;
+    font-size: 24px;
+  }
+
+  // 关闭按钮样式
+  @include e(close) {
+    @include size($close-size);
+
+    position: absolute; right: 0; top: 50%;
+    margin-top: -$close-size / 2; border-radius: 50%;
+    cursor: pointer;
+
+    // 图标默认颜色
+    .icon {
+      position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+      margin: auto; fill: currentColor;
+    }
+
+    // 模拟按钮 hover active effect
+    &:hover { background: #F13F3B; color: #FFF }
+    &:active { background: #E33439; color: #FFF }
+  }
+
+  // 分隔线
+  @include e(separation) {
+    height: 1px;
+    background: #E0E0E0;
+  }
+
+  // 内容块
+  @include e(content) {
+    @extend %vertical-padding;
+
+    color: #444; font-size: 13px; line-height: 22px;
+  }
+
+  // footer
+  @include e(footer) {
+    @extend %vertical-padding;
+
+    overflow: hidden;
+  }
+
+  @include e(btnWarp) {
+    float: right;
+  }
+}

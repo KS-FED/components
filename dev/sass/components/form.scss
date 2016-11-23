@@ -1,0 +1,84 @@
+
+.form-ver{
+	.col.label{
+		@extend %ks-row;
+		text-align: left;
+	}
+	.deposit-right-auto{
+		max-width:640px;
+    	min-width:440px;
+	}
+}
+.control-group-warpper{
+	.control-group,.control-group-auto{
+		margin-bottom: 30px;
+	}
+}
+.control-group{
+    @extend %ks-row;
+    @extend %control-group;
+}
+.control-group-auto{
+    @extend %ks-row-auto;
+    @extend %control-group;
+}
+    
+%control-group{
+    
+    .col-percent7{
+        @extend %ks-col;
+        width:70%;
+        position:relative;
+    }
+    .col-wauto{
+        @extend %ks-col;
+        width:auto;
+        position:relative;
+    }
+    .col-percent3{
+        @extend %ks-col;
+        width:30%;
+        
+    }
+    .vertical-align{
+        vertical-align: middle;
+    }
+
+    .label{
+    	font-weight: bold;
+    	text-align: right;
+    	line-height: 34px;
+    }
+    .desc-msg{
+        position: absolute; 
+    }
+    .control-top{
+    	 line-height: 34px;
+         vertical-align: top;
+    }
+
+}
+
+
+// form box
+.form-box-center {
+    min-width: 430px;
+    max-width: 680px;
+    margin: auto;
+}
+
+// 必填*
+.sup-red{color: red;}
+
+@media screen and (max-width: 1300px) { /*当屏幕尺寸小于600px时，应用下面的CSS样式*/
+  .form-ver{
+  	.deposit-right-auto{
+		max-width:550px;
+    	min-width:440px;
+	}
+  }
+}
+
+
+
+

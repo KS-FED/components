@@ -1,0 +1,50 @@
+//开关
+%switch-btn{
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    z-index: 99;
+    position: absolute;
+    top: 2px;
+    border-radius: 50%;
+}
+.switch{
+    input[type=checkbox] {
+        position: absolute;
+        clip: rect(0,0,0,0); /* IE8+ */
+        *left: -999px;
+    }
+    .ui-switch {
+        display: inline-block;
+        width: 80px;
+        height: 24px;
+        border-radius: 12px;
+        position: relative;
+        background: #e9e9e9;
+        &::before {
+            @extend %switch-btn;
+            left: 2px;
+            visibility: visible;
+        }
+        &::after{
+            @extend %switch-btn;
+            right: 2px;
+            visibility: hidden;
+        }
+        .begin,.end{ line-height: 24px; }
+        .begin{
+            padding-left: 30px;
+        }
+        .end{
+            padding-left: 10px;
+            color: #fff;
+            opacity: 0;
+        }
+    }
+    :checked + .ui-switch{ background: #4caf50; }
+    :checked + .ui-switch::before { visibility: hidden; }
+    :checked + .ui-switch::after { visibility: visible; }
+    :checked + .ui-switch span.begin { display: none; }
+    :checked + .ui-switch span.end { opacity: 1; }
+}

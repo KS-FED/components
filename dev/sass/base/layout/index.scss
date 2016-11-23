@@ -1,35 +1,39 @@
 @import "./tb";
 @import "./ib";
 
-.row {
 
-    @extend .tb;
-    .col {
-        @extend .tb-cell;
-    }
-
-    .col-top {
-        @extend .tb-cell;
-        vertical-align: top;
-    }
-    
-    
+%ks-col-top {
+    @extend %tb-cell;
+    vertical-align: top;
 }
-
-.row-auto {
-
-    @extend .row;
+%ks-col-auto-top {
+    @extend %ks-col-auto;
+    vertical-align: top;
+}
+%ks-row-auto{
+    @extend %ks-row;
     table-layout: auto;
-    .col-auto{
-        @extend .tb-cell;
-        width: 1px;
-        white-space: nowrap;
-    }
-    .col-auto-top {
-        @extend .col-auto;
-        vertical-align: top;
-    }
-    
 }
-
-
+%ks-col-auto{
+    @extend %tb-cell;
+    width: 1px;
+    white-space: nowrap;
+}
+%ks-row{
+    @extend .tb;
+}
+%ks-col{
+    @extend %tb-cell;
+}
+.ks-row-auto{
+    @extend %ks-row-auto;
+}
+.ks-col-auto{
+    @extend %ks-col-auto;
+}
+.ks-row{
+    @extend %ks-row;
+}
+.ks-col{
+    @extend %ks-col;
+}

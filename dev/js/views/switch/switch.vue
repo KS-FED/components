@@ -1,12 +1,13 @@
 <template>
+
 	<div style="text-align: center">
     <!-- IosSwitch -->
      <div style="margin-top: 15px">
       <h4>IosSwitch:</h4>
-      <ios-switch :disable="false" @change="changeHandle">
+      <ks-switch :disable="false" @change="changeHandle">
         <div slot="checkedChildren">O</div>
         <div slot="unCheckedChildren">F</div>
-      </ios-switch>
+      </ks-switch>
     </div>
 
     <!-- 纯 CSS 实现的 Switch -->
@@ -38,13 +39,13 @@
             <td>String</td>
             <td>
               <label>large:</label>
-              <ios-switch size="large"></ios-switch><br>
+              <ks-switch size="large"></ks-switch><br>
               <label>normal:</label>
-              <ios-switch size="normal"></ios-switch><br>
+              <ks-switch size="normal"></ks-switch><br>
               <label>small:</label>
-              <ios-switch size="small"></ios-switch><br>
+              <ks-switch size="small"></ks-switch><br>
               <label>mini:</label>
-              <ios-switch size="mini"></ios-switch><br>
+              <ks-switch size="mini"></ks-switch><br>
             </td>
             <td>large, normal, small, mini</td>
             <td>normal</td>
@@ -55,11 +56,11 @@
             <td>String</td>
             <td>
               <label>#00BCD4:</label>
-              <ios-switch color="#00BCD4"></ios-switch><br>
+              <ks-switch color="#00BCD4"></ks-switch><br>
               <label>#2196F3:</label>
-              <ios-switch color="#2196F3"></ios-switch><br>
+              <ks-switch color="#2196F3"></ks-switch><br>
               <label>#F44336:</label>
-              <ios-switch color="#F44336"></ios-switch><br>
+              <ks-switch color="#F44336"></ks-switch><br>
             </td>
             <td>---</td>
             <td style="color: #04BE02">#04BE02</td>
@@ -80,9 +81,9 @@
             <td>Boolean</td>
             <td>
               <label>false:</label>
-              <ios-switch :disable="false"></ios-switch><br>
+              <ks-switch :disable="false"></ks-switch><br>
               <label>true:</label>
-              <ios-switch :disable="true"></ios-switch><br>
+              <ks-switch :disable="true"></ks-switch><br>
             </td>
             <td>true, false</td>
             <td>false</td>
@@ -113,13 +114,13 @@
             <td>表示在打开状态下开关显示的文字</td>
             <td>String</td>
             <td>
-              <ios-switch size="large">
+              <ks-switch size="large">
                 <div slot="checkedChildren">ON</div>
-              </ios-switch>
+              </ks-switch>
               <br>
-              <ios-switch size="large">
+              <ks-switch size="large">
                 <div slot="checkedChildren">开</div>
-              </ios-switch>
+              </ks-switch>
             </td>
             <td>---</td>
             <td>---</td>
@@ -129,13 +130,13 @@
             <td>表示在关闭状态下开关显示的文字</td>
             <td>String</td>
             <td>
-              <ios-switch size="large">
+              <ks-switch size="large">
                 <div slot="unCheckedChildren">OFF</div>
-              </ios-switch>
+              </ks-switch>
               <br>
-              <ios-switch size="large">
+              <ks-switch size="large">
                 <div slot="unCheckedChildren">关</div>
-              </ios-switch>
+              </ks-switch>
             </td>
             <td>---</td>
             <td>---</td>
@@ -162,7 +163,7 @@
           </thead>
           <tbody>
           <tr style="text-align: left">
-            <td>onChange</td>
+            <td>Change</td>
             <td>在状态切换时会触发的事件, 该事件会携带当前的 Switch 状态传递给处理函数</td>
             <td>event</td>
             <td>---</td>
@@ -179,12 +180,12 @@
       <hr>
       <pre class="html" style="text-align: left">
         <code class="html">
-          &lt;ios-switch :disable=&quot;false&quot; :def-checked=&quot;true&quot; color=&quot;#FF5722&quot;
+          &lt;ks-switch :disable=&quot;false&quot; :def-checked=&quot;true&quot; color=&quot;#FF5722&quot;
               size=&quot;large&quot; :checked.sync=&quot;checked&quot;
           &gt;
               &lt;div slot=&quot;checkedChildren&quot;&gt;O&lt;/div&gt;
               &lt;div slot=&quot;unCheckedChildren&quot;&gt;F&lt;/div&gt;
-          &lt;/ios-switch&gt;
+          &lt;/ks-switch&gt;
         </code>
       </pre>
     </div>
@@ -205,3 +206,4 @@
     }
   }
 </script>
+
