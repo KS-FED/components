@@ -25,13 +25,13 @@
             </div>
             </div>
             <div class="_btn" v-if="time">
-                <select v-model="time[0]" v-on:change.stop="pick_time">
+                <select class="input" v-model="time[0]" v-on:change.stop="pick_time">
                     <option v-bind:value="i|fr_limit" v-for="i in 24">{{i|fr_limit}}</option>
                 </select>
-                <select v-model="time[1]" v-on:change.stop="pick_time">
+                <select class="input mlr-10" v-model="time[1]" v-on:change.stop="pick_time">
                     <option v-bind:value="i|fr_limit" v-for="i in 60">{{i|fr_limit}}</option>
                 </select>
-                <select v-model="time[2]" v-on:change.stop="pick_time">
+                <select class="input" v-model="time[2]" v-on:change.stop="pick_time">
                     <option v-bind:value="i|fr_limit" v-for="i in 60">{{i|fr_limit}}</option>
                 </select>
             </div>

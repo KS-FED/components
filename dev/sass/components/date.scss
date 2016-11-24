@@ -79,6 +79,13 @@
 	    _days{ @extend %date-days; }
 	    _btn{
 	    	@extend %date-days;
+	    	select{
+	    		width: 70px;
+	    		border-color: #e5e5e5;
+	    	}
+	    	.mlr-10{
+	    		margin:0 10px;
+	    	}
 	    	.today,.reset{ color: #2196F3; }
 	    	.clear{ color: #F44336; }
 	    	.today,.clear,.reset,.collect{
