@@ -25,6 +25,17 @@
             </div>
             </div>
             <div class="_btn" v-if="!exclude">
+                <select>
+                    <option value="">2</option>
+                </select>
+                <select>
+                    <option value="">2</option>
+                </select>
+                <select>
+                    <option value="">2</option>
+                </select>
+            </div>
+            <div class="_btn" v-if="!exclude">
                 <span class="today" v-on:click="today()">今天</span>
                 <span class="clear" v-on:click="clear()">清除</span>
             </div>
@@ -91,6 +102,7 @@
             },
             // 不排除时间
             no_exclude(dater){
+                this.value = dater
                 this.$emit('change',dater)
             },
             // 数组中数值，无则加，有则去除
@@ -109,10 +121,16 @@
         watch: {
             value(val){
                 
-                if(this.exclude && ~val.indexOf(',') ) {
-                    this.point_daters = val.split(',')
-                    this.now = new Date(this.point_daters[0])
+                if(this.exclude) {
+                    if(~val.indexOf(',')){
+                        this.point_daters = val.split(',')
+                        this.now = new Date(this.point_daters[0])
+                    }
+                }else{
+                    this.cur_value = val
+                    this.now = new Date(val)
                 }
+                console.log('val',val)
 
             },
             now () {

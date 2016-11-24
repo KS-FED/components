@@ -9,6 +9,9 @@ export default {
                 return val
             } 
         },
+        time:{
+            type:String
+        },
         format: { type: String, default: 'YYYY-MM-DD' }
         
     }

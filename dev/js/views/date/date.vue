@@ -12,7 +12,8 @@
 		&lt;ks-dater value="2016-10-12" v-on:change="current_change">&lt;/ks-dater&gt;
 		</code>
     </pre>
-	<ks-dater value="2016-10-12" v-on:change="current_change"></ks-dater>
+	<ks-dater :value.sync="date_base" v-on:change="current_change"></ks-dater>
+    {{date_base}}
 	
     <br><br>
     <h3>date-picker</h3>
@@ -125,16 +126,16 @@
 	<hr>
 	<h2>css 部分</h2>
 		
-		
+
 
 
 		<!-- 日期默认样式——月 -->
-		<div class="KsDateMonth" cid="KsDateMonth" style="margin-bottom: 300px;">
+		<div class="KsDateMonthPicker" cid="KsDateMonthPicker" style="margin-bottom: 300px;">
 			<div class="_input">
 				<div class="ks-col-auto date-icon"><i class="icon">&#xe615;</i></div>
 				<input type="text" class="ks-col">
 			</div>
-			<div class="KsDater" cid="KsDater">
+			<div class="KsDateMonth" cid="KsDateMonth">
 				<div class="_date">
 					<div class="_head">
 						<div class="retreat">&lt;</div>
@@ -169,12 +170,12 @@
 		</div>
 
 		<!-- 日期默认样式——年 -->
-		<div class="KsDateYear" cid="KsDateYear" style="margin-bottom: 300px;">
+		<div class="KsDateYearPicker" cid="KsDateYearPicker" style="margin-bottom: 300px;">
 			<div class="_input">
 				<div class="ks-col-auto date-icon"><i class="icon">&#xe615;</i></div>
 				<input type="text" class="ks-col">
 			</div>
-			<div class="KsDater" cid="KsDater">
+			<div class="KsDateYear" cid="KsDateYear">
 				<div class="_date">
 					<div class="_head">
 						<div class="retreat">&lt;</div>
@@ -214,12 +215,17 @@
 	export default {
 		data(){
 			return {
+				date_base:'',
 				date_val:'2016-11-09,2016-11-10,2016-11-11,2016-11-18,2016-11-17,2016-11-16,2016-11-15,2016-11-13,2016-11-14'
 			}
 		},
 		methods:{
 			current_change(val){
-				console.log('current_change',val)
+				// console.log('current_change',val)
+				setTimeout(()=>{
+					this.date_base = '2016-10-12'	
+				})
+				
 			},
 			date_multi_picker_change(val){
 				console.log('多选 picker',val)
@@ -229,6 +235,7 @@
 			// setTimeout(()=>{
 			// 	this.date_val = '2016-11-09,2016-11-10,2016-11-11,2016-11-18,2016-11-17,2016-11-16,2016-11-15,2016-11-13,2016-11-14'
 			// },3000)
+			this.date_base = '2016-10-12'	
 		}
 
 	}

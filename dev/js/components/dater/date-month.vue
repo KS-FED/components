@@ -1,12 +1,15 @@
 <template>
-    <div class="KsDater" cid="KsDater">
+    <div class="KsDateMonth" cid="KsDateMonth">
         <div class="_date">
             <div class="_head">
                 <div class="retreat">&lt;</div>
                 <div class="year">2016年</div>
                 <div class="next">&gt;</div>
             </div>
-            
+            <div class="_days"
+                v-for="row in 3">
+                <span class="pass" v-for="item in 4">{{months[4*row+item]}}</span>
+            </div>
             <!-- <div class="_days">
                 <span class="pass">一月</span>
                 <span class="pass">二月</span>
@@ -36,7 +39,9 @@
 <script type="text/javascript">
     export default {
         data(){
-            return {}
+            return {
+                months:['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
+            }
         }
 
     }

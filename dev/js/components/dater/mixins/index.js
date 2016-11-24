@@ -40,7 +40,9 @@ export default {
         created () {
             this.cur_value = this.value || stringify(this.now)
             this.now = parse(this.cur_value) || new Date()
-         
+            console.log(this.value , typeof this.value)
+            console.log(this.$parent.date_base , typeof this.$parent.date_base)
+            console.log(this.value === this.$parent.date_base)
         }
 
     }
