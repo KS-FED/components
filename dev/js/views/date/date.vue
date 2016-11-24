@@ -22,6 +22,7 @@
 		&lt;ks-date-picker value="2016-10-12" v-on:change="current_change">&lt;/ks-date-picker&gt;
 		</code>
     </pre>
+	<ks-date-picker value="2016-10-12"  time="00:00:00"  v-on:change="current_change"></ks-date-picker>
 	<ks-date-picker value="2016-10-12"  time="23:59:59"  v-on:change="current_change"></ks-date-picker>
 	
 	<br><br>
@@ -32,6 +33,7 @@
 		</code>
     </pre>
 	<ks-date-picker value="2016-10-12" v-on:change="current_change" :readonly="true"></ks-date-picker>
+	<ks-date-picker value="2016-10-12" v-on:change="current_change"></ks-date-picker>
 	
 	<br><br>
 	<h3>多选 date-picker （和范围有差异） </h3>
@@ -60,6 +62,9 @@
         		</tr>
         		<tr>
         			<td>placeholder (type:String)</td><td>占位符 </td>
+        		</tr>
+        		<tr>
+        			<td>time (type:String)</td><td>now：当前时分秒；不写：忽略时分秒；'00:10:32'：任意时分秒 </td>
         		</tr>
         		<tr>
         			<td>exclude (type:Boolean)</td><td>是否有排除操作 </td>

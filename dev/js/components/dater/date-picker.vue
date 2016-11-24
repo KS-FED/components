@@ -5,10 +5,8 @@
         <div class="ks-col-auto date-icon"><i class="icon"></i></div>
         <input type="text" class="ks-col" placeholder="{{placeholder}}" :value="input_value" readonly>
     </div>
-    {{time}}
-    <ks-dater v-show="show" :value="value" time="23:59:59" :exclude="exclude" :readonly="readonly" v-on:change="current_change"></ks-dater>
+    <ks-dater v-show="show" :value="value" :time="time" :exclude="exclude" :readonly="readonly" v-on:change="current_change"></ks-dater>
     </div>
-    
 </template>
 <script>
     import props from './mixins/props.js'
