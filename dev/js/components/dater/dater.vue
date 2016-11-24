@@ -25,13 +25,13 @@
             </div>
             </div>
             <div class="_btn" v-if="!exclude">
-                <select>
+                <select class="input">
                     <option value="">2</option>
                 </select>
-                <select>
+                <select class="input mlr-10">
                     <option value="">2</option>
                 </select>
-                <select>
+                <select class="input">
                     <option value="">2</option>
                 </select>
             </div>
