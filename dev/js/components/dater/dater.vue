@@ -70,9 +70,10 @@
             clear() {
                 if(!this.cur_value) return
                 var value_temp = this.cur_value
+                console.log(value_temp);
                 this.cur_value = ''
                 this.now = new Date(value_temp)
-                this.$emit('change',this.cur_value)
+                this.$emit('change','')
             },
             selectd(dater){
                 // console.log('dater----',dater , this.cur_value)

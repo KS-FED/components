@@ -19,6 +19,7 @@
         },
         data(){
             var timer = this.time ? ' '+this.time.join(':') : ''
+            this.value = this.value || stringify(new Date())
             var dater_timer = this.value + timer
             return {
                 show:false,
