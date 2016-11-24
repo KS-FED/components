@@ -12,7 +12,7 @@
 		&lt;ks-dater value="2016-10-12" v-on:change="current_change">&lt;/ks-dater&gt;
 		</code>
     </pre>
-	<ks-dater :value.sync="date_base" v-on:change="current_change"></ks-dater>
+	<ks-dater :value.sync="date_base" time="23:59:59" v-on:change="current_change"></ks-dater>
     {{date_base}}
 	
     <br><br>
@@ -22,7 +22,7 @@
 		&lt;ks-date-picker value="2016-10-12" v-on:change="current_change">&lt;/ks-date-picker&gt;
 		</code>
     </pre>
-	<ks-date-picker value="2016-10-12" v-on:change="current_change"></ks-date-picker>
+	<ks-date-picker value="2016-10-12"  time="23:59:59"  v-on:change="current_change"></ks-date-picker>
 	
 	<br><br>
 	<h3>只读date-picker</h3>
@@ -215,7 +215,7 @@
 	export default {
 		data(){
 			return {
-				date_base:'',
+				date_base:'2016-10-12:03:04:20',
 				date_val:'2016-11-09,2016-11-10,2016-11-11,2016-11-18,2016-11-17,2016-11-16,2016-11-15,2016-11-13,2016-11-14'
 			}
 		},
@@ -223,7 +223,7 @@
 			current_change(val){
 				// console.log('current_change',val)
 				setTimeout(()=>{
-					this.date_base = '2016-10-12'	
+					// this.date_base = '2016-10-12'	
 				})
 				
 			},
@@ -235,7 +235,7 @@
 			// setTimeout(()=>{
 			// 	this.date_val = '2016-11-09,2016-11-10,2016-11-11,2016-11-18,2016-11-17,2016-11-16,2016-11-15,2016-11-13,2016-11-14'
 			// },3000)
-			this.date_base = '2016-10-12'	
+			this.date_base = '2016-10-12 03:04:20'	
 		}
 
 	}

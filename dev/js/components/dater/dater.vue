@@ -24,15 +24,15 @@
                         {{dates[week * 7 + day] && +dates[week * 7 + day].datetext}}</span>
             </div>
             </div>
-            <div class="_btn" v-if="!exclude">
-                <select>
-                    <option value="">2</option>
+            <div class="_btn" v-if="time">
+                <select v-model="time[0]" v-on:change.stop="pick_time">
+                    <option v-bind:value="i|fr_limit" v-for="i in 24">{{i|fr_limit}}</option>
                 </select>
-                <select>
-                    <option value="">2</option>
+                <select v-model="time[1]" v-on:change.stop="pick_time">
+                    <option v-bind:value="i|fr_limit" v-for="i in 60">{{i|fr_limit}}</option>
                 </select>
-                <select>
-                    <option value="">2</option>
+                <select v-model="time[2]" v-on:change.stop="pick_time">
+                    <option v-bind:value="i|fr_limit" v-for="i in 60">{{i|fr_limit}}</option>
                 </select>
             </div>
             <div class="_btn" v-if="!exclude">
@@ -45,7 +45,7 @@
 </template>
 <script>
     import mixins from './mixins/index'
-    import { stringify } from './util/lang'
+    import { stringify,split_dt } from './util/lang'
     import { one_page_date } from './util/apage'
     export default {
         mixins: [mixins],
@@ -55,7 +55,10 @@
                 this.point_daters = []
                 ~this.value.indexOf(',') && (this.point_daters = this.value.split(','))
             }
-            return {}
+
+            return {
+                // time:['01',2,'03']
+            }
         },
         methods:{
             today() {
@@ -72,10 +75,12 @@
                 this.$emit('change',this.cur_value)
             },
             selectd(dater){
+                // console.log('dater----',dater , this.cur_value)
                 var status = ''
                 if(this.exclude){
                     ~this.point_daters.indexOf(dater) && (status = 'active')
-                }else if(dater === this.cur_value ){
+                }else if(dater == this.cur_value ){
+
                     status = 'active'
                 }
                 return status
@@ -91,9 +96,13 @@
                 var dater = cur_date.dater
 
                 this.cur_value = dater
+                // console.log(this.cur_value)
                 this.exclude ? this.is_exclude(dater) : this.no_exclude(dater)
                 this.now = new Date(dater)
                 
+            },
+            pick_time(){
+                this.no_exclude(this.cur_value)
             },
             // 排除具体时间
             is_exclude(dater){
@@ -102,8 +111,11 @@
             },
             // 不排除时间
             no_exclude(dater){
-                this.value = dater
-                this.$emit('change',dater)
+                // console.log(dater,this.time)
+                var timer = this.time ? ' '+this.time.join(':') : ''
+                this.value = dater + timer
+                console.log('change',this.value)
+                this.$emit('change',this.value)
             },
             // 数组中数值，无则加，有则去除
             non(point_daters,dater){
@@ -127,10 +139,15 @@
                         this.now = new Date(this.point_daters[0])
                     }
                 }else{
+                    try{
+                        this.time = (split_dt(val) && split_dt(val).timer.split(':')) || this.time
+                        val = (split_dt(val) && split_dt(val).dater) || val
+                    }catch(e){}
+                    
                     this.cur_value = val
                     this.now = new Date(val)
                 }
-                console.log('val',val)
+                // console.log('val',val,val.length)
 
             },
             now () {

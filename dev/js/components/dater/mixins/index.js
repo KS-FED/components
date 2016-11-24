@@ -1,4 +1,4 @@
-import {parse , stringify , prev_month, cur_month , next_month , ymd} from '../util/lang'
+import {parse , stringify , prev_month, cur_month , next_month , ymd,split_dt} from '../util/lang'
 import props from './props'
 
 export default {
@@ -20,7 +20,17 @@ export default {
                 now: new Date()
             }
         },
-        
+        filters:{
+            fr_limit(val,len){
+                var real_len = (''+val).length 
+                var fullzero = function(len){
+                    return (''+Math.pow(10,len)).substr(1)
+                }
+                len = len || 2
+                return real_len < len 
+                                ? fullzero(len-real_len)+val : val
+            }
+        },
         methods: {
             
             // 切换年
@@ -38,11 +48,20 @@ export default {
         },
 
         created () {
+            try{
+                if(!this.exclude){
+                    this.time && (this.time = split_dt(this.value).timer.split(':'))
+                    this.value = split_dt(this.value).dater || this.value
+                    // console.log(this.time,this.value)
+                }
+            }catch(e){}
+            
+
             this.cur_value = this.value || stringify(this.now)
             this.now = parse(this.cur_value) || new Date()
-            console.log(this.value , typeof this.value)
-            console.log(this.$parent.date_base , typeof this.$parent.date_base)
-            console.log(this.value === this.$parent.date_base)
+            // console.log(this.value , typeof this.value)
+            // console.log(this.$parent.date_base , typeof this.$parent.date_base)
+            // console.log(this.value === this.$parent.date_base)
         }
 
     }

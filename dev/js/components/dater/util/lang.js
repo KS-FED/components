@@ -86,8 +86,22 @@
         }
         return { year:year, month:month ,stringify:year+'-'+(month+1) }
     }
-
     exports.api_ym = api_ym
-
+    /**
+     * [split_dt 分割 '2016-10-11 10:01:03']
+     * @return {[type]} [description]
+     */
+    function split_dt(val){
+        if(val && (/:(\d{2}):(\d{2}):(\d{2})/g.test(val) || /(\d{2}):(\d{2}):(\d{2})/g.test(val))){
+            var dater_timer= val.replace(/:(\d{2}):(\d{2}):(\d{2})/g,'$1:$2:$3').replace(/(\d{2}):(\d{2}):(\d{2})/g,'|$1:$2:$3').split('|')
+            return {
+                dater:dater_timer[0].trim(),
+                timer:dater_timer[1]
+            }
+        }
+        return ''
+    }
+    
+    exports.split_dt = split_dt
 
 

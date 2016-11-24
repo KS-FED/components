@@ -10,7 +10,17 @@ export default {
             } 
         },
         time:{
-            type:String
+            // type:String,
+            coerce(val) {
+                // console.log(val)
+                if(val){
+                    var date = new Date()
+                    'now' == val && (val = [date.getHours(),date.getMinutes(),date.getSeconds()])
+                    val.split(':').length &&  (val=val.split(':'))
+                    return val
+                }
+                return ''
+            }  
         },
         format: { type: String, default: 'YYYY-MM-DD' }
         

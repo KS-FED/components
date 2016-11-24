@@ -5,7 +5,8 @@
         <div class="ks-col-auto date-icon"><i class="icon"></i></div>
         <input type="text" class="ks-col" placeholder="{{placeholder}}" :value="input_value" readonly>
     </div>
-    <ks-dater v-show="show" :value="value" :exclude="exclude" :readonly="readonly" v-on:change="current_change"></ks-dater>
+    {{time}}
+    <ks-dater v-show="show" :value="value" time="23:59:59" :exclude="exclude" :readonly="readonly" v-on:change="current_change"></ks-dater>
     </div>
     
 </template>
@@ -19,9 +20,11 @@
             placeholder: { type: String, default: '' }
         },
         data(){
+            var timer = this.time ? ' '+this.time.join(':') : ''
+            var dater_timer = this.value + timer
             return {
                 show:false,
-                input_value:this.value
+                input_value : dater_timer
             }
         },
         
@@ -35,11 +38,13 @@
             },
             // 排除具体时间
             is_exclude(cur_date){
+
                 this.input_value = cur_date
                 this.$emit('change',cur_date)
             },
             // 不排除时间
             no_exclude(cur_date){
+                // console.log(cur_date)
                 this.value = cur_date
                 this.$emit('change',cur_date)
                 this.close()
@@ -53,6 +58,7 @@
             }
         },
         ready(){
+            // console.log('this.exclude',this.exclude)
             document.addEventListener('click', (e) => {
                 if (this.$el && !this.$el.contains(e.target)) {
                     this.close()
