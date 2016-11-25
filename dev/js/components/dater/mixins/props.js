@@ -1,3 +1,4 @@
+import { fullzero } from '../util/lang'
 export default {
     props: {
         
@@ -12,11 +13,12 @@ export default {
         time:{
             // type:String,
             coerce(val) {
-                console.log(val)
+                // console.log(val)
                 if(val){
                     var date = new Date()
-                    'now' == val && (val = [date.getHours(),date.getMinutes(),date.getSeconds()])
+                    'now' == val && (val = [date.getHours(),date.getMinutes(),fullzero(date.getSeconds(),2)])
                     typeof val == 'string' && val.split(':').length &&  (val=val.split(':'))
+                    // console.log(val)
                     return val
                 }
                 return ''

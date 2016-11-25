@@ -105,3 +105,16 @@
     exports.split_dt = split_dt
 
 
+    var addzero = function(len){
+        return (''+Math.pow(10,len)).substr(1)
+    }
+
+    function fullzero(val,len){
+        var real_len = (''+val).length 
+        len = len || 2
+        return real_len < len 
+                        ? addzero(len-real_len)+val : val
+    }
+    exports.fullzero = fullzero
+
+

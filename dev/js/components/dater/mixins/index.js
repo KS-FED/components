@@ -1,4 +1,4 @@
-import {parse , stringify , prev_month, cur_month , next_month , ymd,split_dt} from '../util/lang'
+import {parse , stringify , prev_month, cur_month , next_month , ymd,split_dt,fullzero} from '../util/lang'
 import props from './props'
 
 export default {
@@ -22,13 +22,7 @@ export default {
         },
         filters:{
             fr_limit(val,len){
-                var real_len = (''+val).length 
-                var fullzero = function(len){
-                    return (''+Math.pow(10,len)).substr(1)
-                }
-                len = len || 2
-                return real_len < len 
-                                ? fullzero(len-real_len)+val : val
+                return fullzero(val,len)
             }
         },
         methods: {
