@@ -44,7 +44,7 @@
             // 不排除时间
             no_exclude(cur_date){
                 // console.log(cur_date)
-                this.value = cur_date
+                this.input_value = cur_date
                 this.$emit('change',cur_date)
                 this.close()
             }

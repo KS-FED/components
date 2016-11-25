@@ -227,10 +227,10 @@
 		},
 		methods:{
 			current_change(val){
-				// console.log('current_change',val)
-				setTimeout(()=>{
-					// this.date_base = '2016-10-12'	
-				})
+				console.log('parent catch change value',val)
+				// setTimeout(()=>{
+				// 	// this.date_base = '2016-10-12'	
+				// })
 				
 			},
 			date_multi_picker_change(val){
