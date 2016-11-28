@@ -18,12 +18,18 @@
             placeholder: { type: String, default: '' }
         },
         data(){
-            var timer = this.time ? ' '+this.time.join(':') : ''
+            this.tempvalue = this.value
+            var timer = ''
+            if(!~this.value.indexOf(' ')){
+                timer = this.time && ' '+this.time.join(':')
+                // console.log(timer)
+            }
             this.value = this.value || stringify(new Date())
-            var dater_timer = this.value + timer
+            this.dater_timer = this.value + timer
+
             return {
                 show:false,
-                input_value : dater_timer
+                input_value : this.dater_timer
             }
         },
         
@@ -44,7 +50,7 @@
             // 不排除时间
             no_exclude(cur_date){
                 // console.log(cur_date)
-                this.value = cur_date
+                this.input_value = cur_date
                 this.$emit('change',cur_date)
                 this.close()
             }
@@ -54,6 +60,13 @@
             value(val){
                 // console.log(val)
                 this.input_value = val
+                
+            }
+
+        },
+        created(){
+            if(!this.tempvalue){
+                this.$emit('change',this.dater_timer)
             }
         },
         ready(){

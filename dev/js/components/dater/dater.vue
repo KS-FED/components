@@ -65,12 +65,13 @@
                 // console.log('today')
                 this.cur_value = stringify(new Date())
                 this.now = new Date()
-                this.$emit('change',this.cur_value)
+                var timer = this.time ? ' '+this.time.join(':') : ''
+                this.value = this.cur_value + timer
+                this.$emit('change',this.value)
             },
             clear() {
                 if(!this.cur_value) return
                 var value_temp = this.cur_value
-                console.log(value_temp);
                 this.cur_value = ''
                 this.now = new Date(value_temp)
                 this.$emit('change','')
@@ -115,7 +116,7 @@
                 // console.log(dater,this.time)
                 var timer = this.time ? ' '+this.time.join(':') : ''
                 this.value = dater + timer
-                console.log('change',this.value)
+                // console.log('change',this.value)
                 this.$emit('change',this.value)
             },
             // 数组中数值，无则加，有则去除

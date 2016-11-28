@@ -23,7 +23,7 @@
 		</code>
     </pre>
 	<ks-date-picker value="2016-10-12"  time="00:00:00"  v-on:change="current_change"></ks-date-picker>
-	<ks-date-picker :value="date2"  time="23:59:59"  v-on:change="current_change"></ks-date-picker>
+	<ks-date-picker :value="date2"  time="now"  v-on:change="current_change2"></ks-date-picker>
 	
 	<br><br>
 	<h3>只读date-picker</h3>
@@ -220,17 +220,20 @@
 	export default {
 		data(){
 			return {
-				date2:'',
+				date2:'2016-10-12 03:04:20',
 				date_base:'2016-10-12:03:04:20',
 				date_val:'2016-11-09,2016-11-10,2016-11-11,2016-11-18,2016-11-17,2016-11-16,2016-11-15,2016-11-13,2016-11-14'
 			}
 		},
 		methods:{
-			current_change(val){
-				// console.log('current_change',val)
-				setTimeout(()=>{
-					// this.date_base = '2016-10-12'	
-				})
+			current_change(){},
+			current_change2(val){
+				// console.log('parent catch change value',val)
+				// // setTimeout(()=>{
+				// // 	// this.date_base = '2016-10-12'	
+				// // })
+				console.log('parent catch change value',val)
+
 				
 			},
 			date_multi_picker_change(val){
@@ -242,6 +245,9 @@
 			// 	this.date_val = '2016-11-09,2016-11-10,2016-11-11,2016-11-18,2016-11-17,2016-11-16,2016-11-15,2016-11-13,2016-11-14'
 			// },3000)
 			this.date_base = '2016-10-12 03:04:20'	
+			setTimeout(()=>{
+				// console.log('this.date2',this.date2)
+			},3000)
 		}
 
 	}
