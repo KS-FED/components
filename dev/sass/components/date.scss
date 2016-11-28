@@ -103,6 +103,7 @@
 // 日历下拉的公共样式
 %picker-wrap{
 	@extend %picker-wrap-use;
+	z-index: 1;
 	width: auto;
     _date-head{
     	.interstice{ 
@@ -118,7 +119,7 @@
 
 // 月 日历的公共样式
 %date-month{
-	_input{ @extend %icon-input; }
+	_input{ @extend %icon-input; position: relative;}
 	.KsDater{ position: absolute; }
 }
 
