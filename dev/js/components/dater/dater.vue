@@ -62,7 +62,7 @@
         },
         methods:{
             today() {
-                // console.log('today')
+                if(this.readonly) return
                 this.cur_value = stringify(new Date())
                 this.now = new Date()
                 var timer = this.time ? ' '+this.time.join(':') : ''
@@ -70,7 +70,7 @@
                 this.$emit('change',this.value)
             },
             clear() {
-                if(!this.cur_value) return
+                if(!this.cur_value || this.readonly) return
                 var value_temp = this.cur_value
                 this.cur_value = ''
                 this.now = new Date(value_temp)
