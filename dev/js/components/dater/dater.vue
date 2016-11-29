@@ -104,7 +104,7 @@
                 
             },
             pick_time(){
-                this.no_exclude(this.cur_value)
+                this.no_exclude(this.cur_value,true)
             },
             // 排除具体时间
             is_exclude(dater){
@@ -112,12 +112,12 @@
                 this.$emit('change',this.point_daters.join(','))
             },
             // 不排除时间
-            no_exclude(dater){
+            no_exclude(dater,no_close){
                 // console.log(dater,this.time)
                 var timer = this.time ? ' '+this.time.join(':') : ''
                 this.value = dater + timer
                 // console.log('change',this.value)
-                this.$emit('change',this.value)
+                this.$emit('change',this.value,no_close)
             },
             // 数组中数值，无则加，有则去除
             non(point_daters,dater){
@@ -147,7 +147,7 @@
                     }catch(e){}
                     
                     this.cur_value = val
-                    this.now = new Date(val)
+                    val && (this.now = new Date(val))
                 }
                 // console.log('val',val,val.length)
 

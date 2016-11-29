@@ -44,22 +44,22 @@
                 this.show = false
             },
             // dater callback
-            current_change(cur_date){
-                this.exclude ? this.is_exclude(cur_date) : this.no_exclude(cur_date)
+            current_change(cur_date,no_close){
+                this.exclude ? this.is_exclude(cur_date) : this.no_exclude(cur_date,no_close)
             },
             // 排除具体时间
             is_exclude(cur_date){
-
                 this.input_value = cur_date
                 this.$emit('change',cur_date)
             },
             // 不排除时间
-            no_exclude(cur_date){
+            no_exclude(cur_date,no_close){
                 // console.log(cur_date)
                 this.input_value = cur_date
                 this.value = cur_date
                 this.$emit('change',cur_date)
-                this.close()
+                !no_close && this.close()
+                
             }
             
         },
