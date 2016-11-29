@@ -104,7 +104,8 @@
                 
             },
             pick_time(){
-                this.no_exclude(this.cur_value,true)
+                var dater = this.cur_value || stringify(new Date())
+                this.no_exclude(dater,true)
             },
             // 排除具体时间
             is_exclude(dater){
