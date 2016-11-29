@@ -1,5 +1,5 @@
 <template>
-<div class="KsDateScope readonly" cid="KsDateScope">
+<div class="KsDaterMultiPicker readonly" cid="KsDaterMultiPicker">
     <div class="_input" v-on:click="show=!show">
         <div class="ks-col-auto date-icon"><i class="icon">&#xe615;</i></div>
         <div class="ks-col">

@@ -119,7 +119,7 @@
 
 // 月 日历的公共样式
 %date-month{
-	_input{ @extend %icon-input; position: relative;}
+	_input{ @extend %icon-input;}
 	.KsDater{ position: absolute; }
 }
 
@@ -179,7 +179,7 @@
 .KsDater{ @extend %picker-wrap; }
 
 // 日期默认样式——周
-.KsDatePicker{ @extend %date; }
+.KsDatePicker{ @extend %date; position: relative; }
 
 // 日期样式——周——范围——纯净
 .KsDaterMulti{ 
@@ -192,6 +192,7 @@
 // 日期样式——周——范围
 .KsDaterMultiPicker{
 	@extend %date;
+	position: relative; 
 	_input{
 		input{
 			text-align: center;
