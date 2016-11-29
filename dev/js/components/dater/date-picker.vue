@@ -4,7 +4,7 @@
     <div class="_input" v-on:click="show=!show">
         <div class="ks-col-auto date-icon"><i class="icon"></i></div>
         <input type="text" class="ks-col" placeholder="{{placeholder}}" :value="input_value" readonly>
-    </div>{{value}}
+    </div>
     <ks-dater v-show="show" :value="value" :time="time" :exclude="exclude" :readonly="readonly" v-on:change="current_change"></ks-dater>
     </div>
 </template>
@@ -28,7 +28,7 @@
             this.dater_timer = this.value + timer
 
             this.$nextTick(()=>{
-                console.log('this.value',this.value)    
+                // console.log('this.value',this.value)    
                 this.value = this.dater_timer
             })
             
@@ -78,8 +78,7 @@
         },
         ready(){
 
-            console.log('self',this.value)
-            console.log('parent',this.$parent.date1)
+            
             document.addEventListener('click', (e) => {
                 if (this.$el && !this.$el.contains(e.target)) {
                     this.close()

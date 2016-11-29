@@ -4,10 +4,11 @@ import { get_full_month_dates , month_last_day , one_page_date} from './apage'
 
 // 选择范围取值
 function get_range_dates(range_dater){
-   
+    range_dater = range_dater || [] 
     var prev_date = range_dater[0]
     var next_date = range_dater[1]
 
+    if(!prev_date || !next_date) return null
     if(prev_date === next_date) return range_dater
 
     var prev = split_ym(prev_date)
