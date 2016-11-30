@@ -1,12 +1,12 @@
 <template>
-    <div class="KsDatePicker" cid="KsDatePicker"
-        :class="{'readonly':readonly}">
+  <div class="KsDatePicker" cid="KsDatePicker"
+       :class="{'readonly':readonly}">
     <div class="_input" v-on:click="show=!show">
-        <div class="ks-col-auto date-icon"><i class="icon"></i></div>
-        <input type="text" class="ks-col" placeholder="{{placeholder}}" :value="input_value" readonly>
+      <div class="ks-col-auto date-icon"><i class="icon"></i></div>
+      <input type="text" class="ks-col" placeholder="{{placeholder}}" :value="input_value" readonly>
     </div>
     <ks-dater v-show="show" :value="value" :time="time" :exclude="exclude" :readonly="readonly" v-on:change="current_change"></ks-dater>
-    </div>
+  </div>
 </template>
 <script>
     import props from './mixins/props.js'
@@ -28,17 +28,17 @@
             this.dater_timer = this.value + timer
 
             this.$nextTick(()=>{
-                // console.log('this.value',this.value)    
+                // console.log('this.value',this.value)
                 this.value = this.dater_timer
             })
-            
+
 
             return {
                 show:false,
                 input_value : this.dater_timer
             }
         },
-        
+
         methods:{
             close(){
                 this.show = false
@@ -59,15 +59,15 @@
                 this.value = cur_date
                 this.$emit('change',cur_date)
                 !no_close && this.close()
-                
+
             }
-            
+
         },
         watch:{
             value(val){
-                // console.log(val)
+                console.log(val)
                 this.input_value = val
-                
+
             }
 
         },
@@ -78,7 +78,7 @@
         },
         ready(){
 
-            
+
             document.addEventListener('click', (e) => {
                 if (this.$el && !this.$el.contains(e.target)) {
                     this.close()
