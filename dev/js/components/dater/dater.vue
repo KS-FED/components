@@ -137,10 +137,9 @@
             value(val){
                 
                 if(this.exclude) {
-                    if(~val.indexOf(',')){
-                        this.point_daters = val.split(',')
-                        this.now = new Date(this.point_daters[0])
-                    }
+                    this.point_daters = val.split(',') 
+                    // this.now = new Date(this.point_daters[0])
+                    
                 }else{
                     try{
                         this.time = (split_dt(val) && split_dt(val).timer.split(':')) || this.time
