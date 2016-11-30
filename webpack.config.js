@@ -11,7 +11,7 @@ var mkdirp = require('mkdirp')
 
 var _package = require('./package.json')
 
-
+var number = 0
 function build_module() {
 
     var components_path = path.resolve(__dirname, './dev/js/components')
@@ -22,7 +22,7 @@ function build_module() {
         files.filter(function(file) {
             return fs.statSync(path.join(components_path, file)).isDirectory()
         }).forEach(function(file_name) {
-            if('dater' === file_name){
+            if('dater' === file_name || 'pager' === file_name){
                 console.log(file_name)
                 multi_build(file_name,components_path)    
             }
@@ -67,6 +67,10 @@ function multi_build(file_name,components_path) {
         })
 }
 
+function fill_white_space (str, number) {
+  return (str+'                                             ').substr(0,number)
+}
+
 function build (name,file_path) {
     
     config.output.libraryTarget = 'umd'
@@ -74,16 +78,16 @@ function build (name,file_path) {
     config.entry[name] = [path.resolve(__dirname, file_path)]
     // config.output.library = converName(name)
     config.output.path = path.resolve(__dirname, './dist/components/' + name.toLowerCase() + '/')
-
-    touch(config.output.path)
+    var time_start = new Date().getTime()
+    // touch(config.output.path)
     // console.log(config)
-    // path || `../src/components/${name}/index`
+    
     webpack(config, function (err, stats) {
         var jsonStats = stats.toJson()
         var assets = jsonStats.assets[0]
-        // var offset = Math.round((new Date().getTime() - _start) / 1000)
-        // var index = ++number
-        // console.log(`[${index < 10 ? ('0' + index) : index}]  `, addWhiteSpace(`${offset}s`, 10), addWhiteSpace('umd ' + _name, 25), `${(_name, assets.size / 1024).toFixed(2)}k`)
+        var offset = Math.round((new Date().getTime() - time_start) / 1000)
+        var index = ++number
+        console.log(`[${index < 10 ? ('0' + index) : index}]  `, fill_white_space(`${offset}s`, 10), fill_white_space('umd ' + name, 25), `${(name, assets.size / 1024).toFixed(2)}k`)
         if (err) {
           throw err
         }
@@ -152,26 +156,27 @@ var config = {
           scss: ExtractTextPlugin.extract('vue-style-loader','css-loader!ks-autobem-loader?type=css!sass-loader'),
           sass: ExtractTextPlugin.extract('vue-style-loader','css-loader!ks-autobem-loader?type=css!sass-loader'),
           html: 'vue-html-loader!ks-autobem-loader?type=html'
-        // js: 'babel',
-        // css: ExtractTextPlugin.extract('vue-style-loader', generateExtractLoaders(['css'])),
-        // less: ExtractTextPlugin.extract('vue-style-loader', generateExtractLoaders(['css', 'less'])),
-        // sass: ExtractTextPlugin.extract('vue-style-loader', generateExtractLoaders(['css', 'sass'])),
-        // stylus: ExtractTextPlugin.extract('vue-style-loader', generateExtractLoaders(['css', 'stylus']))
       }
     },
     eslint: {
       // formatter: require('eslint-friendly-formatter')
     },
     plugins: [
-        
-        new webpack.optimize.OccurenceOrderPlugin(),
-        new ExtractTextPlugin('style.css'),
         new CleanWebpackPlugin(['dist'], {
             root: __dirname,
             verbose: true,
             dry: false
         }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+              warnings: false
+            }
+        }),
+        new webpack.optimize.OccurenceOrderPlugin(),
+        new ExtractTextPlugin('style.css')
+        
     ]
+
 }
 
 

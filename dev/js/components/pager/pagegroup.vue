@@ -20,7 +20,11 @@
     </div>
 </template>
 <script type="text/javascript">
+    import page from './page.vue'
     export default {
+        components:{
+            'page':page
+        },
         props: {
             // 总条数
             total: {type:Number, default:0 }, 
@@ -54,3 +58,7 @@
         }
     }
 </script>
+<style lang="scss">
+    @import '../../../sass/base/index';
+    @import '../../../sass/components/paging';
+</style>
