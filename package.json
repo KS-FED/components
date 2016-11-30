@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "develop": "node build/dev-server.js",
-    "dev": "npm run build & npm run proxy_mock --p",
+    "dev": "npm run build & npm run proxy-mock --p",
+    "module": "npm run build2 & npm run proxy-mock --p",
     "pro": "NODE_ENV=pro webpack -p",
     "build": "NODE_ENV=dev webpack --watch",
+    "build2": "NODE_ENV=dev node webpack.config.js",
     "pro-windows": "set NODE_ENV=pro&&webpack -p",
     "build-windows": "set NODE_ENV=dev&&webpack --watch",
-    "dev-windows": "npm run build-windows && npm run proxy_mock",
-    "proxy_mock": "proxy-mock -p",
+    "dev-windows": "npm run build-windows && npm run proxy-mock",
+    "proxy-mock": "proxy-mock -p",
     "http-server": "http-server -p 8043"
   },
   "repository": {
@@ -51,6 +53,7 @@
     "file-loader-path": "0.0.1",
     "html-webpack-plugin": "^2.22.0",
     "ks-autobem-loader": "1.0.2",
+    "mkdirp": "^0.5.1",
     "node-sass": "3.10.0",
     "node-sass-import-once": "1.2.0",
     "sass-loader": "^4.0.2",

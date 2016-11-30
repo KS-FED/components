@@ -1,10 +1,8 @@
-$font-base:'http://121.41.21.68/assets/font-icon';
+$font-base:'../../../sass/base/font/font-icon';
 @font-face {font-family: "iconfont";
   src: url($font-base+'/iconfont.eot');
   src: url($font-base+'/iconfont.eot') format('embedded-opentype'),
-  url('http://zd.qa.kashuo.net/dist/17bf482fadbd41497b06a8f0b7ebe1a1.woff') format('woff'),
-  
-  
+  url($font-base+'/iconfont.woff') format('woff'),
   url($font-base+'/iconfont.ttf') format('truetype'),
   url($font-base+'/iconfont.svg') format('svg');
 }

@@ -12,7 +12,7 @@
 		&lt;ks-dater value="2016-10-12" v-on:change="current_change">&lt;/ks-dater&gt;
 		</code>
     </pre>
-	<ks-dater :value.sync="date_base" time="23:59:59" v-on:change="current_change"></ks-dater>
+	<!-- <ks-dater :value.sync="date_base" time="23:59:59" v-on:change="current_change"></ks-dater> -->
     {{date_base}}
 	
     <br><br>
