@@ -8,7 +8,7 @@ function get_range_dates(range_dater){
     var prev_date = range_dater[0]
     var next_date = range_dater[1]
 
-    if(!prev_date || !next_date) return null
+    if(!prev_date || !next_date || gt(prev_date,next_date) ) return null
     if(prev_date === next_date) return range_dater
 
     var prev = split_ym(prev_date)
@@ -106,6 +106,9 @@ function loop_full_month(prev,next,arr){
 
 }
 
+function gt(start,end){
+    return +start.replace(/-/g,'') > +end.replace(/-/g,'')
+}
 
 function split_ym(dater){
     dater = dater.split('-')
