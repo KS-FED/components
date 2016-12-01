@@ -56,9 +56,7 @@
                 ~this.value.indexOf(',') && (this.point_daters = this.value.split(','))
             }
 
-            return {
-                // time:['01',2,'03']
-            }
+            return {}
         },
         methods:{
             today() {
@@ -105,6 +103,8 @@
             },
             pick_time(){
                 var dater = this.cur_value || stringify(new Date())
+                // console.log('dater',dater)
+                dater = dater.substr(0,10)
                 this.no_exclude(dater,true)
             },
             // 排除具体时间
@@ -143,7 +143,7 @@
                         var diff_start = long.split(',').filter((i)=>{
                           return !~short.indexOf(i)
                         })[0]
-                        console.log(diff_start,'----')
+                        // console.log(diff_start,'----')
                         diff_start && (this.now = new Date(diff_start))
 
                 }else{
@@ -162,13 +162,6 @@
                 this.dates = one_page_date(this.now.getFullYear(),this.now.getMonth(),this.selectd)
             }
         },
-        created () {
-
-            // if(this.exclude){
-            //   this.$nextTick(()=>{
-            //     this.now = new Date(this.point_daters[0])
-            //   })
-            // }
-        }
+        created () {}
     }
 </script>
