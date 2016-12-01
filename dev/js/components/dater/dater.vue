@@ -104,7 +104,7 @@
             pick_time(){
                 var dater = this.cur_value || stringify(new Date())
                 // console.log('dater',dater)
-                dater = dater.substr(0,10)
+                // dater = dater.substr(0,10)
                 this.no_exclude(dater,true)
             },
             // 排除具体时间

@@ -25,9 +25,8 @@
             }
             this.value = this.value || stringify(new Date())
             this.dater_timer = this.value + timer
-            // console.log(this.dater_timer)
+            
             this.$nextTick(()=>{
-                // console.log('this.value',this.value)
                 this.value = this.dater_timer
             })
 
