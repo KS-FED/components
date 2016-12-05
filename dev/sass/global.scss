@@ -1,15 +1,398 @@
-/* 全局样式 */
-.app {
-
-
-    _ff {
-        color:red;
-        background: #ccc;
-
-        _ee {
-            color:green;
-            background: #eee;
-        }
-    }
-    
+.KsDateMonth, .KsDateMonth-date-btn, .KsDateMonth-date-days, .KsDateMonth-date-head, .KsDateMonth-date-week, .KsDateMonthPicker-input, .KsDatePicker-input, .KsDatePicker .KsDater, .KsDater, .KsDater-date-btn, .KsDater-date-days, .KsDater-date-head, .KsDater-date-week, .KsDaterMulti, .KsDaterMulti-date-btn, .KsDaterMulti-date-days, .KsDaterMulti-date-head, .KsDaterMulti-date-week, .KsDaterMultiPicker-input, .KsDaterMultiPicker .KsDater, .KsDateYear, .KsDateYear-date-btn, .KsDateYear-date-days, .KsDateYear-date-head, .KsDateYear-date-week, .KsDateYearPicker-input {
+    display: table;
+    table-layout: fixed;
+    border-spacing: 0
+}
+.KsDateMonth-date, .KsDateMonth-date-btn span, .KsDateMonth-date-days span, .KsDateMonth-date-head .interstice, .KsDateMonth-date-head .month, .KsDateMonth-date-head .next, .KsDateMonth-date-head .retreat, .KsDateMonth-date-head .year, .KsDateMonth-date-week span, .KsDater-date, .KsDater-date-btn span, .KsDater-date-days span, .KsDater-date-head .interstice, .KsDater-date-head .month, .KsDater-date-head .next, .KsDater-date-head .retreat, .KsDater-date-head .year, .KsDater-date-week span, .KsDaterMulti-date, .KsDaterMulti-date-btn span, .KsDaterMulti-date-days span, .KsDaterMulti-date-head .interstice, .KsDaterMulti-date-head .month, .KsDaterMulti-date-head .next, .KsDaterMulti-date-head .retreat, .KsDaterMulti-date-head .year, .KsDaterMulti-date-week span, .KsDateYear-date, .KsDateYear-date-btn span, .KsDateYear-date-days span, .KsDateYear-date-head .interstice, .KsDateYear-date-head .month, .KsDateYear-date-head .next, .KsDateYear-date-head .retreat, .KsDateYear-date-head .year, .KsDateYear-date-week span {
+    display: table-cell;
+    vertical-align: middle;
+    word-break: break-all
+}
+.KsDateMonth-date-head, .KsDateMonthPicker-input, .KsDatePicker-input, .KsDater-date-head, .KsDaterMulti-date-head, .KsDaterMultiPicker-input, .KsDateYear-date-head, .KsDateYearPicker-input {
+    table-layout: auto
+}
+.KsDateMonth-date-head .month, .KsDateMonth-date-head .year, .KsDater-date-head .month, .KsDater-date-head .year, .KsDaterMulti-date-head .month, .KsDaterMulti-date-head .year, .KsDateYear-date-head .month, .KsDateYear-date-head .year {
+    width: 1px;
+    white-space: nowrap
+}
+.KsDateMonth, .KsDateMonth-date-btn, .KsDateMonth-date-days, .KsDateMonth-date-head, .KsDateMonth-date-week, .KsDateMonthPicker-input, .KsDatePicker-input, .KsDatePicker .KsDater, .KsDater, .KsDater-date-btn, .KsDater-date-days, .KsDater-date-head, .KsDater-date-week, .KsDaterMulti, .KsDaterMulti-date-btn, .KsDaterMulti-date-days, .KsDaterMulti-date-head, .KsDaterMulti-date-week, .KsDaterMultiPicker-input, .KsDaterMultiPicker .KsDater, .KsDateYear, .KsDateYear-date-btn, .KsDateYear-date-days, .KsDateYear-date-head, .KsDateYear-date-week, .KsDateYearPicker-input {
+    box-sizing: border-box;
+    width: 100%
+}
+.KsDateMonthPicker-input, .KsDatePicker-input, .KsDaterMultiPicker-input, .KsDateYearPicker-input {
+    background: #fff;
+    border: 1px solid #c8c8c8;
+    border-radius: 4px
+}
+.KsDateMonthPicker-input .date-icon, .KsDatePicker-input .date-icon, .KsDaterMultiPicker-input .date-icon, .KsDateYearPicker-input .date-icon {
+    border-right: 1px solid #c8c8c8
+}
+.KsDateMonthPicker-input .date-icon i, .KsDatePicker-input .date-icon i, .KsDaterMultiPicker-input .date-icon i, .KsDateYearPicker-input .date-icon i {
+    padding: 11px
+}
+.KsDateMonthPicker-input input, .KsDatePicker-input input, .KsDaterMultiPicker-input input, .KsDateYearPicker-input input {
+    height: 36px;
+    border: 0;
+    outline: 0;
+    padding: 0 10px;
+    width: 100%;
+    box-sizing: border-box;
+    background: transparent
+}
+.KsDateMonth-date-btn, .KsDateMonth-date-days, .KsDateMonth-date-week, .KsDater-date-btn, .KsDater-date-days, .KsDater-date-week, .KsDaterMulti-date-btn, .KsDaterMulti-date-days, .KsDaterMulti-date-week, .KsDateYear-date-btn, .KsDateYear-date-days, .KsDateYear-date-week {
+    padding: 0 32px;
+    text-align: center;
+    line-height: 36px
+}
+.KsDateMonth-date-btn, .KsDateMonth-date-days, .KsDater-date-btn, .KsDater-date-days, .KsDaterMulti-date-btn, .KsDaterMulti-date-days, .KsDateYear-date-btn, .KsDateYear-date-days {
+    padding-bottom: 5px
+}
+.KsDateMonth-date-btn span, .KsDateMonth-date-days span, .KsDater-date-btn span, .KsDater-date-days span, .KsDaterMulti-date-btn span, .KsDaterMulti-date-days span, .KsDateYear-date-btn span, .KsDateYear-date-days span {
+    cursor: pointer;
+    border-radius: 4px
+}
+.KsDateMonth-date-btn span:hover, .KsDateMonth-date-days span:hover, .KsDater-date-btn span:hover, .KsDater-date-days span:hover, .KsDaterMulti-date-btn span:hover, .KsDaterMulti-date-days span:hover, .KsDateYear-date-btn span:hover, .KsDateYear-date-days span:hover {
+    background: #f5f5f5
+}
+.KsDateMonth-date-btn span.active, .KsDateMonth-date-days span.active, .KsDater-date-btn span.active, .KsDater-date-days span.active, .KsDaterMulti-date-btn span.active, .KsDaterMulti-date-days span.active, .KsDateYear-date-btn span.active, .KsDateYear-date-days span.active {
+    color: #fff;
+    background: #2196f3
+}
+.KsDateMonth-date-btn .collect, .KsDateMonth-date-btn .future, .KsDateMonth-date-btn .pass, .KsDateMonth-date-days .collect, .KsDateMonth-date-days .future, .KsDateMonth-date-days .pass, .KsDater-date-btn .collect, .KsDater-date-btn .future, .KsDater-date-btn .pass, .KsDater-date-days .collect, .KsDater-date-days .future, .KsDater-date-days .pass, .KsDaterMulti-date-btn .collect, .KsDaterMulti-date-btn .future, .KsDaterMulti-date-btn .pass, .KsDaterMulti-date-days .collect, .KsDaterMulti-date-days .future, .KsDaterMulti-date-days .pass, .KsDateYear-date-btn .collect, .KsDateYear-date-btn .future, .KsDateYear-date-btn .pass, .KsDateYear-date-days .collect, .KsDateYear-date-days .future, .KsDateYear-date-days .pass {
+    color: #c8c8c8
+}
+.KsDateMonth-date-btn .scope-bg, .KsDateMonth-date-days .scope-bg, .KsDater-date-btn .scope-bg, .KsDater-date-days .scope-bg, .KsDaterMulti-date-btn .scope-bg, .KsDaterMulti-date-days .scope-bg, .KsDateYear-date-btn .scope-bg, .KsDateYear-date-days .scope-bg {
+    background: #f5f5f5;
+    border-radius: 0
+}
+.KsDateMonth, .KsDatePicker .KsDater, .KsDater, .KsDaterMulti, .KsDaterMultiPicker .KsDater, .KsDateYear {
+    display: inline-block;
+    margin-top: -1px
+}
+.KsDateMonth-date, .KsDater-date, .KsDaterMulti-date, .KsDateYear-date {
+    border: 1px solid #c8c8c8;
+    border-left: transparent;
+    width: 314px;
+    background: #fff
+}
+.KsDateMonth-date-head, .KsDater-date-head, .KsDaterMulti-date-head, .KsDateYear-date-head {
+    padding: 30px 18px 15px;
+    font-size: 14px
+}
+.KsDateMonth-date-head .next, .KsDateMonth-date-head .retreat, .KsDater-date-head .next, .KsDater-date-head .retreat, .KsDaterMulti-date-head .next, .KsDaterMulti-date-head .retreat, .KsDateYear-date-head .next, .KsDateYear-date-head .retreat {
+    cursor: pointer
+}
+.KsDateMonth-date-head .next, .KsDater-date-head .next, .KsDaterMulti-date-head .next, .KsDateYear-date-head .next {
+    text-align: right
+}
+.KsDateMonth-date-week, .KsDater-date-week, .KsDaterMulti-date-week, .KsDateYear-date-week {
+    font-weight: 700;
+    color: #c8c8c8
+}
+.KsDateMonth-date-week .week, .KsDater-date-week .week, .KsDaterMulti-date-week .week, .KsDateYear-date-week .week {
+    color: #ef5350
+}
+.KsDateMonth-date-days:last-child, .KsDater-date-days:last-child, .KsDaterMulti-date-days:last-child, .KsDateYear-date-days:last-child {
+    margin-bottom: 10px
+}
+.KsDateMonth-date-btn select, .KsDater-date-btn select, .KsDaterMulti-date-btn select, .KsDateYear-date-btn select {
+    width: 70px;
+    border-color: #e5e5e5
+}
+.KsDateMonth-date-btn .mlr-10, .KsDater-date-btn .mlr-10, .KsDaterMulti-date-btn .mlr-10, .KsDateYear-date-btn .mlr-10 {
+    margin: 0 10px
+}
+.KsDateMonth-date-btn .reset, .KsDateMonth-date-btn .today, .KsDater-date-btn .reset, .KsDater-date-btn .today, .KsDaterMulti-date-btn .reset, .KsDaterMulti-date-btn .today, .KsDateYear-date-btn .reset, .KsDateYear-date-btn .today {
+    color: #2196f3
+}
+.KsDateMonth-date-btn .clear, .KsDater-date-btn .clear, .KsDaterMulti-date-btn .clear, .KsDateYear-date-btn .clear {
+    color: #f44336
+}
+.KsDateMonth-date-btn .clear:hover, .KsDateMonth-date-btn .collect:hover, .KsDateMonth-date-btn .reset:hover, .KsDateMonth-date-btn .selects:hover, .KsDateMonth-date-btn .today:hover, .KsDater-date-btn .clear:hover, .KsDater-date-btn .collect:hover, .KsDater-date-btn .reset:hover, .KsDater-date-btn .selects:hover, .KsDater-date-btn .today:hover, .KsDaterMulti-date-btn .clear:hover, .KsDaterMulti-date-btn .collect:hover, .KsDaterMulti-date-btn .reset:hover, .KsDaterMulti-date-btn .selects:hover, .KsDaterMulti-date-btn .today:hover, .KsDateYear-date-btn .clear:hover, .KsDateYear-date-btn .collect:hover, .KsDateYear-date-btn .reset:hover, .KsDateYear-date-btn .selects:hover, .KsDateYear-date-btn .today:hover {
+    background: transparent
+}
+.KsDateMonth-date-btn .clear, .KsDateMonth-date-btn .today, .KsDater-date-btn .clear, .KsDater-date-btn .today, .KsDaterMulti-date-btn .clear, .KsDaterMulti-date-btn .today, .KsDateYear-date-btn .clear, .KsDateYear-date-btn .today {
+    padding-bottom: 20px
+}
+.KsDateMonth-date:first-child, .KsDater-date:first-child, .KsDaterMulti-date:first-child, .KsDateYear-date:first-child {
+    border-left: 1px solid #c8c8c8
+}
+.KsDateMonth, .KsDatePicker .KsDater, .KsDater, .KsDaterMulti, .KsDaterMultiPicker .KsDater, .KsDateYear {
+    z-index: 1;
+    width: auto
+}
+.KsDateMonth-date-head .interstice, .KsDater-date-head .interstice, .KsDaterMulti-date-head .interstice, .KsDateYear-date-head .interstice {
+    width: 16px
+}
+.KsDateMonth-date-head .month, .KsDater-date-head .month, .KsDaterMulti-date-head .month, .KsDateYear-date-head .month {
+    font-weight: 700
+}
+.KsDateMonthPicker-input, .KsDatePicker-input, .KsDaterMultiPicker-input, .KsDateYearPicker-input {
+    position: relative
+}
+.KsDateMonthPicker .KsDater, .KsDatePicker .KsDater, .KsDaterMultiPicker .KsDater, .KsDateYearPicker .KsDater {
+    position: absolute
+}
+.KsDatePicker .KsDater-head .year, .KsDaterMultiPicker .KsDater-head .year {
+    color: #c8c8c8
+}
+.KsDateMonthPicker .KsDater-date-head .year, .KsDateYearPicker .KsDater-date-head .year {
+    font-weight: 700
+}
+.KsDateMonthPicker .KsDater-days, .KsDateYearPicker .KsDater-days {
+    margin: 28px 0
+}
+.readonly.KsDatePicker .KsDater-date, .readonly.KsDaterMultiPicker .KsDaterMulti-date {
+    background: #f5f5f5
+}
+.readonly.KsDatePicker .KsDater-date-days span, .readonly.KsDaterMultiPicker .KsDaterMulti-date-days span {
+    pointer-events: none;
+    color: #c8c8c8
+}
+.readonly.KsDatePicker .KsDater-date-days span.active, .readonly.KsDatePicker .KsDater-date-days span.begin-active, .readonly.KsDatePicker .KsDater-date-days span.end-active, .readonly.KsDaterMultiPicker .KsDaterMulti-date-days span.active, .readonly.KsDaterMultiPicker .KsDaterMulti-date-days span.begin-active, .readonly.KsDaterMultiPicker .KsDaterMulti-date-days span.end-active {
+    background: #777;
+    border-radius: 0;
+    color: #fff
+}
+.readonly.KsDatePicker .KsDater-date-days-btn, .readonly.KsDaterMultiPicker .KsDaterMulti-date-days-btn {
+    padding: 0
+}
+.readonly.KsDatePicker .KsDater-date-days-btn .collect, .readonly.KsDatePicker .KsDater-date-days-btn .reset, .readonly.KsDaterMultiPicker .KsDaterMulti-date-days-btn .collect, .readonly.KsDaterMultiPicker .KsDaterMulti-date-days-btn .reset {
+    padding: 0 32px 5px;
+    pointer-events: none
+}
+.readonly.KsDatePicker .KsDater-date-days-btn .reset, .readonly.KsDaterMultiPicker .KsDaterMulti-date-days-btn .reset {
+    text-align: left;
+    padding-left: 42px
+}
+.readonly.KsDatePicker .KsDater-date-days-btn .collect, .readonly.KsDaterMultiPicker .KsDaterMulti-date-days-btn .collect {
+    border-left: 8px solid #f5f5f5;
+    margin-left: -5px;
+    display: block
+}
+.KsDaterMulti-date-btn {
+    border-top: 1px solid #c8c8c8
+}
+.KsDaterMultiPicker-input input {
+    text-align: center;
+    min-width: 100px
+}
+.KsDaterMultiPicker-input .scope-icon {
+    color: #26c6da
+}
+.KsDaterMultiPicker .KsDaterMulti {
+    position: absolute
+}
+.KsDaterMultiPicker-btn {
+    margin-top: 20px;
+    border-top: 1px solid #c8c8c8
+}
+.KsDaterMultiPicker-btn .collect, .KsDaterMultiPicker-btn .reset {
+    line-height: 44px;
+    height: 44px
+}
+.KsDateMonthPicker, .KsDateYear {
+    position: absolute
+}
+.readonly.KsDatePicker .KsDatePicker-input, .readonly.KsDaterMultiPicker .KsDaterMultiPicker-input {
+    background: #e9e9e9
+}
+.KsDateMonth, .KsDateMonth-date-btn, .KsDateMonth-date-days, .KsDateMonth-date-head, .KsDateMonth-date-week, .KsDateMonthPicker-input, .KsDatePicker-input, .KsDatePicker .KsDater, .KsDater, .KsDater-date-btn, .KsDater-date-days, .KsDater-date-head, .KsDater-date-week, .KsDaterMulti, .KsDaterMulti-date-btn, .KsDaterMulti-date-days, .KsDaterMulti-date-head, .KsDaterMulti-date-week, .KsDaterMultiPicker-input, .KsDaterMultiPicker .KsDater, .KsDateYear, .KsDateYear-date-btn, .KsDateYear-date-days, .KsDateYear-date-head, .KsDateYear-date-week, .KsDateYearPicker-input {
+    display: table;
+    table-layout: fixed;
+    border-spacing: 0
+}
+.KsDateMonth-date, .KsDateMonth-date-btn span, .KsDateMonth-date-days span, .KsDateMonth-date-head .interstice, .KsDateMonth-date-head .month, .KsDateMonth-date-head .next, .KsDateMonth-date-head .retreat, .KsDateMonth-date-head .year, .KsDateMonth-date-week span, .KsDater-date, .KsDater-date-btn span, .KsDater-date-days span, .KsDater-date-head .interstice, .KsDater-date-head .month, .KsDater-date-head .next, .KsDater-date-head .retreat, .KsDater-date-head .year, .KsDater-date-week span, .KsDaterMulti-date, .KsDaterMulti-date-btn span, .KsDaterMulti-date-days span, .KsDaterMulti-date-head .interstice, .KsDaterMulti-date-head .month, .KsDaterMulti-date-head .next, .KsDaterMulti-date-head .retreat, .KsDaterMulti-date-head .year, .KsDaterMulti-date-week span, .KsDateYear-date, .KsDateYear-date-btn span, .KsDateYear-date-days span, .KsDateYear-date-head .interstice, .KsDateYear-date-head .month, .KsDateYear-date-head .next, .KsDateYear-date-head .retreat, .KsDateYear-date-head .year, .KsDateYear-date-week span {
+    display: table-cell;
+    vertical-align: middle;
+    word-break: break-all
+}
+.KsDateMonth-date-head, .KsDateMonthPicker-input, .KsDatePicker-input, .KsDater-date-head, .KsDaterMulti-date-head, .KsDaterMultiPicker-input, .KsDateYear-date-head, .KsDateYearPicker-input {
+    table-layout: auto
+}
+.KsDateMonth-date-head .month, .KsDateMonth-date-head .year, .KsDater-date-head .month, .KsDater-date-head .year, .KsDaterMulti-date-head .month, .KsDaterMulti-date-head .year, .KsDateYear-date-head .month, .KsDateYear-date-head .year {
+    width: 1px;
+    white-space: nowrap
+}
+.KsDateMonth, .KsDateMonth-date-btn, .KsDateMonth-date-days, .KsDateMonth-date-head, .KsDateMonth-date-week, .KsDateMonthPicker-input, .KsDatePicker-input, .KsDatePicker .KsDater, .KsDater, .KsDater-date-btn, .KsDater-date-days, .KsDater-date-head, .KsDater-date-week, .KsDaterMulti, .KsDaterMulti-date-btn, .KsDaterMulti-date-days, .KsDaterMulti-date-head, .KsDaterMulti-date-week, .KsDaterMultiPicker-input, .KsDaterMultiPicker .KsDater, .KsDateYear, .KsDateYear-date-btn, .KsDateYear-date-days, .KsDateYear-date-head, .KsDateYear-date-week, .KsDateYearPicker-input {
+    box-sizing: border-box;
+    width: 100%
+}
+.KsDateMonthPicker-input, .KsDatePicker-input, .KsDaterMultiPicker-input, .KsDateYearPicker-input {
+    background: #fff;
+    border: 1px solid #c8c8c8;
+    border-radius: 4px
+}
+.KsDateMonthPicker-input .date-icon, .KsDatePicker-input .date-icon, .KsDaterMultiPicker-input .date-icon, .KsDateYearPicker-input .date-icon {
+    border-right: 1px solid #c8c8c8
+}
+.KsDateMonthPicker-input .date-icon i, .KsDatePicker-input .date-icon i, .KsDaterMultiPicker-input .date-icon i, .KsDateYearPicker-input .date-icon i {
+    padding: 11px
+}
+.KsDateMonthPicker-input input, .KsDatePicker-input input, .KsDaterMultiPicker-input input, .KsDateYearPicker-input input {
+    height: 36px;
+    border: 0;
+    outline: 0;
+    padding: 0 10px;
+    width: 100%;
+    box-sizing: border-box;
+    background: transparent
+}
+.KsDateMonth-date-btn, .KsDateMonth-date-days, .KsDateMonth-date-week, .KsDater-date-btn, .KsDater-date-days, .KsDater-date-week, .KsDaterMulti-date-btn, .KsDaterMulti-date-days, .KsDaterMulti-date-week, .KsDateYear-date-btn, .KsDateYear-date-days, .KsDateYear-date-week {
+    padding: 0 32px;
+    text-align: center;
+    line-height: 36px
+}
+.KsDateMonth-date-btn, .KsDateMonth-date-days, .KsDater-date-btn, .KsDater-date-days, .KsDaterMulti-date-btn, .KsDaterMulti-date-days, .KsDateYear-date-btn, .KsDateYear-date-days {
+    padding-bottom: 5px
+}
+.KsDateMonth-date-btn span, .KsDateMonth-date-days span, .KsDater-date-btn span, .KsDater-date-days span, .KsDaterMulti-date-btn span, .KsDaterMulti-date-days span, .KsDateYear-date-btn span, .KsDateYear-date-days span {
+    cursor: pointer;
+    border-radius: 4px
+}
+.KsDateMonth-date-btn span:hover, .KsDateMonth-date-days span:hover, .KsDater-date-btn span:hover, .KsDater-date-days span:hover, .KsDaterMulti-date-btn span:hover, .KsDaterMulti-date-days span:hover, .KsDateYear-date-btn span:hover, .KsDateYear-date-days span:hover {
+    background: #f5f5f5
+}
+.KsDateMonth-date-btn span.active, .KsDateMonth-date-days span.active, .KsDater-date-btn span.active, .KsDater-date-days span.active, .KsDaterMulti-date-btn span.active, .KsDaterMulti-date-days span.active, .KsDateYear-date-btn span.active, .KsDateYear-date-days span.active {
+    color: #fff;
+    background: #2196f3
+}
+.KsDateMonth-date-btn .collect, .KsDateMonth-date-btn .future, .KsDateMonth-date-btn .pass, .KsDateMonth-date-days .collect, .KsDateMonth-date-days .future, .KsDateMonth-date-days .pass, .KsDater-date-btn .collect, .KsDater-date-btn .future, .KsDater-date-btn .pass, .KsDater-date-days .collect, .KsDater-date-days .future, .KsDater-date-days .pass, .KsDaterMulti-date-btn .collect, .KsDaterMulti-date-btn .future, .KsDaterMulti-date-btn .pass, .KsDaterMulti-date-days .collect, .KsDaterMulti-date-days .future, .KsDaterMulti-date-days .pass, .KsDateYear-date-btn .collect, .KsDateYear-date-btn .future, .KsDateYear-date-btn .pass, .KsDateYear-date-days .collect, .KsDateYear-date-days .future, .KsDateYear-date-days .pass {
+    color: #c8c8c8
+}
+.KsDateMonth-date-btn .scope-bg, .KsDateMonth-date-days .scope-bg, .KsDater-date-btn .scope-bg, .KsDater-date-days .scope-bg, .KsDaterMulti-date-btn .scope-bg, .KsDaterMulti-date-days .scope-bg, .KsDateYear-date-btn .scope-bg, .KsDateYear-date-days .scope-bg {
+    background: #f5f5f5;
+    border-radius: 0
+}
+.KsDateMonth, .KsDatePicker .KsDater, .KsDater, .KsDaterMulti, .KsDaterMultiPicker .KsDater, .KsDateYear {
+    display: inline-block;
+    margin-top: -1px
+}
+.KsDateMonth-date, .KsDater-date, .KsDaterMulti-date, .KsDateYear-date {
+    border: 1px solid #c8c8c8;
+    border-left: transparent;
+    width: 314px;
+    background: #fff
+}
+.KsDateMonth-date-head, .KsDater-date-head, .KsDaterMulti-date-head, .KsDateYear-date-head {
+    padding: 30px 18px 15px;
+    font-size: 14px
+}
+.KsDateMonth-date-head .next, .KsDateMonth-date-head .retreat, .KsDater-date-head .next, .KsDater-date-head .retreat, .KsDaterMulti-date-head .next, .KsDaterMulti-date-head .retreat, .KsDateYear-date-head .next, .KsDateYear-date-head .retreat {
+    cursor: pointer
+}
+.KsDateMonth-date-head .next, .KsDater-date-head .next, .KsDaterMulti-date-head .next, .KsDateYear-date-head .next {
+    text-align: right
+}
+.KsDateMonth-date-week, .KsDater-date-week, .KsDaterMulti-date-week, .KsDateYear-date-week {
+    font-weight: 700;
+    color: #c8c8c8
+}
+.KsDateMonth-date-week .week, .KsDater-date-week .week, .KsDaterMulti-date-week .week, .KsDateYear-date-week .week {
+    color: #ef5350
+}
+.KsDateMonth-date-days:last-child, .KsDater-date-days:last-child, .KsDaterMulti-date-days:last-child, .KsDateYear-date-days:last-child {
+    margin-bottom: 10px
+}
+.KsDateMonth-date-btn select, .KsDater-date-btn select, .KsDaterMulti-date-btn select, .KsDateYear-date-btn select {
+    width: 70px;
+    border-color: #e5e5e5
+}
+.KsDateMonth-date-btn .mlr-10, .KsDater-date-btn .mlr-10, .KsDaterMulti-date-btn .mlr-10, .KsDateYear-date-btn .mlr-10 {
+    margin: 0 10px
+}
+.KsDateMonth-date-btn .reset, .KsDateMonth-date-btn .today, .KsDater-date-btn .reset, .KsDater-date-btn .today, .KsDaterMulti-date-btn .reset, .KsDaterMulti-date-btn .today, .KsDateYear-date-btn .reset, .KsDateYear-date-btn .today {
+    color: #2196f3
+}
+.KsDateMonth-date-btn .clear, .KsDater-date-btn .clear, .KsDaterMulti-date-btn .clear, .KsDateYear-date-btn .clear {
+    color: #f44336
+}
+.KsDateMonth-date-btn .clear:hover, .KsDateMonth-date-btn .collect:hover, .KsDateMonth-date-btn .reset:hover, .KsDateMonth-date-btn .selects:hover, .KsDateMonth-date-btn .today:hover, .KsDater-date-btn .clear:hover, .KsDater-date-btn .collect:hover, .KsDater-date-btn .reset:hover, .KsDater-date-btn .selects:hover, .KsDater-date-btn .today:hover, .KsDaterMulti-date-btn .clear:hover, .KsDaterMulti-date-btn .collect:hover, .KsDaterMulti-date-btn .reset:hover, .KsDaterMulti-date-btn .selects:hover, .KsDaterMulti-date-btn .today:hover, .KsDateYear-date-btn .clear:hover, .KsDateYear-date-btn .collect:hover, .KsDateYear-date-btn .reset:hover, .KsDateYear-date-btn .selects:hover, .KsDateYear-date-btn .today:hover {
+    background: transparent
+}
+.KsDateMonth-date-btn .clear, .KsDateMonth-date-btn .today, .KsDater-date-btn .clear, .KsDater-date-btn .today, .KsDaterMulti-date-btn .clear, .KsDaterMulti-date-btn .today, .KsDateYear-date-btn .clear, .KsDateYear-date-btn .today {
+    padding-bottom: 20px
+}
+.KsDateMonth-date:first-child, .KsDater-date:first-child, .KsDaterMulti-date:first-child, .KsDateYear-date:first-child {
+    border-left: 1px solid #c8c8c8
+}
+.KsDateMonth, .KsDatePicker .KsDater, .KsDater, .KsDaterMulti, .KsDaterMultiPicker .KsDater, .KsDateYear {
+    z-index: 1;
+    width: auto
+}
+.KsDateMonth-date-head .interstice, .KsDater-date-head .interstice, .KsDaterMulti-date-head .interstice, .KsDateYear-date-head .interstice {
+    width: 16px
+}
+.KsDateMonth-date-head .month, .KsDater-date-head .month, .KsDaterMulti-date-head .month, .KsDateYear-date-head .month {
+    font-weight: 700
+}
+.KsDateMonthPicker-input, .KsDatePicker-input, .KsDaterMultiPicker-input, .KsDateYearPicker-input {
+    position: relative
+}
+.KsDateMonthPicker .KsDater, .KsDatePicker .KsDater, .KsDaterMultiPicker .KsDater, .KsDateYearPicker .KsDater {
+    position: absolute
+}
+.KsDatePicker .KsDater-head .year, .KsDaterMultiPicker .KsDater-head .year {
+    color: #c8c8c8
+}
+.KsDateMonthPicker .KsDater-date-head .year, .KsDateYearPicker .KsDater-date-head .year {
+    font-weight: 700
+}
+.KsDateMonthPicker .KsDater-days, .KsDateYearPicker .KsDater-days {
+    margin: 28px 0
+}
+.readonly.KsDatePicker .KsDater-date, .readonly.KsDaterMultiPicker .KsDaterMulti-date {
+    background: #f5f5f5
+}
+.readonly.KsDatePicker .KsDater-date-days span, .readonly.KsDaterMultiPicker .KsDaterMulti-date-days span {
+    pointer-events: none;
+    color: #c8c8c8
+}
+.readonly.KsDatePicker .KsDater-date-days span.active, .readonly.KsDatePicker .KsDater-date-days span.begin-active, .readonly.KsDatePicker .KsDater-date-days span.end-active, .readonly.KsDaterMultiPicker .KsDaterMulti-date-days span.active, .readonly.KsDaterMultiPicker .KsDaterMulti-date-days span.begin-active, .readonly.KsDaterMultiPicker .KsDaterMulti-date-days span.end-active {
+    background: #777;
+    border-radius: 0;
+    color: #fff
+}
+.readonly.KsDatePicker .KsDater-date-days-btn, .readonly.KsDaterMultiPicker .KsDaterMulti-date-days-btn {
+    padding: 0
+}
+.readonly.KsDatePicker .KsDater-date-days-btn .collect, .readonly.KsDatePicker .KsDater-date-days-btn .reset, .readonly.KsDaterMultiPicker .KsDaterMulti-date-days-btn .collect, .readonly.KsDaterMultiPicker .KsDaterMulti-date-days-btn .reset {
+    padding: 0 32px 5px;
+    pointer-events: none
+}
+.readonly.KsDatePicker .KsDater-date-days-btn .reset, .readonly.KsDaterMultiPicker .KsDaterMulti-date-days-btn .reset {
+    text-align: left;
+    padding-left: 42px
+}
+.readonly.KsDatePicker .KsDater-date-days-btn .collect, .readonly.KsDaterMultiPicker .KsDaterMulti-date-days-btn .collect {
+    border-left: 8px solid #f5f5f5;
+    margin-left: -5px;
+    display: block
+}
+.KsDaterMulti-date-btn {
+    border-top: 1px solid #c8c8c8
+}
+.KsDaterMultiPicker-input input {
+    text-align: center;
+    min-width: 100px
+}
+.KsDaterMultiPicker-input .scope-icon {
+    color: #26c6da
+}
+.KsDaterMultiPicker .KsDaterMulti {
+    position: absolute
+}
+.KsDaterMultiPicker-btn {
+    margin-top: 20px;
+    border-top: 1px solid #c8c8c8
+}
+.KsDaterMultiPicker-btn .collect, .KsDaterMultiPicker-btn .reset {
+    line-height: 44px;
+    height: 44px
+}
+.KsDateMonthPicker, .KsDateYear {
+    position: absolute
+}
+.readonly.KsDatePicker .KsDatePicker-input, .readonly.KsDaterMultiPicker .KsDaterMultiPicker-input {
+    background: #e9e9e9
 }

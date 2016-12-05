@@ -59,6 +59,5 @@
     }
 </script>
 <style lang="scss">
-    @import '../../../sass/base/index';
-    @import '../../../sass/components/paging';
+    /*@import '../../../sass/components/paging';*/
 </style>

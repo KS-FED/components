@@ -161,7 +161,5 @@
     }
 </script>
 <style lang="scss">
-    @import '../../../sass/base/index';
     @import '../../../sass/components/date';
-    
 </style>

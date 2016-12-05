@@ -1,13 +1,3 @@
-/* h1 ~ h6 字体大小 */
-@mixin create_h (){
-	@each $key,$val in $font-sizes{
-		.h#{$key} {
-			font-size:$val;
-		}
-	}
-}
-@include create_h();
-
 /* 颜色  primary danger info warning dark gray */
 
 @mixin create_color ($type){
