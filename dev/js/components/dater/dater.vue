@@ -165,3 +165,6 @@
         created () {}
     }
 </script>
+<style lang="scss">
+    @import '../../../sass/components/date';
+</style>

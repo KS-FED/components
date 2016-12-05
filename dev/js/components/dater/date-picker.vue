@@ -12,7 +12,11 @@
     import props from './mixins/props.js'
     import { stringify } from './util/lang'
     import { one_page_date } from './util/apage'
+    import dater from './dater.vue'
     export default {
+        components:{
+            'ks-dater':dater
+        },
         mixins: [props],
         props:{
             placeholder: { type: String, default: '' }
@@ -88,3 +92,6 @@
         }
     }
 </script>
+<style lang="scss">
+    @import '../../../sass/components/date';
+</style>

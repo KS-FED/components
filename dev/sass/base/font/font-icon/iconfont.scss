@@ -1,11 +1,12 @@
-
+$font-base:'./base/font/font-icon';
 @font-face {font-family: "iconfont";
-  src: url('./base/font/font-icon/iconfont.eot');
-  src: url('./base/font/font-icon/iconfont.eot') format('embedded-opentype'),
-  url('./base/font/font-icon/iconfont.woff') format('woff'),
-  url('./base/font/font-icon/iconfont.ttf') format('truetype'),
-  url('./base/font/font-icon/iconfont.svg') format('svg');
+  src: url($font-base+'/iconfont.eot');
+  src: url($font-base+'/iconfont.eot') format('embedded-opentype'),
+  url($font-base+'/iconfont.woff') format('woff'),
+  url($font-base+'/iconfont.ttf') format('truetype'),
+  url($font-base+'/iconfont.svg') format('svg');
 }
+
 
 .iconfont {
   font-family:"iconfont" !important;

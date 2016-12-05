@@ -1,9 +1,3 @@
-/**
- * @description 开发服务器
- * @author: pkeros.
- * @date: 2016/10/18.
- */
-
 var fs = require('fs')
 var path = require('path')
 var cssnano = require('cssnano')
@@ -11,13 +5,15 @@ var readline = require('readline')
 var webpack = require('webpack')
 var webpack_merge = require('webpack-merge')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var BrowserSync = require('browser-sync-webpack-plugin')
-var HtmlWebpackPlguin = require('html-webpack-plugin')
 
-module.exports = function (config,_package) {
+// console.log(process.getuid() , process.pid)
+
+module.exports = function (config,_package,iswatch) {
+    // console.log(config)
     var rl = readline.createInterface(process.stdin,process.stdout)
+
     var append_config = {
-        watch: true,
+        watch: iswatch,
         output: {
             chunkFilename: '[name].[chunkhash:8].js',
             publicPath: './dist/'
@@ -46,7 +42,7 @@ module.exports = function (config,_package) {
                 var progress = Math.ceil(percentage * 100)
                 rl.setPrompt('进度：' + ('>'.repeat(progress/2)) + ('-'.repeat(50-progress/2)) +'\n      '+ progress + '%  ' + msg +'\n')
                 rl.prompt()
-                if(progress == 100 && false) {
+                if(progress == 100 && !iswatch) {
                     process.nextTick(()=>process.exit(0))
                 }
             }),
@@ -62,26 +58,11 @@ module.exports = function (config,_package) {
                 name: 'vuecore',
                 filename: 'vuecore.js'
             }),
-            new BrowserSync({
-              host: 'localhost',
-              port: 8077,
-              server: {
-                baseDir: path.join(__dirname, '../'),
-                index: 'index.html',
-              },
-            }),
-            // new webpack.ProgressPlugin(function (percentage, msg) {
-            //   console.log('进度：' + Math.round(percentage * 100) + '% ---> ' + msg)
-            // }),
-            // new webpack.optimize.UglifyJsPlugin({
-            //     compress: {
-            //       warnings: false
-            //     }
-            // })，
-            // new HtmlWebpackPlguin({
-            //   inject: true
-            // })
-            
+            new webpack.optimize.UglifyJsPlugin({
+                compress: {
+                  warnings: false
+                }
+            })
         ],
         resolve: {
             // extensions: ['', '.js', '.vue'],
@@ -91,23 +72,53 @@ module.exports = function (config,_package) {
             }
         },
         devtool: process.env.NODE_ENV != 'pro' && 'source-map'
-
-      }
-    
-      config = webpack_merge.smart(config, append_config)
-
-      webpack(config, function (err, status) {
+    }
+    var config = webpack_merge.smart(config,append_config)
+    // console.log(config)
+    webpack(config, function (err, status) {
         if (err) throw err
-        process.stdout.write(status.toString({
-          colors: true,
-          modules: false,
-          children: false,
-          chunks: false,
-          chunkModules: false
-        }) + '\n')
-      })
 
+        // process.stdout.write(status.toString({
+        //     colors: true,
+        //     modules: false,
+        //     children: false,
+        //     chunks: false,
+        //     chunkModules: false
+        // }) + '\n')
+        // return
+        // console.log('callback',process.getuid() , process.pid)
+        var output_path_css = path.resolve(__dirname, '../dist/app.css')
+        read_file(output_path_css)
+            .then((data)=>{
+                return cssnano.process(data.toString(), {zindex: false})
+            }).then((result)=>{
+                fs.writeFileSync(output_path_css, result.css)
+
+                process.stdout.write(status.toString({
+                    colors: true,
+                    modules: false,
+                    children: false,
+                    chunks: false,
+                    chunkModules: false
+                }) + '\n')
+                console.log('[app.css] size   '+(result.css.length/1024).toFixed(2)+' kB')
+                
+            }).catch((e)=>{
+                console.log(new Error(e))
+            })
+        
+    })
+    
 }
 
 
+// 读取文件，返回内容
+function read_file(file_path){
+    return new Promise(function (resolve,reject) {
+        fs.readFile(file_path,function (err,data) {
+            if(err) reject(err)
 
+            resolve(data)
+        })
+    })
+}

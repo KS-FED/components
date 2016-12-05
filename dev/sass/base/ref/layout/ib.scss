@@ -1,5 +1,5 @@
 
-/* pure-g ib */
+// pure-g ib 
 %inline-block-warp {
   letter-spacing: -0.31em;
   // *letter-spacing: normal;
@@ -16,10 +16,10 @@
   align-content: flex-start;
 }
 
-/*pure-u*/
+// pure-u
 %inline-block {
   display: inline-block;
-  /*display: inline;  IE < 8: fake inline-block */
+  // display: inline;  IE < 8: fake inline-block 
   zoom: 1;
   letter-spacing: normal;
   word-spacing: normal;
@@ -28,19 +28,10 @@
   box-sizing:border-box;
 }
 
-.ib-w ,.ib-w.ib{
-    @extend %inline-block-warp;
-}
-    /*pure-u*/
-.ib {
-    @extend %inline-block;
-}
-
 %ib-w {
     @extend %inline-block-warp;
 }
-
-    /*pure-u*/
+    
 %ib {
     @extend %inline-block;
 }
