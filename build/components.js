@@ -41,8 +41,8 @@ module.exports = function (config) {
     .then((files)=>{
         var promise_arr = []
         files.forEach(function(file_name) {
-            if('dater' === file_name || 'pager' === file_name){
-                // console.log(file_name)
+            if('dater' === file_name || 'pager' === file_name || 'KsButton' === file_name){
+                console.log(file_name)
                 promise_arr.push(filter_entry(file_name,components_path))
             }
         })
@@ -159,7 +159,7 @@ function filter_entry(file_name,components_path) {
         read_file(file_path)
             .then((data)=>{
                 var modules = data.toString().replace(/export\s*\{[\s\S]*\}/gm,'').replace(/import/g,'').replace(/from/g,':').replace(/'/g,'').match(/(.+)\s/g)
-                // console.log(modules)
+                console.log(modules)
                 resolve({file_name,modules})
             },(err)=>{
                 reject(err)

@@ -4,7 +4,8 @@
   "description": "前端项目公共组件",
   "main": "index.js",
   "scripts": {
-    "develop": "node build/dev-server.js",
+    "develop": "NODE_ENV=develop node webpack.config.js",
+    "windows-develop": "NODE_ENV=develop&& node webpack.config.js",
     "pro": "NODE_ENV=pro node webpack.config.js",
     "dev": "npm run project & npm run proxy-mock --p",
     "project": "NODE_ENV=project node webpack.config.js",
