@@ -51,23 +51,11 @@
 		}
 	}
 }
-/* 红色 */
-.KsDialogBg-danger{
-	@extend %dialog-bg;
-	_title{ background: #f44336; }
-}
-/* 蓝色 */
-.KsDialogBg-primary{
-	@extend %dialog-bg;
-	_title{ background: #2196f3; }
-}
-/* 绿色 */
-.KsDialogBg-success{
-	@extend %dialog-bg;
-	_title{ background: #4caf50; }
-}
-/* 橙色 */
-.KsDialogBg-warning{
-	@extend %dialog-bg;
-	_title{ background: #ff5722; }
-}
+/* 红色 */ /* 蓝色 */ /* 绿色 */ /* 橙色 */
+$dialog-bg:(danger,#f44336),(primary,#2196f3),(success,#4caf50),(warning,#ff5722);
+@each $type, $background in $dialog-bg{
+	.KsDialogBg-#{$type}{
+		@extend %dialog-bg;
+		_title{ background: $background; }
+	}
+} 

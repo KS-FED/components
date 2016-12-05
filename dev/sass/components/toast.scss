@@ -36,45 +36,14 @@
 		font-size: 12px;
 	}
 }
-.KsToastClose-primary{
-	@extend %toast-close;
-	background: #e2f2fe;
-	border:1px solid #b0daf9;
-	p{ color: #094b94; }
-	i{ color: #638ebf; }
-}
-.KsToastClose-warning{
-	@extend %toast-close;
-	background: #fff6b1;
-	border:1px solid #ffe378;
-	p{ color: #444444; }
-	i{ color: #ce8161; }
-}
-.KsToastClose-danger{
-	@extend %toast-close;
-	background: #fbe9e7;
-	border:1px solid #ffc9c3;
-	p{ color: #9c3431; }
-	i{ color: #c4706d; }
-}
-.KsToastClose-info{
-	@extend %toast-close;
-	background: #dff7fa;
-	border:1px solid #abe6ee;
-	p{ color: #045962; }
-	i{ color: #58959c; }
-}
-.KsToastClose-success{
-	@extend %toast-close;
-	background: #e8f5e9;
-	border:1px solid #aeeab3;
-	p{ color: #538356; }
-	i{ color: #6eab73; }
-}
-.KsToastClose-Violet{
-	@extend %toast-close;
-	background: #f3e5f5;
-	border:1px solid #e7afef;
-	p{ color: #6b0f9c; }
-	i{ color: #a269c0; }
+
+$toast-close: (primary,#e2f2fe,#b0daf9,#094b94,#638ebf),(warning,#fff6b1,#ffe378,#444444,#ce8161),(danger,#fbe9e7,#ffc9c3,#9c3431,#c4706d),(info,#dff7fa,#abe6ee,#045962,#58959c),(success,#e8f5e9,#aeeab3,#538356,#6eab73),(Violet,#f3e5f5,#e7afef,#6b0f9c,#a269c0);
+@each $type, $background, $border, $p, $i in $toast-close{
+	.KsToastClose-#{$type}{
+		@extend %toast-close;
+		background: $background;
+		border:1px solid $border;
+		p{ color: $p; }
+		i{ color: $i; }
+	}
 }
