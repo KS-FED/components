@@ -46,20 +46,24 @@
     </div>
 </div>
 </div> -->
-
-
+{{val}}
+<sub :val="val" v-on:change="val_change"></sub>
 </div>
 </template>
 <script>
-    
+    import sub from './sub.vue'
     import { next_month } from './util/lang'
     import { one_page_date } from './util/apage'
     export default {
+        components:{
+            sub
+        },
         data (){
             return {
                 dates:[],
                 now:new Date(),
-                value:''
+                value:'',
+                val:'eeeee'
             }
         },
         methods:{
@@ -68,18 +72,18 @@
                 var id = event.target.id.split('_')
                 var unit_index = +id[1] 
                 var index = +id[2] 
-                console.log(unit_index,index)
+                // console.log(unit_index,index)
                 if(isNaN(unit_index) || isNaN(index) || id[2]=='disabled') return
 
                 this.value = this.dates[unit_index][index].dater
-                console.log(unit_index,index,this.value)
+                // console.log(unit_index,index,this.value)
                 
                 // this.dates[unit_index][index].status = 'active'
                 // this.dates[0] = this.pages_date(this.now,this.filter,1)[0]
                 // this.dates.splice(0,1,this.pages_date(this.now,this.filter,1)[0])
                 this.init()
                 // this.dates.splice(1,unit_index,)
-                
+                this.val = Math.random()*1000
             },
              pick2 (e){
                 var id = event.target.id.split('_')
@@ -94,6 +98,9 @@
                 
                 this.init()
                 // this.dates.splice(1,unit_index,)
+
+
+
                 
             },
             filter (item){
@@ -103,7 +110,7 @@
             },
             init (){
                 this.dates = this.pages_date(this.now,this.filter,4)
-                console.log(this.dates)
+                // console.log(this.dates)
             },
             pages_date(date,callback_filter,length) {
                 var arr = []
@@ -122,12 +129,18 @@
                     ym = next_month(ym.year,ym.month)
                 }
                 return arr
+            },
+            val_change(val){
+                console.log(val)
+                this.val = val
+                this.val = 'val_I_'+Math.random()*1000
             }
         },
         watch :{
             value (){
                 // this.init()
             }
+            
         },
         created(){
             this.init()

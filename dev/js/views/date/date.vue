@@ -23,7 +23,7 @@
 		</code>
     </pre>
     --{{date1}}--
-	<ks-date-picker :value.sync="date1"  time="00:00:00"  v-on:change="current_change"></ks-date-picker>
+	<!-- <ks-date-picker :value="date1"  time="00:00:00"  v-on:change="current_change1"></ks-date-picker> -->
 	<ks-date-picker :value.sync="date2"  time="now"  v-on:change="current_change2"></ks-date-picker>
 	
 	<br><br>
@@ -43,7 +43,7 @@
     		&lt;ks-date-picker value="2016-10-12" placeholder="日期" :exclude="true" v-on:change="current_change"&gt;&lt;/ks-date-picker&gt;
     	</code>		
     </pre>
-	 <ks-date-picker :value="date_val" placeholder="日期" :exclude="true" v-on:change="current_change"></ks-date-picker>
+	 <!-- <ks-date-picker :value="date_val" placeholder="日期" :exclude="true" v-on:change="current_change3"></ks-date-picker> -->
 	<br><br>
 	
     <div class="table-striped">
@@ -221,7 +221,7 @@
 	export default {
 		data(){
 			return {
-				date1:'',
+				date1:'2016-10-12 03:04:20',
 				date2:'2016-10-12 03:04:20',
 				date_base:'2016-10-12:03:04:20',
 				date_val:'2016-11-09,2016-11-10,2016-11-11,2016-11-18,2016-11-17,2016-11-16,2016-11-15,2016-11-13,2016-11-14'
@@ -229,6 +229,14 @@
 		},
 		methods:{
 			current_change(){},
+			current_change1(val){
+				// this.date1 = '2016-10-12'
+				this.date1 = val	
+				var arr = this.date_val.split(',')
+				this.date1 = arr[parseInt(Math.random()*arr.length)]
+				
+				
+			},
 			current_change2(val){
 				// console.log('parent catch change value',val)
 				// // setTimeout(()=>{
@@ -238,7 +246,12 @@
 
 				
 			},
+			current_change3(val){
+				console.log('筛选 picker',val)
+				this.date_val = val
+			},
 			date_multi_picker_change(val){
+				
 				console.log('多选 picker',val)
 			}
 		},
@@ -246,10 +259,8 @@
 			// setTimeout(()=>{
 			// 	this.date_val = '2016-11-09,2016-11-10,2016-11-11,2016-11-18,2016-11-17,2016-11-16,2016-11-15,2016-11-13,2016-11-14'
 			// },3000)
-			this.date_base = '2016-10-12 03:04:20'	
-			setTimeout(()=>{
-				// console.log('this.date2',this.date2)
-			},3000)
+			// this.date_base = '2016-10-12 03:04:20'	
+			
 		}
 
 	}

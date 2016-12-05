@@ -26,7 +26,6 @@
         })
     }
 
-
     
     // 上一个月
     exports.prev_month = function(year,month){
@@ -117,4 +116,47 @@
     }
     exports.fullzero = fullzero
 
+    /**
+     * (string , YYYY-MM-DD HH:mm:ss) => 2016-10-11 10:10:10
+     */
+    function format_conver(dater_timer,format) {
+        if(typeof dater_timer != 'string') return
+        dater_timer = dater_timer.match(/(\d+)/g)
+        
+        format = format || 'YYYY-MM-DD HH:mm:ss'
+
+        var _date = new Date()
+        var year = _date.getFullYear()
+        var month = _date.getMonth()+1
+        var date =  _date.getDate()
+        var hour =  _date.getHours()
+        var minute = _date.getMinutes()
+        var second = _date.getSeconds()
+
+        // YYYY-MM-DD HH:mm:ss
+
+        var map = {
+            YYYY: year,
+            MM: ('0' + month).slice(-2),
+            M: month,
+            DD: ('0' + date).slice(-2),
+            D: date,
+            HH:('0' + hour).slice(-2),
+            H:hour,
+            mm:('0' + minute).slice(-2),
+            m:minute,
+            ss:('0' + second).slice(-2),
+            s:second,
+        }
+        
+        format.match(/Y+|M+|D+|H+|m+|s+/g).forEach((key,i)=>{
+            map[key] = fullzero(dater_timer[i],key.length) || map[key]
+        })
+
+        return format.replace(/Y+|M+|D+|H+|m+|s+/g, function (str) {
+            return map[str]
+        })
+        
+    }
+    exports.format_conver = format_conver
 
