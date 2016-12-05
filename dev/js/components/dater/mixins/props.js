@@ -13,7 +13,7 @@ export default {
                 // console.log(val)
                 if(val){
                     var date = new Date()
-                    'now' == val && (val = format_conver(''))
+                    // 'now' == val && (val = format_conver(''))
                     typeof val == 'string' && val.split(':').length && (val=val.split(':'))
                     // console.log(val)
                     return val
