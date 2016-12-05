@@ -9,7 +9,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 // console.log(process.getuid() , process.pid)
 
 module.exports = function (config,_package,iswatch) {
-    console.log(config)
+    // console.log(config)
     var rl = readline.createInterface(process.stdin,process.stdout)
 
     var append_config = {

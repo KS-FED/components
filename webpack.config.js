@@ -6,8 +6,9 @@ var CleanWebpackPlugin = require('clean-webpack-plugin')
 var _package = require('./package.json')
 var project = require('./build/project.js')
 var components = require('./build/components.js')
+var develop = require('./build/dev-server.js')
 
-// console.log(process.env.NODE_ENV)
+console.log(process.env.NODE_ENV)
 switch(process.env.NODE_ENV){
     case 'pro':
         setTimeout(()=>project(config,_package,false))
@@ -18,11 +19,16 @@ switch(process.env.NODE_ENV){
     case 'component':
         setTimeout(()=>components(config,_package))
     break;
+    case 'develop':
+        console.log('develop')
+        setTimeout(()=>develop(config,_package))
+    break;
 }
 
 
 var config = {
     entry: {
+        css: __dirname + '/dev/sass/app.scss',
         app: __dirname + '/dev/js/app.js',
         vuecore: __dirname + '/dev/js/vuecore.js'
     },
@@ -55,19 +61,19 @@ var config = {
                 loader: 'url-loader?limit=1'
             }, {
                 test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-                loader: 'file-loader-path?limit=1&name=[name].[ext]?[hash:8]&path=./[name].[ext]?[hash:8]'
+                loader: 'file-loader-path?limit=1&name=[name].[ext]?[hash:8]&path=../[name].[ext]?[hash:8]'
             }, {
                 test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-                loader: 'file-loader-path?limit=1&name=[name].[ext]?[hash:8]&path=./[name].[ext]?[hash:8]'
+                loader: 'file-loader-path?limit=1&name=[name].[ext]?[hash:8]&path=../[name].[ext]?[hash:8]'
             }, {
                 test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-                loader: 'file-loader-path?limit=1&name=[name].[ext]?[hash:8]&path=./[name].[ext]?[hash:8]'
+                loader: 'file-loader-path?limit=1&name=[name].[ext]?[hash:8]&path=../[name].[ext]?[hash:8]'
             }, {
                 test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-                loader: 'file-loader-path?limit=1&name=[name].[ext]?[hash:8]&path=./[name].[ext]?[hash:8]'
+                loader: 'file-loader-path?limit=1&name=[name].[ext]?[hash:8]&path=../[name].[ext]?[hash:8]'
             }, {
                 test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-                loader: 'file-loader-path?limit=1&name=[name].[ext]?[hash:8]&path=./[name].[ext]?[hash:8]'
+                loader: 'file-loader-path?limit=1&name=[name].[ext]?[hash:8]&path=../[name].[ext]?[hash:8]'
             }
         ]
     },
@@ -84,19 +90,3 @@ var config = {
         new webpack.optimize.DedupePlugin()
     ]
 }
-
-
-// var cssnano = require('cssnano')
-// var fs = require('fs')
-// var path = require('path')
-
-// const code = fs.readFileSync(path.resolve(__dirname, './dev/sass/global.scss')).toString()
-// console.log(code)
-// cssnano.process(code, {zindex: false}).then(function (result) {
-//     console.log(result.css)
-//   // fs.writeFileSync(path.resolve(__dirname, '../dist/vux.css'), result.css)
-// })
-
-
-
-

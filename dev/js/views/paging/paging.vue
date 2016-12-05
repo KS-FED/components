@@ -179,7 +179,7 @@
 			return {
 				page_current:2 ,
 				pages:7,
-				total:0
+				total:10
 			}
 		},
 		methods:{
