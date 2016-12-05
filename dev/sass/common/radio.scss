@@ -1,0 +1,28 @@
+%clip-hidden{
+	position: absolute;
+	clip: rect(0,0,0,0); /* IE8+ */
+	*left: -999px;
+}
+%ui-radio-un{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 1px solid rgba(208, 208, 213, 1);  /* IE7-IE8 ignore this */
+	background-color: #fff;
+	box-sizing: border-box;
+	vertical-align: -.5ex;
+	*vertical-align: 0;
+	-webkit-transition: border-color .2s;
+    transition: border-color .2s;
+	overflow: hidden;
+}
+
+%ui-checked{
+	visibility: visible;
+	-webkit-animation: bounceIn .2s;
+	animation: bounceIn .2s;
+}
+%ui-disabled{
+	border-color: #2196f3;
+	opacity: .38;
+}

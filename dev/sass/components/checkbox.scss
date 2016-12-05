@@ -1,3 +1,6 @@
+// %clip-hidden  // %ui-radio-un  // %ui-checked  // %ui-disabled
+@import '../common/radio';
+
 //复选框
 .checkbox{
 	input[type=checkbox] {
@@ -19,10 +22,6 @@
 		    font-size: 12px;
 		}
 	}
-
-	// :not(:disabled) + .ui-checkbox:hover {
-	// 	border-color: #ababaf;
-	// }
 
 	:checked + .ui-checkbox::before {
 		@extend %ui-checked;

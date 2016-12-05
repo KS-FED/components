@@ -1,4 +1,8 @@
 // %tooltip : 箭头提示框的公共样式  在tooltip.scss 中
+@import '../common/tooltip';
+// %KsPopoverTop
+@import '../common/ks-popover-top';
+
 
 // %popover ：边框箭头提示框的公共样式
 %popover{
@@ -30,20 +34,7 @@
 	    top: 50%;
 	}
 }
-// top箭头提示框
-%KsPopoverTop {
-	@extend %popover; 
-    margin-bottom: 10px;
-	span{
-		@extend %popover-top-bottom-span;
-	    border-top: 10px solid $bor-color;
-    	bottom: -20px;
-    	&::after{
-		    border-top: 10px solid #fff;
-		    top: -12px;
-    	}
-	}
-}
+
 // bottom箭头提示框
 %KsPopoverBottom {
 	@extend %popover; 

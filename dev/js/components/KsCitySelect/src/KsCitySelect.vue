@@ -167,5 +167,5 @@
 </script>
 
 <style lang="scss">
+    /*@import '../../sass/components/city-select';*/
 </style>
-

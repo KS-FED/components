@@ -142,5 +142,6 @@
     }
 </script>
 <style lang="scss">
-    /*@import '../../../sass/components/paging';*/
+    @import '../../../sass/components/paging';
+    @import '../../../sass/components/input';
 </style>

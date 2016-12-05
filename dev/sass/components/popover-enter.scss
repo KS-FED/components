@@ -1,3 +1,6 @@
+// %KsPopoverTop
+@import '../common/ks-popover-top';
+
 .KsPopoverEnter {
 	@extend %KsPopoverTop;
 	display: inline-block;

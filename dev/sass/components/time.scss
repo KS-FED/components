@@ -1,6 +1,8 @@
 //%icon-input：带图标的输入框 在date.scss中
-//%select-hd：带图标的输入框
-//%select-bd：下拉列表样式
+@import '../common/icon-input';
+// %select-bor // %select-hd：带图标的输入框 // %select-bd：下拉列表样式
+@import '../common/select';
+
 .KsTime {
 	// background: red;
 	_input {

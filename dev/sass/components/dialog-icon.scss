@@ -1,5 +1,6 @@
 /* 图标弹框 */
 // %dialog ：弹框公共样式
+@import '../common/dialog';
 // %dialog-icon：图标弹框公共样式
 %dialog-icon {
 	@extend %dialog;
