@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "develop": "NODE_ENV=develop node webpack.config.js",
-    "windows-develop": "NODE_ENV=develop&& node webpack.config.js",
+    "windows-develop": "set NODE_ENV=develop&& node webpack.config.js",
     "pro": "NODE_ENV=pro node webpack.config.js",
     "dev": "npm run project & npm run proxy-mock --p",
     "project": "NODE_ENV=project node webpack.config.js",
