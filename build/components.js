@@ -39,26 +39,31 @@ module.exports = function (config) {
   // 读取components目录
   read_module_dir(components_path)
     .then((files)=>{
-        var promise_arr = []
+        var promise_arr = [], file_promise
+
         files.forEach(function(file_name) {
-            if('dater' === file_name || 'pager' === file_name || 'KsButton' === file_name){
-                console.log(file_name)
-                promise_arr.push(filter_entry(file_name,components_path))
-            }
+            // if('dater' === file_name || 'pager' === file_name || 'KsButton' === file_name){
+            //     // console.log(file_name)
+            // }
+            promise_arr.push(filter_entry(file_name,components_path))    
         })
+        
         // 需要打包的模块
         return Promise.all(promise_arr)
     }).then((file_entrys)=>{
-        // console.log(promise_arr)
+        // console.log(file_entrys)
         file_entrys.forEach((file_entry)=>{
             // console.log(file_entry)
             var file_name = file_entry.file_name
             var modules = file_entry.modules
             modules.forEach(function (module) {
-                var pair = module.split(':')
-                var name = pair[0].trim()
-                var file_path = path.resolve(components_path+'/'+file_name, pair[1].trim())
-                build(name,file_path,config)
+                
+                  var pair = module.split(':')
+                  var name = pair[0].trim()
+                  var sub_path = pair[1].trim()
+
+                  var file_path = path.resolve(components_path , file_name, sub_path)
+                  if(fs.statSync(file_path).isFile()) build(name,file_path,config)
             })
         })
     })
@@ -102,7 +107,6 @@ function build (name,file_path,config) {
     }
     config = webpack_merge.smart(config,append_config)
     config.entry[name] = [path.resolve(__dirname, file_path)]
-    // config.entry[name] = 
     
     var time_start = new Date().getTime()
     // touch(config.output.path)
@@ -142,8 +146,15 @@ function read_module_dir(components_path) {
             if (err) reject(err)
             
             files = files.filter(function(file) {
-                return fs.statSync(path.join(components_path, file)).isDirectory()
+                
+                if(fs.statSync(path.resolve(components_path, file)).isDirectory()
+                    && fs.existsSync(path.resolve(components_path, file,'index.js'))){
+                    
+                    return true
+                }
+                
             })
+            
             resolve(files)
         
         })
@@ -154,18 +165,36 @@ function read_module_dir(components_path) {
 // 过滤组件入口文件
 function filter_entry(file_name,components_path) {
     var file_path = components_path+'/'+file_name+'/index.js'
-    // console.log(file_path)
-    return new Promise(function (resolve,reject) {
-        read_file(file_path)
-            .then((data)=>{
-                var modules = data.toString().replace(/export\s*\{[\s\S]*\}/gm,'').replace(/import/g,'').replace(/from/g,':').replace(/'/g,'').match(/(.+)\s/g)
-                console.log(modules)
-                resolve({file_name,modules})
-            },(err)=>{
-                reject(err)
-            })
+
+    
         
-    })
+        return new Promise(function (resolve,reject) {
+            read_file(file_path)
+                .then((data)=>{
+                  // console.log(data.toString())
+                    var modules = data.toString()
+                        .match(/import\s+(.+)\s+from(.+)/g)
+                        .map((val)=>{
+                            return val.replace(/import/g,'')
+                                      .replace(/from/g,':')
+                                      .replace(/'/g,'')
+                        })
+
+                      // .replace(/\/\*(.|\n)*?\*\//gm,'')
+                      // .replace(/export\s*\{[\s\S]*\}/gm,'')
+                      // .replace(/import/g,'')
+                      // .replace(/from/g,':')
+                      // .replace(/'/g,'')
+                      // .match(/(.+)\s/g)
+
+                    resolve({file_name,modules})
+                },(err)=>{
+                    console.log(err)
+                    reject(err)
+                })
+            
+        })
+    
 }
 
 // 读取文件，返回内容

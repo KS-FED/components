@@ -6,7 +6,7 @@
  * @date: 2016/10/20.
  */
 
-import KsMask from './src/main'
+import KsMask from './src/main.js'
 
 export default KsMask
 export { KsMask }

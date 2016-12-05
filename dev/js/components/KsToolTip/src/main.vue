@@ -16,7 +16,7 @@
 
 <script type="text/javascript">
   import Vue from 'vue'
-  import { VuePopper, DomUtil, StringUtil } from '../../util'
+  import { VuePopper, DomUtil, StringUtil } from '../../../util'
 
   export default {
     name: 'KsToolTip',

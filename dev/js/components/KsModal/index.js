@@ -6,7 +6,7 @@
  * @date: 2016/10/19.
  */
 
-import KsModal from './src/main'
+import KsModal from './src/main.js'
 import KsModalEntity from './src/main.vue'
 
 export default KsModal
