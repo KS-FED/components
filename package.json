@@ -9,9 +9,9 @@
     "dev": "npm run project & npm run proxy-mock --p",
     "project": "NODE_ENV=project node webpack.config.js",
     "component": "NODE_ENV=component node webpack.config.js",
-    "dev-windows": "npm run windows-project && npm run proxy-mock",
-    "windows-project": "set NODE_ENV=project node webpack.config.js",
-    "windows-component": "Nset ODE_ENV=component node webpack.config.js",
+    "dev-windows": "npm run windows-project&& npm run proxy-mock",
+    "windows-project": "set NODE_ENV=project&& node webpack.config.js",
+    "windows-component": "set NODE_ENV=component&& node webpack.config.js",
     "proxy-mock": "proxy-mock -p",
     "http-server": "http-server -p 8043"
   },
