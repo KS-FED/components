@@ -19,7 +19,7 @@ import { KsCitySelect } from './KsCitySelect'
 import { KsToolTip } from './KsToolTip'
 import { page , pagegroup } from './pager/'
 
-import KsDirective from './KsDirective'
+import KsDirective from '../KsDirective'
 
 const VERSION = '0.0.1'
 const KsComponents = {
