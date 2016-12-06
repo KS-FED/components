@@ -25,35 +25,14 @@
 	    i{ font-size: 50px; }
 	}
 }
-// icon绿色
-.KsDialogIcon-success {
-	@extend %dialog-icon;
-	_icon-bor {
-		border-color: #dbefdc;
-		i{ color: #4caf50; }
-	}
-}
-// icon红色
-.KsDialogIcon-danger {
-	@extend %dialog-icon;
-	_icon-bor {
-		border-color: #f44336;
-		i{ color: #f44336; }
-	}
-}
-// icon青色
-.KsDialogIcon-info {
-	@extend %dialog-icon;
-	_icon-bor {
-		border-color: #00BCD4;
-		i{ color: #00BCD4; }
-	}
-}
-// icon橙色
-.KsDialogIcon-warning {
-	@extend %dialog-icon;
-	_icon-bor {
-		border-color: #ff5722;
-		i{ color: #ff5722; }
+// icon绿色 // icon红色 // icon青色 // icon橙色
+$dialog-icon: (success,#dbefdc,#4caf50),(danger,#f44336,#f44336),(info,#00BCD4,#00BCD4),(warning,#ff5722,#ff5722);
+@each $type, $border, $color in $dialog-icon{
+	.KsDialogIcon-#{$type}{
+		@extend %dialog-icon;
+		_icon-bor {
+			border-color: $border;
+			i{ color: $color; }
+		}
 	}
 }
