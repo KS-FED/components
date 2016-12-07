@@ -1,3 +1,8 @@
+/* 颜色  primary danger info warning dark gray */
+@import '../base/creater/create-color';  
+/* h1 ~ h6 字体大小 */
+@import '../base/creater/create-font';
+
 %user-select-none {
     @include vendor(user-select,none)
 }
