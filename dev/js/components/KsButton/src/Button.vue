@@ -62,4 +62,5 @@
 
 <style lang="scss">
   @import "../styles/Button";
+  @import '../../../../sass/components/button';
 </style>
