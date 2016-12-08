@@ -12,51 +12,15 @@
             position: absolute;
             width: 2px;
             height: 6px; 
-            &:nth-child(1) {
-                top: 7px;
-                left: 0;
-                animation: line-spin-fade-loader 1.2s 0.12s infinite ease-in-out; 
-            }
-            &:nth-child(2) {
-                top: 4.63636px;
-                left: 4.63636px;
-                transform: rotate(-45deg);
-                animation: line-spin-fade-loader 1.2s 0.24s infinite ease-in-out; 
-            }
-            &:nth-child(3) {
-                top: 0;
-                left: 7px;
-                transform: rotate(90deg);
-                animation: line-spin-fade-loader 1.2s 0.36s infinite ease-in-out; 
-            }
-            &:nth-child(4) {
-                top: -4.63636px;
-                left: 4.63636px;
-                transform: rotate(45deg);
-                animation: line-spin-fade-loader 1.2s 0.48s infinite ease-in-out; 
-            }
-            &:nth-child(5) {
-                top: -7px;
-                left: 0;
-                animation: line-spin-fade-loader 1.2s 0.6s infinite ease-in-out; 
-            }
-            &:nth-child(6) {
-                top: -4.63636px;
-                left: -4.63636px;
-                transform: rotate(-45deg);
-                animation: line-spin-fade-loader 1.2s 0.72s infinite ease-in-out; 
-            }
-            &:nth-child(7) {
-                top: 0;
-                left: -7px;
-                transform: rotate(90deg);
-                animation: line-spin-fade-loader 1.2s 0.84s infinite ease-in-out; 
-            }
-            &:nth-child(8) {
-                top: 4.63636px;
-                left: -4.63636px;
-                transform: rotate(45deg);
-                animation: line-spin-fade-loader 1.2s 0.96s infinite ease-in-out; 
+            // 批量输出
+            $position: (1,7px,0px,0deg,0.12s),(2,4.63636px,4.63636px,-45deg,0.24s),(3,0px,7px,90deg,0.36s),(4,-4.63636px,4.63636px,45deg,0.48s),(5,-7px,0px,0deg,0.6s),(6,-4.63636px,-4.63636px,-45deg,0.72s),(7,0px,-7px,90deg,0.84s),(8,4.63636px,-4.63636px,45deg,0.96s);
+            @each $i, $top, $left, $transform, $animation in $position{
+                &:nth-child(#{$i}){
+                    top: $top;
+                    left: $left;
+                    transform: rotate($transform);
+                    animation: line-spin-fade-loader 1.2s $animation infinite ease-in-out; 
+                }
             }
         }
     }

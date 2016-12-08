@@ -1,5 +1,9 @@
+
 @import '../base/ref/index';
-@import '../base/creater/create-color';
+/* 颜色  primary danger info warning dark gray */
+@import '../base/creater/create-color';  
+/* h1 ~ h6 字体大小 */
+@import '../base/creater/create-font';
 
 %user-select-none {
     @include vendor(user-select,none)
@@ -8,7 +12,7 @@
     @include vendor(touch-action,manipulation)
 }       
 .btn {
-    %b{color:green;}
+    
     @extend %user-select-none;
     @extend %touch-action-manipulation;
 	display: inline-block;
