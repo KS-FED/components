@@ -5,14 +5,7 @@
     >
       <div v-if="loading" class="_loading icon-loading">
         <div class="line-fade">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div v-for="i in 8"></div>
         </div>
       </div>
       <slot></slot>
@@ -20,7 +13,7 @@
   </div>
 </template>
 
-<script type="text/javascript">
+<script lang="babel">
   import BtnMixins from '../mixins/btnMixins'
 
   export default {

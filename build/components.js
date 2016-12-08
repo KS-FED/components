@@ -51,6 +51,9 @@ module.exports = function (config) {
         // 需要打包的模块
         return Promise.all(promise_arr)
     }).then((file_entrys)=>{
+
+      let packages = []
+
         // console.log(file_entrys)
         file_entrys.forEach((file_entry)=>{
             // console.log(file_entry)
@@ -63,9 +66,20 @@ module.exports = function (config) {
                   var sub_path = pair[1].trim()
 
                   var file_path = path.resolve(components_path , file_name, sub_path)
-                  if(fs.statSync(file_path).isFile()) build(name,file_path,config)
+                  // if(fs.statSync(file_path).isFile()) build(name,file_path,config)
+
+                if(fs.statSync(file_path).isFile()) {
+                    packages.push({
+                        name: name,
+                        filePath: file_path,
+                        config: config
+                    })
+                }
+
             })
         })
+
+      buildOnce(packages)
     })
 
 }
@@ -74,6 +88,68 @@ module.exports = function (config) {
 
 
 var count = 0
+
+// 调整配置、打包
+function buildOnce (packages) {
+
+    // console.log(file_path)
+    var output_path = path.resolve(__dirname, '../dist/components/')
+    var append_config = {
+        entry:{},
+        output:{
+            path:output_path,
+            libraryTarget:'umd',
+            filename: 'index.js'
+            // library : converName(name)
+        },
+        vue: {
+            loaders: {
+                css: ExtractTextPlugin.extract('vue-style-loader', 'css-loader'),
+                scss: ExtractTextPlugin.extract('vue-style-loader','css-loader!ks-autobem-loader?type=css!sass-loader'),
+                sass: ExtractTextPlugin.extract('vue-style-loader','css-loader!ks-autobem-loader?type=css!sass-loader'),
+                html: 'vue-html-loader!ks-autobem-loader?type=html'
+            }
+        },
+        plugins: [
+            new webpack.optimize.UglifyJsPlugin({
+                compress: {
+                    warnings: false
+                }
+            }),
+            new webpack.optimize.OccurenceOrderPlugin(),
+            new ExtractTextPlugin('style.css')
+        ]
+    }
+    let config = webpack_merge.smart({}, append_config)
+    // config.entry[name] = [path.resolve(__dirname, file_path)]
+
+    packages.forEach(o => {
+        let name = o.name, filePath = o.filePath
+
+        config.entry[name] = path.resolve(__dirname, filePath)
+    })
+
+    var time_start = new Date().getTime()
+    // touch(config.output.path)
+    // return
+    webpack(config, function (err, stats) {
+        if (err) throw err
+
+        // console.log(path.resolve(output_path, './style.css'))
+        // return
+        read_file(path.resolve(output_path, './style.css'))
+            .then((data)=>{
+                return cssnano.process(data.toString(), {zindex: false})
+            }).then((result)=>{
+            fs.writeFileSync(path.resolve(output_path, './style.css'), result.css)
+            trace_progress(stats,name,count,time_start)
+        }).catch((e)=>{
+            // console.log('无样式...')
+            trace_progress(stats,name,count,time_start)
+        })
+
+    })
+}
 
 // 调整配置、打包
 function build (name,file_path,config) {

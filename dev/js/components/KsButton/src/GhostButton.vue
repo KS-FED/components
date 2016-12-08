@@ -8,7 +8,7 @@
   </div>
 </template>
 
-<script type="text/javascript">
+<script lang="babel">
   import BtnMixins from '../mixins/btnMixins'
 
   export default {

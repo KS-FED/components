@@ -17,7 +17,7 @@
   </div>
 </template>
 
-<script type="text/javascript">
+<script lang="babel">
   import NrButton from './NrButton.vue'
   import GhostButton from './GhostButton.vue'
 

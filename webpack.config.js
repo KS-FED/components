@@ -17,8 +17,8 @@ switch(process.env.NODE_ENV){
         setTimeout(()=>project(config,_package,true))
     break;
     case 'component':
-        setTimeout(()=>components(config,_package))
-    break;
+        setTimeout(() => components(config, _package), 0)
+        break;
     case 'develop':
         console.log('develop')
         setTimeout(()=>develop(config,_package))
