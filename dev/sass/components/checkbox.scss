@@ -1,6 +1,9 @@
 // %clip-hidden  // %ui-radio-un  // %ui-checked  // %ui-disabled
 @import '../common/radio';
 
+// .iconfont
+@import "../base/font/index";
+
 //复选框
 .checkbox{
 	input[type=checkbox] {

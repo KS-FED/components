@@ -19,4 +19,6 @@
 </script>
 
 <style lang="scss">
+   @import '../../../../sass/components/button';
 </style>
+
