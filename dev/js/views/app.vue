@@ -1,7 +1,7 @@
 <template>
     <div class="a" cid='app'>
         <div class="_aa _ff">
-        ff
+            <input type="checkbox" checked="{check('id')}"> 
             <div class="_ee">
                 eee
             </div>

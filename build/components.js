@@ -96,13 +96,13 @@ function build(name, file_path) {
         // return 
         ++count
         // console.log(count)
-        read_file(path.resolve(output_path, './css.css'))
+        read_file(path.resolve(output_path, './app.css'))
             .then((data) => {
                 return cssnano.process(data.toString(), {
                     zindex: false
                 })
             }).then((result) => {
-                fs.writeFileSync(path.resolve(output_path, './css.css'), result.css)
+                fs.writeFileSync(path.resolve(output_path, './style.css'), result.css)
                 trace_progress(stats, name, count, time_start)
             }).catch((e) => {
                 // console.log('无样式...')

@@ -42,7 +42,6 @@ var config = webpack_merge.smart(webpackConfig,{
             formatter: require('eslint-friendly-formatter')
         },
         plugins: [
-            new ExtractTextPlugin('app.css'),
             new webpack.ProgressPlugin(function (percentage, msg) {
                 var progress = Math.ceil(percentage * 100)
                 rl.setPrompt('进度：' + ('>'.repeat(progress/2)) + ('-'.repeat(50-progress/2)) +'\n      '+ progress + '%  ' + msg +'\n')
@@ -78,7 +77,7 @@ var config = webpack_merge.smart(webpackConfig,{
             //     compress: {
             //       warnings: false
             //     }
-            // })，
+            // }),
             // new HtmlWebpackPlguin({
             //   inject: true,
             //   template:'../index.html'
