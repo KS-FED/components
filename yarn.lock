@@ -1294,7 +1294,7 @@ colormin@^1.0.5:
     css-color-names "0.0.4"
     has "^1.0.1"
 
-colors@~1.1.2:
+colors, colors@~1.1.2:
   version "1.1.2"
   resolved "http://registry.npm.taobao.org/colors/download/colors-1.1.2.tgz#168a4701756b6a7f51a12ce0c97bfa28c084ed63"
 
@@ -1489,9 +1489,9 @@ cssesc@^0.1.0:
   version "0.1.0"
   resolved "http://registry.npm.taobao.org/cssesc/download/cssesc-0.1.0.tgz#c814903e45623371a0477b40109aaafbeeaddbb4"
 
-cssnano@^3.8.1:
-  version "3.8.1"
-  resolved "http://registry.npm.taobao.org/cssnano/download/cssnano-3.8.1.tgz#008a482148ee948cf0af2ee6e44bd97c53f886ec"
+"cssnano@>=2.6.1 <4":
+  version "3.8.0"
+  resolved "http://registry.npm.taobao.org/cssnano/download/cssnano-3.8.0.tgz#bb90ac5292f42b679d9a05f6da0e9697556bb80d"
   dependencies:
     autoprefixer "^6.3.1"
     decamelize "^1.1.2"
@@ -1526,9 +1526,9 @@ cssnano@^3.8.1:
     postcss-value-parser "^3.2.3"
     postcss-zindex "^2.0.1"
 
-"cssnano@>=2.6.1 <4":
-  version "3.8.0"
-  resolved "http://registry.npm.taobao.org/cssnano/download/cssnano-3.8.0.tgz#bb90ac5292f42b679d9a05f6da0e9697556bb80d"
+cssnano@3.8.1:
+  version "3.8.1"
+  resolved "https://registry.npmjs.org/cssnano/-/cssnano-3.8.1.tgz#008a482148ee948cf0af2ee6e44bd97c53f886ec"
   dependencies:
     autoprefixer "^6.3.1"
     decamelize "^1.1.2"

@@ -2,7 +2,7 @@
 @import '../common/radio';
 
 // .iconfont
-// @import "../base/font/index";
+@import "../base/font/index";
 
 //复选框
 .checkbox{
@@ -14,7 +14,7 @@
 		@extend %ui-radio-un;
 		border-radius: 4px;
 		&::before {
-			// @extend .iconfont;
+			@extend .iconfont;
 			content: "\E60b";
 		    display: block;
 		    margin: 4px auto 0;

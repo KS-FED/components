@@ -13,10 +13,11 @@ var webpack_merge = require('webpack-merge')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var BrowserSync = require('browser-sync-webpack-plugin')
 var HtmlWebpackPlguin = require('html-webpack-plugin')
+var webpackConfig = require('../webpack.config')
+var _package = require('../package.json')
 
-module.exports = function (config,_package) {
-    var rl = readline.createInterface(process.stdin,process.stdout)
-    var append_config = {
+var rl = readline.createInterface(process.stdin,process.stdout)
+var config = webpack_merge.smart(webpackConfig,{
         watch: true,
         output: {
             chunkFilename: '[name].[chunkhash:8].js',
@@ -79,7 +80,8 @@ module.exports = function (config,_package) {
             //     }
             // })，
             // new HtmlWebpackPlguin({
-            //   inject: true
+            //   inject: true,
+            //   template:'../index.html'
             // })
             
         ],
@@ -92,22 +94,17 @@ module.exports = function (config,_package) {
         },
         devtool: process.env.NODE_ENV != 'pro' && 'source-map'
 
-      }
-    
-      config = webpack_merge.smart(config, append_config)
-
-      webpack(config, function (err, status) {
-        if (err) throw err
-        process.stdout.write(status.toString({
-          colors: true,
-          modules: false,
-          children: false,
-          chunks: false,
-          chunkModules: false
-        }) + '\n')
       })
 
-}
-
+ webpack(config, function (err, status) {
+    if (err) throw err
+    process.stdout.write(status.toString({
+      colors: true,
+      modules: false,
+      children: false,
+      chunks: false,
+      chunkModules: false
+    }) + '\n')
+  })
 
 

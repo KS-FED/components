@@ -3,30 +3,10 @@
  */
 var webpack = require('webpack')
 var CleanWebpackPlugin = require('clean-webpack-plugin')
-var _package = require('./package.json')
-var project = require('./build/project.js')
-var components = require('./build/components.js')
-var develop = require('./build/dev-server.js')
-
-console.log(process.env.NODE_ENV)
-switch(process.env.NODE_ENV){
-    case 'pro':
-        setTimeout(()=>project(config,_package,false))
-    break;
-    case 'project':
-        setTimeout(()=>project(config,_package,true))
-    break;
-    case 'component':
-        setTimeout(()=>components(config,_package))
-    break;
-    case 'develop':
-        console.log('develop')
-        setTimeout(()=>develop(config,_package))
-    break;
-}
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 
-var config = {
+module.exports =  {
     entry: {
         css: __dirname + '/dev/sass/app.scss',
         app: __dirname + '/dev/js/app.js',
@@ -87,6 +67,7 @@ var config = {
             verbose: true,
             dry: false
         }),
+        new ExtractTextPlugin('app.css'),
         new webpack.optimize.DedupePlugin()
     ]
 }
