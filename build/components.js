@@ -36,27 +36,6 @@ read_module_dir(components_path)
             // console.log(file_entry)
             var file_name = file_entry.file_name
             var modules = file_entry.modules
-            modules.forEach(function (module) {
-
-                  var pair = module.split(':')
-                  var name = pair[0].trim()
-                  var sub_path = pair[1].trim()
-
-                  var file_path = path.resolve(components_path , file_name, sub_path)
-                  // if(fs.statSync(file_path).isFile()) build(name,file_path,config)
-
-                if(fs.statSync(file_path).isFile()) {
-                    packages.push({
-                        name: name,
-                        filePath: file_path,
-                        config: config
-                    })
-                }
-
-            })
-        })
-
-      buildOnce(packages)
             modules.forEach(function(module) {
 
                 var pair = module.split(':')
@@ -74,65 +53,7 @@ read_module_dir(components_path)
 
 var count = 0
 
-function buildOnce (packages) {
-
-    // console.log(file_path)
-    var output_path = path.resolve(__dirname, '../dist/components/')
-    var append_config = {
-        entry:{},
-        output:{
-            path:output_path,
-            libraryTarget:'umd',
-            filename: 'index.js'
-            // library : converName(name)
-        },
-        vue: {
-            loaders: {
-                css: ExtractTextPlugin.extract('vue-style-loader', 'css-loader'),
-                scss: ExtractTextPlugin.extract('vue-style-loader','css-loader!ks-autobem-loader?type=css!sass-loader'),
-                sass: ExtractTextPlugin.extract('vue-style-loader','css-loader!ks-autobem-loader?type=css!sass-loader'),
-                html: 'vue-html-loader!ks-autobem-loader?type=html'
-            }
-        },
-        plugins: [
-            new webpack.optimize.UglifyJsPlugin({
-                compress: {
-                    warnings: false
-                }
-            }),
-            new webpack.optimize.OccurenceOrderPlugin(),
-            new ExtractTextPlugin('style.css')
-        ]
-    }
-    let config = webpack_merge.smart({}, append_config)
-    // config.entry[name] = [path.resolve(__dirname, file_path)]
-
-    packages.forEach(o => {
-        let name = o.name, filePath = o.filePath
-
-        config.entry[name] = path.resolve(__dirname, filePath)
-    })
-
-    var time_start = new Date().getTime()
-    // touch(config.output.path)
-    // return
-    webpack(config, function (err, stats) {
-        if (err) throw err
-
-        // console.log(path.resolve(output_path, './style.css'))
-        // return
-        read_file(path.resolve(output_path, './style.css'))
-            .then((data)=>{
-                return cssnano.process(data.toString(), {zindex: false})
-            }).then((result)=>{
-            fs.writeFileSync(path.resolve(output_path, './style.css'), result.css)
-            trace_progress(stats,name,count,time_start)
-        }).catch((e)=>{
-            // console.log('无样式...')
-            trace_progress(stats,name,count,time_start)
-        })
-
-    })
+// 调整配置、打包
 function build(name, file_path) {
     // console.log(file_path)
     var output_path = path.resolve(__dirname, '../dist/components/' + name.toLowerCase() + '/')
@@ -172,7 +93,7 @@ function build(name, file_path) {
         if (err) throw err
 
         // console.log(path.resolve(output_path, './style.css'))
-        // return
+        // return 
         ++count
         // console.log(count)
         read_file(path.resolve(output_path, './app.css'))
