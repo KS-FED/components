@@ -6,7 +6,7 @@
 
 export default {
   props: {
-    btnClassName: {type: String, rquired: true},
+    btnClassName: {type: String, required: true},
     disable: {type: Boolean, default: false},
     loading: {type: Boolean, twoWay: true},
     nativeType: {type: String, default: 'button'}

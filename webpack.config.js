@@ -5,7 +5,6 @@ var webpack = require('webpack')
 var CleanWebpackPlugin = require('clean-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-
 module.exports =  {
     entry: {
         css: __dirname + '/dev/sass/app.scss',
@@ -22,10 +21,10 @@ module.exports =  {
             // {test: /\.js$/, loader: "eslint", exclude: /node_modules/}
         ],
         loaders: [
-            {  
+            {
                 test: /\.scss$/,
-                loader: 'css-loader!sass-loader' 
-            }, 
+                loader: 'css-loader!sass-loader'
+            },
             {
                 test: /\.(tpl|html)$/,
                 loader: 'html'
