@@ -31,4 +31,5 @@
 </script>
 
 <style lang="scss">
+  @import '../../../../sass/components/icon-loading';
 </style>

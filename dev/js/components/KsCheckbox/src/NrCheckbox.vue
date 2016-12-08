@@ -47,4 +47,5 @@
 </script>
 
 <style lang="scss">
+  @import '../../../../sass/components/NrCheckbox';
 </style>

@@ -50,5 +50,8 @@
 </script>
 
 <style lang="scss">
+  @import '../../../../sass/components/checkbox';
+
+
   .ks-checkbox-group { font-size: 0 }
 </style>
