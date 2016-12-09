@@ -110,4 +110,7 @@
 </script>
 
 <style lang="scss">
+  @import "../../../../sass/common/dialog";
+  @import '../../../../sass/components/dialog-content';
+  @import '../../../../sass/components/dialog-icon';
 </style>
