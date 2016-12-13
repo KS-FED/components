@@ -103,6 +103,7 @@ function build(name, file_path) {
                 })
             }).then((result) => {
                 fs.writeFileSync(path.resolve(output_path, './style.css'), result.css)
+                fs.unlinkSync(path.resolve(output_path, './app.css'))
                 trace_progress(stats, name, count, time_start)
             }).catch((e) => {
                 // console.log('无样式...')
