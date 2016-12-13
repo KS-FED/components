@@ -19,9 +19,9 @@
     },
 
     props: {
-      fillModel: { type: String, default: 'full' },
+      fillMode: { type: String, default: 'full' },
       show: { type: Boolean, default: true, twoWay: true },
-      backgroundColor: { type: String, default: '#000' }
+      backgroundColor: { type: String, default: 'rgba(0, 0, 0, .3)' }
     },
 
     computed: {
@@ -31,7 +31,7 @@
       maskStyle () {
         return `background: ${ this.backgroundColor };
         z-index: ${ ++this.zIndex };
-        position: ${ this.fillModel === 'full' ? 'fixed' : 'absolute' }`
+        position: ${ this.fillMode === 'full' ? 'fixed' : 'absolute' }`
       }
     }
   }
@@ -44,7 +44,6 @@
   @include b(KSMask) {
     @include e(container) {
       top: 0; right: 0; bottom: 0; left: 0;
-      opacity: .3;
     }
   }
 </style>

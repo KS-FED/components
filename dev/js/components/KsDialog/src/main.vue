@@ -108,6 +108,3 @@
     components: { KsButton, KsMask }
   }
 </script>
-
-<style lang="scss">
-</style>
