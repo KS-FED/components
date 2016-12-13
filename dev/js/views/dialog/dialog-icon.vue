@@ -13,7 +13,7 @@
     </div>
 
 		<!-- 红色icon弹出框 -->
-		<div class="KsDialogIcon-danger" cid="KsDialogIcon-danger">
+		<div class="KsDialogIcon-danger" cid="KsDialogIcon">
 			<div class="_icon-bor"><i class="icon">&#xe60d;</i></div>
 			<div class="_title">
 				<h2>标题</h2>
@@ -27,7 +27,7 @@
 			</div>
 		</div>
 		<!-- 青色icon弹出框 -->
-		<div class="KsDialogIcon-info" cid="KsDialogIcon-info">
+		<div class="KsDialogIcon-info" cid="KsDialogIcon">
 			<div class="_icon-bor"><i class="icon">&#xe61b;</i></div>
 			<div class="_title">
 				<h2>标题</h2>
@@ -40,7 +40,7 @@
 				<button class="btn-info">确定</button>
 			</div>
 		</div>
-		<div class="KsDialogIcon-success" cid="KsDialogIcon-success">
+		<div class="KsDialogIcon-success" cid="KsDialogIcon">
 			<div class="_icon-bor"><i class="icon">&#xe60b;</i></div>
 			<div class="_title">
 				<h2>标题</h2>
@@ -54,7 +54,7 @@
 			</div>
 		</div>
 		<!-- 橙色icon弹出框 -->
-		<div class="KsDialogIcon-warning" cid="KsDialogIcon-warning">
+		<div class="KsDialogIcon-warning" cid="KsDialogIcon">
 			<div class="_icon-bor"><i class="icon">&#xe60d;</i></div>
 			<div class="_title">
 				<h2>标题</h2>

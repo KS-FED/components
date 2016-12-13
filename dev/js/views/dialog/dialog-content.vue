@@ -29,7 +29,7 @@
     </div>
 
 		<!-- 内容弹出框 -->
-		<div class="KsDialogBg-default" cid="KsDialogBg-default">
+		<div class="KsDialogBg-default" cid="KsDialogBg">
 			<div class="_title">
 				<h2>标题</h2>
 				<div class="_close"><i class="icon">&#xe611;</i></div>
@@ -43,7 +43,7 @@
 			</div>
 		</div>
 		<!-- 红色弹出框 -->
-		<div class="KsDialogBg-danger" cid="KsDialogBg-danger">
+		<div class="KsDialogBg-danger" cid="KsDialogBg">
 			<div class="_title">
 				<h2>标题</h2>
 				<div class="_close"><i class="icon">&#xe611;</i></div>
@@ -57,7 +57,7 @@
 			</div>
 		</div>
 		<!-- 蓝色弹出框 -->
-		<div class="KsDialogBg-primary" cid="KsDialogBg-primary">
+		<div class="KsDialogBg-primary" cid="KsDialogBg">
 			<div class="_title">
 				<h2>标题</h2>
 				<div class="_close"><i class="icon">&#xe611;</i></div>
@@ -71,7 +71,7 @@
 			</div>
 		</div>
 		<!-- 绿色弹出框 -->
-		<div class="KsDialogBg-success" cid="KsDialogBg-success">
+		<div class="KsDialogBg-success" cid="KsDialogBg">
 			<div class="_title">
 				<h2>标题</h2>
 				<div class="_close"><i class="icon">&#xe611;</i></div>
@@ -85,7 +85,7 @@
 			</div>
 		</div>
 		<!-- 橙色弹出框 -->
-		<div class="KsDialogBg-warning" cid="KsDialogBg-warning">
+		<div class="KsDialogBg-warning" cid="KsDialogBg">
 			<div class="_title">
 				<h2>标题</h2>
 				<div class="_close"><i class="icon">&#xe611;</i></div>

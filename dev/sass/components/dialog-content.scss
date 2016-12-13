@@ -5,7 +5,7 @@
 %dialog-txt{
 	@extend %dialog;
 	width: 500px;
-	_title{
+	.KsDialogBg-title{
     	padding: 20px 20px 0;
     	position: relative;
     	h2{ padding-bottom: 20px; }
@@ -21,15 +21,15 @@
 		    i{ font-size: 12px; }
     	}
     }
-    _content{ padding: 20px; }
-	_operation{
+    .KsDialogBg-content{ padding: 20px; }
+	.KsDialogBg-operation{
     	text-align: right;
     	padding: 20px;
     }
 }
 %dialog-bg{
 	@extend %dialog-txt;
-	_title{
+	.KsDialogBg-title{
 		background: #f44336;
 		h2,i{ color: #fff; }
 	}
@@ -38,7 +38,7 @@
 /* 默认 */
 .KsDialogBg-default{
 	@extend %dialog-txt;
-	_title{
+	.KsDialogBg-title{
 		h2{ border-bottom: 1px solid #e0e0e0; }
 		_close{
 		    &:hover{
@@ -56,6 +56,6 @@ $dialog-bg:(danger,#f44336),(primary,#2196f3),(success,#4caf50),(warning,#ff5722
 @each $type, $background in $dialog-bg{
 	.KsDialogBg-#{$type}{
 		@extend %dialog-bg;
-		_title{ background: $background; }
+		.KsDialogBg-title{ background: $background; }
 	}
 } 

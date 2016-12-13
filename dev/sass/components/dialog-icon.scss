@@ -7,13 +7,13 @@
 	width: 420px;
 	padding-top: 20px;
 	
-	_title h2 {
+	.KsDialogIcon-title h2 {
 		font-size: 18px; 
 		margin-bottom: 10px; 
 	}
-	_title,_content,_operation{ text-align: center; }
-	_operation { padding: 20px 0; }
-	_icon-bor {
+	.KsDialogIcon-title,.KsDialogIcon-content,.KsDialogIcon-operation{ text-align: center; }
+	.KsDialogIcon-operation { padding: 20px 0; }
+	.KsDialogIcon-icon-bor {
 		line-height: 105px;
 		padding: 20px;
 	    border: 5px solid;
@@ -30,7 +30,7 @@ $dialog-icon: (success,#dbefdc,#4caf50),(danger,#f44336,#f44336),(info,#00BCD4,#
 @each $type, $border, $color in $dialog-icon{
 	.KsDialogIcon-#{$type}{
 		@extend %dialog-icon;
-		_icon-bor {
+		.KsDialogIcon-icon-bor {
 			border-color: $border;
 			i{ color: $color; }
 		}
