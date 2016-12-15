@@ -1,0 +1,61 @@
+// %dialog
+@import '../common/dialog';
+
+// 内容彈框
+%dialog-txt{
+	@extend %dialog;
+	width: 500px;
+	.KsDialogBg-title{
+    	padding: 20px 20px 0;
+    	position: relative;
+    	h2{ padding-bottom: 20px; }
+    	_close{
+    		cursor: pointer;
+    		position: absolute;
+    		right: 20px;
+    		top: 35px;
+    		display: inline-block;
+		    width: 20px;
+		    line-height: 20px;
+		    text-align: center;
+		    i{ font-size: 12px; }
+    	}
+    }
+    .KsDialogBg-content{ padding: 20px; }
+	.KsDialogBg-operation{
+    	text-align: right;
+    	padding: 20px;
+    }
+}
+%dialog-bg{
+	@extend %dialog-txt;
+	.KsDialogBg-title{
+		background: #f44336;
+		h2,i{ color: #fff; }
+	}
+}
+
+/* 默认 */
+.KsDialogBg-default{
+	@extend %dialog-txt;
+	.KsDialogBg-title{
+		h2{ border-bottom: 1px solid #e0e0e0; }
+		_close{
+		    &:hover{
+		    	background: #f44336;
+		    	border-radius: 50%;
+		    	padding: 3px;
+		    	i{ color: #fff; }
+		    }
+		    &:active{ background: #e53935; }
+		}
+	}
+}
+/* 红色 */ /* 蓝色 */ /* 绿色 */ /* 橙色 */
+$dialog-bg:(danger,#f44336),(primary,#2196f3),(success,#4caf50),(warning,#ff5722);
+@each $type, $background in $dialog-bg{
+	.KsDialogBg-#{$type}{
+		@extend %dialog-bg;
+		.KsDialogBg-title{ background: $background; }
+	}
+} 

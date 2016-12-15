@@ -1,0 +1,19 @@
+// %KsPopoverTop
+@import '../common/ks-popover-top';
+
+.KsPopoverEnter {
+	@extend %KsPopoverTop;
+	display: inline-block;
+	_input {
+		@extend %ks-row-auto;
+		padding-top: 10px;
+		input{ width: 100%; }
+		button{
+			height: 36px;
+    		box-sizing: border-box;
+    		i{ font-size: 12px; }
+		}
+	}
+	.btn-primary { margin: 0 10px; }
+	p{ color: #c8c8c8; }
+}

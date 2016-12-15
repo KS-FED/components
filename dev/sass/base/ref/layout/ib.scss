@@ -1,0 +1,37 @@
+
+// pure-g ib 
+%inline-block-warp {
+  letter-spacing: -0.31em;
+  // *letter-spacing: normal;
+  word-spacing: -0.43em;
+  text-rendering: optimizespeed;
+  font-family: #{$base-font-family};
+  // font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
+  display: -webkit-flex;
+  -webkit-flex-flow: row wrap;
+  display: -ms-flexbox;
+  -ms-flex-flow: row wrap;
+  -ms-align-content: flex-start;
+  -webkit-align-content: flex-start;
+  align-content: flex-start;
+}
+
+// pure-u
+%inline-block {
+  display: inline-block;
+  // display: inline;  IE < 8: fake inline-block 
+  zoom: 1;
+  letter-spacing: normal;
+  word-spacing: normal;
+  vertical-align: top;
+  text-rendering: auto;
+  box-sizing:border-box;
+}
+
+%ib-w {
+    @extend %inline-block-warp;
+}
+    
+%ib {
+    @extend %inline-block;
+}

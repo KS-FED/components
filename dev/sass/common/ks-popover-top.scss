@@ -1,0 +1,14 @@
+// top箭头提示框
+%KsPopoverTop {
+	@extend %popover; 
+    margin-bottom: 10px;
+	span{
+		@extend %popover-top-bottom-span;
+	    border-top: 10px solid $bor-color;
+    	bottom: -20px;
+    	&::after{
+		    border-top: 10px solid #fff;
+		    top: -12px;
+    	}
+	}
+}

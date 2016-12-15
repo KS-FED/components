@@ -1,0 +1,184 @@
+
+@import '../base/ref/index';
+/* 颜色  primary danger info warning dark gray */
+@import '../base/creater/create-color';  
+/* h1 ~ h6 字体大小 */
+@import '../base/creater/create-font';
+
+%user-select-none {
+    @include vendor(user-select,none)
+}
+%touch-action-manipulation {
+    @include vendor(touch-action,manipulation)
+}       
+.btn {
+    
+    @extend %user-select-none;
+    @extend %touch-action-manipulation;
+	display: inline-block;
+    zoom: 1;
+    line-height: normal;
+    white-space: nowrap;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-drag: none;
+    box-sizing: content-box;
+	width: auto;
+    border:0;
+    *border: 0 none;
+    outline: none;
+}
+
+%btn-disabled {
+    opacity: .3;
+    cursor: not-allowed;
+}
+
+%btn-group{
+    @extend .btn;
+    &.disabled {
+        @extend %btn-disabled;
+    }
+    &[disabled]{
+        @extend %btn-disabled;
+    }  
+}
+%btn-group-content{
+    min-width: 52px;
+    font-size:$base-font-size; 
+    padding:0px 18px;
+    color:#fff;
+    background:none;
+    display: inline-block;
+    text-align: center;
+    border-left-color:transparent;
+} 
+%btn-role{
+    @extend %btn-group;
+    min-width: 52px;
+    padding: 10px 18px;
+    margin-bottom: 0;
+    border-radius: 3px;
+   
+}
+%base {
+    @extend %btn-role;
+    font-size:$base-font-size;
+}
+%base-xl {
+    @extend %btn-role;
+    font-size:$base-font-size+3px;
+    padding: 10px 27px;
+}
+%base-xxl {
+    @extend %btn-role;
+    font-size:$base-font-size+5px;
+    padding: 14px 43px;
+}
+%btn-base {
+    @extend %base;
+}
+%btn-base-xl {
+    @extend %base-xl;    
+}
+%btn-base-xxl {
+    @extend %base-xxl;    
+}
+
+%btn-plain-role{
+    background: transparent;
+    border-width: 1px;
+    border-style: solid;
+}
+%btn-plain-base {
+    @extend %base;
+    @extend %btn-plain-role;
+}
+%btn-plain-base-xl {
+    @extend %base-xl;
+    @extend %btn-plain-role;
+}
+%btn-plain-base-xxl {
+    @extend %base-xxl;
+    @extend %btn-plain-role;
+}
+
+// 生成单个button
+@mixin create_btn ($role,$key,$plain){
+
+    @if $plain {
+        // 浅色的
+        .#{$role}-plain-#{$key}-light{
+            @extend %btn-plain-base;
+            @extend .#{$key}-light;
+        }
+        // 深色的
+        .#{$role}-plain-#{$key}-deep {
+            @extend %btn-plain-base;
+            @extend .#{$key}-deep;
+        }
+
+        @each $size in "","-xl","-xxl"{
+            .#{$role}-plain-#{$key}#{$size}{
+                @extend %btn-plain-base#{$size};
+                @extend .#{$key};
+                &:hover {
+                    // border-color:yellow;
+                    @extend .#{$key}-light;   
+                }
+                &:active {
+                    @extend .#{$key}-deep;
+                    background: #f5f5f5;
+                }
+                
+            }
+        }
+    }@else {
+
+        // 浅色的
+        .#{$role}-#{$key}-light{
+            @extend %btn-base;
+            @extend .bg-#{$key}-light;
+        }
+        // 深色的
+        .#{$role}-#{$key}-deep {
+            @extend %btn-base;
+            @extend .bg-#{$key}-deep;
+        }
+        
+        @each $size in "","-xl","-xxl"{
+            .#{$role}-#{$key}#{$size}{
+                @extend %btn-base#{$size};
+                @extend .bg-#{$key};
+                &:hover {
+                    @extend .bg-#{$key}-light;   
+                }
+                &:active {
+                    @extend .bg-#{$key}-deep;   
+                }   
+            }
+        }
+    }
+}
+
+// 批量生成button
+@mixin create_btns (){
+    @each $key , $vals in $colors {
+        @include create_btn(btn,$key,false);
+        @include create_btn(btn,$key,true);
+    }
+}
+@include create_btns();
+
+.btn-gray{
+    color: #444;
+    border: 1px solid $bor-color;
+    &:hover {
+        color: #444;
+        background-color: #fff;  
+    }
+    &:active {
+        color: #444;
+        background-color: #f5f5f5; 
+    } 
+}

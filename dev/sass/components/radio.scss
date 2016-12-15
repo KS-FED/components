@@ -1,0 +1,39 @@
+// %clip-hidden  // %ui-radio-un  // %ui-checked  // %ui-disabled
+@import '../common/radio';
+
+//单选框
+.KsRadio{
+	input[type=radio] {
+		@extend %clip-hidden;
+	}
+
+	.ui-radio {
+		@extend %ui-radio-un;
+		border-radius: 20px;
+		&::before {
+			border-radius: 10px;
+			content: '';
+			display: block;
+			width: 10px;
+			height: 10px;
+			margin: 4px auto 0;
+			background-color: #2196f3;
+			visibility: hidden;
+		}
+	}
+
+	:checked + .ui-radio{
+		border-color: #2196f3;
+		border-width: 2px;
+	}
+
+	:checked + .ui-radio::before {
+		@extend %ui-checked;
+		border-color: #2196f3;
+		margin: 3px auto 0;
+	}
+
+	:disabled + .ui-radio,.ui-radio.disabled {
+		@extend %ui-disabled;
+	}
+}

@@ -1,0 +1,74 @@
+
+%form-layout{
+	margin-bottom: 30px;
+	.label{
+	    padding-right: 20px;
+	    font-weight: bold;
+	    line-height: 34px;
+	}
+	input{ width: 100%; }
+}
+.form-box-center{
+	min-width: 430px;
+    max-width: 680px;
+    margin: auto;
+	.form-ver,.form-group{ @extend %form-layout; }
+	.form-group{
+		@extend %ks-row;
+		.label{
+			@extend %ks-col;
+			width: 100px;
+		    text-align: right;
+		    vertical-align: top;
+		    // 必填样式
+		    .sup-red{
+		    	color: red;
+		    	padding-right: 5px;
+		    }
+		}
+		.txt,.desc{
+			line-height: 24px;
+			color: #c8c8c8;
+		}
+		.txt{ position: absolute; }
+		.desc{ padding-left: 10px; }
+		.static{ line-height: 34px; }
+		.way-negative{ margin-right: -75px; }
+
+		// 带图标的表单
+		.icon-input{
+			position: relative;
+			i{
+				position: absolute;
+			    left: 10px;
+			    top: 9px;
+			    color: #999;
+			}
+			input{ padding-left: 34px; }
+		}
+		
+	}
+
+	// 表单提示语
+	.has-error,.has-success,.has-warning{
+		.txt{
+			color: #F44336;
+			i{
+				padding-right: 10px;
+				line-height: 24px;
+			}
+		}
+	}
+	.has-error{
+		input{ border-color: #F44336; }
+		.txt{ color: #F44336; }	
+	}
+	.has-success{
+		input{ border-color: #4CAF50; }
+		.txt{ color: #4CAF50; }	
+	}
+	.has-warning{
+		input{ border-color: #FF5722; }
+		.txt{ color: #FF5722; }	
+	}
+}

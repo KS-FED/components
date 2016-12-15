@@ -1,0 +1,18 @@
+%dialog{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 999;
+    background: #fff;
+    box-shadow: 0 0px 7px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    .content,.operation{
+        padding: 20px;
+    }
+    .operation{
+        .btn-plain-dark{
+            margin-right: 10px;
+        }
+    }
+}

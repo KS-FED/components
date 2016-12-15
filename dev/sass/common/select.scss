@@ -1,0 +1,47 @@
+// 选中样式
+%select-active{
+	background: #2196f3;
+	color: #fff;
+}
+
+// 边框样式
+%select-bor{
+	border: 1px solid $bor-color;
+	border-radius: 3px;
+}
+
+// 带图标的输入框
+%select-hd{
+	@extend %ks-row-auto;
+	@extend %select-lh;
+	@extend %select-bor;
+	cursor: pointer;
+	font-size: 13px;
+}
+
+// 下拉列表样式
+%select-bd{
+	@extend %select-bor;
+	margin-top: -1px;
+	position: absolute;
+	background: #fff;
+	font-size: 13px;
+
+	_list {
+		max-height: 204px;
+		overflow-y: auto;
+		
+		li {
+			@extend %select-lh;
+			cursor: pointer;
+			&:hover{
+				background: #f5f5f5;
+			}
+			&.active,&.active:hover {
+				@extend %select-active;
+			}
+		}
+		
+	}
+}
+

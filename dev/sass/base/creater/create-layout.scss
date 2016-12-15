@@ -1,0 +1,30 @@
+.ks-row-auto{
+    @extend %ks-row-auto;
+}
+.ks-col-auto{
+    @extend %ks-col-auto;
+}
+.ks-row{
+    @extend %ks-row;
+}
+.ks-col{
+    @extend %ks-col;
+}
+
+.tb {
+    @extend %ks-row;
+}
+.tb-cell {
+    @extend %tb-cell;
+}
+
+.ib-w ,.ib-w.ib{
+    @extend %inline-block-warp;
+}
+.ib {
+    @extend %inline-block;
+}
+
+// .flex {
+//  @extend %flex;
+// }

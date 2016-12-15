@@ -1,0 +1,84 @@
+// %tooltip : 箭头提示框的公共样式  在tooltip.scss 中
+@import '../common/tooltip';
+// %KsPopoverTop
+@import '../common/ks-popover-top';
+
+
+// %popover ：边框箭头提示框的公共样式
+%popover{
+	@extend %tooltip;
+	background: #fff;
+    border: 1px solid $bor-color;
+    color: #444;
+    padding: 10px 20px;
+    max-width: 300px;
+    h2{ font-size: 18px; }
+    span::after{
+		content: " ";
+	    position: absolute;
+	    border: 10px solid transparent;
+    }
+}
+// 上下方向箭头定位
+%popover-top-bottom-span{
+	transform: translate(-50%);
+	left: 50%;
+	&::after{ left: -10px; }
+}
+// 左右方向箭头定位
+%popover-left-right-span {
+	transform: translate(0,-50%);
+    top: 50%;
+	&::after{
+	    transform: translate(0,-50%);
+	    top: 50%;
+	}
+}
+
+// bottom箭头提示框
+%KsPopoverBottom {
+	@extend %popover; 
+    margin-top: 10px;
+	span{
+		@extend %popover-top-bottom-span;
+	    border-bottom: 10px solid $bor-color;
+    	top: -20px;
+    	&::after{
+		    border-bottom: 10px solid #fff;
+		    top: -8px;
+    	}
+	}
+}
+// left箭头提示框
+%KsPopoverLeft {
+	@extend %popover; 
+    margin-right: 10px;
+	span{
+		@extend %popover-left-right-span; 
+	    border-left: 10px solid $bor-color;
+	    right: -20px;
+    	&::after{
+		    border-left: 10px solid #fff;
+		    right: -8px;
+    	}
+	}
+}
+// right箭头提示框
+%KsPopoverRight {
+	@extend %popover; 
+    margin-left: 10px;
+	span{
+		@extend %popover-left-right-span; 
+	    border-right: 10px solid $bor-color;
+	    left: -20px;
+    	&::after{
+		    border-right: 10px solid #fff;
+		    left: -8px;
+    	}
+	}
+}
+
+.KsPopoverTop { @extend %KsPopoverTop; }
+.KsPopoverBottom { @extend %KsPopoverBottom; }
+.KsPopoverLeft { @extend %KsPopoverLeft; }
+.KsPopoverRight { @extend %KsPopoverRight; }

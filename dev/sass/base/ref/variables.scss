@@ -1,0 +1,58 @@
+$base-font-size:13px;
+$base-line-height:1.7;
+$base-font-family:PingFangSC-Regular, microsoft yahei , Arial , sans-serif;
+$base-color:#444;
+$base-disable-color:#C8C8C8;
+
+// h1 ~ h6 字体大小 
+$font-sizes:(1:30px, 2:24px, 3:18px, 4:16px, 5:14px, 6:12px);
+
+// 颜色  primary danger info warning dark gray
+$primarys:	#1E88E5 #2196F3 #42A5F5;
+$successes:	#43A047 #4CAF50 #66BB6A;
+$infos:		#00ACC1 #00BCD4 #26C6DA;
+$dangers:	#E53935 #F44336 #EF5350;
+$warnings:	#F4511E #FF5722 #FF7043;
+$darks:		#444444 #777777 #999999 #C8C8C8;
+$grays:		#E9E9E9 #F5F5F5 #FCFCFC;
+
+$colors:(primary:$primarys,success:$successes,info:$infos,danger:$dangers,warning:$warnings,dark:$darks,gray:$grays);
+
+$bor-color: #c8c8c8;
+
+
+
+
+
+
+// 成功色（绿）：
+// success600（#43A047）——btnSuccessActiveBg
+// success500（#4CAF50）——btnSuccessBg
+// success400（#66BB6A）——btnSuccessHoverBg
+
+// 信息色（青）：
+// info600（#00ACC1 ）——btnInfoActiveBg
+// info500（#00BCD4 ）——btnInfoBg
+// info400（#26C6DA ）——btnInfoHoverBg
+
+// 微信色（红）：
+// danger700（#E53935 ）——btnDangerActiveBg
+// danger500（#F44336 ）——btnDangerBg
+// danger400（#EF5350 ）——btnDangerHoverBg
+
+// 警告色（橙红）：
+// warning600（#F4511E ）——btnWarningActiveBg
+// warning500（#FF5722 ）——btnWarningBg
+// warning400（#FF7043 ）——btnWarningHoverBg
+
+
+// 文字色（灰）：
+// grey800（#444444 ）
+// grey500（#777777 ）
+// grey300（#999999 ）
+// grey（#C8C8C8 ）
+
+// 背景色（灰）：
+// （#E9E9E9 ）
+// （#F5F5F5 ）
+// （#FCFCFC ）

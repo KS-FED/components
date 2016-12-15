@@ -1,0 +1,25 @@
+%desc {
+	font-size: $base-font-size;
+}
+
+.desc {
+	@extend %desc;
+}
+// 带图标的提示
+
+.icon-msg {
+	color:nth($darks,3);
+	.icon {
+		padding-right: 6px;
+	}
+	.desc {
+		// color:nth($darks,3);
+	}	
+}
+.msg-desc{
+	@extend %desc;
+	color:nth($darks,3);
+}
+%icon-verify-msg {
+
+}

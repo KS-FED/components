@@ -1,0 +1,38 @@
+/* 图标弹框 */
+// %dialog ：弹框公共样式
+@import '../common/dialog';
+// %dialog-icon：图标弹框公共样式
+%dialog-icon {
+	@extend %dialog;
+	width: 420px;
+	padding-top: 20px;
+	
+	.KsDialogIcon-title h2 {
+		font-size: 18px; 
+		margin-bottom: 10px; 
+	}
+	.KsDialogIcon-title,.KsDialogIcon-content,.KsDialogIcon-operation{ text-align: center; }
+	.KsDialogIcon-operation { padding: 20px 0; }
+	.KsDialogIcon-icon-bor {
+		line-height: 105px;
+		padding: 20px;
+	    border: 5px solid;
+	    width: 80px;
+	    text-align: center;
+	    border-radius: 50%;
+	    margin: 20px auto;
+	    height: 80px;
+	    i{ font-size: 50px; }
+	}
+}
+// icon绿色 // icon红色 // icon青色 // icon橙色
+$dialog-icon: (success,#dbefdc,#4caf50),(danger,#f44336,#f44336),(info,#00BCD4,#00BCD4),(warning,#ff5722,#ff5722);
+@each $type, $border, $color in $dialog-icon{
+	.KsDialogIcon-#{$type}{
+		@extend %dialog-icon;
+		.KsDialogIcon-icon-bor {
+			border-color: $border;
+			i{ color: $color; }
+		}
+	}
+}

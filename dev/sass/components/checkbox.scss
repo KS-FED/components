@@ -1,0 +1,41 @@
+// %clip-hidden  // %ui-radio-un  // %ui-checked  // %ui-disabled
+@import '../common/radio';
+
+// .iconfont
+@import "../base/font/index";
+
+//复选框
+.checkbox{
+	input[type=checkbox] {
+		@extend %clip-hidden;
+	}
+
+	.ui-checkbox {
+		@extend %ui-radio-un;
+		border-radius: 4px;
+		&::before {
+			@extend .iconfont;
+			content: "\E60b";
+		    display: block;
+		    margin: 4px auto 0;
+		    visibility: hidden;
+		    color: #fff;
+		    text-align: center;
+		    line-height: 14px;
+		    font-size: 12px;
+		}
+	}
+
+	:checked + .ui-checkbox::before {
+		@extend %ui-checked;
+	}
+
+	:checked + .ui-checkbox {
+		background: #2196f3;
+		border:transparent;
+	}
+
+	:disabled + .ui-checkbox,.ui-checkbox.disabled {
+		@extend %ui-disabled;
+	}
+}

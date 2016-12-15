@@ -1,0 +1,48 @@
+/* 颜色  primary danger info warning dark gray */
+
+@mixin create_color ($type){
+	@each $key , $vals in $colors {
+		@if $type == color {
+			
+			.#{$key} {
+				#{$type}:nth($vals,2);
+				border-color:nth($vals,2);
+			}
+			.#{$key}-light {
+				#{$type}:nth($vals,3);
+				border-color:nth($vals,3);
+			}
+			.#{$key}-deep {
+				#{$type}:nth($vals,1);
+				border-color:nth($vals,1);
+			}
+			
+		}@else{
+
+			.bg-#{$key} {
+				#{$type}:nth($vals,2);
+				color:#fff;
+			}
+			.bg-#{$key}-light {
+				#{$type}:nth($vals,3);
+				color:#fff;
+			}
+			.bg-#{$key}-deep {
+				#{$type}:nth($vals,1);
+				color:#fff;
+			}
+		}
+		
+
+		// %#{$key}-deep:nth($vals,1);
+
+
+	}
+}
+@include create_color(color);
+@include create_color(background);
+
+
+
+
+

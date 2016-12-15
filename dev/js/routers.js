@@ -9,6 +9,17 @@ export default function (Vue,router){
         },
         subRoutes:{
 
+            // validation
+            '/validation':{
+                name:'validation',
+                title:'validation',
+                component: function(resolve){
+                    require(['./views/validation/validation.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
             // 会员主页
             '/home':{
                 name:'home',
@@ -20,12 +31,34 @@ export default function (Vue,router){
                 }
             },
 
+            // 布局
+            '/layout':{
+                name:'layout',
+                title:'布局',
+                component: function(resolve){
+                    require(['./views/layout/layout.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
             // 按钮
             '/button':{
                 name:'button',
                 title:'按钮',
                 component: function(resolve){
                     require(['./views/button/button.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
+            // 图标按钮
+            '/icon-button':{
+                name:'icon-button',
+                title:'图标按钮',
+                component: function(resolve){
+                    require(['./views/button/icon-button.vue'], (res)=> {
                         resolve(res)
                     })
                 }
@@ -154,15 +187,126 @@ export default function (Vue,router){
             },
 
             // 步骤
-            // '/step':{
-            //     name:'step',
-            //     title:'步骤',
+            '/step':{
+                name:'step',
+                title:'步骤',
+                component: function(resolve){
+                    require(['./views/step/step.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
+            // 下拉
+            '/select':{
+                name:'select',
+                title:'下拉',
+                component: function(resolve){
+                    require(['./views/select/select.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
+            // 搜索框
+            '/search':{
+                name:'search',
+                title:'搜索框',
+                component: function(resolve){
+                    require(['./views/search/search.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
+            // 时间
+            '/time':{
+                name:'time',
+                title:'时间',
+                component: function(resolve){
+                    require(['./views/time/time.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
+            // 文字提示
+            '/tooltip':{
+                name:'tooltip',
+                title:'文字提示',
+                component: function(resolve){
+                    require(['./views/tooltip/tooltip.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
+            // 弹出框
+            '/popover':{
+                name:'popover',
+                title:'弹出框',
+                component: function(resolve){
+                    require(['./views/popover/popover.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
+            // 弹出框-输入
+            '/popover-enter':{
+                name:'popover-enter',
+                title:'弹出框-输入',
+                component: function(resolve){
+                    require(['./views/popover/popover-enter.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
+            // 表单排版
+            '/form-layout':{
+                name:'form-layout',
+                title:'表单排版',
+                component: function(resolve){
+                    require(['./views/form/form-layout.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
+            // 加载图标
+            '/icon-loading':{
+                name:'icon-loading',
+                title:'加载图标',
+                component: function(resolve){
+                    require(['./views/icon/icon-loading.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
+            // 编辑图片
+            // '/img-edit':{
+            //     name:'img-edit',
+            //     title:'编辑图片',
             //     component: function(resolve){
-            //         require(['./views/step/step.vue'], (res)=> {
+            //         require(['./views/img-edit/img-edit.vue'], (res)=> {
             //             resolve(res)
             //         })
             //     }
             // },
+
+            // 省市区三级联动
+            '/city-select':{
+                name:'city-select',
+                title:'省市区三级联动',
+                component: function(resolve){
+                    require(['./views/cityselect/city-select.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
 
         }
     }
@@ -176,17 +320,18 @@ export default function (Vue,router){
         }
         transition.next()
     })
-    
+
     router.afterEach(transition =>{
         setTimeout(()=>{
-            
+
             Array.prototype.slice.call(document.querySelectorAll('pre code')).forEach(val=>{
                 if(val.className === 'html'){
+                    // console.log(val.innerHTML)
                     val.innerHTML = val.innerHTML.replace(/</g,'&lt;').replace(/>/g,'&gt;')
                 }
                 hljs.highlightBlock(val)
             })
         })
-        
+
     })
 }

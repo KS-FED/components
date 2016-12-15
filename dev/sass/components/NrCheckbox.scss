@@ -1,0 +1,54 @@
+@import '../base/ref/index';
+// @description 一个复选框样式
+// @summary 我只是一个单纯的复选框
+// @author pkeros
+// @date 2016/10/11
+
+
+$primary-color: nth($infos, 2);                                 // 主色调
+$skin-size: 18px;                                               // 选择框大小
+
+.KSNRCheckbox {
+  position: relative;
+  display: inline-block; padding: 2px 3px;
+  vertical-align: middle; font-size: 14px;
+
+  _entity {
+    display: none;
+
+    // checked 下的选择框样式
+    &:checked + .KSNRCheckbox-skin > .KSNRCheckbox-skin-cube {
+      opacity: 1;
+    }
+    // checked 禁用样式
+    &[disabled] + .KSNRCheckbox-skin {
+      cursor: not-allowed;
+      background: rgba(77, 77, 77, .1)
+    }
+    &[disabled] + .KSNRCheckbox-skin > .KSNRCheckbox-skin-cube {
+      opacity: .6;
+    }
+  }
+
+  _text {
+    user-select: none; cursor: pointer;
+  }
+
+  _skin {
+    display: inline-block;
+    border: 1px solid #D0D0D5; border-radius: 3px;
+    width: $skin-size; height: $skin-size;
+    text-align: center; line-height: $skin-size;
+    cursor: pointer;
+
+    // 选择点的样式
+    _cube {
+      display: inline-block;
+      height: $skin-size / 1.8; width: $skin-size / 1.8;
+      border-radius: 3px;
+      background-color: $primary-color;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+  }
+}

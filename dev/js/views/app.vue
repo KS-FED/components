@@ -1,5 +1,11 @@
 <template>
-    <div>
+    <div class="a" cid='app'>
+        <div class="_aa _ff">
+            <input type="checkbox" checked="{check('id')}"> 
+            <div class="_ee">
+                eee
+            </div>
+        </div>
         主路由
         <router-view ></router-view>
     </div>
@@ -13,3 +19,6 @@
         }
     }
 </script>
+<style lang="scss">
+  /*@import "../../sass/app";*/
+</style>

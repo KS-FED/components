@@ -1,0 +1,32 @@
+// %select-bor // %select-hd：带图标的输入框 // %select-bd：下拉列表样式 
+@import '../common/select';
+
+// 行高边距
+%select-lh{
+	height: 34px;
+	line-height: 34px;
+	padding: 0 10px;
+}
+
+.KsSelect {
+	display: inline-block;
+	font-size: 0;
+	_hd { @extend %select-hd; }
+	_bd {
+		@extend %select-bd;
+		// 搜索框
+		_search {
+		    margin: 10px;
+		    _input {
+		    	@extend %select-bor;
+		    	@extend %select-lh;
+		    	input{
+		    		@extend %ks-col;
+		    		@extend %select-lh;
+		    		outline: 0;
+		    		border:0;
+		    	}
+		    }
+		}
+	}	
+}

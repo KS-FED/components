@@ -1,0 +1,13 @@
+// tb tb-cell table table-cell
+%tb {
+    display: table;
+    table-layout: fixed;
+    border-spacing: 0;
+    // border-collapse: separate;
+    // border-spacing: 15px;
+}
+%tb-cell {
+    display: table-cell;
+    vertical-align: middle;
+    word-break: break-all;
+}

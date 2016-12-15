@@ -1,0 +1,71 @@
+@import '../base/ref/index';
+
+//%icon-input：带图标的输入框 在date.scss中
+@import '../common/icon-input';
+
+.KsCitySelect {
+	_input {
+		@extend %icon-input; 
+		_icon {
+			@extend %ks-col-auto;
+			border-right: 1px solid $bor-color;
+			i{ padding: 11px; }
+		}
+	}
+	_bd {
+		display: inline-block;
+	    border: 1px solid $bor-color;
+	    border-radius: 4px;
+	    background: #fff;
+    	margin-top: -1px;
+    	position: absolute;
+    	_tab {
+			@extend %ib-w;
+			line-height: 40px;
+			background: #f5f5f5;
+			li {
+				@extend %ib;
+				width: 33.09%;
+				text-align: center;
+				color: #2196f3;
+				cursor: pointer;
+			}
+			.line {
+				width: 1px;
+				color:#d2d2d2;
+			}
+			.active {
+				background: #fff;
+				color: #444;
+				font-weight: bold;
+				& + _line { visibility: hidden; }
+			}
+		}
+
+		_content{
+			height: 200px;
+    		overflow-y: auto;
+    		_list {
+				margin: 20px 20px 0;
+			    border-collapse: initial;
+				td{
+					padding: 10px 20px;
+					cursor: pointer;
+					border:1px solid #fff;
+					// border:1px solid #000;
+					&:hover{
+						background: #f5f5f5;
+						border:1px solid $bor-color;
+						border-radius: 4px;
+					}
+				}
+				.active,.active:hover {
+					background: #2196f3;
+				    border-radius: 4px;
+				    color: #fff;
+			        border: 1px solid #2196f3;
+				}
+			}
+		}
+	}
+}

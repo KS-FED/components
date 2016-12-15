@@ -1,0 +1,227 @@
+@import '../base/ref/index';
+@import '../common/icon-input';
+
+// week样式
+%date-week{
+	@extend %ks-row;
+	padding: 0 32px;
+	text-align: center;
+	line-height: 36px;
+	span{ @extend %ks-col; }
+}
+
+// 日历下拉每行的公共样式
+%date-days{
+	@extend %date-week;
+	padding-bottom: 5px;
+	span{
+		cursor: pointer;
+		border-radius: 4px;
+		&:hover{ background: #f5f5f5; }
+		&.active{
+    		color: #fff;
+    		background: #2196F3;
+    	}
+	}
+	.pass,.future,.collect{ color:#c8c8c8; }
+	.scope-bg{
+		background: #f5f5f5;
+		border-radius: 0;
+	}
+}
+
+// 周月年日历下拉的公共样式
+%picker-wrap-use{
+	@extend %ks-row;
+	display: inline-block;
+	margin-top: -1px;
+    _date{
+    	@extend %ks-col;
+    	border: 1px solid $bor-color;
+    	border-left: transparent;
+		width: 314px;
+	    background: #fff;
+    	_head{
+	    	@extend %ks-row-auto;
+	    	padding: 30px 18px 15px;
+	    	font-size: 14px;
+	    	.retreat,.next{
+	    		@extend %ks-col;
+	    		cursor: pointer;
+	    	}
+	    	.year{ @extend %ks-col-auto; }
+	    	.next{ text-align: right; }
+	    }
+	    _week{
+	    	@extend %date-week;
+	    	font-weight: bold;
+	    	color: #c8c8c8;
+	    	.week{ color: #ef5350;}
+	    }
+	    _days{ 
+	    	@extend %date-days; 
+	    	&:last-child{margin-bottom: 10px;}
+	    }
+	    _btn{
+	    	@extend %date-days;
+	    	select{
+	    		width: 70px;
+	    		border-color: #e5e5e5;
+	    	}
+	    	.mlr-10{
+	    		margin:0 10px;
+	    	}
+	    	.today,.reset{ color: #2196F3; }
+	    	.clear{ color: #F44336; }
+	    	.today,.clear,.reset,.collect,.selects{
+	    		&:hover{ background: transparent; }
+	    	}
+	    	.today,.clear{ padding-bottom: 20px; }
+	    }
+    } 
+    _date:first-child{ border-left: 1px solid $bor-color; }
+}
+
+// 日历下拉的公共样式
+%picker-wrap{
+	@extend %picker-wrap-use;
+	z-index: 1;
+	width: auto;
+    _date-head{
+    	.interstice{ 
+    		@extend %ks-col; 
+    		width: 16px;
+    	}
+    	.month{ 
+    		@extend %ks-col-auto; 
+    		font-weight: bold; 
+    	}
+    }
+}
+
+// 月 日历的公共样式
+%date-month{
+	_input{ @extend %icon-input;}
+	.KsDater{ position: absolute; }
+}
+
+// 
+%date{
+	@extend %date-month;
+	.KsDater{
+		@extend %picker-wrap;
+		_head .year{ color: #c8c8c8; }
+	}
+}
+
+// 月，年，日历的公共样式
+%KsDateMonth{
+	@extend %date-month; 
+	.KsDater {
+	    _date-head .year{ font-weight: bold; }
+	    _days{ margin: 28px 0; }
+	}
+}
+
+// date只读样式——纯净
+%readonly-dater{
+	_date{
+		background: #f5f5f5;
+		_days{
+			span{
+				pointer-events: none;
+				color:#c8c8c8;
+				&.begin-active,&.end-active,&.active{
+		    		background: #777;
+		    		border-radius: 0;
+		    		color: #fff;
+		    	}
+			}
+			_btn{
+				padding: 0;
+				.reset,.collect{
+					padding: 0 32px 5px;
+					pointer-events: none;
+				}
+				.reset{
+					text-align: left;
+					padding-left: 42px;
+				}
+				.collect{
+					border-left: 8px solid #f5f5f5;
+	    			margin-left: -5px;
+	    			display: block;
+				}
+			}
+		}
+	}
+}
+
+// 日期默认样式——周——纯净
+.KsDater{ @extend %picker-wrap; }
+
+// 日期默认样式——周
+.KsDatePicker{ @extend %date; position: relative; }
+
+// 日期样式——周——范围——纯净
+.KsDaterMulti{ 
+	@extend %picker-wrap;
+	_date{
+		_btn{ border-top: 1px solid $bor-color; }
+	}
+}
+
+// 日期样式——周——范围
+.KsDaterMultiPicker{
+	@extend %date;
+	position: relative; 
+	_input{
+		input{
+			text-align: center;
+			min-width: 100px;
+		}
+		.scope-icon{ color: #26c6da; }
+	}
+	.KsDaterMulti{ position: absolute; }
+	_btn{
+		margin-top: 20px;
+		border-top: 1px solid $bor-color;
+		.reset,.collect{
+			line-height: 44px;
+			height: 44px;
+		}
+	}
+}
+
+// 日期默认样式——月——纯净
+.KsDateMonth{ @extend %picker-wrap;  }
+
+// 日期默认样式——月
+.KsDateMonthPicker{
+	@extend %KsDateMonth;
+	position: absolute;
+}
+
+// 日期默认样式——年——纯净
+.KsDateYear{ 
+	@extend %picker-wrap;  
+	position: absolute;
+}
+
+// 日期默认样式——年
+.KsDateYearPicker{ @extend %KsDateMonth; }
+
+// 单组日历组件 只读
+.readonly.KsDatePicker {
+	.KsDatePicker {
+		_input{ background: #e9e9e9; }
+	}
+	.KsDater { @extend %readonly-dater; }
+}
+// 范围日历组件 只读
+.readonly.KsDaterMultiPicker {
+	.KsDaterMultiPicker {
+		_input{ background: #e9e9e9; }
+	}
+	.KsDaterMulti { @extend %readonly-dater; }
+}

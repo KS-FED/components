@@ -1,0 +1,49 @@
+/* 自动隐现提示框 */
+%toast{
+	position: fixed;
+    right: 20px;
+    top: 50px;
+    padding: 20px;
+    border-radius: 4px;
+    width: 300px;
+    color: #fff;
+	h2{
+		font-size: 20px;
+		margin-bottom: 15px;
+		font-weight: bold;
+	}
+}
+.KsToast-primary{ @extend %toast; background: #2196F3; }
+.KsToast-success{ @extend %toast; background: #4CAF50; }
+.KsToast-info{ @extend %toast; background: #00BCD4; }
+.KsToast-danger{ @extend %toast; background: #F44336; }
+.KsToast-warning{ @extend %toast; background: #FF5722; }
+
+/* 可操作提示框 */
+%toast-close{
+	@extend %ks-row-auto;
+	position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%);
+	border-radius: 4px;
+	line-height: 50px;
+	box-sizing: border-box;
+	padding:0 20px;
+	width: auto;
+	i{
+		padding-left: 20px;
+		font-size: 12px;
+	}
+}
+
+$toast-close: (primary,#e2f2fe,#b0daf9,#094b94,#638ebf),(warning,#fff6b1,#ffe378,#444444,#ce8161),(danger,#fbe9e7,#ffc9c3,#9c3431,#c4706d),(info,#dff7fa,#abe6ee,#045962,#58959c),(success,#e8f5e9,#aeeab3,#538356,#6eab73),(Violet,#f3e5f5,#e7afef,#6b0f9c,#a269c0);
+@each $type, $background, $border, $p, $i in $toast-close{
+	.KsToastClose-#{$type}{
+		@extend %toast-close;
+		background: $background;
+		border:1px solid $border;
+		p{ color: $p; }
+		i{ color: $i; }
+	}
+}

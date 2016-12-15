@@ -1,0 +1,33 @@
+@import "tb";
+@import "ib";
+
+%ks-col-top {
+    @extend %tb-cell;
+    vertical-align: top;
+}
+%ks-col-auto-top {
+    @extend %ks-col-auto;
+    vertical-align: top;
+}
+%ks-row-auto{
+    // @extend %ks-row;
+    box-sizing: border-box;
+    width: 100%;
+    display: table;
+    // table-layout: fixed;
+    border-spacing: 0;
+    table-layout: auto;
+}
+%ks-col-auto{
+    @extend %tb-cell;
+    width: 1px;
+    white-space: nowrap;
+}
+%ks-row{
+    @extend %tb;
+    box-sizing: border-box;
+    width: 100%;
+}
+%ks-col{
+    @extend %tb-cell;
+}
