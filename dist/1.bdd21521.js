@@ -1,0 +1,2 @@
+webpackJsonp([1],{6:function(o,t){"use strict";function n(o){e(o,i.proxy),c(o,i.mock)}function c(o,t){t&&(console.log("mock ...."),o.http.headers.common.MOCK="/dev/mock")}function e(o,t){t?(o.http.options.root=".",o.http.headers.common.DOMAIN="http://zd.qa.kashuo.net/zdcrm-ws-1.0"):o.http.options.root=window.config&&(window.config.origin||"http://zd.qa.kashuo.net/zdcrm-ws-1.0")}Object.defineProperty(t,"__esModule",{value:!0}),t.proxy_mock_core=n;var i={}}});
+//# sourceMappingURL=1.bdd21521.js.map
