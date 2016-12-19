@@ -1,7 +1,6 @@
 # components
 公共组件
 
-<<<<<<< HEAD
 ## demo 
 https://ks-fed.github.io/components
 ### 目前已经完成的组件列表
