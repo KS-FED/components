@@ -11,7 +11,7 @@ var _package = require('../package.json')
 // console.log(process.getuid() , process.pid)
 var rl = readline.createInterface(process.stdin,process.stdout)
 var config = webpack_merge.smart(webpackConfig, {
-        watch: true,
+        watch: false,
         output: {
             chunkFilename: '[name].[chunkhash:8].js',
             publicPath: './dist/'
@@ -41,7 +41,7 @@ var config = webpack_merge.smart(webpackConfig, {
                 rl.setPrompt('进度：' + ('>'.repeat(progress/2)) + ('-'.repeat(50-progress/2)) +'\n      '+ progress + '%  ' + msg +'\n')
                 rl.prompt()
                 if(progress == 100 ) {
-                    // process.nextTick(()=>process.exit(0))
+                    process.nextTick(()=>process.exit(0))
                 }
             }),
             new webpack.DefinePlugin({

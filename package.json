@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "develop": "node build/dev-server.js",
-    "project": "node build/pro.js",
+    "pro": "node build/pro.js",
     "component": "node build/components.js"
   },
   "repository": {

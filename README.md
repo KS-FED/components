@@ -1,11 +1,6 @@
 # components
 公共组件
 
-<<<<<<< HEAD
-## demo 
-https://ks-fed.github.io/components
-=======
-<<<<<<< HEAD
 ## demo 
 https://ks-fed.github.io/components
 ### 目前已经完成的组件列表
@@ -18,4 +13,4 @@ https://ks-fed.github.io/components
 +[X] mask 遮罩
 +[X] modal 模态框
 +[X] dialog 弹窗
->>>>>>> master
+
