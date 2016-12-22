@@ -37,7 +37,7 @@
             // 每页可能展示条数
             page_sizes :{type:Array, default:function(){
                 return [10,20,100]
-            } } 
+            }} 
         },
         data() {
             return {}
