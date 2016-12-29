@@ -6,36 +6,47 @@
 
 @import "../../styles/sassMagic/_sassMagic";
 @import "../../styles/variables";
-@import "../../styles/common/transtionEffect/zoom";
 
-$width: 402px;                                                          // 模态宽度
+$width: 420px;                                                          // 模态宽度
 $icon-size: 88px;                                                       // 图标大小
 
 @include b(KSDialog) {
-  position: fixed!important;
   margin: 6px auto; width: $width;
-  box-shadow: 0 0 9px #B3B3B3; border-radius: 2px;
-  background: #FFF;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+  border-radius: 3px; background: #FFF; padding-top: 30px;
 
   @include center-translate();
   @include e(wrapper) {
-    position: relative; z-index: 19941026;
+    z-index: 19941026;
+    text-align: center;
   }
 
   // 标题部分
   @include e(title) {
-    margin: 0; padding: 20px 40px 20px 0;
-    font-size: 24px;
+    margin: 0; padding: 20px;
+    font-size: 20px;
+  }
+
+  // 图标部分
+  @include e(icon) {
+    @include size($icon-size);
+
+    padding: 20px; border: 5px solid;
+    text-align: center; line-height: $icon-size;
+    border-radius: 50%; margin: auto;
+
+    .icon { font-size: $icon-size / 2; line-height: inherit }
   }
 
   // 内容块
   @include e(content) {
-    color: #444; font-size: 13px; line-height: 22px;
+    color: #444; font-size: 13px;
+    line-height: 22px; padding: 0 20px;
   }
 
   // footer
   @include e(footer) {
-    overflow: hidden;
+    overflow: hidden; padding: 20px 0;
   }
 
   @include e(btnWarp) { text-align: center }
