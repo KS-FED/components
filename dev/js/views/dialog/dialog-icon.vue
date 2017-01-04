@@ -107,6 +107,17 @@
 			</table>
 		</div>
 
+<pre>
+  <code class="html">
+    &lt;ks-dialog-entity type="info" @cancel="cancel" @confirm="ok"&gt;<br />
+	  &lt;span slot="title"&gt;测试1 --- info info&lt;/span&gt;<br />
+      &lt;p slot="text" style="margin: 0"&gt;<br />
+	    infoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfo<br />
+      &lt;/p&gt;
+    &lt;/ks-dialog-entity&gt;
+  </code>
+</pre>
+
 		<h4>
 			以上是通过模板的方式调用可用的参数，如果通过实例化的方式调用不止这些还有更多的参数
 		</h4>
