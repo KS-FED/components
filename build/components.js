@@ -42,7 +42,9 @@ read_module_dir(components_path)
                 var name = pair[0].trim()
                 var sub_path = pair[1].trim()
 
-                var file_path = path.resolve(components_path, file_name, sub_path)
+                var file_path = path.resolve(components_path, file_name, sub_path);
+                console.log(path.extname(file_path))
+                path.extname(file_path)=='' && (file_path = file_path + '.js')
                 if (fs.statSync(file_path).isFile()) build(name, file_path)
             })
         })
