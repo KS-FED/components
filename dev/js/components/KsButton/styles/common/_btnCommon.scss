@@ -10,15 +10,15 @@
 %rotating {
   // 旋转动画
   @include animation (
-    (
-      animationName: rotating,
-      keyframes: (
-        0: ( transform: rotate(0deg) ),
-        100: ( transform: rotate(360deg) )
-      ),
-      duration: 1,
-      timingFunction: linear
-    )
+      (
+        animationName: rotating,
+        keyframes: (
+          0: ( transform: rotate(0deg) ),
+          100: ( transform: rotate(360deg) )
+        ),
+        duration: 1,
+        timingFunction: linear
+      )
   );
 }
 

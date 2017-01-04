@@ -7,15 +7,24 @@
 @import "../../styles/sassMagic/_sassMagic";
 @import "./common/_btnCommon";
 
-.KSGhostButton {
+@include b(KSGhostButton) {
   @extend %container;
 
+  // loading
+  @include e(loading) {
+    @extend %rotating;
+
+    display: inline-block;
+    vertical-align: -3px;
+    fill: currentColor;
+  }
+
   // text
-  _text {
+  @include e(text) {
     vertical-align: middle;
   }
 
-  _entity {
+  @include e(entity) {
     @extend %btnEntity;
 
     &:active { background: #F5F5F5 }

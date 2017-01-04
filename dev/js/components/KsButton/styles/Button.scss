@@ -6,6 +6,6 @@
 
 @import "../../styles/sassMagic/_sassMagic";
 
-.KSButton {
+@include b(KSButton) {
   display: inline-block;
 }

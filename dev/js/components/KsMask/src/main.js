@@ -7,13 +7,13 @@
  */
 
 import Vue from 'vue'
-import Mask from './main.vue'
+import MaskEntity from './main.vue'
 
 let defaults = {
-  backgroundColor: '#000'
+  backgroundColor: 'rgba(0, 0, 0, .3)'
 }
 
-let KsMaskConstructor = Vue.extend(Mask)
+let KsMaskConstructor = Vue.extend(MaskEntity)
 
 let currentMask, instance, KsMask, id = 0
 let maskQueue = []
