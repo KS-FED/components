@@ -6,7 +6,7 @@
  * @date: 2016/10/25.
  */
 
-import KsDialog from './src/main.js'
+import KsDialog from './src/main'
 import KsDialogEntity from './src/main.vue'
 
 export default KsDialog

@@ -54,7 +54,6 @@
 			:page_current="page_current" 
 			:pages="pages"
 			:total="total"
-			:page_sizes="[10,17,30]"
 			v-on:current_change="current_change"
 			v-on:size_change="size_change"></pagegroup>
 		<br>

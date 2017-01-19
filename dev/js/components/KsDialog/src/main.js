@@ -15,6 +15,7 @@ let defaults = {
   showCancelBtn: false,
   cancelBtnText: '取消',
   confirmBtnText: '确定',
+  container: 'body',
   mask: true,
   title: 'Title',
   text: 'Content...',
@@ -100,7 +101,13 @@ let showNextDialog = function () {
     instance['maskConfig'] = currentMsg.maskInstance(cancelCb)
   }
 
-  document.body.appendChild(instance.$el)
+  let container = document.querySelector(defaults.container)
+  if (container) {
+    container.appendChild(instance.$el)
+  } else {
+    document.body.appendChild(instance.$el)
+  }
+
   Vue.nextTick(() => instance.show = true)
 }
 
@@ -145,16 +152,14 @@ KsDialog.close = function () {
 }
 
 /**
- * @description dialog
+ * @description show
  * @param text {String} 显示的内容
  * @param title {String} 标题
  * @param hue {String} 色调
  * @param options {Object} 附加配置项
  */
-KsDialog.dialog = function (text, title, hue, options) {
+KsDialog.show = function (text, title, hue, options) {
   return KsDialog(merge({
-    showConfirmBtn: true,
-    showCancelBtn: true,
     text: text,
     title: title,
     mask: true,
@@ -163,17 +168,27 @@ KsDialog.dialog = function (text, title, hue, options) {
 }
 
 /**
- * @description 设置默认配置项
- * @param defaults 默认配置项
+ * @description 创建一个 dialog
+ * @param options {Object} 配置项目
  */
-KsDialog.setDefaults = function (defaults) {
-  KsDialog.defaults = defaults
+KsDialog.create = function (options) {
+  KsDialog.setDefaults(options)
+
+  return KsDialog
+}
+
+/**
+ * @description 设置默认配置项
+ * @param options 配置项
+ */
+KsDialog.setDefaults = function (options) {
+  KsDialog.defaults = merge(defaults, options)
 }
 
 // 注册不同色调的函数
 pueMapper.forEach(hue => {
   KsDialog[hue] = function (text, title, cancel = false) {
-    return KsDialog.dialog(text, title, hue, {
+    return KsDialog.show(text, title, hue, {
       showCancelBtn: cancel
     })
   }
