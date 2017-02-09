@@ -1,0 +1,24 @@
+/**
+ * @description 欢迎页面.
+ * @author pkeros
+ * @data 2016/12/8
+ * @email pkeros@vip.qq.com
+ */
+
+@import "../index";
+
+.welcome-container {
+  height: 100%;
+  padding-top: 7%;
+  box-sizing: border-box;
+  background: white;
+  box-shadow: 0 0 3px darken($global-background-light, 20%);
+
+  & > img {max-width: 100%;max-height: 100%}
+  // 欢迎语样式
+  h4 {
+    font-weight: normal;
+    color: $global-text-normal;
+    margin-top: 30px;
+  }
+}

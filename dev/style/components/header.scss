@@ -1,0 +1,134 @@
+/**
+ * @description header black style file.
+ * @author pkeros
+ * @data 2016/12/7
+ * @email pkeros@vip.qq.com
+ */
+
+@import "../index";
+
+@include b(k-header) {
+  position: relative;z-index: 100;
+  height: $global-header-height;
+  color: $global-header-mcolor;
+  box-shadow: 0 0 3px $global-main-normal;
+  //text-shadow: 0 0 .3px #ffffff;
+  & div {@include inline-block()}
+  @include gradient(linear, left, (($global-main-normal, 50%),($global-main-normal, 100%)));
+
+  .logo-wrap {
+    font-size: 0;
+    & > img {vertical-align: inherit;}
+  }
+
+  // 系统选择
+  .k-system-choose {
+    width: 145px;
+    line-height: 46px;
+    text-align: center;
+    color: #eee;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+  }
+  .k-system-header:hover {
+    width: 100%;
+    background: rgba(0,0,0,0.2);
+  }
+  .k-system-header.active {
+    width: 100%;
+    background: rgba(0,0,0,0.2);
+  }
+  .k-menu__icon1 {
+    font-size: 12px;
+    vertical-align: middle;
+  }
+  .k-system-choose-ul {
+    min-width: 145px;
+    line-height: 45px;
+    color: #eee;
+    background: #2b393f;
+    position: absolute;
+    z-index: 1000;
+  }
+  .k-system-choose-ul li a{
+    display: block;
+    color: #eee;
+  }
+  .k-system-choose-ul li a:hover {
+    background: rgba(0,0,0,0.2);
+  }
+
+  // 设置包裹体样式
+  @include e(item) {
+    &:first-child {padding-right: 0}
+    &:last-child {margin-right: $global-item-space}
+    padding: 0 $global-item-space;height: 100%;
+    line-height: $global-header-height;
+  }
+  // 标题样式
+  @include e(title) {
+    font-weight: normal;
+  }
+  // header 菜单
+  @include e(menu) {
+    cursor: pointer;user-select: none;
+    &:hover {background: rgba(0, 0, 0, 0.2)}
+    &.active {
+      background: rgba(0, 0, 0, 0.2);
+      margin-right: 20px;
+    }
+
+    @include m(active) {
+      padding: 7px 0;min-width: 180px;
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      background: #FAFAFA;
+      color: $global-text-normal;line-height: 16px;
+      list-style: none;
+
+      @include position(absolute, top $global-header-height right 17px);
+      @include inline-block();
+
+      li:hover {background: rgba(211, 211, 211, 0.2)}
+      a {
+        height: 26px;padding: 6px 16px;
+        line-height: 26px;font-size: 15px;
+        @include inline-block();
+      }
+    }
+
+
+  }
+  @include e(list) {
+    cursor: pointer;user-select: none;
+    &:hover {background: rgba(0, 0, 0, 0.2)}
+    &.active {background: rgba(0, 0, 0, 0.2)}
+
+    @include m(active) {
+      margin-left:-20px;
+      margin-top:-1px;
+      padding: 7px 0;min-width: 145px;
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      background: #2b393f;
+      color: #eee;line-height: 16px;
+      list-style: none;
+
+      @include position(absolute, top $global-header-height );
+      @include inline-block();
+
+      li:hover {background: rgba(0, 0, 0, 0.2)}
+      a {
+        height: 26px;padding: 6px 16px;
+        line-height: 26px;font-size: 14px;
+        @include inline-block();
+      }
+    }
+
+
+  }
+
+}

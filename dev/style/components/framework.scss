@@ -1,0 +1,48 @@
+/**
+ * @author: pkeros.
+ * @date: 2016/6/24.
+ * @mail: pkeros@vip.qq.com
+ * @see: https://www.github.com/pkeros/
+ */
+
+@import "../mixins/index";
+
+$header-height: 50px;
+$button-height: 44px;
+$button-width: 50px;
+$kpager-height: 50px;
+
+@include b(kframe) {
+  position: relative;
+  height: 100%;
+  box-sizing: border-box;
+  background: white;
+  //box-shadow: 0 0 3px darken($global-background-light, 20%);
+
+  // 头部样式
+  @include e(header) {
+    position: relative;z-index: 99;
+    padding: 20px 0;
+    background: $global-background-light;
+    line-height: $header-height;
+    border-bottom: 1px solid #e9e9e9;
+
+    .title {font-size: 18px}
+  }
+
+}
+
+// table 容器
+.ktable-container {
+  position: absolute;top: $header-height + 40;
+  bottom: 0;left: 20px;right: 20px;padding-bottom: $kpager-height;
+  overflow-x: hidden;overflow-y: auto;
+  background: white;
+}
+
+// 分页器部分
+@include b(kpager-wrap) {
+  padding: 6px 0;
+  background: white;
+  box-shadow: 0 0 3px darken($global-background-light, 20%);
+}

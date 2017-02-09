@@ -1,0 +1,95 @@
+/**
+ * @description 选择器样式，用户管理中权限配置，和角色管理中权限配置组件的样式.
+ * @author pkeros
+ * @data 2016/12/21
+ * @email pkeros@vip.qq.com
+ */
+
+@import "../index";
+
+$width: 777px;
+$height: 550px;
+$padding: 20px;
+
+// 垂直居中
+.kgroup-container {
+  writing-mode: vertical-lr;
+  text-align: center;
+}
+.kgroup-container-shadow {
+  writing-mode: horizontal-tb;
+  display: inline-block;
+  text-align: left;
+  width: 100%;
+}
+
+@include b(kgroup-select) {
+  position: relative;margin: auto;overflow: hidden;
+  width: $width;height: $height;padding: 20px;
+  font-size: 13px;color: $global-text-normal;
+  background: lighten(#FFF, .7);
+
+  // header 部分样式
+  @include e(header) {
+    position: absolute;
+    top: -25px;
+    margin: 0 0 6px;
+    font-size: 13px;font-weight: normal;
+  }
+
+  // list 容器样式
+  @include e(list) {
+    position: absolute;
+    top: $padding + 20;bottom: $padding + 50;
+    padding: 6px;
+    width: 40%;border-radius: 3px;
+    border: 1px solid #ddd;
+  }
+  @include e(ul) {
+    list-style: none;
+    height: 100%;
+    padding: 0;margin: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .right {right: $padding}
+  .left {left: $padding}
+
+  // list item 样式
+  @include e(item) {
+    padding: 6px;border-radius: 2px;
+    cursor: pointer;user-select: none;
+    font-size: 14px;
+    background: $global-background-normal;
+
+    // 内容显示区域
+    .content {
+      @include inline-block();
+
+      @include ellipsis-overflow(1, 10%)
+    }
+
+    &:active {background: darken($global-background-dark, 10%)}
+  }
+
+  // ul 列表
+  .kgroup-select__item {
+    /*line-height: 38px;*/
+    /*vertical-align: middle;*/
+  }
+  .kgroup-select__child {
+    .kgroup-select__item {
+      background: white;
+
+      &:hover {background: #36474f; color: white}
+      &:hover .icon {display: inline}
+      &:active {background: darken(#36474f, 7%); color: white}
+    }
+  }
+
+  // button 样式
+  @include e(btn) {
+    position: absolute;
+    bottom: $padding - 5;left: $padding;right: $padding;
+  }
+}

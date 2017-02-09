@@ -1,0 +1,30 @@
+/**
+ * @description index page style file.
+ * @author pkeros
+ * @data 2016/12/7
+ * @email pkeros@vip.qq.com
+ */
+
+@import "../index";
+
+// 应用包裹体
+.app-container { font-family: $base-font-family }
+// 内容块包裹体 Header 之下部分
+.content-container {
+  position: absolute;top: $header-height;bottom: 0;width: 100%
+}
+// 工作区包裹体 Menu 右侧部分
+.work-container {
+  position: absolute;left: $menu-width;right: 0;height: 100%;
+  overflow: auto;overflow-x: hidden;
+  background: #f1f1f1;
+}
+// 路由内容包裹体
+.router-container {
+  min-width: 888px;
+  padding: $module-space $module-space $footer-height + $module-space $module-space;
+}
+.router-wrap {
+  border: 1px solid #e3e3e3;
+  background: white;
+}

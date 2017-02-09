@@ -1,0 +1,69 @@
+/**
+ * @author: pkeros.
+ * @date: 2016/6/24.
+ * @mail: pkeros@vip.qq.com
+ * @see: https://www.github.com/pkeros/
+ */
+
+@import "../mixins/index";
+
+$modal-width: 400px;
+
+%common-input {
+  padding: 10px;
+  height: 100%;width: 100%;
+  color: $global-text-normal;box-sizing: border-box;
+  background-color: #fff;border: 1px solid #c8c8c8;
+  border-radius: 3px;outline: none;font-size: 13px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  transition: border-color ease-in-out .3s, box-shadow ease-in-out .3s;
+
+  &:hover {border-color: #00BCD4}
+  &:focus {border-color: #00BCD4}
+}
+
+// 垂直居中
+.kadd-container {
+  writing-mode: vertical-lr;
+  text-align: center;
+}
+.kadd-container-shadow {
+  writing-mode: horizontal-tb;
+  display: inline-block;
+  text-align: left;
+  width: 100%;
+}
+
+// 新建对话框基础样式
+@include b(kadd) {
+  width: $modal-width;padding: 0 15px;
+  box-shadow: 0 0 3px #666;margin: auto;
+  font-family: $base-font-family;
+  background: #FFF;overflow: hidden;
+
+  // 标题样式
+  @include e(title) {
+    margin: 0;padding: 10px 0;
+    border-bottom: 1px solid #c2c2c2;
+    font-size: 14px;font-weight: normal;
+  }
+
+  // input 样式重载
+  .input-normal input {height: 32px!important;}
+
+  // 选择框样式
+  @include e(sel) {
+    @extend %common-input;
+
+    option[checked] {color: #999}
+    option {color: #333}
+  }
+
+  // 表述框样式
+  @include e(content) {
+    font-size: 14px;resize: none;
+
+    @extend %common-input;
+  }
+
+}

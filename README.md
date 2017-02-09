@@ -1,15 +1,27 @@
-# components
-公共组件
+# zdop-front-feature
 
-## demo 
-https://ks-fed.github.io/components
-### 目前已经完成的组件列表
-+[X] swtich 开关组件
-+[X] checkbox 复选框
-+[X] checkboxGroup 复选框组
-+[X] button 按钮
-+[X] radio 单选
-+[X] radioGroup 单选组
-+[X] mask 遮罩
-+[X] modal 模态框
-+[X] dialog 弹窗
+> A Vue.js project
+
+## Build Setup
+
+``` bash
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+
+# run unit tests
+npm run unit
+
+# run e2e tests
+npm run e2e
+
+# run all tests
+npm test
+```
+
+For detailed explanation on how things work, checkout the [guide](https://github.com/vuejs-templates/webpack#vue-webpack-boilerplate) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

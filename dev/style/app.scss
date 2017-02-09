@@ -1,0 +1,22 @@
+/**
+ * @author: pkeros.
+ * @date: 2016/6/12.
+ * @mail: pkeros@vip.qq.com
+ * @see: https://www.github.com/pkeros/
+ */
+
+@import "variables";
+@import "base/index";
+@import "mixins/index";
+@import "library/index";
+@import "views/boot";
+@import "global";
+@import "components/index";
+@import "KsComponents/index";
+
+html, body {
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}

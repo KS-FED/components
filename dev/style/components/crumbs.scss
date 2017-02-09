@@ -1,0 +1,35 @@
+/**
+ * @description crumbs block style file.
+ * @author pkeros
+ * @data 2016/12/7
+ * @email pkeros@vip.qq.com
+ */
+
+@import "../index";
+
+.k-crumbs-container { background: white }
+// 面包屑样式
+@include b(k-crumbs) {
+  padding: 12px 0 12px $module-space;
+  border-bottom: 1px solid #e3e3e3;
+  color: #444;
+
+  // 修正面包屑 Home 图标偏移
+  @include e(home) {
+    padding-right: $module-space - 5;
+    vertical-align: -4px!important;
+  }
+  // 面包屑自导航块
+  @include e(item) {
+    cursor: pointer;
+    @include inline-block();
+
+    // 面包屑 A 样式
+    & > a { color: #444 }
+    & > a:hover { color: #999 }
+  }
+  // active 样式
+  @include e(active) {
+    color: #002325 !important
+  }
+}

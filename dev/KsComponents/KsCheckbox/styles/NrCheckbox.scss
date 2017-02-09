@@ -1,0 +1,58 @@
+// @description 一个复选框样式
+// @summary 我只是一个单纯的复选框
+// @author pkeros
+// @date 2016/10/11
+
+//
+// 需要的 DOM 结构
+//
+//<div class="KSNRCheckbox KSNRCheckbox__entity--ZERO">
+//  <input type="checkbox" class="KSNRCheckbox__entity" id="KSNRCheckbox__entity--3">
+//  <label class="KSNRCheckbox__skin" for="KSNRCheckbox__entity--ZERO"></label>
+//  <label class="KSNRCheckbox__text" for="KSNRCheckbox__entity--ZERO"></label>
+//</div>
+//
+//
+
+$primary-color: #00A5E0;                                        // 主色调
+$skin-size: 18px;                                               // 选择框大小
+
+.KSNRCheckbox {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 2px 3px;
+}
+
+.KSNRCheckbox__entity {
+  width: 0; height: 0; opacity: 0;
+}
+.KSNRCheckbox__text { user-select: none }
+.KSNRCheckbox__skin {
+  display: inline-block;
+  border: 1px solid #D0D0D5; border-radius: 3px;
+  width: $skin-size; height: $skin-size;
+  text-align: center; line-height: $skin-size;
+
+  // 选择点的样式
+  &:before {
+    content: ''; display: inline-block;
+    height: $skin-size / 1.8; width: $skin-size / 1.8;
+    border-radius: 3px;
+    //background-color: $primary-color;
+    opacity: 0;
+    transition: opacity .3s;
+  }
+}
+
+// checked 下的选择框样式
+.KSNRCheckbox__entity:checked + .KSNRCheckbox__skin:before {
+  opacity: 1;
+}
+// checked 禁用样式
+.KSNRCheckbox__entity[disabled] + .KSNRCheckbox__skin{
+  background: rgba(77, 77, 77, .1)
+}
+.KSNRCheckbox__entity[disabled] + .KSNRCheckbox__skin:before {
+  opacity: .6;
+}

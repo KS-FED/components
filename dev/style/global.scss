@@ -1,0 +1,82 @@
+/**
+ * @description 全局样式.
+ * @author pkeros
+ * @data 2016/12/8
+ * @email pkeros@vip.qq.com
+ */
+
+.spacing-0-7 {
+  border-spacing: 0 7px;
+}
+.spacing-20-0 {
+  border-spacing: 20px 0;
+}
+
+//table-tools
+.table-striped .tools .item {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 3px;
+    color: #444;
+    cursor: pointer;
+    zoom: 1;
+}
+
+// 错误提醒样式
+.form-box-center .has-error .input {
+  border-color: #F44336;
+}
+
+// 灰化 input readonly
+.input[readonly] {
+  background: #f4f4f4;
+}
+
+//弹框
+.KSMask__wrapper{
+  -webkit-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: vertical-lr;
+  text-align: center;
+
+  .userEdit-wrap {
+    padding: 0;
+    -webkit-writing-mode: horizontal-tb;
+    -ms-writing-mode: lr-tb;
+    writing-mode: horizontal-tb;
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+    background-color: rgba(0,0,0,0);
+
+    .form-box-center{
+      padding-bottom: 20px;
+      background: #fff;
+
+      .userEdit-title{
+        margin: 0;
+        padding: 10px 0;
+        border-bottom: 1px solid #c2c2c2;
+        font-size: 14px;
+        font-weight: 400;
+      }
+
+      .ks-row-auto{
+        border-spacing: 30px 5px;
+
+        .form-group{
+          margin-bottom: 15px;
+
+          .label{
+            font-weight: 400;
+
+            .sup-red{
+              vertical-align: text-bottom;
+            }
+          }
+        }
+      }
+      .has-error .txt{font-size: 12px}
+    }
+  }
+}

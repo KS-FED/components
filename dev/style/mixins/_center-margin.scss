@@ -1,0 +1,11 @@
+/**
+ * @author: pkeros.
+ * @date: 2016/7/25.
+ * @mail: pkeros@vip.qq.com
+ * @see: https://www.github.com/pkeros/
+ */
+@mixin center-margin($width, $height) {
+  position: absolute;top: 50%;left: 50%;
+  margin-top: -#{$height / 2};
+  margin-left: -#{$width / 2};
+}

@@ -1,0 +1,30 @@
+/**
+ * @description component bootstrap file.
+ * @author pkeros
+ * @data 2016/12/7
+ * @email pkeros@vip.qq.com
+ */
+
+// 菜单块样式
+@import "menu";
+// 头部块样式
+@import "header";
+// 面包屑块样式
+@import "crumbs";
+// 底部块样式
+@import "footer";
+
+// 表格部分公用样式
+@import "framework";
+// 弹出编辑框公用样式
+@import "common-edit";
+// 弹出搜索框公用样式
+@import "common-serach";
+// 组选择器样式
+@import "group-select";
+
+@import "public/form-layout";
+@import "public/form";
+@import "public/tab-bor";
+@import "public/input";
+@import "public/table-striped";

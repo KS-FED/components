@@ -1,0 +1,170 @@
+/**
+ * @description 登录页面样式部分.
+ * @author pkeros
+ * @data 2016/12/8
+ * @email pkeros@vip.qq.com
+ */
+
+@import "../index";
+@import "../mixins/index";
+
+$login-container-height: 100%;
+$login-container-width: 100%;
+
+$login-form-width: 448px;
+
+.app-container {overflow: hidden;width: 100%;height: 100%;}
+
+@include b(login) {
+  height: $login-container-height;width: $login-container-width;
+
+  @include e(background) {
+    height: 100%;width: 100%;
+    box-shadow: 0 0 6px $global-background-normal;
+    background:url(../../dev/src/assets/background/login.jpg)
+  }
+  .base-conlogo{
+    width: 225px;
+    margin-left: 52px;
+  }
+  .base-conname{
+    font-size:36px;
+    text-align:center;
+    margin-top:28px;
+    color:#ffffff;
+    font-weight:400;
+    margin-bottom:72px;
+  }
+  @include e(form) {
+    $login-form-height:624px;
+    position: absolute;left: 50%;
+    top: 50%;
+    margin-left: -#{$login-form-width / 2};
+    margin-top: -#{$login-form-height / 2};
+    width: $login-form-width;
+    padding: 38px 60px 38px 60px;box-sizing: border-box;
+
+    .form-control {margin-bottom: 24px}
+  }
+  @include e(err-notification) {
+    text-align:center;
+    padding: 3px 16px;border: 0;
+    color: $global-warn-normal;background: transition;
+    @include ellipsis-overflow(1, 10);
+
+    .msg {font-size: 16px;padding-left: 5px}
+  }
+
+  // 系统选择
+  @include e(sel) {
+    font-family: $base-font-family;color: #9a9a9a;
+    height: 38px;width: 100%;box-sizing: border-box;
+    background-color: #fff;
+    // border: 1px solid #c8c8c8;
+    border-radius: 3px;outline: none;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    transition: border-color ease-in-out .3s, box-shadow ease-in-out .3s;
+
+    &:hover {border-color: #00BCD4}
+    &:focus {border-color: #00BCD4}
+  }
+}
+
+//input 按钮
+@include b(kinput) {
+  position: relative;
+
+  // 输入框基本样式
+  input {
+    font-family: $base-font-family;
+    height: 100%;
+    width: 100%;padding-left:36px;
+    color: #fff;
+    box-sizing: border-box;
+    background-color:transparent!important;
+    border: none;;
+    border-bottom: 1px solid rgba(225,225,225,0.3);
+    &.input-err {border-color: $global-warn-normal}
+    height: 38px;
+    line-height: 38px;
+    font-size: 16px;
+  }
+  input:focus {
+    outline: none;
+    background-color: none;
+  }
+  input:-webkit-autofill {
+    -webkit-text-fill-color: #fff !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+  // 没有 icon padding 清除
+  input.no-icon {padding: 0 6px}
+  .input-wrap {
+    height: 100%;width: 100%;
+    background:none;
+    border: none;
+    @include inline-block()
+  }
+
+  // 输入框 icon 部分
+  @include e(icon) {
+    position: absolute;left: 0;top: 0;
+    height: 100%;width: 38px;
+    text-align: center;color: #ffffff;
+    font-size:25px;
+  }
+
+  // 输入框 placeholder 部分
+  @include e(pla) {
+    font-family: $base-font-family;
+    position: absolute;left: 38px;top: 0;
+    height: 100%;line-height: inherit;
+    color: #9e9e9e;
+  }
+}
+
+// 输入框的 size
+.kinput-container {
+  margin-bottom: 24px;
+  .input-xxl{
+    input, .kinput__icon, .kinput__pla {
+      height: 40px;
+      line-height: 40px;
+      font-size: 18px;
+    }
+  }
+  .input-xl{
+    input, .kinput__icon, .kinput__pla {
+      height: 38px;
+      line-height: 38px;
+      font-size: 16px;
+      color: #fff;
+    }
+  }
+  .input-normal{
+    input, .kinput__icon, .kinput__pla {
+      height: 28px;
+      line-height: 28px;
+      font-size: 13px;
+    }
+  }
+  .input-sl{
+    input, .kinput__icon, .kinput__pla {
+      height: 32px;
+      line-height: 32px;
+      font-size: 13px;
+    }
+  }
+  .input-ssl{
+    input, .kinput__icon, .kinput__pla {
+      height: 30px;
+      line-height: 30px;
+      font-size: 12px;
+    }
+  }
+}
+
+
+
+
+

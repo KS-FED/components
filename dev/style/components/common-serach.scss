@@ -1,0 +1,29 @@
+/**
+ * @author: pkeros.
+ * @date: 2016/6/24.
+ * @mail: pkeros@vip.qq.com
+ * @see: https://www.github.com/pkeros/
+ */
+
+@import "../mixins/index";
+
+@include b(ksearch) {
+  padding: 10px 20px;
+  background: #FFF;
+
+  label {font-size: 14px;padding: 0 15px}
+
+  // input 样式
+  @include e(input) {
+    width: 168px;height: 28px;
+
+    @include inline-block()
+  }
+
+  // button 样式
+  @include e(button) {
+    margin-left: 10px;
+
+    @include inline-block()
+  }
+}
