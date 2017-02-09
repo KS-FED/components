@@ -19,10 +19,10 @@ export default [
       {
         name: '基础 Base', icon: 'icon', link: '',
         subMenu: [
-          {name: 'Layout 布局', icon: 'icon', link: ''},
+          {name: 'Layout 布局', icon: 'icon', link: 'layout'},
           {name: 'Color 色彩', icon: 'icon', link: ''},
           {name: 'Icon 图标', icon: 'icon', link: ''},
-          {name: 'Button 按钮', icon: 'icon', link: ''}
+          {name: 'Button 按钮', icon: 'icon', link: 'button'}
         ]
       },
       {

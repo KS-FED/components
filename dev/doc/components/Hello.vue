@@ -1,13 +1,17 @@
 <template>
-  <div class="user-container">
-    <router-view></router-view>
+  <div>
   </div>
 </template>
 
 <script lang="babel">
   export default{
     data () {
-      return { }
+      return {
+        msg:'hello vue'
+      }
     }
   }
 </script>
+
+<style lang="scss">
+</style>

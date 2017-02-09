@@ -20,7 +20,7 @@
 </script>
 
 <style lang="scss">
-  @import "../../style/mixins/index";
+  @import "../../styles/mixins/index";
 
   @keyframes rotate {
     from {
