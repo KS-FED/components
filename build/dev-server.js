@@ -3,15 +3,15 @@
  * @author: pkeros.
  * @date: 2016/10/18.
  */
-let webpack = require('webpack');
-let merge = require('webpack-merge');
-let path = require('path');
+var webpack = require('webpack');
+var merge = require('webpack-merge');
+var path = require('path');
 
-let webpackConfig = require('../webpack.config');
-let BrowserSync = require('browser-sync-webpack-plugin');
-let HtmlWebpackPlguin = require('html-webpack-plugin');
+var webpackConfig = require('../webpack.config');
+var BrowserSync = require('browser-sync-webpack-plugin');
+var HtmlWebpackPlguin = require('html-webpack-plugin');
 
-let mixinWebpackConfig = merge.smart(webpackConfig, {
+var mixinWebpackConfig = merge.smart(webpackConfig, {
   watch: true,
   plugins: [
     new BrowserSync({
