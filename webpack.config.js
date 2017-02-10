@@ -8,9 +8,9 @@ var hljs = require('highlight.js');
 
 module.exports = {
   entry: {
-    css: __dirname + '/dev/style/app.scss',
-    app: __dirname + '/dev/src/main.js',
-    vueCore: __dirname + '/dev/src/vueCore.js'
+    css: __dirname + '/dev/styles/app.scss',
+    app: __dirname + '/dev/doc/main.js',
+    vueCore: __dirname + '/dev/doc/vueCore.js'
   },
 
   output: {
@@ -105,7 +105,8 @@ module.exports = {
   vue: {
     loaders: {
       scss: 'vue-style-loader!css-loader!sass-loader',
-      html: 'vue-html-loader'
+      html: 'vue-html-loader',
+      markdown: 'vue-markdown-loader'
     }
   },
   babel: {

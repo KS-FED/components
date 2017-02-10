@@ -44,7 +44,7 @@
 </script>
 
 <style lang="scss">
-  @import "../../style/mixins/index";
+  @import "../../styles/mixins/index";
 
   $buttonSize: "ssl" "sl" "normal" "xl" "xxl";
   $buttonSizeExt: 30px 12px, 32xp 13px, 34px 13px, 38px 16px, 40px 18px;

@@ -15,7 +15,7 @@ import RouterMap from './router'
 import Utils from './utils'
 import BaseInterceptor from './interceptors/baseInterceptor'
 
-import KsComponents from '../KsComponents'
+import KsComponents from '../src/KsComponents'
 import Directives from './directives'
 import Filter from './filters'
 

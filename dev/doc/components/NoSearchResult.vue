@@ -19,7 +19,7 @@
 </script>
 
 <style lang="scss">
-  @import "../../style/mixins/index";
+  @import "../../styles/mixins/index";
 
   $height: 70px;
   $width: 280px;
