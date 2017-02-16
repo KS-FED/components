@@ -1,0 +1,17 @@
+// 箭头提示框公共样式
+%tooltip{
+	display: inline-block;
+	position: relative;
+	background: #444;
+	padding: 7px 18px;
+	border-radius: 4px;
+	color: #fff;
+	span{
+		border: 10px solid transparent;
+    width: 0;
+    height: 0;
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+	}
+}

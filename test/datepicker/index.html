@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="../../dist/components/ksdatepicker/style.css">
+    
+</head>
+<body id="app">
+    <div>
+        <ks-date-picker :value.sync="datepicker" :validator=""></ks-date-picker>    
+        <input type="hidden" name=""  value="{{datepicker}}" id="datepicker">
+
+    </div>
+    <input type="text" v-limit-number-fixed:1="10000" name="" id="age">
+    <button id="sublime" type="button">sublime</button>
+    <!-- <script src="//cdn.bootcss.com/seajs/3.0.2/sea.js"></script> -->
+    <script src="//cdn.bootcss.com/require.js/2.3.2/require.js"></script>
+    <!-- <script src="//cdn.bootcss.com/vue/1.0.28/vue.min.js"></script> -->
+    <script type="text/javascript">
+        console.log(require)
+        console.log(define)
+        require.config({
+            paths: {
+                Vue: '//cdn.bootcss.com/vue/1.0.28/vue.min',
+                KsDatePicker: '/dist/components/ksdatepicker/index'
+            }
+        });
+
+        require(['Vue','KsDatePicker'],function(Vue,KsDatePicker) {
+            console.log(Vue)
+            console.log(KsDatePicker)
+            Vue.directive('limit-number-fixed', {
+                params: ['limit','min'],
+                twoWay: true,
+                bind () {
+                    
+                    var limit = this.params.limit || 100000
+                    var min = this.params.min || 0
+
+                    if(this.el.addEventListener){
+                        this.el.addEventListener('input', e=>{
+                            this.handler.call(this,limit,min)
+                        })
+                    }else if(this.el.attachEvent){
+                        this.el.attachEvent('onpropertychange',event=> {
+                            if(event.propertyName!='value') return
+                            this.handler.call(this,limit,min)
+                        })
+                    }else{
+                        this.el.addEventListener('keyup', ()=>{
+                            this.handler.call(this,limit,min)
+                        })
+                    }
+
+
+                },
+                handler(limit,min) {
+
+                        //debugger
+                        // var reg = new RegExp('^[0-9]+(\\.[0-9]{0,'+this.arg+'})?$')
+
+                        var temp_val = this.el.value,ints,fixed = ''
+                        
+                        if(temp_val.length==1&&temp_val=="-"&&min!=0) return 
+                           
+                        if(parseInt(temp_val)<-1){
+                                temp_val="-"
+                        }else{
+                            if(temp_val=='' || isNaN(parseInt(temp_val))) {
+                                temp_val = ''
+                            }else{
+                                ints = this.get_ints(temp_val,limit,min)
+                                fixed = this.get_fixed(temp_val,this.arg)
+                                temp_val = ints+fixed
+                            }
+                        }
+
+                        this.el.value = temp_val
+                        this.set(temp_val)
+                        
+                    },
+
+                    /**
+                     * 获取整数部分
+                     * INF 无穷大
+                     */
+                    get_ints (temp_val,limit,min){
+                        var ints = parseInt(temp_val, 10)
+                        if(limit!='INF' && ints > limit){
+                            ints = (''+ints).substr(0,(''+ints).length-1)
+                        }
+
+                        return ints
+                    },
+
+                    // 获取小数部分
+                    get_fixed (temp_val,limit,min){
+                        //debugger
+                        var fixed = ''
+                        if(limit && ~temp_val.indexOf('.')){
+                            if(temp_val.split('.')[1].length!=1){
+                                temp_val.split('.')[1].split('').map(t=>{
+                                 fixed += isNaN(parseInt(t)) 
+                                                ? ''
+                                                : parseInt(t)
+                                })
+                            }else{
+                                fixed=temp_val.split('.')[1]
+                                fixed = isNaN(parseInt(fixed)) 
+                                                ? ''
+                                                : parseInt(fixed)
+                            }
+                            
+                           
+                            fixed = '.'+ ((''+fixed).substr(0,limit))
+                        }
+                        return fixed
+                    }
+            })
+            var app = new Vue({
+                el:'#app',
+                data:{
+                    datepicker:''
+                },
+                components:{
+                    'KsDatePicker':KsDatePicker
+                }
+            })
+
+            setTimeout(function(){
+                console.log(app)    
+            },6000)
+            
+            sublime.addEventListener('click',function() {
+                console.log(datepicker.value)
+                console.log(age.value)
+            })
+
+        })
+        /**
+        seajs.config({
+
+          // 设置路径，方便跨目录调用
+          paths: {
+            
+          },
+
+          // 设置别名，方便调用
+          alias: {
+          'vue': 'http://cdn.bootcss.com/vue/1.0.28/vue.min.js',
+            // 'KsDatePicker': '../../dist/components/ksdatepicker/index.js'
+          }
+
+        });
+
+        seajs.use(['vue'],function(){
+            console.log(Vue)
+            
+        })
+        define(function(require,exports, module){
+            // console.log(module,exports)
+            // window.module = module
+            console.log(require('/dist/components/ksdatepicker/index.js'))
+        })
+        */
+           </script>
+</body>
+</html>
