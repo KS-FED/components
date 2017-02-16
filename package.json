@@ -7,6 +7,7 @@
   "scripts": {
     "develop": "node build/dev-server.js",
     "pro": "node build/pro.js",
+    "components": "node build/components.js",
     "build": "webpack --watch"
   },
   "dependencies": {
@@ -32,6 +33,9 @@
     "babel-runtime": "^6.0.0",
     "browser-sync": "^2.18.2",
     "browser-sync-webpack-plugin": "^1.1.3",
+    "colors": "1.1.2",
+    "cssnano": "3.8.1",
+    "mkdirp": "0.5.1",
     "clean-webpack-plugin": "^0.1.10",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.23.0",
@@ -52,6 +56,7 @@
     "vue-html-loader": "^1.2.0",
     "vue-loader": "8.5.0",
     "vue-markdown-loader": "^0.6.2",
+    "ks-autobem-loader": "1.0.2",
     "vue-style-loader": "^1.0.0",
     "webpack": "^1.12.9",
     "webpack-merge": "^1.0.2"

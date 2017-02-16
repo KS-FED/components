@@ -32,7 +32,7 @@ export default [
           {name: 'Checkbox 多选框', icon: 'icon', link: ''},
           {name: 'Input 输入框', icon: 'icon', link: ''},
           {name: 'Switch 开关', icon: 'icon', link: ''},
-          {name: 'DatePicker 时间选择器', icon: 'icon', link: ''},
+          {name: 'DatePicker 时间选择器', icon: 'icon', link: 'datepicker'},
           {name: 'DateTimePicker 时间日期选择器', icon: 'icon', link: ''},
           {name: 'Rate 评分', icon: 'icon', link: ''},
           {name: 'Upload 上传', icon: 'icon', link: ''},

@@ -69,6 +69,46 @@ export default (router) => {
             },
           }
         },
+        /* form */
+        '/form': {
+          name: 'form',
+          cnName: '表单',
+          component: (resolve) => {
+            require(['./views/form/index.vue'], resolve)
+          },
+
+          subRoutes: {
+
+            /* 基础组件-布局 */
+            '/datepicker': {
+              name: 'datepicker',
+              cnName: '布局',
+              component: (resolve) => {
+                require(['./views/form/date-picker.md'], resolve)
+              }
+            }
+          }
+        },
+        /* data */
+        // '/data': {
+        //   name: 'data',
+        //   cnName: '数据展示',
+        //   component: (resolve) => {
+        //     require(['./views/data/index.vue'], resolve)
+        //   },
+
+        //   subRoutes: {
+
+        //     /* 基础组件-布局 */
+        //     '/page': {
+        //       name: 'page',
+        //       cnName: '分页',
+        //       component: (resolve) => {
+        //         require(['./views/data/page.md'], resolve)
+        //       }
+        //     }
+        //   }
+        // },
 
       }
     }

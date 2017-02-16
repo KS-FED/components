@@ -22,6 +22,9 @@ var mixinWebpackConfig = merge.smart(webpackConfig, {
         index: 'index.html',
       }
     }),
+    new webpack.optimize.CommonsChunkPlugin(
+      { name: 'vueCore', filename: 'vueCore.js' }
+    ),
     // new webpack.ProgressPlugin(function (percentage, msg) {
     //   console.log('进度：' + Math.round(percentage * 100) + '% ---> ' + msg)
     // }),
@@ -40,7 +43,7 @@ var mixinWebpackConfig = merge.smart(webpackConfig, {
   ],
   vue: {
     loaders: {
-      scss: 'vue-style-loader!css-loader!sass-loader'
+      scss: 'vue-style-loader!css-loader!ks-autobem-loader?type=css!sass-loader'
     }
   }
 })
